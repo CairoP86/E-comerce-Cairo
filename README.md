@@ -1,6 +1,8 @@
 # Proyecto E-commerce
 
-La aplicación está en [foundation](foundation/README.md). Fase 1B aprobada; Fase 2A implementada para revisión. Fase 2B no iniciada.
+La aplicación está en [foundation](foundation/README.md). Fase 2A aprobada y respaldada en Git; Fase 2B implementada para revisión. No se inicia la fase siguiente.
+
+- [Reporte completo de Fase 2B — Checkout y pedidos](foundation/docs/PHASE-2B.md)
 
 - [Reporte completo de Fase 2A — Carrito](foundation/docs/PHASE-2A.md)
 - Carrito local: http://127.0.0.1:8086/cart
@@ -13,7 +15,7 @@ La aplicación está en [foundation](foundation/README.md). Fase 1B aprobada; Fa
 - [Reporte completo de Fase 0B](foundation/docs/PHASE-0B.md)
 
 - [Resultado y configuración de Fase 0A](foundation/docs/PHASE-0A.md)
-- [Decisión Eurocom API](foundation/docs/EUROCOM-ARCHITECTURE.md)
+- [Decisión Eurocomp API](foundation/docs/EUROCOMP-ARCHITECTURE.md)
 - URL local actual: http://127.0.0.1:8086
 
 El servidor antiguo del prototipo está detenido. No servir la raíz de este repositorio: contiene configuración y servicios locales privados. El document root correcto es `foundation/public`.
@@ -22,7 +24,7 @@ El servidor antiguo del prototipo está detenido. No servir la raíz de este rep
 
 ATELIER fue un nombre provisional, no la marca definitiva. Las siguientes instrucciones describen el prototipo anterior y no el entorno Laravel actual.
 
-Primera versión en español para el flujo de e-commerce con Eurocom. PHP sirve la página; la interfaz usa JavaScript y CSS sin compilación.
+Primera versión en español para el flujo de e-commerce con Eurocomp. PHP sirve la página; la interfaz usa JavaScript y CSS sin compilación.
 
 ## Abrir
 
@@ -43,7 +45,7 @@ Los datos se guardan en localStorage del navegador. No existe servidor de pedido
 
 ## Integración pendiente
 
-Obtener documentación y autorización de Eurocom: catálogo, identificadores, existencias, precios, creación de órdenes y estados. Confirmar acceso y condiciones de Rapedido, tarifas, zonas y plazos. Seleccionar pasarela de pago, moneda, impuestos y política comercial.
+Obtener documentación y autorización de Eurocomp: catálogo, identificadores, existencias, precios, creación de órdenes y estados. Confirmar acceso y condiciones de Rapedido, tarifas, zonas y plazos. Seleccionar pasarela de pago, moneda, impuestos y política comercial.
 
 La siguiente fase requiere backend y base de datos, credenciales solo en servidor, validación de precio/existencia al confirmar, webhooks verificados, idempotencia de pagos y órdenes, y conciliación de errores. Los pasos del proceso son una descripción del flujo previsto y no representan integraciones activas.
 

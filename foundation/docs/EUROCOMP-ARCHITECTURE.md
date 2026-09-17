@@ -1,14 +1,14 @@
-# Eurocom API — decisión confirmada, 2026-09-15
+# Eurocomp API — decisión confirmada, 2026-09-15
 
 **Estado: aprobada por el propietario para Fase 2.** La autorización de Fase 0B no incluye integración. No implementar cliente HTTP, endpoints, DTOs, tablas de proveedores ni capacidades ficticias antes de contar con documentación oficial. Una capacidad no documentada o no verificada se considera no disponible. Los nombres siguientes describen contratos previstos, no código implementado.
 
-Eurocom será el primer proveedor mediante un adaptador y cliente HTTP dedicados. La API está confirmada; endpoints, autenticación, payloads y capacidades no están documentados todavía en el proyecto. No se ejecutan solicitudes externas en Fase 0A.
+Eurocomp será el primer proveedor mediante un adaptador y cliente HTTP dedicados. La API está confirmada; endpoints, autenticación, payloads y capacidades no están documentados todavía en el proyecto. No se ejecutan solicitudes externas en Fase 0A.
 
 ## Contratos previstos para Fase 2
 
 ### Actualización aprobada al iniciar Fase 1A
 
-Primero se construye el e-commerce independiente, con catálogo y precios públicos administrados manualmente. Eurocom será la primera integración futura; Dataformas es una posibilidad posterior. Esta decisión conserva la arquitectura descrita a continuación como diseño para Fase 2, sin implementar contratos ejecutables ni simular capacidades.
+Primero se construye el e-commerce independiente, con catálogo y precios públicos administrados manualmente. Eurocomp será la primera integración futura; Dataformas es una posibilidad posterior. Esta decisión conserva la arquitectura descrita a continuación como diseño para Fase 2, sin implementar contratos ejecutables ni simular capacidades.
 
 Fase 1A crea `products` como producto comercial propio. No crea `suppliers` ni `supplier_products`: una migración aditiva futura podrá relacionar las ofertas externas con el ID estable del producto, sin reemplazarlo. Las visitas públicas leen exclusivamente el catálogo local. Una capacidad no documentada o no verificada se considera no disponible.
 
@@ -19,11 +19,11 @@ Fase 1A crea `products` como producto comercial propio. No crea `suppliers` ni `
 - PurchaseOrderSubmitter: creación y conciliación de órdenes de compra, solo si están soportadas.
 - SupplierOrderStatusReader: seguimiento del pedido al proveedor, solo si está soportado.
 
-El cliente Eurocom maneja transporte, autenticación y serialización externa; el adaptador transforma respuestas a objetos internos. El dominio depende de contratos y nunca de payloads Eurocom. Las firmas se concretan al revisar la documentación. Una capacidad desconocida se considera no disponible; nunca se simula como exitosa. La configuración actual mantiene el proveedor deshabilitado y sin capacidades.
+El cliente Eurocomp maneja transporte, autenticación y serialización externa; el adaptador transforma respuestas a objetos internos. El dominio depende de contratos y nunca de payloads Eurocomp. Las firmas se concretan al revisar la documentación. Una capacidad desconocida se considera no disponible; nunca se simula como exitosa. La configuración actual mantiene el proveedor deshabilitado y sin capacidades.
 
 ## Datos y flujo
 
-API Eurocom → sincronización → supplier_products → products y precio público calculado → tienda y carrito local → validación reciente vía API cuando sea posible → pedido → pago verificado → orden Eurocom → despacho → transporte → cliente.
+API Eurocomp → sincronización → supplier_products → products y precio público calculado → tienda y carrito local → validación reciente vía API cuando sea posible → pedido → pago verificado → orden Eurocomp → despacho → transporte → cliente.
 
 products permanece separado de supplier_products. Las páginas leen catálogo local; las visitas no disparan llamadas al proveedor. Se conservarán proveedor/SKU únicos, costo y moneda privados, stock reportado, fecha de observación, fecha de sincronización y vigencia. No crear tablas comerciales en 0A.
 

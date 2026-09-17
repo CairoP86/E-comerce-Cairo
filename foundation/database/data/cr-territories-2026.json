@@ -1,0 +1,3954 @@
+[
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10101",
+    "name": "Carmen"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10102",
+    "name": "Merced"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10103",
+    "name": "Hospital"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10104",
+    "name": "Catedral"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10105",
+    "name": "Zapote"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10106",
+    "name": "San Francisco de Dos Ríos"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10107",
+    "name": "Uruca"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10108",
+    "name": "Mata Redonda"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10109",
+    "name": "Pavas"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10110",
+    "name": "Hatillo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "101",
+    "canton": "San José",
+    "code": "10111",
+    "name": "San Sebastián"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "102",
+    "canton": "Escazú",
+    "code": "10201",
+    "name": "Escazú"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "102",
+    "canton": "Escazú",
+    "code": "10202",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "102",
+    "canton": "Escazú",
+    "code": "10203",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10301",
+    "name": "Desamparados"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10302",
+    "name": "San Miguel"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10303",
+    "name": "San Juan de Dios"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10304",
+    "name": "San Rafael Arriba"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10305",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10306",
+    "name": "Frailes"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10307",
+    "name": "Patarrá"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10308",
+    "name": "San Cristobal"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10309",
+    "name": "Rosario"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10310",
+    "name": "Damas"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10311",
+    "name": "San Rafael Abajo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10312",
+    "name": "Gravilias"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "103",
+    "canton": "Desamparados",
+    "code": "10313",
+    "name": "Los Guido"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10401",
+    "name": "Santiago"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10402",
+    "name": "Mercedes Sur"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10403",
+    "name": "Barbacoas"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10404",
+    "name": "Grifo Alto"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10405",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10406",
+    "name": "Candelarita"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10407",
+    "name": "Desamparaditos"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10408",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "104",
+    "canton": "Puriscal",
+    "code": "10409",
+    "name": "Chires"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "105",
+    "canton": "Tarrazú",
+    "code": "10501",
+    "name": "San Marcos"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "105",
+    "canton": "Tarrazú",
+    "code": "10502",
+    "name": "San Lorenzo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "105",
+    "canton": "Tarrazú",
+    "code": "10503",
+    "name": "San Carlos"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "106",
+    "canton": "Aserrí",
+    "code": "10601",
+    "name": "Aserrí"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "106",
+    "canton": "Aserrí",
+    "code": "10602",
+    "name": "Tarbaca"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "106",
+    "canton": "Aserrí",
+    "code": "10603",
+    "name": "Vuelta de Jorco"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "106",
+    "canton": "Aserrí",
+    "code": "10604",
+    "name": "San Gabriel"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "106",
+    "canton": "Aserrí",
+    "code": "10605",
+    "name": "Legua"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "106",
+    "canton": "Aserrí",
+    "code": "10606",
+    "name": "Monterrey"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "106",
+    "canton": "Aserrí",
+    "code": "10607",
+    "name": "Salitrillos"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "107",
+    "canton": "Mora",
+    "code": "10701",
+    "name": "Colón"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "107",
+    "canton": "Mora",
+    "code": "10702",
+    "name": "Guayabo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "107",
+    "canton": "Mora",
+    "code": "10703",
+    "name": "Tabarcia"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "107",
+    "canton": "Mora",
+    "code": "10704",
+    "name": "Piedras Negras"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "107",
+    "canton": "Mora",
+    "code": "10705",
+    "name": "Picagres"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "107",
+    "canton": "Mora",
+    "code": "10706",
+    "name": "Jaris"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "107",
+    "canton": "Mora",
+    "code": "10707",
+    "name": "Quitirrisí"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "108",
+    "canton": "Goicoechea",
+    "code": "10801",
+    "name": "Guadalupe"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "108",
+    "canton": "Goicoechea",
+    "code": "10802",
+    "name": "San Francisco"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "108",
+    "canton": "Goicoechea",
+    "code": "10803",
+    "name": "Calle Blancos"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "108",
+    "canton": "Goicoechea",
+    "code": "10804",
+    "name": "Mata de Plátano"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "108",
+    "canton": "Goicoechea",
+    "code": "10805",
+    "name": "Ipís"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "108",
+    "canton": "Goicoechea",
+    "code": "10806",
+    "name": "Rancho Redondo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "108",
+    "canton": "Goicoechea",
+    "code": "10807",
+    "name": "Purral"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "109",
+    "canton": "Santa Ana",
+    "code": "10901",
+    "name": "Santa Ana"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "109",
+    "canton": "Santa Ana",
+    "code": "10902",
+    "name": "Salitral"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "109",
+    "canton": "Santa Ana",
+    "code": "10903",
+    "name": "Pozos"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "109",
+    "canton": "Santa Ana",
+    "code": "10904",
+    "name": "Uruca"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "109",
+    "canton": "Santa Ana",
+    "code": "10905",
+    "name": "Piedades"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "109",
+    "canton": "Santa Ana",
+    "code": "10906",
+    "name": "Brasil"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "110",
+    "canton": "Alajuelita",
+    "code": "11001",
+    "name": "Alajuelita"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "110",
+    "canton": "Alajuelita",
+    "code": "11002",
+    "name": "San Josecito"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "110",
+    "canton": "Alajuelita",
+    "code": "11003",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "110",
+    "canton": "Alajuelita",
+    "code": "11004",
+    "name": "Concepción"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "110",
+    "canton": "Alajuelita",
+    "code": "11005",
+    "name": "San Felipe"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "111",
+    "canton": "Vázquez de Coronado",
+    "code": "11101",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "111",
+    "canton": "Vázquez de Coronado",
+    "code": "11102",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "111",
+    "canton": "Vázquez de Coronado",
+    "code": "11103",
+    "name": "Dulce Nombre de Jesús"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "111",
+    "canton": "Vázquez de Coronado",
+    "code": "11104",
+    "name": "Patalillo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "111",
+    "canton": "Vázquez de Coronado",
+    "code": "11105",
+    "name": "Cascajal"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "112",
+    "canton": "Acosta",
+    "code": "11201",
+    "name": "San Ignacio"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "112",
+    "canton": "Acosta",
+    "code": "11202",
+    "name": "Guaitil"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "112",
+    "canton": "Acosta",
+    "code": "11203",
+    "name": "Palmichal"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "112",
+    "canton": "Acosta",
+    "code": "11204",
+    "name": "Cangrejal"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "112",
+    "canton": "Acosta",
+    "code": "11205",
+    "name": "Sabanillas"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "113",
+    "canton": "Tibás",
+    "code": "11301",
+    "name": "San Juan"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "113",
+    "canton": "Tibás",
+    "code": "11302",
+    "name": "Cinco Esquinas"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "113",
+    "canton": "Tibás",
+    "code": "11303",
+    "name": "Anselmo Llorente"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "113",
+    "canton": "Tibás",
+    "code": "11304",
+    "name": "León XIII"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "113",
+    "canton": "Tibás",
+    "code": "11305",
+    "name": "Colima"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "114",
+    "canton": "Moravia",
+    "code": "11401",
+    "name": "San Vicente"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "114",
+    "canton": "Moravia",
+    "code": "11402",
+    "name": "San Jerónimo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "114",
+    "canton": "Moravia",
+    "code": "11403",
+    "name": "La Trinidad"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "115",
+    "canton": "Montes de Oca",
+    "code": "11501",
+    "name": "San Pedro"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "115",
+    "canton": "Montes de Oca",
+    "code": "11502",
+    "name": "Sabanilla"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "115",
+    "canton": "Montes de Oca",
+    "code": "11503",
+    "name": "Mercedes"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "115",
+    "canton": "Montes de Oca",
+    "code": "11504",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "116",
+    "canton": "Turrubares",
+    "code": "11601",
+    "name": "San Pablo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "116",
+    "canton": "Turrubares",
+    "code": "11602",
+    "name": "San Pedro"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "116",
+    "canton": "Turrubares",
+    "code": "11603",
+    "name": "San Juan de Mata"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "116",
+    "canton": "Turrubares",
+    "code": "11604",
+    "name": "San Luis"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "116",
+    "canton": "Turrubares",
+    "code": "11605",
+    "name": "Carara"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "117",
+    "canton": "Dota",
+    "code": "11701",
+    "name": "Santa María"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "117",
+    "canton": "Dota",
+    "code": "11702",
+    "name": "Jardín"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "117",
+    "canton": "Dota",
+    "code": "11703",
+    "name": "Copey"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "118",
+    "canton": "Curridabat",
+    "code": "11801",
+    "name": "Curridabat"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "118",
+    "canton": "Curridabat",
+    "code": "11802",
+    "name": "Granadilla"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "118",
+    "canton": "Curridabat",
+    "code": "11803",
+    "name": "Sánchez"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "118",
+    "canton": "Curridabat",
+    "code": "11804",
+    "name": "Tirrases"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11901",
+    "name": "San Isidro de El General"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11902",
+    "name": "El General"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11903",
+    "name": "Daniel Flores"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11904",
+    "name": "Rivas"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11905",
+    "name": "San Pedro"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11906",
+    "name": "Platanares"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11907",
+    "name": "Pejivalle"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11908",
+    "name": "Cajón"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11909",
+    "name": "Barú"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11910",
+    "name": "Río Nuevo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11911",
+    "name": "Páramo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "119",
+    "canton": "Pérez Zeledón",
+    "code": "11912",
+    "name": "La  Amistad"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "120",
+    "canton": "León Cortés Castro",
+    "code": "12001",
+    "name": "San Pablo"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "120",
+    "canton": "León Cortés Castro",
+    "code": "12002",
+    "name": "San Andrés"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "120",
+    "canton": "León Cortés Castro",
+    "code": "12003",
+    "name": "Llano Bonito"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "120",
+    "canton": "León Cortés Castro",
+    "code": "12004",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "120",
+    "canton": "León Cortés Castro",
+    "code": "12005",
+    "name": "Santa Cruz"
+  },
+  {
+    "province_code": "1",
+    "province": "San José",
+    "canton_code": "120",
+    "canton": "León Cortés Castro",
+    "code": "12006",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20101",
+    "name": "Alajuela"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20102",
+    "name": "San José"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20103",
+    "name": "Carrizal"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20104",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20105",
+    "name": "Guácima"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20106",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20107",
+    "name": "Sabanilla"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20108",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20109",
+    "name": "Río Segundo"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20110",
+    "name": "Desamparados"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20111",
+    "name": "Turrúcares"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20112",
+    "name": "Tambor"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20113",
+    "name": "Garita"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "201",
+    "canton": "Alajuela",
+    "code": "20114",
+    "name": "Sarapiquí"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20201",
+    "name": "San Ramón"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20202",
+    "name": "Santiago"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20203",
+    "name": "San Juan"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20204",
+    "name": "Piedades Norte"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20205",
+    "name": "Piedades Sur"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20206",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20207",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20208",
+    "name": "Ángeles"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20209",
+    "name": "Alfaro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20210",
+    "name": "Volio"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20211",
+    "name": "Concepción"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20212",
+    "name": "Zapotal"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20213",
+    "name": "Peñas Blancas"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "202",
+    "canton": "San Ramón",
+    "code": "20214",
+    "name": "San Lorenzo"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "203",
+    "canton": "Grecia",
+    "code": "20301",
+    "name": "Grecia"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "203",
+    "canton": "Grecia",
+    "code": "20302",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "203",
+    "canton": "Grecia",
+    "code": "20303",
+    "name": "San José"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "203",
+    "canton": "Grecia",
+    "code": "20304",
+    "name": "San Roque"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "203",
+    "canton": "Grecia",
+    "code": "20305",
+    "name": "Tacares"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "203",
+    "canton": "Grecia",
+    "code": "20307",
+    "name": "Puente de Piedra"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "203",
+    "canton": "Grecia",
+    "code": "20308",
+    "name": "Bolivar"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "204",
+    "canton": "San Mateo",
+    "code": "20401",
+    "name": "San Mateo"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "204",
+    "canton": "San Mateo",
+    "code": "20402",
+    "name": "Desmonte"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "204",
+    "canton": "San Mateo",
+    "code": "20403",
+    "name": "Jesús María"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "204",
+    "canton": "San Mateo",
+    "code": "20404",
+    "name": "Labrador"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20501",
+    "name": "Atenas"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20502",
+    "name": "Jesús"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20503",
+    "name": "Mercedes"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20504",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20505",
+    "name": "Concepción"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20506",
+    "name": "San José"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20507",
+    "name": "Santa Eulalia"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "205",
+    "canton": "Atenas",
+    "code": "20508",
+    "name": "Escobal"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20601",
+    "name": "Naranjo"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20602",
+    "name": "San Miguel"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20603",
+    "name": "San José"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20604",
+    "name": "Cirrí Sur"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20605",
+    "name": "San Jerónimo"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20606",
+    "name": "San Juan"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20607",
+    "name": "El Rosario"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "206",
+    "canton": "Naranjo",
+    "code": "20608",
+    "name": "Palmitos"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "207",
+    "canton": "Palmares",
+    "code": "20701",
+    "name": "Palmares"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "207",
+    "canton": "Palmares",
+    "code": "20702",
+    "name": "Zaragoza"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "207",
+    "canton": "Palmares",
+    "code": "20703",
+    "name": "Buenos Aires"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "207",
+    "canton": "Palmares",
+    "code": "20704",
+    "name": "Santiago"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "207",
+    "canton": "Palmares",
+    "code": "20705",
+    "name": "Candelaria"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "207",
+    "canton": "Palmares",
+    "code": "20706",
+    "name": "Esquipulas"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "207",
+    "canton": "Palmares",
+    "code": "20707",
+    "name": "La Granja"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "208",
+    "canton": "Poás",
+    "code": "20801",
+    "name": "San Pedro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "208",
+    "canton": "Poás",
+    "code": "20802",
+    "name": "San Juan"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "208",
+    "canton": "Poás",
+    "code": "20803",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "208",
+    "canton": "Poás",
+    "code": "20804",
+    "name": "Carrillos"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "208",
+    "canton": "Poás",
+    "code": "20805",
+    "name": "Sabana Redonda"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "209",
+    "canton": "Orotina",
+    "code": "20901",
+    "name": "Orotina"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "209",
+    "canton": "Orotina",
+    "code": "20902",
+    "name": "El Mastate"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "209",
+    "canton": "Orotina",
+    "code": "20903",
+    "name": "Hacienda Vieja"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "209",
+    "canton": "Orotina",
+    "code": "20904",
+    "name": "Coyolar"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "209",
+    "canton": "Orotina",
+    "code": "20905",
+    "name": "La Ceiba"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21001",
+    "name": "Quesada"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21002",
+    "name": "Florencia"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21003",
+    "name": "Buenavista"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21004",
+    "name": "Aguas Zarcas"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21005",
+    "name": "Venecia"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21006",
+    "name": "Pital"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21007",
+    "name": "La Fortuna"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21008",
+    "name": "La Tigra"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21009",
+    "name": "La Palmera"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21010",
+    "name": "Venado"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21011",
+    "name": "Cutris"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21012",
+    "name": "Monterrey"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "210",
+    "canton": "San Carlos",
+    "code": "21013",
+    "name": "Pocosol"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "211",
+    "canton": "Zarcero",
+    "code": "21101",
+    "name": "Zarcero"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "211",
+    "canton": "Zarcero",
+    "code": "21102",
+    "name": "Laguna"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "211",
+    "canton": "Zarcero",
+    "code": "21103",
+    "name": "Tapesco"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "211",
+    "canton": "Zarcero",
+    "code": "21104",
+    "name": "Guadalupe"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "211",
+    "canton": "Zarcero",
+    "code": "21105",
+    "name": "Palmira"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "211",
+    "canton": "Zarcero",
+    "code": "21106",
+    "name": "Zapote"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "211",
+    "canton": "Zarcero",
+    "code": "21107",
+    "name": "Brisas"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "212",
+    "canton": "Sarchí",
+    "code": "21201",
+    "name": "Sarchí Norte"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "212",
+    "canton": "Sarchí",
+    "code": "21202",
+    "name": "Sarchí Sur"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "212",
+    "canton": "Sarchí",
+    "code": "21203",
+    "name": "Toro Amarillo"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "212",
+    "canton": "Sarchí",
+    "code": "21204",
+    "name": "San Pedro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "212",
+    "canton": "Sarchí",
+    "code": "21205",
+    "name": "Rodríguez"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21301",
+    "name": "Upala"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21302",
+    "name": "Aguas Claras"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21303",
+    "name": "San José O Pizote"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21304",
+    "name": "Bijagua"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21305",
+    "name": "Delicias"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21306",
+    "name": "Dos Ríos"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21307",
+    "name": "Yolillal"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "213",
+    "canton": "Upala",
+    "code": "21308",
+    "name": "Canalete"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "214",
+    "canton": "Los Chiles",
+    "code": "21401",
+    "name": "Los Chiles"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "214",
+    "canton": "Los Chiles",
+    "code": "21402",
+    "name": "Caño Negro"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "214",
+    "canton": "Los Chiles",
+    "code": "21403",
+    "name": "El Amparo"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "214",
+    "canton": "Los Chiles",
+    "code": "21404",
+    "name": "San Jorge"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "215",
+    "canton": "Guatuso",
+    "code": "21501",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "215",
+    "canton": "Guatuso",
+    "code": "21502",
+    "name": "Buenavista"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "215",
+    "canton": "Guatuso",
+    "code": "21503",
+    "name": "Cote"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "215",
+    "canton": "Guatuso",
+    "code": "21504",
+    "name": "Katira"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "216",
+    "canton": "Río Cuarto",
+    "code": "21601",
+    "name": "Río Cuarto"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "216",
+    "canton": "Río Cuarto",
+    "code": "21602",
+    "name": "Santa Rita"
+  },
+  {
+    "province_code": "2",
+    "province": "Alajuela",
+    "canton_code": "216",
+    "canton": "Río Cuarto",
+    "code": "21603",
+    "name": "Santa Isabel"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30101",
+    "name": "Oriental"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30102",
+    "name": "Occidental"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30103",
+    "name": "Carmen"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30104",
+    "name": "San Nicolás"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30105",
+    "name": "Aguacaliente o San Francisco"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30106",
+    "name": "Guadalupe o Arenilla"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30107",
+    "name": "Corralillo"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30108",
+    "name": "Tierra Blanca"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30109",
+    "name": "Dulce Nombre"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30110",
+    "name": "Llano Grande"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "301",
+    "canton": "Cartago",
+    "code": "30111",
+    "name": "Quebradilla"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "302",
+    "canton": "Paraíso",
+    "code": "30201",
+    "name": "Paraíso"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "302",
+    "canton": "Paraíso",
+    "code": "30202",
+    "name": "Santiago"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "302",
+    "canton": "Paraíso",
+    "code": "30203",
+    "name": "Orosi"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "302",
+    "canton": "Paraíso",
+    "code": "30204",
+    "name": "Cachí"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "302",
+    "canton": "Paraíso",
+    "code": "30205",
+    "name": "Llanos de Santa Lucía"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "302",
+    "canton": "Paraíso",
+    "code": "30206",
+    "name": "Birrisito"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30301",
+    "name": "Tres Ríos"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30302",
+    "name": "San Diego"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30303",
+    "name": "San Juan"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30304",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30305",
+    "name": "Concepción"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30306",
+    "name": "Dulce Nombre"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30307",
+    "name": "San Ramón"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "303",
+    "canton": "La Unión",
+    "code": "30308",
+    "name": "Río Azul"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "304",
+    "canton": "Jiménez",
+    "code": "30401",
+    "name": "Juan Viñas"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "304",
+    "canton": "Jiménez",
+    "code": "30402",
+    "name": "Tucurrique"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "304",
+    "canton": "Jiménez",
+    "code": "30403",
+    "name": "Pejibaye"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "304",
+    "canton": "Jiménez",
+    "code": "30404",
+    "name": "La Victoria"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30501",
+    "name": "Turrialba"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30502",
+    "name": "La Suiza"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30503",
+    "name": "Peralta"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30504",
+    "name": "Santa Cruz"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30505",
+    "name": "Santa Teresita"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30506",
+    "name": "Pavones"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30507",
+    "name": "Tuis"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30508",
+    "name": "Tayutic"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30509",
+    "name": "Santa Rosa"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30510",
+    "name": "Tres Equis"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30511",
+    "name": "La Isabel"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "305",
+    "canton": "Turrialba",
+    "code": "30512",
+    "name": "Chirripó"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "306",
+    "canton": "Alvarado",
+    "code": "30601",
+    "name": "Pacayas"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "306",
+    "canton": "Alvarado",
+    "code": "30602",
+    "name": "Cervantes"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "306",
+    "canton": "Alvarado",
+    "code": "30603",
+    "name": "Capellades"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "307",
+    "canton": "Oreamuno",
+    "code": "30701",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "307",
+    "canton": "Oreamuno",
+    "code": "30702",
+    "name": "Cot"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "307",
+    "canton": "Oreamuno",
+    "code": "30703",
+    "name": "Potrero Cerrado"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "307",
+    "canton": "Oreamuno",
+    "code": "30704",
+    "name": "Cipreses"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "307",
+    "canton": "Oreamuno",
+    "code": "30705",
+    "name": "Santa Rosa"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "308",
+    "canton": "El Guarco",
+    "code": "30801",
+    "name": "El Tejar"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "308",
+    "canton": "El Guarco",
+    "code": "30802",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "308",
+    "canton": "El Guarco",
+    "code": "30803",
+    "name": "Tobosi"
+  },
+  {
+    "province_code": "3",
+    "province": "Cartago",
+    "canton_code": "308",
+    "canton": "El Guarco",
+    "code": "30804",
+    "name": "Patio de Agua"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "401",
+    "canton": "Heredia",
+    "code": "40101",
+    "name": "Heredia"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "401",
+    "canton": "Heredia",
+    "code": "40102",
+    "name": "Mercedes"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "401",
+    "canton": "Heredia",
+    "code": "40103",
+    "name": "San Francisco"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "401",
+    "canton": "Heredia",
+    "code": "40104",
+    "name": "Ulloa"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "401",
+    "canton": "Heredia",
+    "code": "40105",
+    "name": "Varablanca"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "402",
+    "canton": "Barva",
+    "code": "40201",
+    "name": "Barva"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "402",
+    "canton": "Barva",
+    "code": "40202",
+    "name": "San Pedro"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "402",
+    "canton": "Barva",
+    "code": "40203",
+    "name": "San Pablo"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "402",
+    "canton": "Barva",
+    "code": "40204",
+    "name": "San Roque"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "402",
+    "canton": "Barva",
+    "code": "40205",
+    "name": "Santa Lucía"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "402",
+    "canton": "Barva",
+    "code": "40206",
+    "name": "San José de la Montaña"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "402",
+    "canton": "Barva",
+    "code": "40207",
+    "name": "Puente Salas"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40301",
+    "name": "Santo Domingo"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40302",
+    "name": "San Vicente"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40303",
+    "name": "San Miguel"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40304",
+    "name": "Paracito"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40305",
+    "name": "Santo Tomás"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40306",
+    "name": "Santa Rosa"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40307",
+    "name": "Tures"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "403",
+    "canton": "Santo Domingo",
+    "code": "40308",
+    "name": "Pará"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "404",
+    "canton": "Santa Bárbara",
+    "code": "40401",
+    "name": "Santa Bárbara"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "404",
+    "canton": "Santa Bárbara",
+    "code": "40402",
+    "name": "San Pedro"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "404",
+    "canton": "Santa Bárbara",
+    "code": "40403",
+    "name": "San Juan"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "404",
+    "canton": "Santa Bárbara",
+    "code": "40404",
+    "name": "Jesús"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "404",
+    "canton": "Santa Bárbara",
+    "code": "40405",
+    "name": "Santo Domingo"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "404",
+    "canton": "Santa Bárbara",
+    "code": "40406",
+    "name": "Purabá"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "405",
+    "canton": "San Rafael",
+    "code": "40501",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "405",
+    "canton": "San Rafael",
+    "code": "40502",
+    "name": "San Josecito"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "405",
+    "canton": "San Rafael",
+    "code": "40503",
+    "name": "Santiago"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "405",
+    "canton": "San Rafael",
+    "code": "40504",
+    "name": "Ángeles"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "405",
+    "canton": "San Rafael",
+    "code": "40505",
+    "name": "Concepción"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "406",
+    "canton": "San Isidro",
+    "code": "40601",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "406",
+    "canton": "San Isidro",
+    "code": "40602",
+    "name": "San José"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "406",
+    "canton": "San Isidro",
+    "code": "40603",
+    "name": "Concepción"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "406",
+    "canton": "San Isidro",
+    "code": "40604",
+    "name": "San Francisco"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "407",
+    "canton": "Belén",
+    "code": "40701",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "407",
+    "canton": "Belén",
+    "code": "40702",
+    "name": "La Ribera"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "407",
+    "canton": "Belén",
+    "code": "40703",
+    "name": "La Asunción"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "408",
+    "canton": "Flores",
+    "code": "40801",
+    "name": "San Joaquín"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "408",
+    "canton": "Flores",
+    "code": "40802",
+    "name": "Barrantes"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "408",
+    "canton": "Flores",
+    "code": "40803",
+    "name": "Llorente"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "409",
+    "canton": "San Pablo",
+    "code": "40901",
+    "name": "San Pablo"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "409",
+    "canton": "San Pablo",
+    "code": "40902",
+    "name": "Rincón de Sabanilla"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "410",
+    "canton": "Sarapiquí",
+    "code": "41001",
+    "name": "Puerto Viejo"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "410",
+    "canton": "Sarapiquí",
+    "code": "41002",
+    "name": "La Virgen"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "410",
+    "canton": "Sarapiquí",
+    "code": "41003",
+    "name": "Las Horquetas"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "410",
+    "canton": "Sarapiquí",
+    "code": "41004",
+    "name": "Llanuras del Gaspar"
+  },
+  {
+    "province_code": "4",
+    "province": "Heredia",
+    "canton_code": "410",
+    "canton": "Sarapiquí",
+    "code": "41005",
+    "name": "Cureña"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "501",
+    "canton": "Liberia",
+    "code": "50101",
+    "name": "Liberia"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "501",
+    "canton": "Liberia",
+    "code": "50102",
+    "name": "Cañas Dulces"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "501",
+    "canton": "Liberia",
+    "code": "50103",
+    "name": "Mayorga"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "501",
+    "canton": "Liberia",
+    "code": "50104",
+    "name": "Nacascolo"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "501",
+    "canton": "Liberia",
+    "code": "50105",
+    "name": "Curubandé"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "502",
+    "canton": "Nicoya",
+    "code": "50201",
+    "name": "Nicoya"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "502",
+    "canton": "Nicoya",
+    "code": "50202",
+    "name": "Mansión"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "502",
+    "canton": "Nicoya",
+    "code": "50203",
+    "name": "San Antonio"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "502",
+    "canton": "Nicoya",
+    "code": "50204",
+    "name": "Quebrada Honda"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "502",
+    "canton": "Nicoya",
+    "code": "50205",
+    "name": "Sámara"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "502",
+    "canton": "Nicoya",
+    "code": "50206",
+    "name": "Nosara"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "502",
+    "canton": "Nicoya",
+    "code": "50207",
+    "name": "Belén de Nosarita"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50301",
+    "name": "Santa Cruz"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50302",
+    "name": "Bolsón"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50303",
+    "name": "Veintisiete de Abril"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50304",
+    "name": "Tempate"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50305",
+    "name": "Cartagena"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50306",
+    "name": "Cuajiniquil"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50307",
+    "name": "Diriá"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50308",
+    "name": "Cabo Velas"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "503",
+    "canton": "Santa Cruz",
+    "code": "50309",
+    "name": "Tamarindo"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "504",
+    "canton": "Bagaces",
+    "code": "50401",
+    "name": "Bagaces"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "504",
+    "canton": "Bagaces",
+    "code": "50402",
+    "name": "La Fortuna"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "504",
+    "canton": "Bagaces",
+    "code": "50403",
+    "name": "Mogote"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "504",
+    "canton": "Bagaces",
+    "code": "50404",
+    "name": "Río Naranjo"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "504",
+    "canton": "Bagaces",
+    "code": "50405",
+    "name": "Pijije"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "505",
+    "canton": "Carrillo",
+    "code": "50501",
+    "name": "Filadelfia"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "505",
+    "canton": "Carrillo",
+    "code": "50502",
+    "name": "Palmira"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "505",
+    "canton": "Carrillo",
+    "code": "50503",
+    "name": "Sardinal"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "505",
+    "canton": "Carrillo",
+    "code": "50504",
+    "name": "Belén"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "506",
+    "canton": "Cañas",
+    "code": "50601",
+    "name": "Cañas"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "506",
+    "canton": "Cañas",
+    "code": "50602",
+    "name": "Palmira"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "506",
+    "canton": "Cañas",
+    "code": "50603",
+    "name": "San Miguel"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "506",
+    "canton": "Cañas",
+    "code": "50604",
+    "name": "Bebedero"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "506",
+    "canton": "Cañas",
+    "code": "50605",
+    "name": "Porozal"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "507",
+    "canton": "Abangares",
+    "code": "50701",
+    "name": "Las Juntas"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "507",
+    "canton": "Abangares",
+    "code": "50702",
+    "name": "Sierra"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "507",
+    "canton": "Abangares",
+    "code": "50703",
+    "name": "San Juan"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "507",
+    "canton": "Abangares",
+    "code": "50704",
+    "name": "Colorado"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50801",
+    "name": "Tilarán"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50802",
+    "name": "Quebrada Grande"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50803",
+    "name": "Tronadora"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50804",
+    "name": "Santa Rosa"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50805",
+    "name": "Líbano"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50806",
+    "name": "Tierras Morenas"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50807",
+    "name": "Arenal"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "508",
+    "canton": "Tilarán",
+    "code": "50808",
+    "name": "Cabeceras"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "509",
+    "canton": "Nandayure",
+    "code": "50901",
+    "name": "Carmona"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "509",
+    "canton": "Nandayure",
+    "code": "50902",
+    "name": "Santa Rita"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "509",
+    "canton": "Nandayure",
+    "code": "50903",
+    "name": "Zapotal"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "509",
+    "canton": "Nandayure",
+    "code": "50904",
+    "name": "San Pablo"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "509",
+    "canton": "Nandayure",
+    "code": "50905",
+    "name": "Porvenir"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "509",
+    "canton": "Nandayure",
+    "code": "50906",
+    "name": "Bejuco"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "510",
+    "canton": "La Cruz",
+    "code": "51001",
+    "name": "La Cruz"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "510",
+    "canton": "La Cruz",
+    "code": "51002",
+    "name": "Santa Cecilia"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "510",
+    "canton": "La Cruz",
+    "code": "51003",
+    "name": "La Garita"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "510",
+    "canton": "La Cruz",
+    "code": "51004",
+    "name": "Santa Elena"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "511",
+    "canton": "Hojancha",
+    "code": "51101",
+    "name": "Hojancha"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "511",
+    "canton": "Hojancha",
+    "code": "51102",
+    "name": "Monte Romo"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "511",
+    "canton": "Hojancha",
+    "code": "51103",
+    "name": "Puerto Carrillo"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "511",
+    "canton": "Hojancha",
+    "code": "51104",
+    "name": "Huacas"
+  },
+  {
+    "province_code": "5",
+    "province": "Guanacaste",
+    "canton_code": "511",
+    "canton": "Hojancha",
+    "code": "51105",
+    "name": "Matambú"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60101",
+    "name": "Puntarenas"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60102",
+    "name": "Pitahaya"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60103",
+    "name": "Chomes"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60104",
+    "name": "Lepanto"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60105",
+    "name": "Paquera"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60106",
+    "name": "Manzanillo"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60107",
+    "name": "Guacimal"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60108",
+    "name": "Barranca"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60110",
+    "name": "Isla del Coco"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60111",
+    "name": "Cóbano"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60112",
+    "name": "Chacarita"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60113",
+    "name": "Chira"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60114",
+    "name": "Acapulco"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60115",
+    "name": "El Roble"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "601",
+    "canton": "Puntarenas",
+    "code": "60116",
+    "name": "Arancibia"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "602",
+    "canton": "Esparza",
+    "code": "60201",
+    "name": "Espíritu Santo"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "602",
+    "canton": "Esparza",
+    "code": "60202",
+    "name": "San Juan Grande"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "602",
+    "canton": "Esparza",
+    "code": "60203",
+    "name": "Macacona"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "602",
+    "canton": "Esparza",
+    "code": "60204",
+    "name": "San Rafael"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "602",
+    "canton": "Esparza",
+    "code": "60205",
+    "name": "San Jerónimo"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "602",
+    "canton": "Esparza",
+    "code": "60206",
+    "name": "Caldera"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60301",
+    "name": "Buenos Aires"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60302",
+    "name": "Volcán"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60303",
+    "name": "Potrero Grande"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60304",
+    "name": "Boruca"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60305",
+    "name": "Pilas"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60306",
+    "name": "Colinas"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60307",
+    "name": "Chánguena"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60308",
+    "name": "Biolley"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60309",
+    "name": "Brunka"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "603",
+    "canton": "Buenos Aires",
+    "code": "60310",
+    "name": "Cabagra"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "604",
+    "canton": "Montes de Oro",
+    "code": "60401",
+    "name": "Miramar"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "604",
+    "canton": "Montes de Oro",
+    "code": "60402",
+    "name": "La Unión"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "604",
+    "canton": "Montes de Oro",
+    "code": "60403",
+    "name": "San Isidro"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "605",
+    "canton": "Osa",
+    "code": "60501",
+    "name": "Puerto Cortés"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "605",
+    "canton": "Osa",
+    "code": "60502",
+    "name": "Palmar"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "605",
+    "canton": "Osa",
+    "code": "60503",
+    "name": "Sierpe"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "605",
+    "canton": "Osa",
+    "code": "60504",
+    "name": "Bahía Ballena"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "605",
+    "canton": "Osa",
+    "code": "60505",
+    "name": "Piedras Blancas"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "605",
+    "canton": "Osa",
+    "code": "60506",
+    "name": "Bahía Drake"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "606",
+    "canton": "Quepos",
+    "code": "60601",
+    "name": "Quepos"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "606",
+    "canton": "Quepos",
+    "code": "60602",
+    "name": "Savegre"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "606",
+    "canton": "Quepos",
+    "code": "60603",
+    "name": "Naranjito"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "607",
+    "canton": "Golfito",
+    "code": "60701",
+    "name": "Golfito"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "607",
+    "canton": "Golfito",
+    "code": "60703",
+    "name": "Guaycará"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "607",
+    "canton": "Golfito",
+    "code": "60704",
+    "name": "Pavón"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "608",
+    "canton": "Coto Brus",
+    "code": "60801",
+    "name": "San Vito"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "608",
+    "canton": "Coto Brus",
+    "code": "60802",
+    "name": "Sabalito"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "608",
+    "canton": "Coto Brus",
+    "code": "60803",
+    "name": "Aguabuena"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "608",
+    "canton": "Coto Brus",
+    "code": "60804",
+    "name": "Limoncito"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "608",
+    "canton": "Coto Brus",
+    "code": "60805",
+    "name": "Pittier"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "608",
+    "canton": "Coto Brus",
+    "code": "60806",
+    "name": "Gutiérrez Braun"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "609",
+    "canton": "Parrita",
+    "code": "60901",
+    "name": "Parrita"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "610",
+    "canton": "Corredores",
+    "code": "61001",
+    "name": "Corredor"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "610",
+    "canton": "Corredores",
+    "code": "61002",
+    "name": "La Cuesta"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "610",
+    "canton": "Corredores",
+    "code": "61003",
+    "name": "Canoas"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "610",
+    "canton": "Corredores",
+    "code": "61004",
+    "name": "Laurel"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "611",
+    "canton": "Garabito",
+    "code": "61101",
+    "name": "Jacó"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "611",
+    "canton": "Garabito",
+    "code": "61102",
+    "name": "Tárcoles"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "611",
+    "canton": "Garabito",
+    "code": "61103",
+    "name": "Lagunillas"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "612",
+    "canton": "Monteverde",
+    "code": "61201",
+    "name": "Monteverde"
+  },
+  {
+    "province_code": "6",
+    "province": "Puntarenas",
+    "canton_code": "613",
+    "canton": "Puerto Jiménez",
+    "code": "61301",
+    "name": "Puerto Jiménez"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "701",
+    "canton": "Limón",
+    "code": "70101",
+    "name": "Limón"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "701",
+    "canton": "Limón",
+    "code": "70102",
+    "name": "Valle La Estrella"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "701",
+    "canton": "Limón",
+    "code": "70103",
+    "name": "Río Blanco"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "701",
+    "canton": "Limón",
+    "code": "70104",
+    "name": "Matama"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "702",
+    "canton": "Pococí",
+    "code": "70201",
+    "name": "Guápiles"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "702",
+    "canton": "Pococí",
+    "code": "70202",
+    "name": "Jiménez"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "702",
+    "canton": "Pococí",
+    "code": "70203",
+    "name": "Rita"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "702",
+    "canton": "Pococí",
+    "code": "70204",
+    "name": "Roxana"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "702",
+    "canton": "Pococí",
+    "code": "70205",
+    "name": "Cariari"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "702",
+    "canton": "Pococí",
+    "code": "70206",
+    "name": "Colorado"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "702",
+    "canton": "Pococí",
+    "code": "70207",
+    "name": "La Colonia"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "703",
+    "canton": "Siquirres",
+    "code": "70301",
+    "name": "Siquirres"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "703",
+    "canton": "Siquirres",
+    "code": "70302",
+    "name": "Pacuarito"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "703",
+    "canton": "Siquirres",
+    "code": "70303",
+    "name": "Florida"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "703",
+    "canton": "Siquirres",
+    "code": "70304",
+    "name": "Germania"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "703",
+    "canton": "Siquirres",
+    "code": "70305",
+    "name": "El Cairo"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "703",
+    "canton": "Siquirres",
+    "code": "70306",
+    "name": "Alegría"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "703",
+    "canton": "Siquirres",
+    "code": "70307",
+    "name": "Reventazón"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "704",
+    "canton": "Talamanca",
+    "code": "70401",
+    "name": "Bratsi"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "704",
+    "canton": "Talamanca",
+    "code": "70402",
+    "name": "Sixaola"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "704",
+    "canton": "Talamanca",
+    "code": "70403",
+    "name": "Cahuita"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "704",
+    "canton": "Talamanca",
+    "code": "70404",
+    "name": "Telire"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "705",
+    "canton": "Matina",
+    "code": "70501",
+    "name": "Matina"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "705",
+    "canton": "Matina",
+    "code": "70502",
+    "name": "Batán"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "705",
+    "canton": "Matina",
+    "code": "70503",
+    "name": "Carrandí"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "706",
+    "canton": "Guácimo",
+    "code": "70601",
+    "name": "Guácimo"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "706",
+    "canton": "Guácimo",
+    "code": "70602",
+    "name": "Mercedes"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "706",
+    "canton": "Guácimo",
+    "code": "70603",
+    "name": "Pocora"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "706",
+    "canton": "Guácimo",
+    "code": "70604",
+    "name": "Río Jiménez"
+  },
+  {
+    "province_code": "7",
+    "province": "Limón",
+    "canton_code": "706",
+    "canton": "Guácimo",
+    "code": "70605",
+    "name": "Duacarí"
+  }
+]

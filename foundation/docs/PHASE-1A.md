@@ -53,7 +53,7 @@ Se admiten JPEG, PNG y WebP, hasta 5 MB y 4096 × 4096 por archivo, máximo 12 i
 
 El panel permite subir varios archivos, ordenar, elegir principal y editar texto alternativo. La primera imagen es principal; al retirarla se selecciona otra. No se permite retirar la última imagen de un producto publicado. Reordenar valida el conjunto completo de IDs del mismo producto. Las operaciones bloquean el producto durante la transacción para preservar estas reglas. Fallos de subida revierten registros y limpian los archivos recién escritos.
 
-Las ilustraciones demo se generan localmente; no hay imágenes descargadas de Eurocom, Dataformas ni fabricantes. Las futuras importaciones deberán acreditar derechos de uso y pasar por validaciones equivalentes.
+Las ilustraciones demo se generan localmente; no hay imágenes descargadas de Eurocomp, Dataformas ni fabricantes. Las futuras importaciones deberán acreditar derechos de uso y pasar por validaciones equivalentes.
 
 ## Permisos y auditoría
 
@@ -117,7 +117,7 @@ En la base local queda además un producto de verificación UI archivado y marca
 ## Decisiones, riesgos y pendientes
 
 1. `products` es la identidad comercial propia. Las futuras `supplier_products` serán ofertas externas, posiblemente varias por producto, con SKU externo, costo y disponibilidad separados. No existe implementación de proveedores en 1A.
-2. Se mantiene la [decisión Eurocom para Fase 2](EUROCOM-ARCHITECTURE.md). Primero se construye la tienda independiente; Dataformas es una posibilidad posterior. Una capacidad no documentada o no verificada no está disponible.
+2. Se mantiene la [decisión Eurocomp para Fase 2](EUROCOMP-ARCHITECTURE.md). Primero se construye la tienda independiente; Dataformas es una posibilidad posterior. Una capacidad no documentada o no verificada no está disponible.
 3. La tienda lee datos locales. Costos futuros deberán permanecer fuera de resources, props, HTML y respuestas públicas. El precio actual es manual; las reglas definitivas de margen, impuestos y redondeo comercial están pendientes.
 4. Las futuras importaciones necesitan mapeo y conciliación de identidades, normalización de atributos, procedencia de imágenes, autenticación documentada, trazabilidad y política de conflictos con ediciones manuales. No se inventan endpoints ni DTOs externos.
 5. Archivar conserva archivos; falta definir retención, recuperación de imágenes mediante UI, backups y conciliación de archivos huérfanos, especialmente ante interrupciones del seeder. No hay purga automática.
@@ -125,4 +125,4 @@ En la base local queda además un producto de verificación UI archivado y marca
 7. El almacenamiento privado prioriza revocación de visibilidad; CDN, caché de imágenes y optimizaciones para catálogos grandes requieren una estrategia posterior.
 8. El entorno sigue siendo de desarrollo. Se conservan los pendientes operativos de 0A/0B, incluido reemplazar Redis local antiguo para producción y configurar correo, TLS y supervisión.
 
-No se implementan Fase 1B, Eurocom, Dataformas, carrito, checkout, pagos, pedidos ni logística. El siguiente paso es la revisión de este resultado.
+No se implementan Fase 1B, Eurocomp, Dataformas, carrito, checkout, pagos, pedidos ni logística. El siguiente paso es la revisión de este resultado.

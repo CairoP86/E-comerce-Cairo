@@ -2,6 +2,8 @@
 
 Estado: aprobada por el propietario durante Fase 1B.
 
+Actualización 2B: checkout invitado y pedidos implementados según [PHASE-2B.md](PHASE-2B.md). La asociación con una cuenta customer utiliza únicamente la sesión autenticada; nunca coincidencia de correo. El acceso inmediato a la confirmación se limita a la sesión creadora. Las funciones de seguimiento, recuperación y vinculación posterior siguen pendientes. Los puntos siguientes conservan el contexto de la decisión original.
+
 - Toda la navegación pública, búsqueda, filtros, categorías y fichas funciona sin autenticación.
 - La compra como invitado será el flujo principal cuando se implementen carrito y checkout. No se exigirá registro ni inicio de sesión para comprar.
 - La cuenta `customer` será opcional. Historial de pedidos, direcciones guardadas y seguimiento asociado a la cuenta son beneficios futuros, no funciones activas de 1B.

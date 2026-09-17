@@ -1,4 +1,6 @@
-# TECH COMMERCE - Fase 2A
+# TECH COMMERCE - Fase 2B
+
+[Reporte completo de Fase 2B — Checkout y pedidos](docs/PHASE-2B.md)
 
 [Reporte completo de Fase 2A — Carrito](docs/PHASE-2A.md)
 
@@ -12,11 +14,13 @@
 
 [Instalacion y verificacion](docs/PHASE-0A.md)
 
-[Arquitectura Eurocom API](docs/EUROCOM-ARCHITECTURE.md)
+[Arquitectura Eurocomp API](docs/EUROCOMP-ARCHITECTURE.md)
 
 URL local: http://127.0.0.1:8086
 
-Fase 1B aprobada. Fase 2A implementada para revisión. Fase 2B no iniciada. TECH COMMERCE es el nombre de trabajo.
+Fase 2A aprobada y respaldada en Git. Fase 2B implementada para revisión. No se inicia la fase siguiente. TECH COMMERCE es el nombre de trabajo.
+
+Checkout invitado: http://127.0.0.1:8086/checkout (carrito válido). Pedidos administrativos: http://127.0.0.1:8086/admin/orders.
 
 Carrito público: http://127.0.0.1:8086/cart · Persistencia en sesión/Redis, con cuenta opcional.
 

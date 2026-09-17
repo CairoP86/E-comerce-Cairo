@@ -10,7 +10,7 @@ Carrito público que permite agregar, incrementar, disminuir, editar cantidades,
 
 Se mantuvo la implementación de los 19 archivos encontrados al retomar la fase. La revisión detectó y corrigió una comilla faltante en el mensaje de moneda incompatible, que impedía ejecutar `CartService`. También se añadió `Cache-Control: private, no-store` al carrito y su comprobación. No se reconstruyó el trabajo desde cero.
 
-No se implementaron checkout, pedidos, pagos, logística ni proveedores. La integración Eurocom continúa exclusivamente como decisión arquitectónica documentada; una capacidad no documentada o no verificada sigue considerándose no disponible.
+No se implementaron checkout, pedidos, pagos, logística ni proveedores. La integración Eurocomp continúa exclusivamente como decisión arquitectónica documentada; una capacidad no documentada o no verificada sigue considerándose no disponible.
 
 ## Arquitectura y persistencia
 
@@ -64,7 +64,7 @@ Todas usan el middleware web de sesión y protección contra falsificación de s
 - Las líneas bloqueadas quedan fuera del subtotal y hacen que el total sea `null`, con una advertencia visible. No se presentan como productos comprables.
 - Si cambia un precio dentro de la misma moneda, el siguiente cálculo utiliza el precio actual. El carrito no constituye una cotización ni reserva.
 
-La disponibilidad de esta fase es editorial, basada en el catálogo local. No hay consulta ni reserva de inventario de Eurocom.
+La disponibilidad de esta fase es editorial, basada en el catálogo local. No hay consulta ni reserva de inventario de Eurocomp.
 
 ## Seguridad y datos públicos
 

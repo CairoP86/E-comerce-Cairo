@@ -149,6 +149,6 @@ Capturas de las tres páginas en los cinco tamaños guardadas en `docs/screensho
 3. Definir políticas, contacto, impuestos, garantías comerciales, disponibilidad, entrega e indexación antes de vender. La interfaz no promete condiciones aún no aprobadas.
 4. Implementar en futuras fases compra como invitado, cuenta opcional y protección de datos, según la decisión arquitectónica registrada.
 5. Evaluar búsqueda avanzada, índices y caché al crecer el catálogo; ahora se utiliza búsqueda local `LIKE` y navegación por categorías del catálogo pequeño.
-6. Proveedores siguen pospuestos y desacoplados conforme a la decisión Eurocom. Una capacidad no documentada/no verificada se considera no disponible.
+6. Proveedores siguen pospuestos y desacoplados conforme a la decisión Eurocomp. Una capacidad no documentada/no verificada se considera no disponible.
 
-**No se implementan carrito, checkout, pedidos, pagos, logística ni APIs de Eurocom/Dataformas. No se avanza de fase sin autorización.**
+**No se implementan carrito, checkout, pedidos, pagos, logística ni APIs de Eurocomp/Dataformas. No se avanza de fase sin autorización.**

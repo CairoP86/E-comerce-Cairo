@@ -18,7 +18,7 @@ Documento histórico de la entrega 0A. La configuración y los pasos actuales de
 
 ## Alcance
 
-Laravel 13, PHP 8.5, Vue 3, Inertia 3, TypeScript, Tailwind 4 y Vite. MySQL conserva datos; Redis maneja sesiones, caché y colas. Sin endpoints de autenticación, catálogo, checkout o administración. Sin llamadas a Eurocom.
+Laravel 13, PHP 8.5, Vue 3, Inertia 3, TypeScript, Tailwind 4 y Vite. MySQL conserva datos; Redis maneja sesiones, caché y colas. Sin endpoints de autenticación, catálogo, checkout o administración. Sin llamadas a Eurocomp.
 
 La aplicación está en `foundation/`. Los archivos de la raíz son el prototipo anterior. El document root debe ser **foundation/public**, nunca la raíz del repositorio o foundation completo.
 
@@ -63,7 +63,7 @@ No ejecutar migraciones globales todavía: los archivos de usuarios/cache inclui
 - Los errores del chequeo no imprimen cadenas de conexión.
 - Persistencia temporal en UTC; presentación comercial America/Costa_Rica; moneda CRC.
 - `/up` comprueba arranque de Laravel. El comando CLI comprueba MySQL, escritura/lectura de caché y procesamiento de un trabajo Redis.
-- Eurocom permanece deshabilitado, sin endpoints ni capacidades asumidas.
+- Eurocomp permanece deshabilitado, sin endpoints ni capacidades asumidas.
 - Página no indexable. SEO comercial y SSR corresponden a fases posteriores.
 
 ## Límites

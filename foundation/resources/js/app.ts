@@ -3,6 +3,7 @@ import '../css/catalog.css';
 import '../css/storefront-tokens.css';
 import '../css/storefront.css';
 import '../css/cart.css';
+import '../css/checkout.css';
 import { createApp, h, type DefineComponent } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';

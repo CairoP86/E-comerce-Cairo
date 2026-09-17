@@ -18,6 +18,6 @@ watch(() => props.slug, () => { quantity.value = 1; errors.value = {}; });
         </form>
         <p id="cart-quantity-note" class="st-cart-help">Límite temporal: 99 unidades por producto. No indica inventario disponible.</p>
         <div v-if="page.props.cartStatus" class="st-cart-feedback" role="status">{{ page.props.cartStatus }} <Link href="/cart">Ver carrito →</Link></div>
-        <p class="st-cart-help">El carrito no reserva productos. La compra y el pago aún no están habilitados.</p>
+        <p class="st-cart-help">El carrito no reserva productos. Puedes crear un pedido pendiente de pago; no se realizará ningún cobro.</p>
     </section>
 </template>

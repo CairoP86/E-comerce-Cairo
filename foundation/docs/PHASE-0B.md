@@ -108,8 +108,8 @@ Resultado final: **22 pruebas PHP correctas, 151 aserciones**. Incluyen dos prue
 
 Limitación: navegador integrado no disponible por error de herramienta `missing field sandboxPolicy`. No se pudo verificar visualmente ni pulsar los formularios en navegador. La compilación y las pruebas HTTP/backend no sustituyen una revisión visual; queda pendiente revisar móvil y escritorio con navegador operativo.
 
-## 8. Eurocom y cierre de alcance
+## 8. Eurocomp y cierre de alcance
 
-La [decisión Eurocom](EUROCOM-ARCHITECTURE.md) queda aprobada y reservada para Fase 2. No se implementaron cliente HTTP, endpoints, DTOs, tablas de proveedores ni capacidades simuladas. Una capacidad no documentada/verificada se considera no disponible.
+La [decisión Eurocomp](EUROCOMP-ARCHITECTURE.md) queda aprobada y reservada para Fase 2. No se implementaron cliente HTTP, endpoints, DTOs, tablas de proveedores ni capacidades simuladas. Una capacidad no documentada/verificada se considera no disponible.
 
 Fase 1A no iniciada. La siguiente acción es revisar esta entrega.

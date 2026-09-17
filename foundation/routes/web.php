@@ -8,6 +8,7 @@ use Inertia\Inertia;
 
 require __DIR__.'/catalog.php';
 require __DIR__.'/cart.php';
+require __DIR__.'/checkout.php';
 
 Route::get('/', [PublicCatalogController::class, 'home'])->name('home');
 

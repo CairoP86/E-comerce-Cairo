@@ -19,9 +19,9 @@ class FoundationTest extends TestCase
         );
     }
 
-    public function test_catalog_is_not_implemented_in_phase_0b(): void
+    public function test_legacy_products_route_is_absent_and_empty_checkout_returns_to_cart(): void
     {
         $this->get('/products')->assertNotFound();
-        $this->get('/checkout')->assertNotFound();
+        $this->get('/checkout')->assertRedirect('/cart');
     }
 }
