@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maison Aurèle — Haute Maison, Genève since 1897</title>
+  <meta name="description" content="Maison Aurèle — rare objects made slowly, by hand, in Genève since 1897. Haute horlogerie, joaillerie, parfum and maroquinerie.">
+  <meta name="theme-color" content="#0a0908">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ SVG sprite: gradients, filters & product art ============ -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f6e6c2"/><stop offset=".35" stop-color="#cfa769"/>
+        <stop offset=".62" stop-color="#7f5b2c"/><stop offset="1" stop-color="#ead2a0"/>
+      </linearGradient>
+      <linearGradient id="g-gold-dark" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#5e421f"/><stop offset=".5" stop-color="#b48a50"/><stop offset="1" stop-color="#4a3318"/>
+      </linearGradient>
+      <linearGradient id="g-rose" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f7d6c1"/><stop offset=".38" stop-color="#c38a6b"/>
+        <stop offset=".66" stop-color="#6d3f2c"/><stop offset="1" stop-color="#e9b99d"/>
+      </linearGradient>
+      <linearGradient id="g-rose-inner" x1="1" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#f3cdb6"/><stop offset=".5" stop-color="#8a553d"/><stop offset="1" stop-color="#d9a384"/>
+      </linearGradient>
+      <linearGradient id="g-steel" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f4f5f6"/><stop offset=".4" stop-color="#9ba1a8"/>
+        <stop offset=".7" stop-color="#474c53"/><stop offset="1" stop-color="#d7dadd"/>
+      </linearGradient>
+      <linearGradient id="g-steel-inner" x1="1" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#eef0f2"/><stop offset=".5" stop-color="#5d636a"/><stop offset="1" stop-color="#c4c8cc"/>
+      </linearGradient>
+      <linearGradient id="g-platinum" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#b9bec4"/>
+        <stop offset=".75" stop-color="#6b7178"/><stop offset="1" stop-color="#e6e9ec"/>
+      </linearGradient>
+      <linearGradient id="g-platinum-dark" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#3b3f44"/><stop offset=".5" stop-color="#8d939a"/><stop offset="1" stop-color="#34383c"/>
+      </linearGradient>
+      <radialGradient id="g-dial-night" cx=".4" cy=".35" r=".75">
+        <stop offset="0" stop-color="#26303f"/><stop offset=".6" stop-color="#0e131b"/><stop offset="1" stop-color="#05070a"/>
+      </radialGradient>
+      <radialGradient id="g-dial-blue" cx=".4" cy=".35" r=".75">
+        <stop offset="0" stop-color="#3a5f93"/><stop offset=".55" stop-color="#1a2f52"/><stop offset="1" stop-color="#0a1428"/>
+      </radialGradient>
+      <linearGradient id="g-strap" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#140e0a"/><stop offset=".5" stop-color="#34261c"/><stop offset="1" stop-color="#120c08"/>
+      </linearGradient>
+      <linearGradient id="g-strap-navy" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#0a0f1c"/><stop offset=".5" stop-color="#1f2a40"/><stop offset="1" stop-color="#090d18"/>
+      </linearGradient>
+      <linearGradient id="g-champ" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff4dc"/><stop offset="1" stop-color="#c9a266"/>
+      </linearGradient>
+      <linearGradient id="g-crystal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".38"/><stop offset=".45" stop-color="#e3cfa9" stop-opacity=".1"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity=".26"/>
+      </linearGradient>
+      <linearGradient id="g-amber" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e7ac5a"/><stop offset=".55" stop-color="#a35a1d"/><stop offset="1" stop-color="#5b2a0b"/>
+      </linearGradient>
+      <linearGradient id="g-gem" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/><stop offset=".3" stop-color="#dce9f5"/>
+        <stop offset=".55" stop-color="#8fa9c2"/><stop offset=".8" stop-color="#f4f8fc"/><stop offset="1" stop-color="#9fb4c9"/>
+      </linearGradient>
+      <linearGradient id="g-leather" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8a4e2e"/><stop offset=".55" stop-color="#5a2f19"/><stop offset="1" stop-color="#2c160b"/>
+      </linearGradient>
+      <linearGradient id="g-leather-dark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#6f3d22"/><stop offset="1" stop-color="#2a140a"/>
+      </linearGradient>
+      <radialGradient id="g-pearl" cx=".35" cy=".3" r=".8">
+        <stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#ece4d6"/><stop offset="1" stop-color="#a89a84"/>
+      </radialGradient>
+
+      <path id="seal-path" d="M120,120 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/>
+
+      <!-- Liquid refraction used inside backdrop-filter (Chromium) -->
+      <filter id="lg-refract" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.006 0.011" numOctaves="2" seed="11" result="noise"/>
+        <feGaussianBlur in="noise" stdDeviation="3" result="soft"/>
+        <feDisplacementMap in="SourceGraphic" in2="soft" scale="34" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+
+    <!-- Nocturne Tourbillon -->
+    <symbol id="art-watch-rose" viewBox="0 0 240 320">
+      <path d="M88 8 Q120 2 152 8 L158 92 H82Z" fill="url(#g-strap)"/>
+      <path d="M82 228 H158 L152 312 Q120 318 88 312Z" fill="url(#g-strap)"/>
+      <path d="M93 14 L96 86 M147 14 L144 86 M96 234 L93 306 M144 234 L147 306" stroke="#e3cfa9" stroke-opacity=".35" stroke-dasharray="3 4" fill="none"/>
+      <path d="M76 98 L90 70 H150 L164 98Z M76 222 L90 250 H150 L164 222Z" fill="url(#g-rose)"/>
+      <rect x="196" y="149" width="16" height="22" rx="4" fill="url(#g-rose)"/>
+      <path d="M200 152v16M204 152v16M208 152v16" stroke="#000" stroke-opacity=".25"/>
+      <circle cx="120" cy="160" r="82" fill="url(#g-rose)"/>
+      <circle cx="120" cy="160" r="75" fill="url(#g-rose-inner)"/>
+      <circle cx="120" cy="160" r="68" fill="url(#g-dial-night)"/>
+      <circle cx="120" cy="160" r="61" fill="none" stroke="#e3cfa9" stroke-opacity=".3" stroke-width="5" stroke-dasharray=".8 5.59"/>
+      <circle cx="120" cy="160" r="53" fill="none" stroke="#e8c9a8" stroke-width="9" stroke-dasharray="2.4 25.35" stroke-dashoffset="1.2"/>
+      <text x="120" y="130" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="10" letter-spacing="2.6" fill="#e8c9a8">AURÈLE</text>
+      <text x="120" y="139" text-anchor="middle" font-family="Manrope, sans-serif" font-size="4.2" letter-spacing="1.8" fill="#e8c9a8" fill-opacity=".6">GENÈVE · 1897</text>
+      <circle cx="120" cy="193" r="18" fill="#04060a" stroke="url(#g-rose)" stroke-width="1.6"/>
+      <g stroke="#e8c9a8" stroke-width="1" fill="none">
+        <circle cx="120" cy="193" r="10"/>
+        <path d="M120 181 V205 M109.6 187 L130.4 199 M109.6 199 L130.4 187"/>
+        <animateTransform attributeName="transform" type="rotate" from="0 120 193" to="360 120 193" dur="12s" repeatCount="indefinite"/>
+      </g>
+      <path d="M118 160 L120 120 L122 160Z" fill="url(#g-champ)" transform="rotate(-52 120 160)"/>
+      <path d="M119 160 L120 106 L121 160Z" fill="url(#g-champ)" transform="rotate(58 120 160)"/>
+      <line x1="120" y1="172" x2="120" y2="102" stroke="#f1dcb2" stroke-width=".9">
+        <animateTransform attributeName="transform" type="rotate" from="0 120 160" to="360 120 160" dur="60s" repeatCount="indefinite"/>
+      </line>
+      <circle cx="120" cy="160" r="3.4" fill="url(#g-champ)"/>
+      <path d="M58 132 A68 68 0 0 1 150 98 A84 84 0 0 0 64 156Z" fill="#fff" fill-opacity=".07"/>
+    </symbol>
+
+    <!-- Méridien Automatique -->
+    <symbol id="art-watch-steel" viewBox="0 0 240 320">
+      <path d="M88 8 Q120 2 152 8 L158 92 H82Z" fill="url(#g-strap-navy)"/>
+      <path d="M82 228 H158 L152 312 Q120 318 88 312Z" fill="url(#g-strap-navy)"/>
+      <path d="M93 14 L96 86 M147 14 L144 86 M96 234 L93 306 M144 234 L147 306" stroke="#dfe6ee" stroke-opacity=".3" stroke-dasharray="3 4" fill="none"/>
+      <path d="M76 98 L90 70 H150 L164 98Z M76 222 L90 250 H150 L164 222Z" fill="url(#g-steel)"/>
+      <rect x="196" y="149" width="16" height="22" rx="4" fill="url(#g-steel)"/>
+      <circle cx="120" cy="160" r="82" fill="url(#g-steel)"/>
+      <circle cx="120" cy="160" r="75" fill="url(#g-steel-inner)"/>
+      <circle cx="120" cy="160" r="68" fill="url(#g-dial-blue)"/>
+      <circle cx="120" cy="160" r="61" fill="none" stroke="#dfe6ee" stroke-opacity=".35" stroke-width="5" stroke-dasharray=".8 5.59"/>
+      <circle cx="120" cy="160" r="53" fill="none" stroke="#f2f4f6" stroke-width="10" stroke-dasharray="3 24.75" stroke-dashoffset="1.5"/>
+      <text x="120" y="132" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="10" letter-spacing="2.6" fill="#f2f4f6">AURÈLE</text>
+      <text x="120" y="192" text-anchor="middle" font-family="Manrope, sans-serif" font-size="4.4" letter-spacing="1.6" fill="#dfe6ee" fill-opacity=".7">MÉRIDIEN · AUTOMATIQUE</text>
+      <rect x="152" y="154" width="18" height="12" rx="1.5" fill="#f4f1ea" stroke="url(#g-steel)"/>
+      <text x="161" y="163.2" text-anchor="middle" font-family="Manrope, sans-serif" font-size="7.5" font-weight="600" fill="#1a2f52">15</text>
+      <path d="M118 160 L120 122 L122 160Z" fill="#f2f4f6" transform="rotate(-128 120 160)"/>
+      <path d="M119 160 L120 106 L121 160Z" fill="#f2f4f6" transform="rotate(44 120 160)"/>
+      <line x1="120" y1="172" x2="120" y2="102" stroke="#e3cfa9" stroke-width=".9">
+        <animateTransform attributeName="transform" type="rotate" from="140 120 160" to="500 120 160" dur="60s" repeatCount="indefinite"/>
+      </line>
+      <circle cx="120" cy="160" r="3.4" fill="#e3cfa9"/>
+      <path d="M58 132 A68 68 0 0 1 150 98 A84 84 0 0 0 64 156Z" fill="#fff" fill-opacity=".08"/>
+    </symbol>
+
+    <!-- Ambre Nuit Extrait -->
+    <symbol id="art-parfum" viewBox="0 0 240 320">
+      <path d="M84 20 H156 L164 44 V92 H76 V44Z" fill="url(#g-gold)"/>
+      <path d="M84 20 H156 L164 44 H76Z" fill="#fff" fill-opacity=".22"/>
+      <path d="M98 44 V92 M120 44 V92 M142 44 V92" stroke="#000" stroke-opacity=".16"/>
+      <rect x="98" y="92" width="44" height="14" fill="url(#g-gold-dark)"/>
+      <path d="M58 106 H182 L212 142 V270 L186 302 H54 L28 270 V142Z" fill="url(#g-crystal)" stroke="#fff" stroke-opacity=".45" stroke-width="1.2"/>
+      <path d="M36 162 H204 V267 L182 294 H58 L36 267Z" fill="url(#g-amber)" fill-opacity=".92"/>
+      <path d="M36 162 H204" stroke="#ffd9a0" stroke-opacity=".7"/>
+      <path d="M58 106 L76 142 V270 L54 302 M182 106 L164 142 V270 L186 302 M28 142 H212 M28 270 H212" stroke="#fff" stroke-opacity=".28" fill="none"/>
+      <rect x="76" y="142" width="88" height="128" fill="#fff" fill-opacity=".04"/>
+      <rect x="86" y="186" width="68" height="48" fill="#0a0908" fill-opacity=".78" stroke="url(#g-gold)" stroke-width=".8"/>
+      <text x="120" y="207" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="12" letter-spacing="2.4" fill="#e3cfa9">AMBRE</text>
+      <text x="120" y="222" text-anchor="middle" font-family="Manrope, sans-serif" font-size="5.2" letter-spacing="2" fill="#e3cfa9" fill-opacity=".75">NUIT · EXTRAIT</text>
+      <path d="M38 150 L47 146 V264 L38 268Z" fill="#fff" fill-opacity=".3"/>
+      <path d="M190 150 L200 156 V258 L190 262Z" fill="#fff" fill-opacity=".1"/>
+    </symbol>
+
+    <!-- Solitaire Aube -->
+    <symbol id="art-ring" viewBox="0 0 240 320">
+      <ellipse cx="120" cy="212" rx="74" ry="80" fill="none" stroke="url(#g-platinum-dark)" stroke-width="15"/>
+      <path d="M46 212 A74 80 0 0 0 194 212" fill="none" stroke="url(#g-platinum)" stroke-width="15" stroke-linecap="round"/>
+      <path d="M53 219 A67 73 0 0 0 187 219" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/>
+      <path d="M98 142 L82 90 M142 142 L158 90 M110 146 L108 92 M130 146 L132 92" stroke="url(#g-platinum)" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M90 134 Q120 154 150 134 L142 150 Q120 162 98 150Z" fill="url(#g-platinum)"/>
+      <path d="M76 88 L100 64 H140 L164 88 L120 144Z" fill="url(#g-gem)"/>
+      <path d="M100 64 H140 L132 88 H108Z" fill="#fff" fill-opacity=".45"/>
+      <path d="M76 88 H164 M100 64 L108 88 L120 64 L132 88 L140 64 M108 88 L120 144 L132 88 M76 88 L120 144 L164 88" stroke="#fff" stroke-opacity=".6" stroke-width=".8" fill="none"/>
+      <circle cx="80" cy="88" r="3" fill="url(#g-platinum)"/><circle cx="160" cy="88" r="3" fill="url(#g-platinum)"/>
+      <path d="M176 52 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z" fill="#fff">
+        <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite"/>
+      </path>
+      <path d="M60 110 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z" fill="#fff">
+        <animate attributeName="opacity" values="0;1;0" dur="3.6s" begin="1.2s" repeatCount="indefinite"/>
+      </path>
+    </symbol>
+
+    <!-- Le Sac Céleste -->
+    <symbol id="art-bag" viewBox="0 0 240 320">
+      <path d="M78 134 C78 58 162 58 162 134" fill="none" stroke="url(#g-leather)" stroke-width="11" stroke-linecap="round"/>
+      <path d="M78 134 C78 58 162 58 162 134" fill="none" stroke="#e3cfa9" stroke-opacity=".35" stroke-dasharray="2 4"/>
+      <rect x="70" y="124" width="16" height="18" rx="4" fill="url(#g-gold)"/>
+      <rect x="154" y="124" width="16" height="18" rx="4" fill="url(#g-gold)"/>
+      <path d="M44 140 H196 Q204 140 205 148 L214 290 Q215 302 203 302 H37 Q25 302 26 290 L35 148 Q36 140 44 140Z" fill="url(#g-leather)"/>
+      <path d="M46 148 H194 L203 288 Q203 294 197 294 H43 Q37 294 37 288Z" fill="none" stroke="#e3cfa9" stroke-opacity=".3" stroke-dasharray="3 4"/>
+      <path d="M38 140 H202 L207 214 Q120 248 33 214Z" fill="url(#g-leather-dark)"/>
+      <path d="M45 147 H195 L199 209 Q120 238 41 209Z" fill="none" stroke="#e3cfa9" stroke-opacity=".32" stroke-dasharray="3 4"/>
+      <path d="M104 216 h32 v22 q0 8 -8 8 h-16 q-8 0 -8 -8z" fill="url(#g-gold)"/>
+      <circle cx="120" cy="230" r="4" fill="url(#g-gold-dark)"/>
+      <path d="M44 150 L52 150 L46 286 L38 286Z" fill="#fff" fill-opacity=".06"/>
+    </symbol>
+
+    <!-- Collier Lumière -->
+    <symbol id="art-necklace" viewBox="0 0 240 320">
+      <g transform="translate(0 36)">
+        <path d="M30 40 Q120 250 210 40" fill="none" stroke="url(#g-gold)" stroke-width="1.8"/>
+        <g fill="url(#g-pearl)">
+          <circle cx="48" cy="77.8" r="7"/><circle cx="66" cy="107.2" r="7.5"/><circle cx="84" cy="128.2" r="8"/>
+          <circle cx="102" cy="140.8" r="8.5"/><circle cx="138" cy="140.8" r="8.5"/><circle cx="156" cy="128.2" r="8"/>
+          <circle cx="174" cy="107.2" r="7.5"/><circle cx="192" cy="77.8" r="7"/>
+        </g>
+        <circle cx="120" cy="150" r="5" fill="none" stroke="url(#g-gold)" stroke-width="2"/>
+        <path d="M120 156 V166" stroke="#cfa769" stroke-width="2"/>
+        <path d="M120 164 C138 186 142 208 120 232 C98 208 102 186 120 164Z" fill="url(#g-gem)" stroke="url(#g-gold)" stroke-width="1.6"/>
+        <path d="M120 164 L112 200 L120 232 L128 200Z M104 196 H136" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".7"/>
+        <path d="M150 190 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5z" fill="#fff">
+          <animate attributeName="opacity" values="0;1;0" dur="3.2s" repeatCount="indefinite"/>
+        </path>
+      </g>
+    </symbol>
+
+    <!-- House seal -->
+    <symbol id="art-seal" viewBox="0 0 240 240">
+      <circle cx="120" cy="120" r="114" fill="none" stroke="url(#g-gold)"/>
+      <circle cx="120" cy="120" r="108" fill="none" stroke="#e3cfa9" stroke-opacity=".2"/>
+      <circle cx="120" cy="120" r="72" fill="none" stroke="#e3cfa9" stroke-opacity=".35"/>
+      <g>
+        <text font-family="Manrope, sans-serif" font-size="10.5" letter-spacing="3" fill="#e3cfa9">
+          <textPath href="#seal-path" textLength="566" lengthAdjust="spacing">MAISON AURÈLE ✦ GENÈVE ✦ MDCCCXCVII ✦ HAUTE MAISON ✦</textPath>
+        </text>
+        <animateTransform attributeName="transform" type="rotate" from="0 120 120" to="360 120 120" dur="60s" repeatCount="indefinite"/>
+      </g>
+      <text x="120" y="148" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-weight="300" font-size="86" fill="url(#g-gold)">A</text>
+    </symbol>
+  </svg>
+
+  <div class="ambient" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+    <span class="grain"></span>
+  </div>
+
+  <!-- ============ Navigation ============ -->
+  <header class="nav glass glass--refract">
+    <a class="brand" href="#top" aria-label="Maison Aurèle — home">
+      <span class="brand__mono" aria-hidden="true">A</span>
+      <span class="brand__name">Maison Aurèle</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#story">The Maison</a>
+      <a href="#values">Savoir-faire</a>
+      <a href="#membership">Maison Privée</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-btn" type="button" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      </button>
+      <button class="icon-btn bag" type="button" aria-label="Shopping bag">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="bag__count" data-bag-count aria-live="polite">0</span>
+      </button>
+      <a class="btn btn--gold btn--sm nav__cta" href="#membership"><span class="btn__label">Request Invitation</span></a>
+      <button class="icon-btn nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu glass" id="mobile-menu">
+    <nav aria-label="Mobile">
+      <a href="#collection">Collection</a>
+      <a href="#story">The Maison</a>
+      <a href="#values">Savoir-faire</a>
+      <a href="#membership">Maison Privée</a>
+    </nav>
+    <a class="btn btn--gold" href="#membership"><span class="btn__label">Request Invitation</span></a>
+  </div>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top">
+      <div class="hero__copy">
+        <p class="eyebrow" data-reveal>Haute Maison · Genève, since 1897</p>
+        <h1 class="display" data-reveal style="--d:120ms">The quiet art<br>of <em>the rare.</em></h1>
+        <p class="lead" data-reveal style="--d:240ms">Objects made slowly, by hand, in numbers so small they are counted in names rather than units. Every Maison Aurèle creation is conceived to outlive its first owner.</p>
+        <div class="hero__cta" data-reveal style="--d:360ms">
+          <a class="btn btn--gold" href="#collection"><span class="btn__label">Explore the Collection</span>
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--glass glass" href="#membership"><span class="btn__label">Book a Private Viewing</span></a>
+        </div>
+        <dl class="hero__facts" data-reveal style="--d:480ms">
+          <div><dt>127</dt><dd>years of unbroken craft</dd></div>
+          <div><dt>48</dt><dd>master artisans</dd></div>
+          <div><dt>27</dt><dd>pieces per edition</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero__visual" data-reveal style="--d:200ms">
+        <article class="showcase glass glass--refract" aria-label="Featured piece: Nocturne Tourbillon">
+          <div class="showcase__top">
+            <span class="tag">Edition Nº 127</span>
+            <span class="tag tag--gold">Limited · 27 pieces</span>
+          </div>
+          <div class="showcase__stage">
+            <span class="showcase__halo" aria-hidden="true"></span>
+            <span class="showcase__orbit" aria-hidden="true"></span>
+            <svg class="showcase__art" viewBox="0 0 240 320" role="img" aria-label="Nocturne Tourbillon watch in rose gold"><use href="#art-watch-rose"/></svg>
+          </div>
+          <div class="showcase__info">
+            <div>
+              <h2 class="showcase__name">Nocturne Tourbillon</h2>
+              <p class="showcase__spec">18k rose gold · Grand feu enamel · 312 hours</p>
+            </div>
+            <p class="showcase__price">€184,000</p>
+          </div>
+          <div class="allocation" data-reveal>
+            <div class="allocation__row"><span>Allocated</span><span><strong>20</strong> / 27</span></div>
+            <div class="bar" style="--p:.74"><span class="bar__fill"></span></div>
+          </div>
+          <button class="btn btn--gold btn--block" type="button" data-add="Nocturne Tourbillon"><span class="btn__label">Reserve This Piece</span></button>
+        </article>
+
+        <div class="chip glass chip--a"><span class="chip__dot"></span>Hand-finished in Genève</div>
+        <div class="chip glass chip--b">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 8.3-7 9.5-4-1.2-7-5.1-7-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          Certificate of provenance
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#collection" aria-label="Scroll to collection"><span></span></a>
+    </section>
+
+    <!-- ============ Marquee ============ -->
+    <div class="marquee" aria-label="Maison Aurèle boutiques">
+      <div class="marquee__track">
+        <ul>
+          <li>Genève — Rue du Rhône</li><li>Paris — Place Vendôme</li><li>Kyoto — Gion</li>
+          <li>Firenze — Via de’ Tornabuoni</li><li>New York — Madison Avenue</li><li>Monte-Carlo</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>Genève — Rue du Rhône</li><li>Paris — Place Vendôme</li><li>Kyoto — Gion</li>
+          <li>Firenze — Via de’ Tornabuoni</li><li>New York — Madison Avenue</li><li>Monte-Carlo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ Collection ============ -->
+    <section class="section" id="collection" aria-labelledby="collection-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal>Collection Automne–Hiver 2026</p>
+          <h2 class="h2" id="collection-title" data-reveal style="--d:100ms">Rare by design,<br><em>never by chance.</em></h2>
+        </div>
+        <div class="section-head__aside" data-reveal style="--d:200ms">
+          <p>Six creations, each made in a single numbered edition. Once allocated, a design is retired to the archives — permanently.</p>
+          <div class="filters" role="group" aria-label="Filter the collection">
+            <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-filter="horlogerie" aria-pressed="false">Horlogerie</button>
+            <button type="button" class="filter" data-filter="joaillerie" aria-pressed="false">Joaillerie</button>
+            <button type="button" class="filter" data-filter="parfum" aria-pressed="false">Parfum</button>
+            <button type="button" class="filter" data-filter="maroquinerie" aria-pressed="false">Maroquinerie</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="sr-only" aria-live="polite" data-filter-status></p>
+
+      <div class="grid">
+        <article class="card" data-category="horlogerie" data-reveal>
+          <div class="card__inner glass" data-tilt="5">
+            <div class="card__stage" style="--glow: rgba(233,185,157,.22)">
+              <span class="card__badge">Limited · 27</span>
+              <button class="card__wish" type="button" data-wish="Nocturne Tourbillon" aria-pressed="false" aria-label="Save Nocturne Tourbillon to wishlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+              </button>
+              <svg class="card__art" viewBox="0 0 240 320" aria-hidden="true"><use href="#art-watch-rose"/></svg>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Haute Horlogerie</span><span>Ref. 1897-R</span></div>
+              <h3 class="card__name">Nocturne Tourbillon</h3>
+              <p class="card__desc">18k rose gold, grand feu enamel dial, flying tourbillon at six o’clock.</p>
+              <div class="card__foot">
+                <span class="price">€184,000</span>
+                <button class="card__add" type="button" data-add="Nocturne Tourbillon">
+                  <span>Add to bag</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="joaillerie" data-reveal style="--d:100ms">
+          <div class="card__inner glass" data-tilt="5">
+            <div class="card__stage" style="--glow: rgba(200,222,245,.2)">
+              <span class="card__badge">Pièce unique</span>
+              <button class="card__wish" type="button" data-wish="Solitaire Aube" aria-pressed="false" aria-label="Save Solitaire Aube to wishlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+              </button>
+              <svg class="card__art" viewBox="0 0 240 320" aria-hidden="true"><use href="#art-ring"/></svg>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Haute Joaillerie</span><span>3.02 ct</span></div>
+              <h3 class="card__name">Solitaire Aube</h3>
+              <p class="card__desc">D-flawless diamond, hand-forged platinum, conflict-free and fully traced.</p>
+              <div class="card__foot">
+                <span class="price">€96,500</span>
+                <button class="card__add" type="button" data-add="Solitaire Aube">
+                  <span>Add to bag</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="parfum" data-reveal style="--d:200ms">
+          <div class="card__inner glass" data-tilt="5">
+            <div class="card__stage" style="--glow: rgba(231,172,90,.24)">
+              <span class="card__badge">New</span>
+              <button class="card__wish" type="button" data-wish="Ambre Nuit Extrait" aria-pressed="false" aria-label="Save Ambre Nuit Extrait to wishlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+              </button>
+              <svg class="card__art" viewBox="0 0 240 320" aria-hidden="true"><use href="#art-parfum"/></svg>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Parfum</span><span>50 ml</span></div>
+              <h3 class="card__name">Ambre Nuit Extrait</h3>
+              <p class="card__desc">Aged Laotian oud, iris pallida and ambergris, in a hand-cut crystal flacon.</p>
+              <div class="card__foot">
+                <span class="price">€1,450</span>
+                <button class="card__add" type="button" data-add="Ambre Nuit Extrait">
+                  <span>Add to bag</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="maroquinerie" data-reveal>
+          <div class="card__inner glass" data-tilt="5">
+            <div class="card__stage" style="--glow: rgba(176,104,62,.24)">
+              <span class="card__badge">Bespoke</span>
+              <button class="card__wish" type="button" data-wish="Le Sac Céleste" aria-pressed="false" aria-label="Save Le Sac Céleste to wishlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+              </button>
+              <svg class="card__art" viewBox="0 0 240 320" aria-hidden="true"><use href="#art-bag"/></svg>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Maroquinerie</span><span>18 hours</span></div>
+              <h3 class="card__name">Le Sac Céleste</h3>
+              <p class="card__desc">Vegetable-tanned calfskin, saddle-stitched by a single artisan, gilded brass clasp.</p>
+              <div class="card__foot">
+                <span class="price">€12,800</span>
+                <button class="card__add" type="button" data-add="Le Sac Céleste">
+                  <span>Add to bag</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="horlogerie" data-reveal style="--d:100ms">
+          <div class="card__inner glass" data-tilt="5">
+            <div class="card__stage" style="--glow: rgba(120,160,215,.22)">
+              <span class="card__badge">Limited · 88</span>
+              <button class="card__wish" type="button" data-wish="Méridien Automatique" aria-pressed="false" aria-label="Save Méridien Automatique to wishlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+              </button>
+              <svg class="card__art" viewBox="0 0 240 320" aria-hidden="true"><use href="#art-watch-steel"/></svg>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Haute Horlogerie</span><span>Ref. 2026-M</span></div>
+              <h3 class="card__name">Méridien Automatique</h3>
+              <p class="card__desc">Palladium case, guilloché sunburst dial, in-house calibre with 72-hour reserve.</p>
+              <div class="card__foot">
+                <span class="price">€38,900</span>
+                <button class="card__add" type="button" data-add="Méridien Automatique">
+                  <span>Add to bag</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="joaillerie" data-reveal style="--d:200ms">
+          <div class="card__inner glass" data-tilt="5">
+            <div class="card__stage" style="--glow: rgba(236,228,214,.2)">
+              <span class="card__badge">Limited · 12</span>
+              <button class="card__wish" type="button" data-wish="Collier Lumière" aria-pressed="false" aria-label="Save Collier Lumière to wishlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+              </button>
+              <svg class="card__art" viewBox="0 0 240 320" aria-hidden="true"><use href="#art-necklace"/></svg>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Haute Joaillerie</span><span>Akoya pearls</span></div>
+              <h3 class="card__name">Collier Lumière</h3>
+              <p class="card__desc">Graduated Akoya pearls and a pear-cut diamond drop, set in 18k yellow gold.</p>
+              <div class="card__foot">
+                <span class="price">€54,000</span>
+                <button class="card__add" type="button" data-add="Collier Lumière">
+                  <span>Add to bag</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Story ============ -->
+    <section class="section story-section" id="story" aria-labelledby="story-title">
+      <div class="section-head section-head--center">
+        <p class="eyebrow" data-reveal>The Maison</p>
+        <h2 class="h2" id="story-title" data-reveal style="--d:100ms">One hundred and twenty-seven years,<br><em>told in four chapters.</em></h2>
+      </div>
+
+      <div class="story">
+        <div class="story__stage glass glass--refract" aria-hidden="true">
+          <div class="stage-layer is-active">
+            <span class="stage-numeral">I</span>
+            <svg class="stage-art stage-art--seal" viewBox="0 0 240 240"><use href="#art-seal"/></svg>
+            <span class="stage-caption">Rue du Rhône, Genève — 1897</span>
+          </div>
+          <div class="stage-layer">
+            <span class="stage-numeral">II</span>
+            <svg class="stage-art" viewBox="0 0 240 320"><use href="#art-ring"/></svg>
+            <span class="stage-caption">Traced from mine to bench</span>
+          </div>
+          <div class="stage-layer">
+            <span class="stage-numeral">III</span>
+            <svg class="stage-art" viewBox="0 0 240 320"><use href="#art-watch-steel"/></svg>
+            <span class="stage-caption">312 hours · 48 hands · 1 signature</span>
+          </div>
+          <div class="stage-layer">
+            <span class="stage-numeral">IV</span>
+            <svg class="stage-art" viewBox="0 0 240 320"><use href="#art-necklace"/></svg>
+            <span class="stage-caption">Entrusted, never simply sold</span>
+          </div>
+          <div class="stage-progress"><span class="stage-index">01</span><span class="stage-track"><i></i></span><span>04</span></div>
+        </div>
+
+        <div class="story__chapters">
+          <article class="chapter is-active">
+            <p class="chapter__num">Chapter I · 1897</p>
+            <h3 class="chapter__title">The atelier on <em>Rue du Rhône</em></h3>
+            <p>Aurèle Vautrin was twenty-six when she opened a two-bench workshop above a Genevan bookbinder. Her first commission — a pocket watch for a Lyonnais silk merchant — took eleven months. It still runs today, and it still returns to us every decade for its service.</p>
+            <p class="chapter__detail">The original bench now stands at the entrance of our Genève salon.</p>
+          </article>
+          <article class="chapter">
+            <p class="chapter__num">Chapter II · The Material</p>
+            <h3 class="chapter__title">Nothing we cannot <em>trace by name</em></h3>
+            <p>Our gemologists travel to every mine, tannery and refinery we work with. Gold is recycled or Fairmined, stones carry their full chain of custody, and each piece leaves the Maison with a dossier of its origins — signed by the people who supplied them.</p>
+            <p class="chapter__detail">Fewer than one stone in four hundred meets our standard.</p>
+          </article>
+          <article class="chapter">
+            <p class="chapter__num">Chapter III · The Hand</p>
+            <h3 class="chapter__title">Forty-eight hands, <em>one signature</em></h3>
+            <p>A Nocturne Tourbillon passes through the hands of forty-eight artisans over three hundred and twelve hours. Yet one master follows it from first sketch to final polish, and engraves their initials inside the case — visible only to the watchmaker who will one day restore it.</p>
+            <p class="chapter__detail">Apprenticeships at the Maison last seven years.</p>
+          </article>
+          <article class="chapter">
+            <p class="chapter__num">Chapter IV · The Heirloom</p>
+            <h3 class="chapter__title">Made to be <em>inherited</em></h3>
+            <p>We keep a handwritten ledger of every owner since 1897. When a piece changes hands within a family, we record the new name, restore the object without charge, and return it in the box it first left in. A Maison Aurèle creation is not bought — it is entrusted.</p>
+            <p class="chapter__detail">Over 11,000 pieces remain in active service.</p>
+          </article>
+        </div>
+      </div>
+
+      <dl class="stats glass">
+        <div class="stat" data-reveal><dt><span data-count="127">127</span></dt><dd>Years in Genève</dd></div>
+        <div class="stat" data-reveal style="--d:100ms"><dt><span data-count="312">312</span><small>h</small></dt><dd>Of finishing per watch</dd></div>
+        <div class="stat" data-reveal style="--d:200ms"><dt><span data-count="11400">11,400</span></dt><dd>Pieces still in service</dd></div>
+        <div class="stat" data-reveal style="--d:300ms"><dt><span data-count="1200">1,200</span></dt><dd>Maison Privée members</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ Values ============ -->
+    <section class="section" id="values" aria-labelledby="values-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal>What we hold sacred</p>
+          <h2 class="h2" id="values-title" data-reveal style="--d:100ms">Four principles,<br><em>unchanged since 1897.</em></h2>
+        </div>
+        <p class="section-head__aside" data-reveal style="--d:200ms">They are written on the first page of every apprentice’s notebook, and they are the reason some of our most-requested designs will never be made again.</p>
+      </div>
+
+      <div class="values">
+        <article class="value glass value--wide" data-reveal>
+          <span class="value__num">01</span>
+          <svg class="value__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><ellipse cx="24" cy="24" rx="7" ry="17"/><path d="M7 24h34M10 15h28M10 33h28"/></svg>
+          <h3 class="value__title">Provenance</h3>
+          <p>Every gram of gold, every stone, every hide is traceable to its origin. We visit each source in person — and we publish what we find, every year, without exception.</p>
+        </article>
+        <article class="value glass" data-reveal style="--d:100ms">
+          <span class="value__num">02</span>
+          <svg class="value__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="9"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6M12 12l4.2 4.2M31.8 31.8L36 36M12 36l4.2-4.2M31.8 16.2L36 12"/><circle cx="24" cy="24" r="2"/></svg>
+          <h3 class="value__title">Craftsmanship</h3>
+          <p>No piece leaves the atelier until the artisan who began it has signed it. Hours are never counted — only the result is.</p>
+        </article>
+        <article class="value glass" data-reveal>
+          <span class="value__num">03</span>
+          <svg class="value__icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="8" width="28" height="32" rx="14"/><circle cx="24" cy="21" r="4"/><path d="M22.5 24.5L21 32h6l-1.5-7.5"/></svg>
+          <h3 class="value__title">Discretion</h3>
+          <p>We do not advertise and we never discount. Our clients’ names are never shared, and their acquisitions are never photographed.</p>
+        </article>
+        <article class="value glass value--wide" data-reveal style="--d:100ms">
+          <span class="value__num">04</span>
+          <svg class="value__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 8h20M14 40h20M16 8c0 9 16 11 16 16s-16 7-16 16M32 8c0 9-16 11-16 16s16 7 16 16"/><path d="M20 36h8"/></svg>
+          <h3 class="value__title">Permanence</h3>
+          <p>A lifetime restoration promise, transferable to heirs. Our archives hold the original drawings of every piece we have ever made — so that anything we created can be repaired by hand, a century from now.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Testimonial ============ -->
+    <section class="section testimonial-section" aria-label="Client testimonial">
+      <figure class="testimonial glass glass--refract" data-reveal>
+        <svg class="testimonial__mark" viewBox="0 0 48 36" aria-hidden="true"><path d="M0 36V22C0 9 7 1 20 0v7c-6 1.5-9 5.5-9 12h9v17zm28 0V22C28 9 35 1 48 0v7c-6 1.5-9 5.5-9 12h9v17z"/></svg>
+        <blockquote>
+          <p>My grandmother’s Aurèle still keeps perfect time. When the atelier restored it, they returned it with her original order — handwritten in the ledger, <em>April 1952.</em></p>
+        </blockquote>
+        <figcaption>
+          <span class="testimonial__name">Private client, third generation</span>
+          <span class="testimonial__place">Monte-Carlo · Member since 1988</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ Membership ============ -->
+    <section class="section membership" id="membership" aria-labelledby="membership-title">
+      <div class="privee glass glass--refract">
+        <svg class="privee__seal" viewBox="0 0 240 240" aria-hidden="true"><use href="#art-seal"/></svg>
+
+        <div class="privee__copy">
+          <p class="eyebrow" data-reveal>Maison Privée</p>
+          <h2 class="h2" id="membership-title" data-reveal style="--d:100ms">By invitation.<br><em>For the very few.</em></h2>
+          <p class="lead" data-reveal style="--d:200ms">Our private circle of collectors is limited to 1,200 members worldwide. Membership opens first access to numbered editions, the doors of the Genève atelier, and a concierge who knows your collection by heart.</p>
+          <ul class="perks" data-reveal style="--d:300ms">
+            <li>First allocation of every limited edition, before public release</li>
+            <li>Private viewings in Genève, Paris — or in your own residence</li>
+            <li>A personal concierge, reachable at any hour, in eleven languages</li>
+            <li>An annual invitation to the <em>Soirée des Artisans</em></li>
+          </ul>
+          <div class="availability" data-reveal style="--d:400ms">
+            <div class="allocation__row"><span>Season 2026 invitations</span><span><strong>38</strong> remaining</span></div>
+            <div class="bar" style="--p:.62"><span class="bar__fill"></span></div>
+          </div>
+        </div>
+
+        <form class="invite" id="invite-form" novalidate data-reveal style="--d:200ms">
+          <fieldset class="tiers">
+            <legend class="invite__legend">Select your circle</legend>
+            <label class="tier glass">
+              <input type="radio" name="tier" value="Cercle" checked>
+              <span class="tier__name">Cercle</span>
+              <span class="tier__desc">Opened by your first acquisition</span>
+            </label>
+            <label class="tier glass">
+              <input type="radio" name="tier" value="Salon">
+              <span class="tier__name">Salon</span>
+              <span class="tier__desc">For collectors of three or more pieces</span>
+            </label>
+            <label class="tier glass">
+              <input type="radio" name="tier" value="Privé">
+              <span class="tier__name">Privé</span>
+              <span class="tier__desc">By nomination of a member only</span>
+            </label>
+          </fieldset>
+
+          <div class="field">
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder=" " required aria-describedby="f-name-err">
+            <label for="f-name">Full name</label>
+            <span class="field__error" id="f-name-err">Please tell us how to address you.</span>
+          </div>
+          <div class="field">
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder=" " required aria-describedby="f-email-err">
+            <label for="f-email">Email address</label>
+            <span class="field__error" id="f-email-err">Please enter a valid email address.</span>
+          </div>
+          <div class="field">
+            <input id="f-ref" name="referral" type="text" placeholder=" ">
+            <label for="f-ref">Referred by a member <span class="optional">(optional)</span></label>
+          </div>
+
+          <button class="btn btn--gold btn--block" type="submit"><span class="btn__label">Request an Invitation</span></button>
+          <p class="invite__note">Every request is reviewed personally by the Maison. We respond within 48 hours, always discreetly.</p>
+
+          <div class="invite__success" role="status" aria-live="polite">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg>
+            <h3>Your request has been received<span data-success-name></span>.</h3>
+            <p>A Maison concierge will contact you within 48 hours regarding the <strong data-success-tier>Cercle</strong> circle.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="#top"><span class="brand__mono" aria-hidden="true">A</span><span class="brand__name">Maison Aurèle</span></a>
+        <p>Haute Maison, Genève. Rare objects made slowly, by hand, since 1897.</p>
+      </div>
+      <nav class="footer__cols" aria-label="Footer">
+        <div>
+          <h4>The Maison</h4>
+          <a href="#story">Our Story</a><a href="#values">Savoir-faire</a><a href="#story">The Ateliers</a><a href="#top">Careers</a>
+        </div>
+        <div>
+          <h4>Client Care</h4>
+          <a href="#membership">Book an Appointment</a><a href="#values">Care &amp; Restoration</a><a href="#top">Shipping &amp; Insurance</a><a href="#top">Contact</a>
+        </div>
+        <div>
+          <h4>Boutiques</h4>
+          <a href="#top">Genève</a><a href="#top">Paris</a><a href="#top">Kyoto</a><a href="#top">New York</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Maison Aurèle SA. All rights reserved.</span>
+      <span class="footer__legal"><a href="#top">Privacy</a><a href="#top">Terms</a><a href="#top">Accessibility</a></span>
+    </div>
+    <p class="footer__word" aria-hidden="true">Aurèle</p>
+  </footer>
+
+  <div class="toast glass" role="status" aria-live="polite">
+    <span class="toast__icon" aria-hidden="true">✦</span>
+    <span class="toast__msg"></span>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

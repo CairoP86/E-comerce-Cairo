@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F3EF;color:#121820;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:#2B5F82;text-decoration:none}
+a:hover{color:#1E4863}
+h1,h2,h3,h4,p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(255,255,255,.55));-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px -24px rgba(18,24,32,.35)}
+.glass-dark{background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.035));-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 30px 60px -30px rgba(0,0,0,.65)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 20px;border-radius:10px;font-size:15px;font-weight:500;white-space:nowrap}
+.tag-prov{display:inline-flex;align-items:center;height:18px;padding:0 6px;border:1px dashed #C27A2C;border-radius:4px;background:rgba(194,122,44,.12);color:#9C5F1E;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6B727B}
+.card{background:#FBFAF7;border:1px solid #E2DFD8;border-radius:14px}
+</style>
+</helmet>
+<div style="width:390px;min-height:3750px;background:#F4F3EF">
+
+  <section style="position:relative;background:#0E151D;color:#E9ECEF;overflow:hidden;padding-bottom:40px">
+    <div style="position:absolute;inset:0;background:radial-gradient(420px 360px at 90% 62%, rgba(74,128,166,.36), transparent 70%)"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);background-size:48px 48px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)"></div>
+
+    <header style="position:relative;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 16px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <svg width="28" height="28" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#F4F3EF"></rect><path d="M9 10L15 21L21 10" stroke="#121820" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#121820"></circle><circle cx="21" cy="10" r="2.6" fill="#121820"></circle><circle cx="15" cy="21" r="2.6" fill="#2B5F82"></circle></svg>
+        <span style="font-size:19px;font-weight:600;letter-spacing:-.02em;color:#FFFFFF">Nodal</span>
+        <span class="tag-prov" style="color:#E6B278;border-color:#C98B45;background:rgba(201,139,69,.14)">Provisional</span>
+      </div>
+      <div style="display:flex;align-items:center">
+        <span style="position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M3.5 4.5h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.1l1.6-6.3H6.6"></path><circle cx="10" cy="19.5" r="1.2"></circle><circle cx="17" cy="19.5" r="1.2"></circle></svg><span class="mono" style="position:absolute;top:5px;right:4px;min-width:16px;height:16px;border-radius:8px;background:#4A87B0;color:#FFFFFF;font-size:10px;display:flex;align-items:center;justify-content:center">2</span></span>
+        <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></span>
+      </div>
+    </header>
+    <div style="position:relative;padding:0 16px">
+      <div class="glass-dark" style="display:flex;align-items:center;gap:10px;height:46px;padding:0 14px;border-radius:11px;color:rgba(233,236,239,.6);font-size:14px">
+        <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+        <span>Buscar producto o número de parte</span>
+      </div>
+    </div>
+
+    <div style="position:relative;display:flex;flex-direction:column;gap:18px;padding:40px 16px 0">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;height:30px;padding:0 12px;border:1px solid rgba(255,255,255,.14);border-radius:8px;font-size:12.5px;color:rgba(233,236,239,.8)">
+        <span style="width:6px;height:6px;border-radius:50%;background:#5FB58A"></span>Inventario en tiempo real
+      </div>
+      <h1 style="font-size:36px;font-weight:400;line-height:1.08;letter-spacing:-.026em;color:#FFFFFF">Tecnología para su empresa, <span style="color:rgba(233,236,239,.5)">entregada en 24 a 48 horas.</span></h1>
+      <p style="font-size:15.5px;color:rgba(233,236,239,.72)">Más de 190 marcas con existencias verificadas y factura electrónica a nombre de su empresa.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+        <span class="btn" style="background:#F4F3EF;color:#121820">Explorar catálogo</span>
+        <span class="btn" style="border:1px solid rgba(255,255,255,.22);color:#FFFFFF">Solicitar cotización empresarial</span>
+      </div>
+    </div>
+
+    <div style="position:relative;margin:36px 16px 0">
+      <div class="glass-dark" style="border-radius:18px;padding:18px">
+        <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:10.5px;letter-spacing:.12em;color:rgba(233,236,239,.55)">DESTACADO</span><span class="mono" style="font-size:11px;letter-spacing:.12em;color:rgba(233,236,239,.85)">LENOVO</span></div>
+        <div style="display:flex;justify-content:center;padding:16px 0 10px">
+          <svg viewBox="0 0 320 220" width="260" height="179" style="filter:drop-shadow(0 22px 22px rgba(0,0,0,.5))"><defs><linearGradient id="lpS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A313B"></stop><stop offset="1" stop-color="#151A21"></stop></linearGradient><linearGradient id="lpB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CDD1D6"></stop><stop offset="1" stop-color="#8E949B"></stop></linearGradient><linearGradient id="lpG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A80A6"></stop><stop offset=".55" stop-color="#18222D"></stop><stop offset="1" stop-color="#101820"></stop></linearGradient></defs><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#7C8289"></rect></svg>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end">
+          <div><div style="font-size:17px;font-weight:500;color:#FFFFFF">ThinkPad E14 Gen 6</div><div style="font-size:12.5px;color:rgba(233,236,239,.6)">Core Ultra 5 · 16 GB · 512 GB</div></div>
+          <div style="text-align:right"><div style="font-size:20px;font-weight:500;color:#FFFFFF">₡489 900</div><div style="font-size:11px;color:rgba(233,236,239,.55)">IVA incluido</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px;color:rgba(233,236,239,.75)">
+          <span style="width:6px;height:6px;border-radius:50%;background:#5FB58A"></span>En stock · Llega el jueves 17 sep
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:1px;margin:0;background:#E2DFD8;border-bottom:1px solid #E2DFD8">
+    <div style="display:flex;flex-direction:column;gap:6px;padding:18px 16px;background:#FBFAF7"><svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><rect x="5" y="10.5" width="14" height="10" rx="2"></rect><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"></path></svg><span style="font-size:14px;font-weight:500">Pago seguro</span><span style="font-size:12.5px;color:#6B727B">Tilopay, SINPE Móvil y Tasa Cero</span></div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:18px 16px;background:#FBFAF7"><svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6M9 16h3"></path></svg><span style="font-size:14px;font-weight:500">Factura electrónica</span><span style="font-size:12.5px;color:#6B727B">A nombre de su empresa</span></div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:18px 16px;background:#FBFAF7"><svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6H14"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg><span style="font-size:14px;font-weight:500">Entrega 24–48 h</span><span style="font-size:12.5px;color:#6B727B">Con Rapedido y guía</span></div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:18px 16px;background:#FBFAF7"><svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><path d="M12 3l7 3v5.5c0 4.4-3 8.3-7 9.5-4-1.2-7-5.1-7-9.5V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="font-size:14px;font-weight:500">Garantía de fábrica</span><span style="font-size:12.5px;color:#6B727B">Productos nuevos y sellados</span></div>
+  </div>
+
+  <section style="padding:48px 16px 0">
+    <span class="eyebrow">Catálogo</span>
+    <h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em;margin:8px 0 20px">Explore por categoría</h2>
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px">
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:16px;min-height:118px"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><rect x="5" y="5" width="14" height="10" rx="1.5"></rect><path d="M3 18.5h18"></path></svg><span style="font-size:14.5px;font-weight:500;line-height:1.3">Computadoras y laptops</span></div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:16px;min-height:118px"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><rect x="3.5" y="4.5" width="17" height="11" rx="1.5"></rect><path d="M9 20h6M12 15.5V20"></path></svg><span style="font-size:14.5px;font-weight:500;line-height:1.3">Monitores y proyección</span></div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:16px;min-height:118px"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><circle cx="12" cy="5" r="2"></circle><circle cx="5" cy="19" r="2"></circle><circle cx="19" cy="19" r="2"></circle><path d="M12 7v5M12 12l-6 5.5M12 12l6 5.5"></path></svg><span style="font-size:14.5px;font-weight:500;line-height:1.3">Redes y conectividad</span></div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:16px;min-height:118px"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M7 9V4h10v5"></path><rect x="4" y="9" width="16" height="7" rx="1.5"></rect><path d="M7 14h10v6H7z"></path></svg><span style="font-size:14.5px;font-weight:500;line-height:1.3">Impresión y punto de venta</span></div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:16px;min-height:118px"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M3 7l12-3 1.5 6L4.5 13z"></path><path d="M16 8.5l4-1v5l-4 .5M8 12.5V20M5 20h6"></path></svg><span style="font-size:14.5px;font-weight:500;line-height:1.3">Seguridad y videovigilancia</span></div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:16px;min-height:118px"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M13 3L5 13.5h6L10 21l9-11h-6z"></path></svg><span style="font-size:14.5px;font-weight:500;line-height:1.3">Energía y respaldo</span></div>
+    </div>
+  </section>
+
+  <section style="padding:48px 16px 0">
+    <span class="eyebrow">Destacados</span>
+    <h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em;margin:8px 0 16px">Lo más solicitado por empresas</h2>
+    <div style="display:flex;gap:6px;margin-bottom:16px;font-size:13.5px">
+      <span style="padding:8px 14px;border-radius:8px;background:#121820;color:#FFFFFF">Oficina</span>
+      <span style="padding:8px 14px;border-radius:8px;border:1px solid #D9D5CC">Redes</span>
+      <span style="padding:8px 14px;border-radius:8px;border:1px solid #D9D5CC">Impresión</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px">
+      <div class="card" style="overflow:hidden">
+        <div style="height:130px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)"><svg viewBox="0 0 320 220" width="140" height="96"><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:12px">
+          <span class="mono" style="font-size:10px;letter-spacing:.1em;color:#6B727B">LENOVO</span>
+          <span style="font-size:14px;font-weight:500;line-height:1.3">ThinkPad E14 Gen 6</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span style="font-size:16px;font-weight:500">₡489 900</span><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+        </div>
+      </div>
+      <div class="card" style="overflow:hidden">
+        <div style="height:130px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)"><svg viewBox="0 0 320 220" width="140" height="96"><rect x="40" y="16" width="240" height="150" rx="6" fill="#161B22"></rect><rect x="46" y="22" width="228" height="134" rx="2" fill="#2C4A60"></rect><path d="M148 166h24l7 28h-38z" fill="#A3A8AE"></path><rect x="108" y="192" width="104" height="9" rx="4.5" fill="#868C93"></rect></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:12px">
+          <span class="mono" style="font-size:10px;letter-spacing:.1em;color:#6B727B">DELL</span>
+          <span style="font-size:14px;font-weight:500;line-height:1.3">Monitor P2425H 24"</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span style="font-size:16px;font-weight:500">₡109 500</span><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+        </div>
+      </div>
+      <div class="card" style="overflow:hidden">
+        <div style="height:130px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)"><svg viewBox="0 0 320 220" width="140" height="96"><rect x="96" y="30" width="9" height="92" rx="4.5" fill="#2B323B" transform="rotate(-12 100 120)"></rect><rect x="215" y="30" width="9" height="92" rx="4.5" fill="#2B323B" transform="rotate(12 220 120)"></rect><path d="M62 128 Q62 116 76 116 H244 Q258 116 258 128 V168 Q258 180 244 180 H76 Q62 180 62 168Z" fill="#1A2027"></path><circle cx="92" cy="156" r="4" fill="#5FB58A"></circle><circle cx="108" cy="156" r="4" fill="#5FB58A"></circle></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:12px">
+          <span class="mono" style="font-size:10px;letter-spacing:.1em;color:#6B727B">ASUS</span>
+          <span style="font-size:14px;font-weight:500;line-height:1.3">Router Wi-Fi 6 RT-AX58U</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span style="font-size:16px;font-weight:500">₡84 900</span><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+        </div>
+      </div>
+      <div class="card" style="overflow:hidden">
+        <div style="height:130px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)"><svg viewBox="0 0 320 220" width="140" height="96"><rect x="104" y="30" width="112" height="58" rx="3" fill="#FAF9F6" stroke="#D5D1C8"></rect><path d="M70 92 Q70 80 82 80 H238 Q250 80 250 92 V166 Q250 176 240 176 H80 Q70 176 70 166Z" fill="#2A3038"></path><rect x="92" y="148" width="136" height="16" rx="3" fill="#161B21"></rect><rect x="84" y="176" width="152" height="18" rx="3" fill="#D9D6CE"></rect></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:12px">
+          <span class="mono" style="font-size:10px;letter-spacing:.1em;color:#6B727B">EPSON</span>
+          <span style="font-size:14px;font-weight:500;line-height:1.3">EcoTank L3250</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span style="font-size:16px;font-weight:500">₡139 900</span><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:48px 16px 0">
+    <span class="eyebrow">Cómo funciona</span>
+    <h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em;margin:8px 0 22px">Así llega su pedido</h2>
+    <div style="position:relative;display:flex;flex-direction:column;gap:22px">
+      <div style="position:absolute;top:22px;bottom:22px;left:21px;width:1px;background:repeating-linear-gradient(180deg,#B9B5AB 0 5px,transparent 5px 10px)"></div>
+      <div style="position:relative;display:flex;gap:16px">
+        <span class="glass mono" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;font-size:13px;flex:none">01</span>
+        <div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:16px;font-weight:500">Compra y pago</span><span class="mono" style="padding:3px 8px;border-radius:6px;background:#E6E3DC;font-size:11px">Inmediato</span></div><p style="font-size:14px;color:#5E6570;margin-top:4px">Pague con tarjeta, SINPE Móvil o Tasa Cero y reciba la confirmación al instante.</p></div>
+      </div>
+      <div style="position:relative;display:flex;gap:16px">
+        <span class="glass mono" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;font-size:13px;flex:none">02</span>
+        <div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:16px;font-weight:500">Preparación y despacho</span><span class="mono" style="padding:3px 8px;border-radius:6px;background:#E6E3DC;font-size:11px">2–6 h</span></div><p style="font-size:14px;color:#5E6570;margin-top:4px">Se empaca su pedido y se genera la guía de envío con Rapedido.</p></div>
+      </div>
+      <div style="position:relative;display:flex;gap:16px">
+        <span class="mono" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;font-size:13px;background:#121820;color:#FFFFFF;flex:none">03</span>
+        <div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:16px;font-weight:500">Entrega en su puerta</span><span class="mono" style="padding:3px 8px;border-radius:6px;background:#D8E4EC;color:#1E4863;font-size:11px">24–48 h</span></div><p style="font-size:14px;color:#5E6570;margin-top:4px">Rapedido entrega en su oficina o domicilio y usted sigue cada estado en línea.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:48px 16px 0">
+    <div style="position:relative;overflow:hidden;border-radius:18px;background:#0E151D;color:#E9ECEF;padding:28px 22px">
+      <div style="position:absolute;inset:0;background:radial-gradient(300px 260px at 100% 0%, rgba(74,128,166,.34), transparent 70%)"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:14px">
+        <span class="mono" style="font-size:11px;letter-spacing:.12em;color:rgba(233,236,239,.55)">NODAL EMPRESAS</span>
+        <h2 style="font-size:25px;font-weight:400;letter-spacing:-.02em;line-height:1.18;color:#FFFFFF">Compras tecnológicas para equipos de trabajo, sin complicaciones.</h2>
+        <p style="font-size:14.5px;color:rgba(233,236,239,.7)">Cotice por volumen, reciba factura electrónica a nombre de su empresa y centralice el historial de compras.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+          <span class="btn" style="background:#F4F3EF;color:#121820">Crear cuenta empresarial</span>
+          <span class="btn" style="border:1px solid rgba(255,255,255,.22);color:#FFFFFF">Hablar con un ejecutivo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:48px;padding:28px 16px 32px;background:#EAE8E2;border-top:1px solid #DEDBD3">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px">
+      <svg width="24" height="24" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#121820"></rect><path d="M9 10L15 21L21 10" stroke="#FFFFFF" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="21" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="15" cy="21" r="2.6" fill="#7FB0CF"></circle></svg>
+      <span style="font-size:17px;font-weight:600">Nodal</span><span class="tag-prov">Nombre provisional</span>
+    </div>
+    <div style="display:flex;flex-direction:column;font-size:15px">
+      <div style="display:flex;justify-content:space-between;align-items:center;height:52px;border-top:1px solid #D6D3CB">Catálogo<svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"></path></svg></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;height:52px;border-top:1px solid #D6D3CB">Clientes<svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"></path></svg></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;height:52px;border-top:1px solid #D6D3CB">Empresas<svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"></path></svg></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;height:52px;border-top:1px solid #D6D3CB;border-bottom:1px solid #D6D3CB">Contacto<svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"></path></svg></div>
+    </div>
+    <p style="font-size:12.5px;color:#6B727B;margin-top:18px">© 2026 [RAZÓN SOCIAL] · Pagos procesados por Tilopay</p>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F3EF;color:#121820;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:#2B5F82;text-decoration:none}
+a:hover{color:#1E4863}
+h1,h2,h3,h4,p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.glass-dark{background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.035));-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 30px 60px -30px rgba(0,0,0,.65)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:10px;font-size:15px;font-weight:500;white-space:nowrap}
+.tag-prov{display:inline-flex;align-items:center;height:20px;padding:0 7px;border:1px dashed #C27A2C;border-radius:4px;background:rgba(194,122,44,.12);color:#9C5F1E;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B727B}
+.card{background:#FBFAF7;border:1px solid #E2DFD8;border-radius:14px}
+.ev{display:grid;grid-template-columns:24px minmax(0, 1fr) 150px;gap:18px;padding-bottom:26px;position:relative}
+</style>
+</helmet>
+<div style="width:1440px;min-height:1300px;background:#F4F3EF">
+
+  <header style="display:flex;align-items:center;gap:32px;height:76px;padding:0 56px;background:#FBFAF7;border-bottom:1px solid #E2DFD8">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#121820"></rect><path d="M9 10L15 21L21 10" stroke="#FFFFFF" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="21" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="15" cy="21" r="2.6" fill="#7FB0CF"></circle></svg>
+      <span style="font-size:21px;font-weight:600;letter-spacing:-.02em">Nodal</span>
+      <span class="tag-prov">Nombre provisional</span>
+    </div>
+    <div style="flex:1;min-width:0;max-width:430px;display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #D9D5CC;border-radius:10px;background:#FFFFFF;color:#80868D;font-size:14px">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+      <span>Buscar por producto, marca o número de parte</span>
+    </div>
+    <nav style="display:flex;gap:26px;font-size:14.5px;color:#3E4652">
+      <span>Catálogo</span><span>Empresas</span><span>Marcas</span><span style="color:#121820;font-weight:500">Seguir pedido</span>
+    </nav>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#3E4652"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"></path></svg><span>María Fernanda</span></div>
+      <div style="display:flex"><svg class="icon" viewBox="0 0 24 24"><path d="M3.5 4.5h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.1l1.6-6.3H6.6"></path><circle cx="10" cy="19.5" r="1.2"></circle><circle cx="17" cy="19.5" r="1.2"></circle></svg></div>
+    </div>
+  </header>
+
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;padding:44px 56px 28px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span class="eyebrow">Seguimiento de pedido</span>
+      <div style="display:flex;align-items:center;gap:16px">
+        <h1 class="mono" style="font-size:34px;font-weight:500;letter-spacing:-.01em">NDL-20931</h1>
+        <span style="display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:7px;background:#D8E4EC;color:#1E4863;font-size:13.5px;font-weight:500"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6H14"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>En tránsito</span>
+      </div>
+      <span style="font-size:14.5px;color:#5E6570">Realizado el 15 de septiembre de 2026, 10:42 · 2 productos · ₡602 900</span>
+    </div>
+    <div style="display:flex;gap:10px">
+      <span class="btn" style="border:1px solid #CFCBC1;color:#121820"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>Factura electrónica</span>
+      <span class="btn" style="border:1px solid #CFCBC1;color:#121820">Necesito ayuda</span>
+    </div>
+  </div>
+
+  <section style="padding:0 56px">
+    <div style="position:relative;overflow:hidden;border-radius:20px;background:#0E151D;color:#E9ECEF;padding:40px 44px 44px">
+      <div style="position:absolute;inset:0;background:radial-gradient(700px 360px at 90% 10%, rgba(74,128,166,.34), transparent 70%)"></div>
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:64px 64px"></div>
+      <div style="position:relative;display:grid;grid-template-columns:minmax(0, 1fr) 360px;gap:40px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span class="mono" style="font-size:12px;letter-spacing:.12em;color:rgba(233,236,239,.55)">ENTREGA ESTIMADA</span>
+          <span style="font-size:40px;font-weight:400;letter-spacing:-.024em;color:#FFFFFF">Jueves 17 de septiembre</span>
+          <span style="font-size:15px;color:rgba(233,236,239,.7)">Plaza Tempo, torre 2, piso 3 · Escazú, San José</span>
+        </div>
+        <div class="glass-dark" style="border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:rgba(233,236,239,.6)">Transportista</span><span style="color:#FFFFFF">Rapedido</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:rgba(233,236,239,.6)">Número de guía</span><span class="mono" style="color:#FFFFFF">RPD-4471902</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:rgba(233,236,239,.6)">Última actualización</span><span style="color:#FFFFFF">Hoy, 08:15</span></div>
+        </div>
+      </div>
+
+      <div style="position:relative;display:grid;grid-template-columns:repeat(6, minmax(0, 1fr));margin-top:44px">
+        <div style="position:absolute;top:13px;left:8.33%;right:8.33%;height:2px;background:rgba(255,255,255,.14)"></div>
+        <div style="position:absolute;top:13px;left:8.33%;width:69.4%;height:2px;background:#7FB0CF"></div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#7FB0CF;color:#0E151D"><svg class="icon" viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2.2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+          <span style="font-size:14px;color:#FFFFFF">Pago confirmado</span><span class="mono" style="font-size:11.5px;color:rgba(233,236,239,.5)">15 sep · 10:42</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#7FB0CF;color:#0E151D"><svg class="icon" viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2.2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+          <span style="font-size:14px;color:#FFFFFF">Pedido en preparación</span><span class="mono" style="font-size:11.5px;color:rgba(233,236,239,.5)">15 sep · 10:44</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#7FB0CF;color:#0E151D"><svg class="icon" viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2.2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+          <span style="font-size:14px;color:#FFFFFF">Empacado y guía generada</span><span class="mono" style="font-size:11.5px;color:rgba(233,236,239,.5)">15 sep · 14:05</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#7FB0CF;color:#0E151D"><svg class="icon" viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2.2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+          <span style="font-size:14px;color:#FFFFFF">Recolectado por Rapedido</span><span class="mono" style="font-size:11.5px;color:rgba(233,236,239,.5)">15 sep · 16:30</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#0E151D;border:2px solid #7FB0CF;box-shadow:0 0 0 6px rgba(127,176,207,.18)"><span style="width:10px;height:10px;border-radius:50%;background:#7FB0CF"></span></span>
+          <span style="font-size:14px;font-weight:500;color:#FFFFFF">En tránsito</span><span class="mono" style="font-size:11.5px;color:rgba(233,236,239,.5)">16 sep · 08:15</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <span style="width:28px;height:28px;border-radius:50%;background:#0E151D;border:2px solid rgba(255,255,255,.22)"></span>
+          <span style="font-size:14px;color:rgba(233,236,239,.6)">Entregado</span><span class="mono" style="font-size:11.5px;color:rgba(233,236,239,.4)">Estimado 17 sep</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:minmax(0, 1fr) 420px;gap:32px;padding:32px 56px 96px">
+    <div class="card" style="padding:32px">
+      <div style="font-size:19px;font-weight:500;margin-bottom:26px">Historial del envío</div>
+      <div style="position:relative">
+        <div style="position:absolute;top:8px;bottom:30px;left:11px;width:1px;background:#DEDBD3"></div>
+        <div class="ev"><span style="width:23px;height:23px;border-radius:50%;background:#2B5F82;border:5px solid #D8E4EC;position:relative"></span><div><div style="font-weight:500">En tránsito hacia Escazú</div><div style="font-size:14px;color:#6B727B">El paquete salió del centro de distribución de Rapedido.</div></div><span class="mono" style="font-size:12.5px;color:#6B727B;text-align:right">16 sep · 08:15</span></div>
+        <div class="ev"><span style="width:23px;height:23px;border-radius:50%;background:#FBFAF7;border:1.5px solid #B9B5AB;position:relative"></span><div><div style="font-weight:500">Recolectado por Rapedido</div><div style="font-size:14px;color:#6B727B">Guía RPD-4471902 registrada.</div></div><span class="mono" style="font-size:12.5px;color:#6B727B;text-align:right">15 sep · 16:30</span></div>
+        <div class="ev"><span style="width:23px;height:23px;border-radius:50%;background:#FBFAF7;border:1.5px solid #B9B5AB;position:relative"></span><div><div style="font-weight:500">Empacado y guía generada</div><div style="font-size:14px;color:#6B727B">Se verificaron los 2 productos y se selló el paquete.</div></div><span class="mono" style="font-size:12.5px;color:#6B727B;text-align:right">15 sep · 14:05</span></div>
+        <div class="ev"><span style="width:23px;height:23px;border-radius:50%;background:#FBFAF7;border:1.5px solid #B9B5AB;position:relative"></span><div><div style="font-weight:500">Pedido en preparación</div><div style="font-size:14px;color:#6B727B">Existencias confirmadas en bodega.</div></div><span class="mono" style="font-size:12.5px;color:#6B727B;text-align:right">15 sep · 10:44</span></div>
+        <div class="ev" style="padding-bottom:0"><span style="width:23px;height:23px;border-radius:50%;background:#FBFAF7;border:1.5px solid #B9B5AB;position:relative"></span><div><div style="font-weight:500">Pago confirmado</div><div style="font-size:14px;color:#6B727B">Tarjeta procesada por Tilopay · Autorización 123456.</div></div><span class="mono" style="font-size:12.5px;color:#6B727B;text-align:right">15 sep · 10:42</span></div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card" style="padding:26px">
+        <div style="font-size:17px;font-weight:500;margin-bottom:16px">Productos</div>
+        <div style="display:flex;gap:14px;align-items:center;padding-bottom:14px;border-bottom:1px solid #E2DFD8">
+          <div style="width:60px;height:60px;border-radius:9px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="50" height="34"><rect x="62" y="28" width="196" height="132" rx="8" fill="#1E252E"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="#2C4A60"></rect><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="#A9AEB4"></path></svg></div>
+          <div style="flex:1"><div style="font-size:14.5px;font-weight:500">ThinkPad E14 Gen 6</div><div style="font-size:13px;color:#6B727B">1 unidad</div></div>
+          <span style="font-size:14.5px">₡489 900</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;padding-top:14px">
+          <div style="width:60px;height:60px;border-radius:9px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="50" height="34"><rect x="40" y="16" width="240" height="150" rx="6" fill="#161B22"></rect><rect x="46" y="22" width="228" height="134" rx="2" fill="#2C4A60"></rect><rect x="108" y="180" width="104" height="12" rx="6" fill="#868C93"></rect></svg></div>
+          <div style="flex:1"><div style="font-size:14.5px;font-weight:500">Monitor Dell P2425H 24"</div><div style="font-size:13px;color:#6B727B">1 unidad</div></div>
+          <span style="font-size:14.5px">₡109 500</span>
+        </div>
+      </div>
+
+      <div class="card" style="padding:26px;display:flex;flex-direction:column;gap:14px">
+        <div style="font-size:17px;font-weight:500">Facturación</div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:#6B727B">Empresa</span><span>Consultores Andinos S.A.</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:#6B727B">Cédula jurídica</span><span class="mono">3-101-123456</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:#6B727B">Factura electrónica</span><span style="color:#2E7D5B">Emitida</span></div>
+      </div>
+
+      <div style="display:flex;gap:14px;padding:20px 22px;border-radius:14px;background:#EEF3F6;border:1px solid #D3DFE7">
+        <svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg>
+        <span style="font-size:14px;color:#3E4652">Le avisaremos por correo a <span style="font-weight:500">mfrojas@consultoresandinos.cr</span> en cada cambio de estado.</span>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+</body>
+</html>

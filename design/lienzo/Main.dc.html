@@ -1,0 +1,381 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F3EF;color:#121820;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:#2B5F82;text-decoration:none}
+a:hover{color:#1E4863}
+h1,h2,h3,h4,p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(255,255,255,.55));-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px -24px rgba(18,24,32,.35)}
+.glass-dark{background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.035));-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 30px 60px -30px rgba(0,0,0,.65)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:10px;font-size:15px;font-weight:500;white-space:nowrap}
+.tag-prov{display:inline-flex;align-items:center;height:20px;padding:0 7px;border:1px dashed #C27A2C;border-radius:4px;background:rgba(194,122,44,.12);color:#9C5F1E;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B727B}
+.card{background:#FBFAF7;border:1px solid #E2DFD8;border-radius:14px}
+</style>
+</helmet>
+<div style="width:1440px;background:#F4F3EF">
+
+  <!-- HERO -->
+  <section style="position:relative;background:#0E151D;color:#E9ECEF;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(900px 560px at 76% 42%, rgba(74,128,166,.32), transparent 70%), radial-gradient(640px 420px at 6% 104%, rgba(140,156,172,.14), transparent 70%)"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);background-size:72px 72px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 30%,#000 72%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 30%,#000 72%,transparent 100%)"></div>
+
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:center;height:40px;padding:0 56px;font-size:12.5px;color:rgba(233,236,239,.7);border-bottom:1px solid rgba(255,255,255,.08)">
+      <div style="display:flex;gap:28px">
+        <span>Entrega en todo Costa Rica en 24–48 h</span>
+        <span>Factura electrónica para empresas</span>
+        <span>Pago seguro con Tilopay y SINPE Móvil</span>
+      </div>
+      <div style="display:flex;gap:24px">
+        <span>Soporte: [TELÉFONO]</span>
+        <span>Seguir mi pedido</span>
+      </div>
+    </div>
+
+    <header class="glass-dark" style="position:relative;display:flex;align-items:center;gap:32px;height:66px;margin:16px 40px 0;padding:0 16px 0 20px;border-radius:14px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#F4F3EF"></rect><path d="M9 10L15 21L21 10" stroke="#121820" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#121820"></circle><circle cx="21" cy="10" r="2.6" fill="#121820"></circle><circle cx="15" cy="21" r="2.6" fill="#2B5F82"></circle></svg>
+        <span style="font-size:21px;font-weight:600;letter-spacing:-.02em;color:#FFFFFF">Nodal</span>
+        <span class="tag-prov" style="color:#E6B278;border-color:#C98B45;background:rgba(201,139,69,.14)">Nombre provisional</span>
+      </div>
+      <div style="flex:1;min-width:0;max-width:430px;display:flex;align-items:center;gap:10px;height:42px;padding:0 14px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(0,0,0,.22);color:rgba(233,236,239,.55);font-size:14px">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+        <span>Buscar por producto, marca o número de parte</span>
+      </div>
+      <nav style="display:flex;gap:26px;font-size:14.5px;color:rgba(233,236,239,.82)">
+        <span>Catálogo</span><span>Empresas</span><span>Marcas</span><span>Seguir pedido</span>
+      </nav>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+        <div class="mono" style="display:flex;border:1px solid rgba(255,255,255,.18);border-radius:8px;overflow:hidden;font-size:12px">
+          <span style="padding:5px 9px;background:#F4F3EF;color:#121820">CRC ₡</span><span style="padding:5px 9px;color:rgba(233,236,239,.75)">USD $</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(233,236,239,.85)">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"></path></svg>
+          <span>Mi cuenta</span>
+        </div>
+        <div style="position:relative;display:flex;color:#FFFFFF">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3.5 4.5h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.1l1.6-6.3H6.6"></path><circle cx="10" cy="19.5" r="1.2"></circle><circle cx="17" cy="19.5" r="1.2"></circle></svg>
+          <span class="mono" style="position:absolute;top:-7px;right:-9px;min-width:18px;height:18px;border-radius:9px;background:#4A87B0;color:#FFFFFF;font-size:11px;display:flex;align-items:center;justify-content:center">2</span>
+        </div>
+      </div>
+    </header>
+
+    <div style="position:relative;display:grid;grid-template-columns:minmax(0, 1.02fr) minmax(0, .98fr);gap:64px;align-items:center;padding:80px 56px 150px">
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;height:32px;padding:0 14px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(255,255,255,.04);font-size:13px;color:rgba(233,236,239,.8)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#5FB58A;box-shadow:0 0 0 4px rgba(95,181,138,.18)"></span>
+          <span>Inventario sincronizado en tiempo real</span>
+        </div>
+        <h1 style="font-size:62px;font-weight:400;line-height:1.05;letter-spacing:-.028em;color:#FFFFFF;text-wrap:balance">Tecnología para su empresa, <span style="color:rgba(233,236,239,.5)">entregada en 24 a 48 horas.</span></h1>
+        <p style="max-width:560px;font-size:18px;line-height:1.6;color:rgba(233,236,239,.72)">Computadoras, redes, impresión, seguridad y energía de más de 190 marcas, con existencias verificadas al momento de su compra y factura electrónica a nombre de su empresa.</p>
+        <div style="display:flex;gap:12px;margin-top:4px">
+          <span class="btn" style="background:#F4F3EF;color:#121820">Explorar catálogo <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          <span class="btn" style="border:1px solid rgba(255,255,255,.22);color:#FFFFFF">Solicitar cotización empresarial</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:18px;font-size:12.5px;color:rgba(233,236,239,.5)">
+          <span>Aceptamos</span>
+          <div class="mono" style="display:flex;gap:8px;font-size:11.5px;color:rgba(233,236,239,.78)">
+            <span style="padding:4px 8px;border:1px solid rgba(255,255,255,.14);border-radius:5px">VISA</span>
+            <span style="padding:4px 8px;border:1px solid rgba(255,255,255,.14);border-radius:5px">MASTERCARD</span>
+            <span style="padding:4px 8px;border:1px solid rgba(255,255,255,.14);border-radius:5px">AMEX</span>
+            <span style="padding:4px 8px;border:1px solid rgba(255,255,255,.14);border-radius:5px">SINPE MÓVIL</span>
+            <span style="padding:4px 8px;border:1px solid rgba(255,255,255,.14);border-radius:5px">TASA CERO BAC</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;height:520px">
+        <div class="glass-dark" style="position:absolute;top:0;right:0;left:48px;bottom:24px;border-radius:22px;padding:26px 28px;display:flex;flex-direction:column">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="mono" style="font-size:11.5px;letter-spacing:.12em;color:rgba(233,236,239,.6)">DESTACADO PARA OFICINA</span>
+            <span class="mono" style="font-size:12px;letter-spacing:.14em;color:rgba(233,236,239,.85)">LENOVO</span>
+          </div>
+          <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative">
+            <div style="position:absolute;width:360px;height:360px;border-radius:50%;border:1px solid rgba(255,255,255,.07)"></div>
+            <div style="position:absolute;width:250px;height:250px;border-radius:50%;border:1px solid rgba(255,255,255,.06)"></div>
+            <svg viewBox="0 0 320 220" width="400" height="275" style="position:relative;filter:drop-shadow(0 30px 30px rgba(0,0,0,.55))"><defs><linearGradient id="lpS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A313B"></stop><stop offset="1" stop-color="#151A21"></stop></linearGradient><linearGradient id="lpB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CDD1D6"></stop><stop offset="1" stop-color="#8E949B"></stop></linearGradient><linearGradient id="lpG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A80A6"></stop><stop offset=".55" stop-color="#18222D"></stop><stop offset="1" stop-color="#101820"></stop></linearGradient></defs><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#7C8289"></rect></svg>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px">
+            <div>
+              <div style="font-size:22px;font-weight:500;color:#FFFFFF">ThinkPad E14 Gen 6</div>
+              <div style="font-size:13.5px;color:rgba(233,236,239,.6)">Intel Core Ultra 5 · 16 GB · SSD 512 GB</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:26px;font-weight:500;color:#FFFFFF;letter-spacing:-.01em">₡489 900</div>
+              <div style="font-size:12px;color:rgba(233,236,239,.55)">IVA incluido</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-dark" style="position:absolute;top:64px;left:0;display:flex;flex-direction:column;gap:2px;padding:14px 18px;border-radius:12px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#FFFFFF">
+            <span style="width:7px;height:7px;border-radius:50%;background:#5FB58A"></span>
+            <span>En stock · 34 unidades</span>
+          </div>
+          <span class="mono" style="font-size:11.5px;color:rgba(233,236,239,.55)">Sincronizado hace 4 min</span>
+        </div>
+
+        <div class="glass-dark" style="position:absolute;bottom:0;left:-8px;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px">
+          <span style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.1);color:#FFFFFF">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6H14"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>
+          </span>
+          <div>
+            <div style="font-size:14px;color:#FFFFFF">Llega el jueves 17 de septiembre</div>
+            <div style="font-size:12px;color:rgba(233,236,239,.55)">Envío con Rapedido · San José</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP (glass over the edge) -->
+  <div style="position:relative;padding:0 56px;margin-top:-64px">
+    <div class="glass" style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));border-radius:16px;padding:8px">
+      <div style="display:flex;gap:14px;padding:22px 24px">
+        <svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px;color:#2B5F82"><rect x="5" y="10.5" width="14" height="10" rx="2"></rect><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"></path></svg>
+        <div><div style="font-weight:500">Pago seguro</div><div style="font-size:13.5px;color:#5E6570">Tarjeta con Tilopay, SINPE Móvil o Tasa Cero BAC.</div></div>
+      </div>
+      <div style="display:flex;gap:14px;padding:22px 24px;border-left:1px solid #E2DFD8">
+        <svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px;color:#2B5F82"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6M9 16h3"></path></svg>
+        <div><div style="font-weight:500">Factura electrónica</div><div style="font-size:13.5px;color:#5E6570">Emitida a nombre de su empresa con cédula jurídica.</div></div>
+      </div>
+      <div style="display:flex;gap:14px;padding:22px 24px;border-left:1px solid #E2DFD8">
+        <svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px;color:#2B5F82"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6H14"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>
+        <div><div style="font-weight:500">Entrega en 24–48 h</div><div style="font-size:13.5px;color:#5E6570">Rapedido lleva su pedido con número de guía.</div></div>
+      </div>
+      <div style="display:flex;gap:14px;padding:22px 24px;border-left:1px solid #E2DFD8">
+        <svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px;color:#2B5F82"><path d="M12 3l7 3v5.5c0 4.4-3 8.3-7 9.5-4-1.2-7-5.1-7-9.5V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        <div><div style="font-weight:500">Garantía de fábrica</div><div style="font-size:13.5px;color:#5E6570">Productos nuevos, sellados y con respaldo del fabricante.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section style="padding:112px 56px 0">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span class="eyebrow">Catálogo</span>
+        <h2 style="font-size:40px;font-weight:400;letter-spacing:-.022em;line-height:1.1">Explore por categoría</h2>
+      </div>
+      <a style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500">Ver todas las categorías <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px">
+      <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:28px;height:200px">
+        <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:11px;background:#ECEAE4;color:#121820"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><rect x="5" y="5" width="14" height="10" rx="1.5"></rect><path d="M3 18.5h18"></path></svg></span>
+        <div style="flex:1"><div style="font-size:20px;font-weight:500;letter-spacing:-.01em">Computadoras y laptops</div><div style="font-size:14px;color:#6B727B;margin-top:4px">Laptops · Escritorio · Todo en uno · Estaciones de trabajo</div></div>
+        <svg class="icon" viewBox="0 0 24 24" style="align-self:flex-end;color:#8A9098"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:28px;height:200px">
+        <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:11px;background:#ECEAE4;color:#121820"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><rect x="3.5" y="4.5" width="17" height="11" rx="1.5"></rect><path d="M9 20h6M12 15.5V20"></path></svg></span>
+        <div style="flex:1"><div style="font-size:20px;font-weight:500;letter-spacing:-.01em">Monitores y proyección</div><div style="font-size:14px;color:#6B727B;margin-top:4px">Monitores · Proyectores · Pantallas profesionales</div></div>
+        <svg class="icon" viewBox="0 0 24 24" style="align-self:flex-end;color:#8A9098"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:28px;height:200px">
+        <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:11px;background:#ECEAE4;color:#121820"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><circle cx="12" cy="5" r="2"></circle><circle cx="5" cy="19" r="2"></circle><circle cx="19" cy="19" r="2"></circle><path d="M12 7v5M12 12l-6 5.5M12 12l6 5.5"></path></svg></span>
+        <div style="flex:1"><div style="font-size:20px;font-weight:500;letter-spacing:-.01em">Redes y conectividad</div><div style="font-size:14px;color:#6B727B;margin-top:4px">Routers · Switches · Access points · Cableado</div></div>
+        <svg class="icon" viewBox="0 0 24 24" style="align-self:flex-end;color:#8A9098"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:28px;height:200px">
+        <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:11px;background:#ECEAE4;color:#121820"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M7 9V4h10v5"></path><rect x="4" y="9" width="16" height="7" rx="1.5"></rect><path d="M7 14h10v6H7z"></path></svg></span>
+        <div style="flex:1"><div style="font-size:20px;font-weight:500;letter-spacing:-.01em">Impresión y punto de venta</div><div style="font-size:14px;color:#6B727B;margin-top:4px">Impresoras · Multifuncionales · Lectores · Consumibles</div></div>
+        <svg class="icon" viewBox="0 0 24 24" style="align-self:flex-end;color:#8A9098"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:28px;height:200px">
+        <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:11px;background:#ECEAE4;color:#121820"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M3 7l12-3 1.5 6L4.5 13z"></path><path d="M16 8.5l4-1v5l-4 .5M8 12.5V20M5 20h6"></path></svg></span>
+        <div style="flex:1"><div style="font-size:20px;font-weight:500;letter-spacing:-.01em">Seguridad y videovigilancia</div><div style="font-size:14px;color:#6B727B;margin-top:4px">Cámaras · Control de acceso · Alarmas · Biométricos</div></div>
+        <svg class="icon" viewBox="0 0 24 24" style="align-self:flex-end;color:#8A9098"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:28px;height:200px">
+        <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:11px;background:#ECEAE4;color:#121820"><svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M13 3L5 13.5h6L10 21l9-11h-6z"></path></svg></span>
+        <div style="flex:1"><div style="font-size:20px;font-weight:500;letter-spacing:-.01em">Energía y respaldo</div><div style="font-size:14px;color:#6B727B;margin-top:4px">UPS · Reguladores · Paneles solares · Baterías</div></div>
+        <svg class="icon" viewBox="0 0 24 24" style="align-self:flex-end;color:#8A9098"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section style="padding:112px 56px 0">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span class="eyebrow">Destacados</span>
+        <h2 style="font-size:40px;font-weight:400;letter-spacing:-.022em;line-height:1.1">Lo más solicitado por empresas</h2>
+      </div>
+      <div style="display:flex;gap:4px;padding:4px;border:1px solid #E2DFD8;border-radius:10px;background:#FBFAF7;font-size:14px">
+        <span style="padding:7px 16px;border-radius:7px;background:#121820;color:#FFFFFF">Oficina</span>
+        <span style="padding:7px 16px;border-radius:7px;color:#3E4652">Redes</span>
+        <span style="padding:7px 16px;border-radius:7px;color:#3E4652">Impresión</span>
+        <span style="padding:7px 16px;border-radius:7px;color:#3E4652">Energía</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:20px">
+
+      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+        <div style="position:relative;height:230px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+          <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+          <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#7C8289"></rect></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+          <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">LENOVO</span>
+          <span style="font-size:17px;font-weight:500;line-height:1.3">ThinkPad E14 Gen 6</span>
+          <span style="font-size:13.5px;color:#6B727B">Intel Core Ultra 5, 16 GB, SSD 512 GB</span>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px"><span style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡489 900</span><span style="font-size:12px;color:#6B727B">IVA incl.</span></div>
+          <span class="btn" style="height:42px;margin-top:12px;border:1px solid #CFCBC1;color:#121820;font-size:14px">Agregar al carrito</span>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+        <div style="position:relative;height:230px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+          <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+          <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><defs><linearGradient id="mnG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A7FA3"></stop><stop offset=".6" stop-color="#1A2530"></stop><stop offset="1" stop-color="#111820"></stop></linearGradient></defs><rect x="40" y="16" width="240" height="150" rx="6" fill="#161B22"></rect><rect x="46" y="22" width="228" height="134" rx="2" fill="url(#mnG)"></rect><path d="M46 22h110L96 156H46z" fill="#FFFFFF" opacity=".05"></path><path d="M148 166h24l7 28h-38z" fill="#A3A8AE"></path><rect x="108" y="192" width="104" height="9" rx="4.5" fill="#868C93"></rect></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+          <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">DELL</span>
+          <span style="font-size:17px;font-weight:500;line-height:1.3">Monitor P2425H de 24"</span>
+          <span style="font-size:13.5px;color:#6B727B">Full HD IPS, USB-C, altura ajustable</span>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px"><span style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡109 500</span><span style="font-size:12px;color:#6B727B">IVA incl.</span></div>
+          <span class="btn" style="height:42px;margin-top:12px;border:1px solid #CFCBC1;color:#121820;font-size:14px">Agregar al carrito</span>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+        <div style="position:relative;height:230px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+          <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#B7791F"><span style="width:6px;height:6px;border-radius:50%;background:#B7791F"></span>Pocas unidades</span>
+          <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="96" y="30" width="9" height="92" rx="4.5" fill="#2B323B" transform="rotate(-12 100 120)"></rect><rect x="215" y="30" width="9" height="92" rx="4.5" fill="#2B323B" transform="rotate(12 220 120)"></rect><rect x="156" y="22" width="9" height="98" rx="4.5" fill="#2B323B"></rect><path d="M62 128 Q62 116 76 116 H244 Q258 116 258 128 V168 Q258 180 244 180 H76 Q62 180 62 168Z" fill="#1A2027"></path><path d="M62 128 Q62 116 76 116 H244 Q258 116 258 128 V134 H62Z" fill="#2A313A"></path><circle cx="92" cy="156" r="3" fill="#5FB58A"></circle><circle cx="106" cy="156" r="3" fill="#5FB58A"></circle><circle cx="120" cy="156" r="3" fill="#6F9FC2"></circle><rect x="170" y="150" width="70" height="12" rx="2" fill="#10151B"></rect></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+          <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">ASUS</span>
+          <span style="font-size:17px;font-weight:500;line-height:1.3">Router Wi-Fi 6 RT-AX58U</span>
+          <span style="font-size:13.5px;color:#6B727B">Doble banda AX3000, VPN, control parental</span>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px"><span style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡84 900</span><span style="font-size:12px;color:#6B727B">IVA incl.</span></div>
+          <span class="btn" style="height:42px;margin-top:12px;border:1px solid #CFCBC1;color:#121820;font-size:14px">Agregar al carrito</span>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+        <div style="position:relative;height:230px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+          <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+          <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="104" y="30" width="112" height="58" rx="3" fill="#FAF9F6" stroke="#D5D1C8"></rect><path d="M70 92 Q70 80 82 80 H238 Q250 80 250 92 V166 Q250 176 240 176 H80 Q70 176 70 166Z" fill="#2A3038"></path><path d="M70 92 Q70 80 82 80 H238 Q250 80 250 92 V104 H70Z" fill="#3A414A"></path><rect x="92" y="148" width="136" height="16" rx="3" fill="#161B21"></rect><rect x="190" y="112" width="40" height="18" rx="3" fill="#10151A"></rect><circle cx="102" cy="121" r="4" fill="#6F9FC2"></circle><rect x="84" y="176" width="152" height="18" rx="3" fill="#D9D6CE"></rect></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+          <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">EPSON</span>
+          <span style="font-size:17px;font-weight:500;line-height:1.3">Multifuncional EcoTank L3250</span>
+          <span style="font-size:13.5px;color:#6B727B">Tinta continua, Wi-Fi, impresión a color</span>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px"><span style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡139 900</span><span style="font-size:12px;color:#6B727B">IVA incl.</span></div>
+          <span class="btn" style="height:42px;margin-top:12px;border:1px solid #CFCBC1;color:#121820;font-size:14px">Agregar al carrito</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section style="margin:112px 56px 0;padding:36px 0;border-top:1px solid #DEDBD3;border-bottom:1px solid #DEDBD3;display:grid;grid-template-columns:260px minmax(0, 1fr);align-items:center;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span class="eyebrow">Marcas oficiales</span>
+      <span style="font-size:15px;color:#3E4652">Más de 190 marcas con garantía del fabricante</span>
+    </div>
+    <div class="mono" style="display:grid;grid-template-columns:repeat(9, minmax(0, 1fr));gap:12px;font-size:15px;font-weight:500;letter-spacing:.16em;color:#8A9098;text-align:center">
+      <span>LENOVO</span><span>DELL</span><span>HP</span><span>ASUS</span><span>KINGSTON</span><span>CANON</span><span>EPSON</span><span>CORSAIR</span><span>NVIDIA</span>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="padding:112px 56px 0">
+    <div style="display:grid;grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr);gap:64px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2 style="font-size:40px;font-weight:400;letter-spacing:-.022em;line-height:1.1">Así llega su pedido</h2>
+        <p style="font-size:17px;color:#5E6570;max-width:420px">Usted compra en línea; nosotros coordinamos la preparación, el despacho y la entrega, y le notificamos cada cambio de estado.</p>
+        <span style="font-size:13px;color:#8A9098;margin-top:8px">Tiempos estimados; dependen de la zona y del horario de corte.</span>
+      </div>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px">
+        <div style="position:absolute;top:33px;left:40px;right:40px;height:1px;background:repeating-linear-gradient(90deg,#B9B5AB 0 6px,transparent 6px 12px)"></div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:14px">
+          <span class="glass mono" style="display:flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;font-size:16px;font-weight:500;color:#121820">01</span>
+          <div style="font-size:18px;font-weight:500">Compra y pago</div>
+          <p style="font-size:14.5px;color:#5E6570">Elija sus productos y pague con tarjeta, SINPE Móvil o Tasa Cero. La confirmación llega al instante.</p>
+          <span class="mono" style="align-self:flex-start;padding:4px 9px;border-radius:6px;background:#E6E3DC;font-size:12px;color:#3E4652">Inmediato</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:14px">
+          <span class="glass mono" style="display:flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;font-size:16px;font-weight:500;color:#121820">02</span>
+          <div style="font-size:18px;font-weight:500">Preparación y despacho</div>
+          <p style="font-size:14.5px;color:#5E6570">Verificamos existencias, se empaca su pedido y se genera la guía de envío con Rapedido.</p>
+          <span class="mono" style="align-self:flex-start;padding:4px 9px;border-radius:6px;background:#E6E3DC;font-size:12px;color:#3E4652">2–6 horas</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:14px">
+          <span class="mono" style="display:flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;font-size:16px;font-weight:500;background:#121820;color:#FFFFFF">03</span>
+          <div style="font-size:18px;font-weight:500">Entrega en su puerta</div>
+          <p style="font-size:14.5px;color:#5E6570">Rapedido entrega en su oficina o domicilio, y usted sigue cada estado en línea.</p>
+          <span class="mono" style="align-self:flex-start;padding:4px 9px;border-radius:6px;background:#D8E4EC;font-size:12px;color:#1E4863">24–48 horas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS -->
+  <section style="padding:112px 56px 0">
+    <div style="position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:64px;align-items:center;padding:64px;border-radius:22px;background:#0E151D;color:#E9ECEF">
+      <div style="position:absolute;inset:0;background:radial-gradient(620px 420px at 88% 30%, rgba(74,128,166,.3), transparent 70%)"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:20px">
+        <span class="mono" style="font-size:12px;letter-spacing:.12em;color:rgba(233,236,239,.55)">NODAL EMPRESAS</span>
+        <h2 style="font-size:40px;font-weight:400;letter-spacing:-.022em;line-height:1.12;color:#FFFFFF">Compras tecnológicas para equipos de trabajo, sin complicaciones.</h2>
+        <p style="font-size:17px;color:rgba(233,236,239,.7);max-width:500px">Cotice por volumen, reciba factura electrónica a nombre de su empresa y mantenga el historial de compras de toda su organización en una sola cuenta.</p>
+        <div style="display:flex;gap:12px;margin-top:8px">
+          <span class="btn" style="background:#F4F3EF;color:#121820">Crear cuenta empresarial</span>
+          <span class="btn" style="border:1px solid rgba(255,255,255,.22);color:#FFFFFF">Hablar con un ejecutivo</span>
+        </div>
+      </div>
+      <div class="glass-dark" style="position:relative;border-radius:16px;padding:26px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+          <div><div style="font-size:16px;font-weight:500;color:#FFFFFF">Cotización</div><div class="mono" style="font-size:12px;color:rgba(233,236,239,.55)">COT-0412 · Consultores Andinos S.A.</div></div>
+          <span style="padding:4px 10px;border-radius:6px;background:rgba(95,181,138,.16);color:#8FD1AE;font-size:12px">Vigente 15 días</span>
+        </div>
+        <div style="display:flex;flex-direction:column;font-size:14px">
+          <div style="display:grid;grid-template-columns:48px minmax(0, 1fr) 120px;padding:11px 0;border-top:1px solid rgba(255,255,255,.1)"><span class="mono" style="color:rgba(233,236,239,.6)">12 ×</span><span style="color:#FFFFFF">ThinkPad E14 Gen 6</span><span class="mono" style="text-align:right;color:#FFFFFF">₡5 878 800</span></div>
+          <div style="display:grid;grid-template-columns:48px minmax(0, 1fr) 120px;padding:11px 0;border-top:1px solid rgba(255,255,255,.1)"><span class="mono" style="color:rgba(233,236,239,.6)">12 ×</span><span style="color:#FFFFFF">Monitor Dell P2425H</span><span class="mono" style="text-align:right;color:#FFFFFF">₡1 314 000</span></div>
+          <div style="display:grid;grid-template-columns:48px minmax(0, 1fr) 120px;padding:11px 0;border-top:1px solid rgba(255,255,255,.1)"><span class="mono" style="color:rgba(233,236,239,.6)">2 ×</span><span style="color:#FFFFFF">Epson EcoTank L3250</span><span class="mono" style="text-align:right;color:#FFFFFF">₡279 800</span></div>
+          <div style="display:grid;grid-template-columns:minmax(0, 1fr) 160px;padding:14px 0 0;border-top:1px solid rgba(255,255,255,.2);align-items:baseline"><span style="color:rgba(233,236,239,.7)">Total con IVA</span><span style="text-align:right;font-size:22px;font-weight:500;color:#FFFFFF">₡7 472 600</span></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:22px">
+          <span class="btn" style="flex:1;height:42px;font-size:14px;border:1px solid rgba(255,255,255,.2);color:#FFFFFF">Descargar PDF</span>
+          <span class="btn" style="flex:1;height:42px;font-size:14px;background:#4A87B0;color:#FFFFFF">Convertir en pedido</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:112px;padding:64px 56px 32px;background:#EAE8E2;border-top:1px solid #DEDBD3">
+    <div style="display:grid;grid-template-columns:minmax(0, 1.4fr) repeat(4, minmax(0, 1fr));gap:40px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg width="28" height="28" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#121820"></rect><path d="M9 10L15 21L21 10" stroke="#FFFFFF" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="21" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="15" cy="21" r="2.6" fill="#7FB0CF"></circle></svg>
+          <span style="font-size:19px;font-weight:600;letter-spacing:-.02em">Nodal</span>
+          <span class="tag-prov">Nombre provisional</span>
+        </div>
+        <p style="font-size:14px;color:#5E6570;max-width:300px">Tecnología para empresas y hogares, con entrega en todo Costa Rica.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#3E4652"><span class="eyebrow" style="margin-bottom:6px">Catálogo</span><span>Computadoras</span><span>Monitores</span><span>Redes</span><span>Impresión</span><span>Seguridad</span><span>Energía</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#3E4652"><span class="eyebrow" style="margin-bottom:6px">Clientes</span><span>Seguir mi pedido</span><span>Envíos y entregas</span><span>Garantías</span><span>Devoluciones</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#3E4652"><span class="eyebrow" style="margin-bottom:6px">Empresas</span><span>Cuenta empresarial</span><span>Cotizaciones</span><span>Factura electrónica</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#3E4652"><span class="eyebrow" style="margin-bottom:6px">Contacto</span><span>[TELÉFONO]</span><span>[CORREO]</span><span>[DIRECCIÓN]</span></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:56px;padding-top:22px;border-top:1px solid #D6D3CB;font-size:13px;color:#6B727B">
+      <span>© 2026 [RAZÓN SOCIAL] · Términos y condiciones · Privacidad</span>
+      <span>Pagos procesados por Tilopay</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

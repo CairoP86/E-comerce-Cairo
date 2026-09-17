@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F3EF;color:#121820;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:#2B5F82;text-decoration:none}
+a:hover{color:#1E4863}
+h1,h2,h3,h4,p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(255,255,255,.55));-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px -24px rgba(18,24,32,.35)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:10px;font-size:15px;font-weight:500;white-space:nowrap}
+.tag-prov{display:inline-flex;align-items:center;height:20px;padding:0 7px;border:1px dashed #C27A2C;border-radius:4px;background:rgba(194,122,44,.12);color:#9C5F1E;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B727B}
+.card{background:#FBFAF7;border:1px solid #E2DFD8;border-radius:14px}
+.check{display:flex;align-items:center;gap:10px;font-size:14px;color:#3E4652}
+.box{width:18px;height:18px;border:1.5px solid #B9B5AB;border-radius:4px;background:#FFFFFF;flex:none}
+.box-on{width:18px;height:18px;border-radius:4px;background:#121820;flex:none;display:flex;align-items:center;justify-content:center;color:#FFFFFF}
+.count{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:12px;color:#8A9098}
+</style>
+</helmet>
+<div style="width:1440px;min-height:1600px;background:#F4F3EF">
+
+  <header style="display:flex;align-items:center;gap:32px;height:76px;padding:0 56px;background:#FBFAF7;border-bottom:1px solid #E2DFD8">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#121820"></rect><path d="M9 10L15 21L21 10" stroke="#FFFFFF" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="21" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="15" cy="21" r="2.6" fill="#7FB0CF"></circle></svg>
+      <span style="font-size:21px;font-weight:600;letter-spacing:-.02em">Nodal</span>
+      <span class="tag-prov">Nombre provisional</span>
+    </div>
+    <div style="flex:1;min-width:0;max-width:430px;display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #D9D5CC;border-radius:10px;background:#FFFFFF;color:#80868D;font-size:14px">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+      <span>Buscar por producto, marca o número de parte</span>
+    </div>
+    <nav style="display:flex;gap:26px;font-size:14.5px;color:#3E4652">
+      <span style="color:#121820;font-weight:500">Catálogo</span><span>Empresas</span><span>Marcas</span><span>Seguir pedido</span>
+    </nav>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+      <div class="mono" style="display:flex;border:1px solid #D9D5CC;border-radius:8px;overflow:hidden;font-size:12px"><span style="padding:5px 9px;background:#121820;color:#FFFFFF">CRC ₡</span><span style="padding:5px 9px;color:#3E4652">USD $</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#3E4652"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"></path></svg><span>Mi cuenta</span></div>
+      <div style="position:relative;display:flex"><svg class="icon" viewBox="0 0 24 24"><path d="M3.5 4.5h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.1l1.6-6.3H6.6"></path><circle cx="10" cy="19.5" r="1.2"></circle><circle cx="17" cy="19.5" r="1.2"></circle></svg><span class="mono" style="position:absolute;top:-7px;right:-9px;min-width:18px;height:18px;border-radius:9px;background:#2B5F82;color:#FFFFFF;font-size:11px;display:flex;align-items:center;justify-content:center">2</span></div>
+    </div>
+  </header>
+
+  <div style="position:relative;padding:32px 56px 40px;background:radial-gradient(700px 260px at 85% 0%, rgba(43,95,130,.10), transparent 70%)">
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6B727B">
+      <span>Inicio</span><span>/</span><span>Computadoras y laptops</span><span>/</span><span style="color:#121820">Laptops</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:22px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h1 style="font-size:44px;font-weight:400;letter-spacing:-.025em;line-height:1.1">Laptops</h1>
+        <p style="font-size:16px;color:#5E6570">Equipos nuevos con garantía de fábrica y existencias actualizadas en tiempo real.</p>
+      </div>
+      <div style="display:flex;gap:8px">
+        <span style="padding:8px 14px;border:1px solid #D9D5CC;border-radius:999px;font-size:13.5px;background:#FBFAF7">Para oficina</span>
+        <span style="padding:8px 14px;border:1px solid #D9D5CC;border-radius:999px;font-size:13.5px;background:#FBFAF7">Ultraligeras</span>
+        <span style="padding:8px 14px;border:1px solid #D9D5CC;border-radius:999px;font-size:13.5px;background:#FBFAF7">Estaciones de trabajo</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:290px minmax(0, 1fr);gap:32px;padding:0 56px 80px">
+
+    <aside class="glass" style="align-self:start;border-radius:16px;padding:8px 22px 22px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #E2DFD8">
+        <span style="display:flex;align-items:center;gap:8px;font-weight:500"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>Filtros</span>
+        <a style="font-size:13px">Limpiar</a>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;padding:18px 0;border-bottom:1px solid #E2DFD8">
+        <span class="eyebrow" style="font-size:11px">Disponibilidad</span>
+        <div class="check"><span style="width:34px;height:20px;border-radius:10px;background:#121820;position:relative;flex:none"><span style="position:absolute;top:3px;right:3px;width:14px;height:14px;border-radius:50%;background:#FFFFFF"></span></span>Solo productos en stock</div>
+        <div class="check"><span style="width:34px;height:20px;border-radius:10px;background:#D6D3CB;position:relative;flex:none"><span style="position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#FFFFFF"></span></span>Entrega en 24–48 h</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;padding:18px 0;border-bottom:1px solid #E2DFD8">
+        <span class="eyebrow" style="font-size:11px">Marca</span>
+        <div class="check"><span class="box"></span>Lenovo<span class="count">14</span></div>
+        <div class="check"><span class="box"></span>HP<span class="count">11</span></div>
+        <div class="check"><span class="box"></span>Dell<span class="count">9</span></div>
+        <div class="check"><span class="box"></span>ASUS<span class="count">8</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;padding:18px 0;border-bottom:1px solid #E2DFD8">
+        <span class="eyebrow" style="font-size:11px">Precio</span>
+        <div style="position:relative;height:18px">
+          <div style="position:absolute;top:8px;left:0;right:0;height:2px;background:#D6D3CB"></div>
+          <div style="position:absolute;top:8px;left:12%;right:28%;height:2px;background:#121820"></div>
+          <div style="position:absolute;top:1px;left:calc(12% - 8px);width:16px;height:16px;border-radius:50%;background:#FFFFFF;border:1.5px solid #121820"></div>
+          <div style="position:absolute;top:1px;left:calc(72% - 8px);width:16px;height:16px;border-radius:50%;background:#FFFFFF;border:1.5px solid #121820"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px">
+          <span class="mono" style="padding:8px 10px;border:1px solid #D9D5CC;border-radius:8px;background:#FFFFFF;font-size:12.5px">₡300 000</span>
+          <span class="mono" style="padding:8px 10px;border:1px solid #D9D5CC;border-radius:8px;background:#FFFFFF;font-size:12.5px">₡900 000</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;padding:18px 0;border-bottom:1px solid #E2DFD8">
+        <span class="eyebrow" style="font-size:11px">Procesador</span>
+        <div class="check"><span class="box"></span>Intel Core i5</div>
+        <div class="check"><span class="box"></span>Intel Core Ultra 5</div>
+        <div class="check"><span class="box"></span>Intel Core Ultra 7</div>
+        <div class="check"><span class="box"></span>AMD Ryzen 5</div>
+        <div class="check"><span class="box"></span>AMD Ryzen 7</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;padding:18px 0 4px">
+        <span class="eyebrow" style="font-size:11px">Memoria RAM</span>
+        <div style="display:flex;gap:8px">
+          <span style="padding:7px 12px;border:1px solid #D9D5CC;border-radius:8px;font-size:13.5px;background:#FFFFFF">8 GB</span>
+          <span style="padding:7px 12px;border:1px solid #121820;border-radius:8px;font-size:13.5px;background:#121820;color:#FFFFFF">16 GB</span>
+          <span style="padding:7px 12px;border:1px solid #D9D5CC;border-radius:8px;font-size:13.5px;background:#FFFFFF">32 GB</span>
+        </div>
+      </div>
+    </aside>
+
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px">
+          <span style="color:#3E4652"><span style="font-weight:500;color:#121820">42</span> productos</span>
+          <span style="width:1px;height:18px;background:#D6D3CB"></span>
+          <span style="display:flex;align-items:center;gap:6px;padding:5px 8px 5px 12px;border-radius:7px;background:#E6E3DC;font-size:13px">Solo en stock <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          <span style="display:flex;align-items:center;gap:6px;padding:5px 8px 5px 12px;border-radius:7px;background:#E6E3DC;font-size:13px">16 GB <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="display:flex;align-items:center;gap:10px;height:40px;padding:0 14px;border:1px solid #D9D5CC;border-radius:9px;background:#FBFAF7;font-size:14px">Ordenar: Más relevantes <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 9l6 6 6-6"></path></svg></span>
+          <div style="display:flex;border:1px solid #D9D5CC;border-radius:9px;overflow:hidden">
+            <span style="display:flex;align-items:center;justify-content:center;width:40px;height:38px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><rect x="4" y="4" width="7" height="7"></rect><rect x="13" y="4" width="7" height="7"></rect><rect x="4" y="13" width="7" height="7"></rect><rect x="13" y="13" width="7" height="7"></rect></svg></span>
+            <span style="display:flex;align-items:center;justify-content:center;width:40px;height:38px;color:#3E4652;background:#FBFAF7"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"></path></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px">
+
+        <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+          <div style="position:relative;height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+            <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+            <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><defs><linearGradient id="lpS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A313B"></stop><stop offset="1" stop-color="#151A21"></stop></linearGradient><linearGradient id="lpB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CDD1D6"></stop><stop offset="1" stop-color="#8E949B"></stop></linearGradient><linearGradient id="lpG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A80A6"></stop><stop offset=".55" stop-color="#18222D"></stop><stop offset="1" stop-color="#101820"></stop></linearGradient><linearGradient id="lpBs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4E6E9"></stop><stop offset="1" stop-color="#A9AEB4"></stop></linearGradient></defs><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#7C8289"></rect></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+            <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">LENOVO</span>
+            <span style="font-size:17px;font-weight:500;line-height:1.3">ThinkPad E14 Gen 6</span>
+            <span style="font-size:13.5px;color:#6B727B">Core Ultra 5 · 16 GB · SSD 512 GB · 14"</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+              <div><div style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡489 900</div><div style="font-size:12px;color:#6B727B">IVA incluido</div></div>
+              <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+          <div style="position:relative;height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+            <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+            <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="62" y="28" width="196" height="132" rx="8" fill="#B9BEC4"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpBs)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#8C9298"></rect></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+            <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">HP</span>
+            <span style="font-size:17px;font-weight:500;line-height:1.3">ProBook 440 G11</span>
+            <span style="font-size:13.5px;color:#6B727B">Core Ultra 5 · 16 GB · SSD 512 GB · 14"</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+              <div><div style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡524 500</div><div style="font-size:12px;color:#6B727B">IVA incluido</div></div>
+              <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+          <div style="position:relative;height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+            <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#B7791F"><span style="width:6px;height:6px;border-radius:50%;background:#B7791F"></span>Pocas unidades</span>
+            <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#7C8289"></rect></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+            <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">DELL</span>
+            <span style="font-size:17px;font-weight:500;line-height:1.3">Latitude 3450</span>
+            <span style="font-size:13.5px;color:#6B727B">Core i5 · 16 GB · SSD 512 GB · 14"</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+              <div><div style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡459 900</div><div style="font-size:12px;color:#6B727B">IVA incluido</div></div>
+              <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+          <div style="position:relative;height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+            <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+            <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="62" y="28" width="196" height="132" rx="8" fill="#3A4048"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="#5B6168"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#43484F"></rect></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+            <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">ASUS</span>
+            <span style="font-size:17px;font-weight:500;line-height:1.3">ExpertBook B1</span>
+            <span style="font-size:13.5px;color:#6B727B">Core i5 · 16 GB · SSD 512 GB · 15.6"</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+              <div><div style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡399 900</div><div style="font-size:12px;color:#6B727B">IVA incluido</div></div>
+              <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+          <div style="position:relative;height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+            <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+            <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#7C8289"></rect></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+            <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">LENOVO</span>
+            <span style="font-size:17px;font-weight:500;line-height:1.3">ThinkPad T14 Gen 5</span>
+            <span style="font-size:13.5px;color:#6B727B">Core Ultra 7 · 16 GB · SSD 1 TB · 14"</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+              <div><div style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡849 000</div><div style="font-size:12px;color:#6B727B">IVA incluido</div></div>
+              <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+          <div style="position:relative;height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 60% at 50% 45%, #FFFFFF 0%, #ECEAE4 75%)">
+            <span style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:12px;color:#2E7D5B"><span style="width:6px;height:6px;border-radius:50%;background:#2E7D5B"></span>En stock</span>
+            <svg viewBox="0 0 320 220" width="240" height="165" style="filter:drop-shadow(0 18px 16px rgba(18,24,32,.22))"><rect x="62" y="28" width="196" height="132" rx="8" fill="#B9BEC4"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpBs)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#8C9298"></rect></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1">
+            <span class="mono" style="font-size:11px;letter-spacing:.12em;color:#6B727B">HP</span>
+            <span style="font-size:17px;font-weight:500;line-height:1.3">EliteBook 640 G11</span>
+            <span style="font-size:13.5px;color:#6B727B">Core Ultra 7 · 16 GB · SSD 512 GB · 14"</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+              <div><div style="font-size:22px;font-weight:500;letter-spacing:-.01em">₡789 900</div><div style="font-size:12px;color:#6B727B">IVA incluido</div></div>
+              <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:18px">
+        <span style="font-size:13.5px;color:#6B727B">Mostrando 6 de 42 productos</span>
+        <div style="width:220px;height:2px;background:#DEDBD3;border-radius:2px"><div style="width:14%;height:2px;background:#121820;border-radius:2px"></div></div>
+        <span class="btn" style="margin-top:6px;border:1px solid #CFCBC1;color:#121820">Cargar más productos</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

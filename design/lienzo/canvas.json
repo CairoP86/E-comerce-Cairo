@@ -1,0 +1,16 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 4300, "title": "Inicio · Escritorio" },
+    { "file": "HomeMovil.dc.html", "x": 1560, "y": 0, "w": 390, "h": 3800, "title": "Inicio · Móvil" },
+    { "file": "ProductoMovil.dc.html", "x": 2030, "y": 0, "w": 390, "h": 2100, "title": "Producto · Móvil" },
+    { "file": "Catalogo.dc.html", "x": 2500, "y": 0, "w": 1440, "h": 1620, "title": "Catálogo con filtros" },
+    { "file": "Producto.dc.html", "x": 4020, "y": 0, "w": 1440, "h": 2180, "title": "Ficha de producto" },
+    { "file": "Checkout.dc.html", "x": 2500, "y": 1760, "w": 1440, "h": 1660, "title": "Carrito y pago" },
+    { "file": "Seguimiento.dc.html", "x": 4020, "y": 2320, "w": 1440, "h": 1320, "title": "Seguimiento del pedido" },
+    { "file": "Admin.dc.html", "x": 2500, "y": 3540, "w": 1440, "h": 1420, "title": "Panel de administración" }
+  ],
+  "annotations": [
+    { "id": "notas-lienzo", "x": -620, "y": 0, "w": 500, "text": "LIENZO · TIENDA EN LÍNEA CON INVENTARIO DE EUROCOMP\n\n• El nombre Nodal es provisional: va marcado en ámbar en cada pantalla para que lo reemplace.\n\n• Precios, existencias, especificaciones y nombres de clientes son de muestra. En producción vienen de la sincronización con Eurocomp.\n\n• De cara al cliente no se menciona al mayorista; Rapedido sí aparece como transportista.\n\n• Lo que está entre [CORCHETES] queda pendiente de que usted lo defina: teléfono, correo, dirección, razón social y los meses de Tasa Cero.\n\n• Son pantallas estáticas: sirven para aprobar el look y el contenido antes de programar." }
+  ],
+  "launch": { "view": "canvas" }
+}

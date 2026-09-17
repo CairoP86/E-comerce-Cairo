@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F3EF;color:#121820;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:#2B5F82;text-decoration:none}
+a:hover{color:#1E4863}
+h1,h2,h3,h4,p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(255,255,255,.55));-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px -24px rgba(18,24,32,.35)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:10px;font-size:15px;font-weight:500;white-space:nowrap}
+.tag-prov{display:inline-flex;align-items:center;height:20px;padding:0 7px;border:1px dashed #C27A2C;border-radius:4px;background:rgba(194,122,44,.12);color:#9C5F1E;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B727B}
+.card{background:#FBFAF7;border:1px solid #E2DFD8;border-radius:14px}
+.spec{display:grid;grid-template-columns:200px minmax(0, 1fr);padding:13px 0;border-bottom:1px solid #E2DFD8;font-size:14.5px}
+.spec span:first-child{color:#6B727B}
+</style>
+</helmet>
+<div style="width:1440px;min-height:2150px;background:#F4F3EF">
+
+  <header style="display:flex;align-items:center;gap:32px;height:76px;padding:0 56px;background:#FBFAF7;border-bottom:1px solid #E2DFD8">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#121820"></rect><path d="M9 10L15 21L21 10" stroke="#FFFFFF" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="21" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="15" cy="21" r="2.6" fill="#7FB0CF"></circle></svg>
+      <span style="font-size:21px;font-weight:600;letter-spacing:-.02em">Nodal</span>
+      <span class="tag-prov">Nombre provisional</span>
+    </div>
+    <div style="flex:1;min-width:0;max-width:430px;display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #D9D5CC;border-radius:10px;background:#FFFFFF;color:#80868D;font-size:14px">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+      <span>Buscar por producto, marca o número de parte</span>
+    </div>
+    <nav style="display:flex;gap:26px;font-size:14.5px;color:#3E4652">
+      <span style="color:#121820;font-weight:500">Catálogo</span><span>Empresas</span><span>Marcas</span><span>Seguir pedido</span>
+    </nav>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+      <div class="mono" style="display:flex;border:1px solid #D9D5CC;border-radius:8px;overflow:hidden;font-size:12px"><span style="padding:5px 9px;background:#121820;color:#FFFFFF">CRC ₡</span><span style="padding:5px 9px;color:#3E4652">USD $</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#3E4652"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"></path></svg><span>Mi cuenta</span></div>
+      <div style="position:relative;display:flex"><svg class="icon" viewBox="0 0 24 24"><path d="M3.5 4.5h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.1l1.6-6.3H6.6"></path><circle cx="10" cy="19.5" r="1.2"></circle><circle cx="17" cy="19.5" r="1.2"></circle></svg><span class="mono" style="position:absolute;top:-7px;right:-9px;min-width:18px;height:18px;border-radius:9px;background:#2B5F82;color:#FFFFFF;font-size:11px;display:flex;align-items:center;justify-content:center">2</span></div>
+    </div>
+  </header>
+
+  <div style="display:flex;align-items:center;gap:8px;padding:24px 56px;font-size:13px;color:#6B727B">
+    <span>Inicio</span><span>/</span><span>Computadoras y laptops</span><span>/</span><span>Laptops</span><span>/</span><span style="color:#121820">ThinkPad E14 Gen 6</span>
+  </div>
+
+  <section style="display:grid;grid-template-columns:minmax(0, 1.12fr) minmax(0, .88fr);gap:56px;padding:0 56px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="position:relative;height:560px;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:radial-gradient(60% 55% at 50% 48%, #FFFFFF 0%, #E9E7E1 80%)">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(18,24,32,.035) 1px, transparent 1px),linear-gradient(90deg, rgba(18,24,32,.035) 1px, transparent 1px);background-size:56px 56px"></div>
+        <svg viewBox="0 0 320 220" width="560" height="385" style="position:relative;filter:drop-shadow(0 40px 34px rgba(18,24,32,.28))"><defs><linearGradient id="lpS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A313B"></stop><stop offset="1" stop-color="#151A21"></stop></linearGradient><linearGradient id="lpB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CDD1D6"></stop><stop offset="1" stop-color="#8E949B"></stop></linearGradient><linearGradient id="lpG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A80A6"></stop><stop offset=".55" stop-color="#18222D"></stop><stop offset="1" stop-color="#101820"></stop></linearGradient></defs><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M70 36 L160 36 L110 150 L70 150Z" fill="#FFFFFF" opacity=".06"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path><rect x="138" y="164" width="44" height="5" rx="2.5" fill="#7C8289"></rect></svg>
+        <span class="glass" style="position:absolute;top:18px;right:18px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:11px"><svg class="icon" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg></span>
+        <span class="glass mono" style="position:absolute;bottom:18px;left:18px;padding:7px 12px;border-radius:9px;font-size:12px;color:#3E4652">1 / 5</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:12px">
+        <div style="height:92px;border-radius:12px;border:1.5px solid #121820;background:#ECEAE4;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 320 220" width="96" height="66"><rect x="62" y="28" width="196" height="132" rx="8" fill="url(#lpS)"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="url(#lpG)"></rect><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path></svg></div>
+        <div style="height:92px;border-radius:12px;border:1px solid #E2DFD8;background:#ECEAE4;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 320 220" width="96" height="66"><path d="M40 150 L200 40 L280 60 L130 176Z" fill="url(#lpS)"></path><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="url(#lpB)"></path></svg></div>
+        <div style="height:92px;border-radius:12px;border:1px solid #E2DFD8;background:#ECEAE4;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 320 220" width="96" height="66"><rect x="30" y="150" width="260" height="18" rx="4" fill="url(#lpS)"></rect><rect x="30" y="168" width="260" height="10" rx="3" fill="url(#lpB)"></rect></svg></div>
+        <div style="height:92px;border-radius:12px;border:1px solid #E2DFD8;background:#ECEAE4;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 320 220" width="96" height="66"><rect x="40" y="90" width="240" height="40" rx="6" fill="url(#lpB)"></rect><rect x="60" y="104" width="22" height="10" rx="2" fill="#4B5158"></rect><rect x="92" y="104" width="14" height="10" rx="2" fill="#4B5158"></rect><rect x="116" y="104" width="30" height="10" rx="2" fill="#4B5158"></rect></svg></div>
+        <div style="height:92px;border-radius:12px;border:1px solid #E2DFD8;background:#ECEAE4;display:flex;align-items:center;justify-content:center;font-size:13px;color:#6B727B">+1 foto</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="mono" style="font-size:12.5px;letter-spacing:.14em;color:#3E4652">LENOVO</span>
+        <span class="mono" style="font-size:12px;color:#6B727B">N.º de parte 21M7002ALM</span>
+      </div>
+      <h1 style="font-size:34px;font-weight:400;letter-spacing:-.022em;line-height:1.15;text-wrap:balance">ThinkPad E14 Gen 6 — Intel Core Ultra 5, 16 GB, SSD 512 GB, 14"</h1>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:#3E4652">
+        <span style="display:flex;gap:10px;align-items:center"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#2B5F82"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Pantalla 14" WUXGA IPS antirreflejo</span>
+        <span style="display:flex;gap:10px;align-items:center"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#2B5F82"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Windows 11 Pro</span>
+        <span style="display:flex;gap:10px;align-items:center"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#2B5F82"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Wi-Fi 6E y Bluetooth 5.3</span>
+        <span style="display:flex;gap:10px;align-items:center"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#2B5F82"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Garantía de fábrica</span>
+      </div>
+
+      <div style="display:flex;align-items:baseline;gap:14px;padding-top:6px">
+        <span style="font-size:42px;font-weight:500;letter-spacing:-.025em">₡489 900</span>
+        <span style="font-size:14px;color:#6B727B">IVA incluido</span>
+      </div>
+
+      <div class="glass" style="border-radius:16px;overflow:hidden">
+        <div style="display:flex;gap:14px;padding:16px 18px;border-bottom:1px solid rgba(18,24,32,.07)">
+          <span style="width:9px;height:9px;margin-top:6px;border-radius:50%;background:#2E7D5B;box-shadow:0 0 0 4px rgba(46,125,91,.15);flex:none"></span>
+          <div style="flex:1"><div style="font-weight:500">En stock — 34 unidades disponibles</div><div class="mono" style="font-size:12px;color:#6B727B">Inventario sincronizado hace 4 min</div></div>
+        </div>
+        <div style="display:flex;gap:14px;padding:16px 18px;border-bottom:1px solid rgba(18,24,32,.07)">
+          <svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6H14"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>
+          <div style="flex:1"><div style="font-weight:500">Llega entre el jueves 17 y el viernes 18 de septiembre</div><div style="font-size:13px;color:#6B727B">Envío con Rapedido a Escazú, San José · <a>Cambiar</a></div></div>
+        </div>
+        <div style="display:flex;gap:14px;padding:16px 18px">
+          <svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6M9 16h3"></path></svg>
+          <div style="flex:1"><div style="font-weight:500">Factura electrónica disponible</div><div style="font-size:13px;color:#6B727B">A nombre de persona física o de su empresa</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px">
+        <div style="display:flex;align-items:center;height:52px;border:1px solid #CFCBC1;border-radius:10px;background:#FBFAF7">
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:50px;color:#3E4652"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M5 12h14"></path></svg></span>
+          <span class="mono" style="width:28px;text-align:center;font-size:16px">1</span>
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:50px;color:#3E4652"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M12 5v14M5 12h14"></path></svg></span>
+        </div>
+        <span class="btn" style="flex:1;height:52px;background:#121820;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M3.5 4.5h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.1l1.6-6.3H6.6"></path><circle cx="10" cy="19.5" r="1.2"></circle><circle cx="17" cy="19.5" r="1.2"></circle></svg>Agregar al carrito</span>
+      </div>
+      <span class="btn" style="height:52px;margin-top:-10px;background:#2B5F82;color:#FFFFFF">Comprar ahora</span>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px dashed #C9C5BB;border-radius:12px;font-size:14px">
+        <span style="color:#3E4652">¿Necesita 10 o más unidades?</span>
+        <a style="display:flex;align-items:center;gap:6px;font-weight:500">Solicitar cotización por volumen <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#6B727B">
+        <span>Pague con</span>
+        <div class="mono" style="display:flex;gap:6px;font-size:11px;color:#3E4652">
+          <span style="padding:3px 7px;border:1px solid #D6D3CB;border-radius:5px">VISA</span>
+          <span style="padding:3px 7px;border:1px solid #D6D3CB;border-radius:5px">MASTERCARD</span>
+          <span style="padding:3px 7px;border:1px solid #D6D3CB;border-radius:5px">AMEX</span>
+          <span style="padding:3px 7px;border:1px solid #D6D3CB;border-radius:5px">SINPE MÓVIL</span>
+          <span style="padding:3px 7px;border:1px solid #D6D3CB;border-radius:5px">TASA CERO BAC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:minmax(0, 1.12fr) minmax(0, .88fr);gap:56px;padding:88px 56px 0">
+    <div>
+      <div style="display:flex;gap:32px;border-bottom:1px solid #DEDBD3;font-size:15px">
+        <span style="padding:0 0 14px;border-bottom:2px solid #121820;font-weight:500">Especificaciones</span>
+        <span style="padding:0 0 14px;color:#6B727B">Garantía y soporte</span>
+        <span style="padding:0 0 14px;color:#6B727B">Envío y entrega</span>
+      </div>
+      <div style="margin-top:8px">
+        <div class="spec"><span>Procesador</span><span class="mono">Intel Core Ultra 5 125U</span></div>
+        <div class="spec"><span>Memoria</span><span class="mono">16 GB DDR5 5600 MHz</span></div>
+        <div class="spec"><span>Almacenamiento</span><span class="mono">SSD 512 GB M.2 PCIe NVMe</span></div>
+        <div class="spec"><span>Pantalla</span><span class="mono">14" WUXGA 1920 × 1200 IPS</span></div>
+        <div class="spec"><span>Gráficos</span><span class="mono">Intel Graphics integrados</span></div>
+        <div class="spec"><span>Sistema operativo</span><span class="mono">Windows 11 Pro</span></div>
+        <div class="spec"><span>Conectividad</span><span class="mono">Wi-Fi 6E · Bluetooth 5.3</span></div>
+        <div class="spec"><span>Puertos</span><span class="mono">USB-C · USB-A · HDMI · RJ45</span></div>
+        <div class="spec"><span>Teclado</span><span class="mono">Retroiluminado, en español</span></div>
+        <div class="spec"><span>Peso</span><span class="mono">1,44 kg</span></div>
+      </div>
+    </div>
+    <div style="align-self:start;position:relative;overflow:hidden;border-radius:18px;background:#0E151D;color:#E9ECEF;padding:32px">
+      <div style="position:absolute;inset:0;background:radial-gradient(420px 300px at 100% 0%, rgba(74,128,166,.35), transparent 70%)"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:16px">
+        <span class="mono" style="font-size:12px;letter-spacing:.12em;color:rgba(233,236,239,.55)">COMPRA EMPRESARIAL</span>
+        <h3 style="font-size:26px;font-weight:400;letter-spacing:-.018em;line-height:1.2;color:#FFFFFF">Equipe a todo su equipo con una sola orden.</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:rgba(233,236,239,.8)">
+          <span style="display:flex;gap:10px;align-items:center"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#7FB0CF"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Cotización formal en PDF</span>
+          <span style="display:flex;gap:10px;align-items:center"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#7FB0CF"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Factura electrónica con cédula jurídica</span>
+          <span style="display:flex;gap:10px;align-items:center"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#7FB0CF"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Precios por volumen</span>
+        </div>
+        <span class="btn" style="align-self:flex-start;margin-top:8px;background:#F4F3EF;color:#121820">Solicitar cotización</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:88px 56px 96px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px">
+      <h2 style="font-size:30px;font-weight:400;letter-spacing:-.02em">Complete su puesto de trabajo</h2>
+      <a style="font-size:14.5px;font-weight:500">Ver accesorios compatibles</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:20px">
+      <div class="card" style="display:flex;gap:16px;align-items:center;padding:14px">
+        <div style="width:96px;height:96px;border-radius:10px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="84" height="58"><rect x="40" y="16" width="240" height="150" rx="6" fill="#161B22"></rect><rect x="46" y="22" width="228" height="134" rx="2" fill="#2C4A60"></rect><path d="M148 166h24l7 28h-38z" fill="#A3A8AE"></path><rect x="108" y="192" width="104" height="9" rx="4.5" fill="#868C93"></rect></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:10.5px;letter-spacing:.12em;color:#6B727B">DELL</span><span style="font-size:14.5px;font-weight:500">Monitor P2425H 24"</span><span style="font-size:16px;font-weight:500;margin-top:4px">₡109 500</span></div>
+      </div>
+      <div class="card" style="display:flex;gap:16px;align-items:center;padding:14px">
+        <div style="width:96px;height:96px;border-radius:10px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="84" height="58"><rect x="104" y="30" width="112" height="58" rx="3" fill="#FAF9F6" stroke="#D5D1C8"></rect><path d="M70 92 Q70 80 82 80 H238 Q250 80 250 92 V166 Q250 176 240 176 H80 Q70 176 70 166Z" fill="#2A3038"></path><rect x="92" y="148" width="136" height="16" rx="3" fill="#161B21"></rect><rect x="84" y="176" width="152" height="18" rx="3" fill="#D9D6CE"></rect></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:10.5px;letter-spacing:.12em;color:#6B727B">EPSON</span><span style="font-size:14.5px;font-weight:500">EcoTank L3250</span><span style="font-size:16px;font-weight:500;margin-top:4px">₡139 900</span></div>
+      </div>
+      <div class="card" style="display:flex;gap:16px;align-items:center;padding:14px">
+        <div style="width:96px;height:96px;border-radius:10px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="84" height="58"><rect x="110" y="46" width="100" height="136" rx="14" fill="#22282F"></rect><rect x="118" y="54" width="84" height="120" rx="9" fill="#2C333B"></rect><rect x="146" y="178" width="28" height="8" rx="2" fill="#8C939A"></rect></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:10.5px;letter-spacing:.12em;color:#6B727B">KINGSTON</span><span style="font-size:14.5px;font-weight:500">SSD externo XS1000 1 TB</span><span style="font-size:16px;font-weight:500;margin-top:4px">₡64 900</span></div>
+      </div>
+      <div class="card" style="display:flex;gap:16px;align-items:center;padding:14px">
+        <div style="width:96px;height:96px;border-radius:10px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="84" height="58"><rect x="156" y="22" width="9" height="98" rx="4.5" fill="#2B323B"></rect><path d="M62 128 Q62 116 76 116 H244 Q258 116 258 128 V168 Q258 180 244 180 H76 Q62 180 62 168Z" fill="#1A2027"></path><circle cx="92" cy="156" r="4" fill="#5FB58A"></circle></svg></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span class="mono" style="font-size:10.5px;letter-spacing:.12em;color:#6B727B">ASUS</span><span style="font-size:14.5px;font-weight:500">Router Wi-Fi 6 RT-AX58U</span><span style="font-size:16px;font-weight:500;margin-top:4px">₡84 900</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+</body>
+</html>

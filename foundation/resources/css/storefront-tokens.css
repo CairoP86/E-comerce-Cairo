@@ -1,0 +1,40 @@
+/* Editable public identity palette. All storefront colors resolve here. */
+.storefront {
+    --color-primary: #1261d8;
+    --color-primary-hover: #0a48a5;
+    --color-navy: #10233f;
+    --color-navy-raised: #203754;
+    --color-text: #202c3a;
+    --color-muted: #586777;
+    --color-background: #ffffff;
+    --color-surface: #f4f7fb;
+    --color-surface-blue: #eaf2fd;
+    --color-border: #dce3eb;
+    --color-control-border: #7c8ca0;
+    --color-on-primary: #ffffff;
+    --color-on-dark: #f6f9ff;
+    --color-muted-on-dark: #bdcee3;
+    --color-highlight-on-dark: #83b7ff;
+    --color-border-on-dark: #ffffff24;
+    --color-border-dark-control: #7185a0;
+    --color-focus: #1261d8;
+    --color-focus-on-dark: #98c4ff;
+    --color-shadow: #10233f0d;
+    --color-glow: #337dcb38;
+    --color-grid: #b6d3ff0a;
+    --color-dot-glow: #83b7ff1a;
+    --color-art-muted: #b3c9e2;
+    --color-art-arrow: #5789c555;
+    --color-error-text: #852c23;
+    --color-error-background: #fff2ef;
+    --color-error-border: #bd8175;
+    --color-art-screen-start: #214e83;
+    --color-art-screen-end: #0a172b;
+    --color-art-metal-light: #cad5e2;
+    --color-art-metal-mid: #586e89;
+    --color-art-metal-end: #9baec4;
+    --color-art-ribbon-start: #9bccff;
+    --color-art-ribbon-mid: #317ef2;
+    --color-art-ribbon-end: #173b83;
+    --color-art-shadow: #050d1a;
+}

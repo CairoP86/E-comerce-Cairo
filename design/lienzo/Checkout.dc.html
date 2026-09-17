@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F3EF;color:#121820;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:#2B5F82;text-decoration:none}
+a:hover{color:#1E4863}
+h1,h2,h3,h4,p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(255,255,255,.55));-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px -24px rgba(18,24,32,.35)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:10px;font-size:15px;font-weight:500;white-space:nowrap}
+.tag-prov{display:inline-flex;align-items:center;height:20px;padding:0 7px;border:1px dashed #C27A2C;border-radius:4px;background:rgba(194,122,44,.12);color:#9C5F1E;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.card{background:#FBFAF7;border:1px solid #E2DFD8;border-radius:14px}
+.label{font-size:13px;color:#5E6570;margin-bottom:6px}
+.input{display:flex;align-items:center;justify-content:space-between;height:48px;padding:0 14px;border:1px solid #D9D5CC;border-radius:10px;background:#FFFFFF;font-size:15px}
+.step-title{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:500;margin-bottom:22px}
+.step-num{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#121820;color:#FFFFFF;font-family:"IBM Plex Mono",monospace;font-size:13px}
+</style>
+</helmet>
+<div style="width:1440px;min-height:1500px;background:#F4F3EF">
+
+  <header style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));align-items:center;height:76px;padding:0 56px;background:#FBFAF7;border-bottom:1px solid #E2DFD8">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="8" fill="#121820"></rect><path d="M9 10L15 21L21 10" stroke="#FFFFFF" stroke-width="1.4" fill="none"></path><circle cx="9" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="21" cy="10" r="2.6" fill="#FFFFFF"></circle><circle cx="15" cy="21" r="2.6" fill="#7FB0CF"></circle></svg>
+      <span style="font-size:21px;font-weight:600;letter-spacing:-.02em">Nodal</span>
+      <span class="tag-prov">Nombre provisional</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:13.5px">
+      <span style="display:flex;align-items:center;gap:8px;color:#2E7D5B"><svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Carrito</span>
+      <span style="width:36px;height:1px;background:#C9C5BB"></span>
+      <span style="display:flex;align-items:center;gap:8px;font-weight:500"><span class="mono" style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#121820;color:#FFFFFF;font-size:11px">2</span>Envío y pago</span>
+      <span style="width:36px;height:1px;background:#C9C5BB"></span>
+      <span style="display:flex;align-items:center;gap:8px;color:#8A9098"><span class="mono" style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;border:1px solid #B9B5AB;font-size:11px">3</span>Confirmación</span>
+    </div>
+    <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;font-size:13.5px;color:#3E4652">
+      <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="5" y="10.5" width="14" height="10" rx="2"></rect><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"></path></svg>Compra segura
+    </div>
+  </header>
+
+  <div style="padding:44px 56px 20px">
+    <h1 style="font-size:38px;font-weight:400;letter-spacing:-.024em">Finalizar compra</h1>
+  </div>
+
+  <div style="display:grid;grid-template-columns:minmax(0, 1fr) 460px;gap:40px;padding:0 56px 96px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+
+      <div class="card" style="padding:30px">
+        <div class="step-title"><span class="step-num">1</span>Datos de contacto y facturación</div>
+        <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px">
+          <div><div class="label">Nombre completo</div><div class="input">María Fernanda Rojas</div></div>
+          <div><div class="label">Teléfono</div><div class="input mono">8800-1234</div></div>
+          <div style="grid-column:1 / -1"><div class="label">Correo electrónico</div><div class="input">mfrojas@consultoresandinos.cr</div></div>
+        </div>
+        <div style="margin-top:20px;padding:18px;border-radius:12px;background:#EEF3F6;border:1px solid #D3DFE7">
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500">
+            <span style="width:34px;height:20px;border-radius:10px;background:#2B5F82;position:relative;flex:none"><span style="position:absolute;top:3px;right:3px;width:14px;height:14px;border-radius:50%;background:#FFFFFF"></span></span>
+            Necesito factura electrónica a nombre de una empresa
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px;margin-top:16px">
+            <div><div class="label">Cédula jurídica</div><div class="input mono">3-101-123456</div></div>
+            <div><div class="label">Razón social</div><div class="input">Consultores Andinos S.A.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:30px">
+        <div class="step-title"><span class="step-num">2</span>Dirección de entrega</div>
+        <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px">
+          <div><div class="label">Provincia</div><div class="input">San José <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B727B"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+          <div><div class="label">Cantón</div><div class="input">Escazú <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B727B"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+          <div><div class="label">Distrito</div><div class="input">San Rafael <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B727B"><path d="M6 9l6 6 6-6"></path></svg></div></div>
+          <div style="grid-column:1 / -1"><div class="label">Dirección exacta y otras señas</div><div class="input" style="height:76px;align-items:flex-start;padding-top:13px">Plaza Tempo, torre 2, piso 3, oficina 12. Recepción de lunes a viernes.</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:18px;padding:16px 18px;border:1.5px solid #121820;border-radius:12px;background:#FFFFFF">
+          <span style="width:18px;height:18px;border-radius:50%;border:5px solid #121820;flex:none"></span>
+          <svg class="icon" viewBox="0 0 24 24" style="color:#2B5F82"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6H14"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>
+          <div style="flex:1"><div style="font-weight:500">Envío con Rapedido</div><div style="font-size:13px;color:#6B727B">Llega entre el jueves 17 y el viernes 18 de septiembre</div></div>
+          <span style="font-weight:500">₡3 500</span>
+        </div>
+      </div>
+
+      <div class="card" style="padding:30px">
+        <div class="step-title"><span class="step-num">3</span>Método de pago</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:14px;padding:18px;border:1.5px solid #121820;border-radius:12px;background:#FFFFFF">
+            <span style="width:18px;height:18px;margin-top:2px;border-radius:50%;border:5px solid #121820;flex:none"></span>
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:500">Tarjeta de crédito o débito</span><span class="mono" style="display:flex;gap:6px;font-size:10.5px;color:#3E4652"><span style="padding:3px 6px;border:1px solid #D6D3CB;border-radius:4px">VISA</span><span style="padding:3px 6px;border:1px solid #D6D3CB;border-radius:4px">MASTERCARD</span><span style="padding:3px 6px;border:1px solid #D6D3CB;border-radius:4px">AMEX</span></span></div>
+              <div style="font-size:13.5px;color:#6B727B;margin-top:4px">Será redirigido a la página segura de Tilopay para completar el pago.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;padding:18px;border:1px solid #D9D5CC;border-radius:12px">
+            <span style="width:18px;height:18px;margin-top:2px;border-radius:50%;border:1.5px solid #B9B5AB;flex:none"></span>
+            <div style="flex:1"><div style="font-weight:500">SINPE Móvil</div><div style="font-size:13.5px;color:#6B727B;margin-top:4px">Pague desde la aplicación de su banco; la confirmación es automática.</div></div>
+          </div>
+          <div style="display:flex;gap:14px;padding:18px;border:1px solid #D9D5CC;border-radius:12px">
+            <span style="width:18px;height:18px;margin-top:2px;border-radius:50%;border:1.5px solid #B9B5AB;flex:none"></span>
+            <div style="flex:1"><div style="font-weight:500">Tasa Cero BAC Credomatic</div><div style="font-size:13.5px;color:#6B727B;margin-top:4px">Hasta [N] meses sin intereses con tarjetas BAC participantes.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass" style="align-self:start;border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:19px;font-weight:500">Resumen del pedido</span><a style="font-size:13.5px">Editar carrito</a></div>
+
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="width:72px;height:72px;border-radius:10px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="60" height="42"><rect x="62" y="28" width="196" height="132" rx="8" fill="#1E252E"></rect><rect x="70" y="36" width="180" height="114" rx="3" fill="#2C4A60"></rect><path d="M30 164 H290 L278 182 Q276 186 270 186 H50 Q44 186 42 182Z" fill="#A9AEB4"></path></svg></div>
+        <div style="flex:1"><div style="font-size:14.5px;font-weight:500">ThinkPad E14 Gen 6</div><div style="font-size:13px;color:#6B727B">Cantidad: 1</div></div>
+        <span style="font-size:15px;font-weight:500">₡489 900</span>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="width:72px;height:72px;border-radius:10px;background:#ECEAE4;display:flex;align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 320 220" width="60" height="42"><rect x="40" y="16" width="240" height="150" rx="6" fill="#161B22"></rect><rect x="46" y="22" width="228" height="134" rx="2" fill="#2C4A60"></rect><rect x="108" y="180" width="104" height="12" rx="6" fill="#868C93"></rect></svg></div>
+        <div style="flex:1"><div style="font-size:14.5px;font-weight:500">Monitor Dell P2425H 24"</div><div style="font-size:13px;color:#6B727B">Cantidad: 1</div></div>
+        <span style="font-size:15px;font-weight:500">₡109 500</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid rgba(18,24,32,.1);font-size:14.5px">
+        <div style="display:flex;justify-content:space-between"><span style="color:#5E6570">Subtotal</span><span>₡599 400</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:#5E6570">Envío con Rapedido</span><span>₡3 500</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid rgba(18,24,32,.1)"><span style="font-size:16px;font-weight:500">Total</span><div style="text-align:right"><div style="font-size:28px;font-weight:500;letter-spacing:-.02em">₡602 900</div><div style="font-size:12px;color:#6B727B">IVA incluido</div></div></div>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#3E4652">
+        <span style="width:18px;height:18px;margin-top:1px;border-radius:4px;background:#121820;display:flex;align-items:center;justify-content:center;color:#FFFFFF;flex:none"><svg class="icon" viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2.2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+        <span>Acepto los <a>términos y condiciones</a> y la <a>política de devoluciones</a>.</span>
+      </div>
+
+      <span class="btn" style="height:56px;font-size:16px;background:#2B5F82;color:#FFFFFF"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="5" y="10.5" width="14" height="10" rx="2"></rect><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"></path></svg>Pagar ₡602 900</span>
+
+      <div style="display:flex;gap:10px;font-size:12.5px;color:#6B727B;line-height:1.5">
+        <svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;color:#2E7D5B"><path d="M12 3l7 3v5.5c0 4.4-3 8.3-7 9.5-4-1.2-7-5.1-7-9.5V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        <span>Pago procesado por Tilopay. No almacenamos los datos de su tarjeta.</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
