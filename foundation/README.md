@@ -1,4 +1,6 @@
-# TECH COMMERCE - Fase 2B
+# TECH COMMERCE - Fase 2C
+
+[Reporte completo de Fase 2C — Proveedores y precios](docs/PHASE-2C.md)
 
 [Reporte completo de Fase 2B — Checkout y pedidos](docs/PHASE-2B.md)
 
@@ -18,7 +20,13 @@
 
 URL local: http://127.0.0.1:8086
 
-Fase 2A aprobada y respaldada en Git. Fase 2B implementada para revisión. No se inicia la fase siguiente. TECH COMMERCE es el nombre de trabajo.
+Fase 2B aprobada y respaldada en Git (`506ddf4`). Fase 2C implementada para revisión: proveedores y ofertas manuales, reglas comerciales y aplicación explícita de precios. TECH COMMERCE es el nombre de trabajo. Pagos e integraciones API permanecen fuera de alcance.
+
+Proveedores: http://127.0.0.1:8086/admin/commercial/suppliers · Reglas: http://127.0.0.1:8086/admin/commercial/rules.
+
+Preparación inicial: `php artisan migrate --force`, `php artisan db:seed --class=CommercialSetupSeeder --force` y `php artisan db:seed --class=CommercialTaxonomySeeder --force`. Los seeders no crean productos ni ofertas. La taxonomía comercial tiene 24 categorías en borrador (3 raíces y 21 subcategorías), con reglas heredadas. El seeder de taxonomía es una inicialización explícita, no un sincronizador para ejecutar después de publicar.
+
+Los productos DEMO locales fueron archivados sin borrado mediante `php artisan catalog:archive-demo`; la corrección de taxonomía también archivó las 12 categorías DEMO conservando sus relaciones. La carga comercial requiere datos confirmados.
 
 Checkout invitado: http://127.0.0.1:8086/checkout (carrito válido). Pedidos administrativos: http://127.0.0.1:8086/admin/orders.
 

@@ -11,7 +11,7 @@ class Order extends Model
 
     protected $keyType = 'string';
 
-    protected $guarded = [];
+    protected $guarded = ['*'];
 
     protected $hidden = ['checkout_key', 'owner_hash', 'request_hash'];
 

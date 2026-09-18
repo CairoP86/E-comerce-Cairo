@@ -8,7 +8,7 @@ class OrderItem extends Model
 {
     public $timestamps = false;
 
-    protected $guarded = [];
+    protected $fillable = ['product_id', 'name', 'sku', 'is_demo', 'quantity', 'unit_price_minor', 'subtotal_minor', 'currency'];
 
     protected function casts(): array
     {

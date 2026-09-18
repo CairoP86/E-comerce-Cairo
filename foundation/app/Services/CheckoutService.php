@@ -127,7 +127,8 @@ class CheckoutService
                 $this->fail('El carrito o los precios cambiaron. Revisa el resumen actualizado y vuelve a confirmar.');
             }
             $territory = CostaRicaTerritories::find($data['province_code'], $data['canton_code'], $data['district_code']);
-            $order = Order::create([
+            $order = new Order;
+            $order->forceFill([
                 'id' => (string) Str::uuid(), 'number' => 'TC-'.strtoupper(bin2hex(random_bytes(10))),
                 'user_id' => $user?->role === Role::Customer ? $user->id : null,
                 'checkout_key' => $key, 'owner_hash' => $owner, 'request_hash' => $requestHash,
@@ -135,6 +136,7 @@ class CheckoutService
                 'first_name' => $data['first_name'], 'last_name' => $data['last_name'], 'email' => $data['email'], 'phone' => $data['phone'],
                 'currency' => $quote['currency'], 'subtotal_minor' => $quote['total_minor'], 'total_minor' => $quote['total_minor'],
             ]);
+            $order->save();
             $order->items()->createMany($quote['items']);
             $order->address()->create([
                 'country_code' => 'CR', 'province_code' => $data['province_code'], 'canton_code' => $data['canton_code'], 'district_code' => $data['district_code'],
