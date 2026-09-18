@@ -5,7 +5,7 @@ return [
     'timezone' => 'America/Costa_Rica',
     // No connection, endpoint or capability is assumed before reviewing official documentation.
     'suppliers' => [
-        'eurocom' => [
+        'eurocomp' => [
             'enabled' => false,
             'transport' => 'api',
             'capabilities' => [],

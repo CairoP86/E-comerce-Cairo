@@ -1,5 +1,9 @@
 # TECH COMMERCE - Fase 2C
 
+[V1-A — Contratos internos y base de release](docs/V1-A-REPORT.md) · [ADRs](docs/adr/README.md) · [Entornos y release](docs/ENVIRONMENTS-RELEASE.md)
+
+**Release normal:** no ejecutar seeders ni reinicializar la base. Los comandos de preparación inicial de abajo son históricos/optativos para una base nueva; no forman parte del despliegue. CI valida con SQLite aislado y no despliega.
+
 [Reporte completo de Fase 2C — Proveedores y precios](docs/PHASE-2C.md)
 
 [Reporte completo de Fase 2B — Checkout y pedidos](docs/PHASE-2B.md)

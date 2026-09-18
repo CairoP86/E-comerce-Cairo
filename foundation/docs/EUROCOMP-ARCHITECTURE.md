@@ -1,6 +1,6 @@
 # Eurocomp API — decisión confirmada, 2026-09-15
 
-**Estado: aprobada por el propietario para Fase 2.** La autorización de Fase 0B no incluye integración. No implementar cliente HTTP, endpoints, DTOs, tablas de proveedores ni capacidades ficticias antes de contar con documentación oficial. Una capacidad no documentada o no verificada se considera no disponible. Los nombres siguientes describen contratos previstos, no código implementado.
+**Estado actualizado V1-A (2026-09-18):** Fase 2C ya implementó proveedores y ofertas manuales separados de Product. La restricción histórica de no crear tablas correspondía a 0B y fue reemplazada por esa autorización; no impide las tablas actuales. Se mantiene la prohibición de inventar clientes HTTP, endpoints, DTOs externos o capacidades antes de contar con documentación oficial. Una capacidad no documentada o no verificada se considera no disponible. Los nombres siguientes describen contratos previstos, no código implementado. Prevalecen [ADR-006](adr/006-suppliers.md), [ADR-004](adr/004-pricing.md) y [ADR-010](adr/010-external-integrations.md).
 
 Eurocomp será el primer proveedor mediante un adaptador y cliente HTTP dedicados. La API está confirmada; endpoints, autenticación, payloads y capacidades no están documentados todavía en el proyecto. No se ejecutan solicitudes externas en Fase 0A.
 
@@ -23,7 +23,7 @@ El cliente Eurocomp maneja transporte, autenticación y serialización externa; 
 
 ## Datos y flujo
 
-API Eurocomp → sincronización → supplier_products → products y precio público calculado → tienda y carrito local → validación reciente vía API cuando sea posible → pedido → pago verificado → orden Eurocomp → despacho → transporte → cliente.
+Flujo futuro condicionado a capacidades reales: API Eurocomp → sincronización de supplier_products → precio sugerido privado → revisión/aplicación manual al precio público de products → tienda/carrito local → validación reciente cuando esté soportada → pedido → pago verificado → orden Eurocomp solo si se verifica esa capacidad → despacho → transporte → cliente. La sincronización de costo nunca publica precios automáticamente. Hoy no se ejecuta ninguna de esas llamadas externas.
 
 products permanece separado de supplier_products. Las páginas leen catálogo local; las visitas no disparan llamadas al proveedor. Se conservarán proveedor/SKU únicos, costo y moneda privados, stock reportado, fecha de observación, fecha de sincronización y vigencia. No crear tablas comerciales en 0A.
 
