@@ -1,6 +1,6 @@
 # V1-A · Contratos internos y base de release
 
-Fecha: 2026-09-18. Estado: implementada para revisión; la primera ejecución remota del CI falló y se corrigió localmente ([Seguimiento CI](#seguimiento-ci-primera-ejecución-remota)); la segunda ejecución remota está pendiente. No autoriza iniciar V1-B. Documento rector: [V1-ROADMAP.md](V1-ROADMAP.md).
+Fecha: 2026-09-18. Estado: implementada; cerrada en lo que respecta al pipeline de CI: la primera ejecución remota falló y, tras la corrección, la segunda ejecución de `Foundation CI` pasó sobre `main` en el commit `cd113e6` ([Seguimiento CI](#seguimiento-ci-primera-ejecución-remota)). No autoriza iniciar V1-B. Documento rector: [V1-ROADMAP.md](V1-ROADMAP.md).
 
 ## Estado inicial
 
@@ -48,13 +48,13 @@ Nuevo `.github/workflows/ci.yml` en la raíz del repositorio:
 - Suite PHP completa, validación Composer/plataforma/Pint y TypeScript/build. Comprobación GD/WebP explícita.
 - Sin MySQL/Redis, secretos productivos, seeders de inicialización o instrucciones de deploy. Fixtures de tests solo dentro de BD aislada.
 
-Se revisó el workflow y se ejecutaron las comprobaciones de aplicación localmente. **No se ha ejecutado el workflow en GitHub**, pues no se hizo commit/push; su primera ejecución remota sigue pendiente. Esto no certifica concurrencia productiva. Fuentes de las acciones y procedimiento están en [ENVIRONMENTS-RELEASE.md](ENVIRONMENTS-RELEASE.md). Actualización posterior: la primera ejecución remota falló; causa y corrección en [Seguimiento CI](#seguimiento-ci-primera-ejecución-remota).
+Se revisó el workflow y se ejecutaron las comprobaciones de aplicación localmente. **No se ha ejecutado el workflow en GitHub**, pues no se hizo commit/push; su primera ejecución remota sigue pendiente. Esto no certifica concurrencia productiva. Fuentes de las acciones y procedimiento están en [ENVIRONMENTS-RELEASE.md](ENVIRONMENTS-RELEASE.md). Actualización posterior: la primera ejecución remota falló y la segunda, tras la corrección, pasó en `cd113e6`; detalle en [Seguimiento CI](#seguimiento-ci-primera-ejecución-remota).
 
 ## Seguimiento CI: primera ejecución remota
 
 Fecha: 2026-09-18.
 
-**Fallo observado.** La primera ejecución real de `Foundation CI` en GitHub Actions falló en el paso "Run complete existing test suite": **2 failed, 114 passed (2676 assertions)**, exit code 1, con `Vite manifest not found at: /home/runner/work/E-comerce-Cairo/E-comerce-Cairo/foundation/public/build/manifest.json` (ejemplo: `tests/Feature/FoundationTest.php:24`). Los pasos "Install locked frontend dependencies" y "TypeScript and production assets" no llegaron a ejecutarse.
+**Fallo observado.** La primera ejecución real de `Foundation CI` en GitHub Actions (run `35398007464`, commit `fb63779`, push a `main`) falló en el paso "Run complete existing test suite": **2 failed, 114 passed (2676 assertions)**, exit code 1, con `Vite manifest not found at: /home/runner/work/E-comerce-Cairo/E-comerce-Cairo/foundation/public/build/manifest.json` (ejemplo: `tests/Feature/FoundationTest.php:24`). Los pasos "Install locked frontend dependencies" y "TypeScript and production assets" no llegaron a ejecutarse.
 
 **Causa raíz.** El workflow ejecutaba `php artisan test` antes de `npm ci` y `npm run check`. `public/build` está ignorado por Git (`foundation/.gitignore`), así que un runner limpio no tiene manifest cuando corre la suite. Dos tests renderizan la vista raíz `resources/views/app.blade.php`, cuyo `@vite(['resources/js/app.ts'])` (línea 21) exige el manifest, sin desactivar Vite:
 
@@ -86,7 +86,9 @@ El resto de feature tests llama a `withoutVite()` en `setUp()` o dentro del prop
 
 **Documentación alineada.** Con autorización del propietario, `foundation/docs/ENVIRONMENTS-RELEASE.md` (sección CI, pasos 4 y 5) ahora describe el orden validado: `npm ci --ignore-scripts` y `npm run check` antes de la validación Composer/plataforma/Pint y de `php artisan test`, indicando que el build genera el manifest que necesitan los tests. El orden relativo entre `npm ci` y la preparación del `.env` efímero no se replica línea por línea porque ambos pasos son independientes.
 
-**Estado.** La segunda ejecución remota queda pendiente hasta el push. V1-A no se da por cerrada hasta que GitHub Actions pase realmente. V1-B no se inició. Sin commit ni push.
+**Segunda ejecución remota.** Tras el push de la corrección, `Foundation CI` corrió sobre `main` para el commit `cd113e6` (run `35411142040`, evento push) y terminó con conclusión `success`; el badge del workflow en `main` muestra estado passing. Confirmado mediante el resultado del workflow en la API pública de GitHub Actions y el badge.
+
+**Estado.** El CI deja de ser bloqueante: V1-A queda cerrada en lo que respecta al pipeline de CI. V1-B no se inició.
 
 ## Entornos, secretos y seeders
 
@@ -167,11 +169,11 @@ Los logs de verificación y la utilidad temporal de lectura MySQL están en `.lo
 
 ## Pendientes y entrada a V1-B
 
-- Segunda ejecución remota del CI tras la corrección del orden (la primera falló; ver [Seguimiento CI](#seguimiento-ci-primera-ejecución-remota)) y configuración de protección de rama por el responsable del repositorio, cuando se autorice publicar estos cambios.
+- Configuración de protección de rama por el responsable del repositorio. El CI remoto ya no es pendiente: `Foundation CI` pasó sobre `main` en `cd113e6` (ver [Seguimiento CI](#seguimiento-ci-primera-ejecución-remota)).
 - MySQL local disponible para comprobar esquema/datos y, en V1-B/I, pruebas reales MySQL/Redis; SQLite no sustituye esas pruebas.
 - Definir TTL de disponibilidad manual, asignación/expiración interna, tratamiento de datos vencidos y revisión operativa para poder cobrar. No exigir API ficticia para avanzar.
 - Implementar consumidor de disponibilidad con contratos pequeños y pruebas de concurrencia antes de llamar capacidad real de proveedor.
 - Completar restricciones operativas CRC antes de habilitar cobros, sin alterar snapshots históricos.
 - Resolver fiscalidad y política financiera antes de V1-E/J; obtener documentación externa cuando corresponda.
 
-**No se implementó V1-B/C/D/E**, logística, pagos TiloPay, APIs reales/falsas de proveedores, stock ni catálogo ficticio. V1-F tampoco se inició. Sin commit ni push. Detenerse aquí para revisión del propietario.
+**No se implementó V1-B/C/D/E**, logística, pagos TiloPay, APIs reales/falsas de proveedores, stock ni catálogo ficticio. V1-F tampoco se inició. V1-A y la corrección del CI están publicadas en `main` (`fb63779`, `cd113e6`). Detenerse aquí para revisión del propietario; iniciar V1-B requiere su autorización.
