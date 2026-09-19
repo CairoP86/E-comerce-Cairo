@@ -41,8 +41,8 @@ Secuencia:
 1. Checkout y herramientas; extensiones SQLite, GD/WebP y las requeridas por Laravel/tests.
 2. `composer install` desde composer.lock, sin update.
 3. Copiar plantilla al `.env` **efímero del runner**, generar clave sin imprimirla y verificar soporte WebP.
-4. Validar Composer/plataforma/Pint; `php artisan test` completo.
-5. `npm ci --ignore-scripts` desde package-lock.json; `npm run check` (TypeScript y build).
+4. `npm ci --ignore-scripts` desde package-lock.json; `npm run check` (TypeScript y build). Va antes de la suite porque genera `public/build/manifest.json`, que necesitan los tests que renderizan `app.blade.php`.
+5. Validar Composer/plataforma/Pint; `php artisan test` completo.
 
 No contiene deploy, `db:seed`, `migrate --seed`, credenciales productivas ni carga de datos. Los tests sí pueden usar seeders/fixtures dentro de SQLite aislado; esto no es seeding de la base comercial. No cambiar a `pull_request_target` para ejecutar código de contribuciones con secretos.
 

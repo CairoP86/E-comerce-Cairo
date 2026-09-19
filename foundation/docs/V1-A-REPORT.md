@@ -1,6 +1,6 @@
 # V1-A · Contratos internos y base de release
 
-Fecha: 2026-09-18. Estado: implementada para revisión; no autoriza iniciar V1-B. Documento rector: [V1-ROADMAP.md](V1-ROADMAP.md).
+Fecha: 2026-09-18. Estado: implementada para revisión; la primera ejecución remota del CI falló y se corrigió localmente ([Seguimiento CI](#seguimiento-ci-primera-ejecución-remota)); la segunda ejecución remota está pendiente. No autoriza iniciar V1-B. Documento rector: [V1-ROADMAP.md](V1-ROADMAP.md).
 
 ## Estado inicial
 
@@ -48,7 +48,45 @@ Nuevo `.github/workflows/ci.yml` en la raíz del repositorio:
 - Suite PHP completa, validación Composer/plataforma/Pint y TypeScript/build. Comprobación GD/WebP explícita.
 - Sin MySQL/Redis, secretos productivos, seeders de inicialización o instrucciones de deploy. Fixtures de tests solo dentro de BD aislada.
 
-Se revisó el workflow y se ejecutaron las comprobaciones de aplicación localmente. **No se ha ejecutado el workflow en GitHub**, pues no se hizo commit/push; su primera ejecución remota sigue pendiente. Esto no certifica concurrencia productiva. Fuentes de las acciones y procedimiento están en [ENVIRONMENTS-RELEASE.md](ENVIRONMENTS-RELEASE.md).
+Se revisó el workflow y se ejecutaron las comprobaciones de aplicación localmente. **No se ha ejecutado el workflow en GitHub**, pues no se hizo commit/push; su primera ejecución remota sigue pendiente. Esto no certifica concurrencia productiva. Fuentes de las acciones y procedimiento están en [ENVIRONMENTS-RELEASE.md](ENVIRONMENTS-RELEASE.md). Actualización posterior: la primera ejecución remota falló; causa y corrección en [Seguimiento CI](#seguimiento-ci-primera-ejecución-remota).
+
+## Seguimiento CI: primera ejecución remota
+
+Fecha: 2026-09-18.
+
+**Fallo observado.** La primera ejecución real de `Foundation CI` en GitHub Actions falló en el paso "Run complete existing test suite": **2 failed, 114 passed (2676 assertions)**, exit code 1, con `Vite manifest not found at: /home/runner/work/E-comerce-Cairo/E-comerce-Cairo/foundation/public/build/manifest.json` (ejemplo: `tests/Feature/FoundationTest.php:24`). Los pasos "Install locked frontend dependencies" y "TypeScript and production assets" no llegaron a ejecutarse.
+
+**Causa raíz.** El workflow ejecutaba `php artisan test` antes de `npm ci` y `npm run check`. `public/build` está ignorado por Git (`foundation/.gitignore`), así que un runner limpio no tiene manifest cuando corre la suite. Dos tests renderizan la vista raíz `resources/views/app.blade.php`, cuyo `@vite(['resources/js/app.ts'])` (línea 21) exige el manifest, sin desactivar Vite:
+
+- `Tests\Feature\ExampleTest::test_the_application_returns_a_successful_response`: `GET /` renderiza la página Inertia `Home` con esa vista raíz.
+- `Tests\Feature\FoundationTest::test_legacy_products_route_is_absent_and_empty_checkout_returns_to_cart`: `GET /products` responde 404 y `bootstrap/app.php` (líneas 37-44) convierte las respuestas 403/404/419/429 no JSON en la página Inertia `Error`, con la misma vista raíz.
+
+El resto de feature tests llama a `withoutVite()` en `setUp()` o dentro del propio test. Localmente pasaban porque `public/build/manifest.json` ya existía por builds anteriores: el CI dependía de un artefacto que un checkout limpio no tiene.
+
+**Reproducción.** Export limpio de `HEAD` (`git archive`, sin `vendor`, `node_modules`, `public/build` ni `.env`) en un directorio temporal fuera del repositorio, con las mismas variables de entorno del workflow:
+
+| Orden | Resultado |
+| --- | --- |
+| Anterior (tests antes de assets) | **2 failed, 114 passed (2676 assertions)**; mismo mensaje de manifest y exactamente los 2 tests anteriores |
+| Corregido (assets antes de tests) | `npm ci` y `npm run check` PASS, manifest generado; validate, plataforma y Pint PASS; **116 passed (2678 assertions)** |
+
+**Corrección aplicada.** Solo se reordenó `.github/workflows/ci.yml`: checkout → PHP → Node → `composer install` → `npm ci --ignore-scripts` → `.env`/clave efímeros y comprobación WebP → `npm run check` (TypeScript y build) → `composer validate --strict`/`check-platform-reqs`/Pint → `php artisan test`. Un comentario en el workflow explica la dependencia. No cambian tests, assertions, vistas, `bootstrap/app.php`, lógica de negocio, lockfiles ni dependencias; no se versionan `public/build` ni `node_modules`; Vite no se desactiva ni se simula.
+
+**Archivos modificados en esta corrección.** `.github/workflows/ci.yml`, `foundation/docs/ENVIRONMENTS-RELEASE.md` y `foundation/docs/V1-A-REPORT.md`.
+
+**Verificación local después de la corrección.**
+
+| Verificación | Resultado |
+| --- | --- |
+| `php artisan test` | **116 passed / 2678 assertions / 0 failures** |
+| `npm run check` | PASS: vue-tsc y build, 649 módulos |
+| `composer validate --strict` | PASS |
+| `php vendor/bin/pint --test` | PASS |
+| `git diff --check` | PASS (solo el aviso de normalización LF/CRLF de Git) |
+
+**Documentación alineada.** Con autorización del propietario, `foundation/docs/ENVIRONMENTS-RELEASE.md` (sección CI, pasos 4 y 5) ahora describe el orden validado: `npm ci --ignore-scripts` y `npm run check` antes de la validación Composer/plataforma/Pint y de `php artisan test`, indicando que el build genera el manifest que necesitan los tests. El orden relativo entre `npm ci` y la preparación del `.env` efímero no se replica línea por línea porque ambos pasos son independientes.
+
+**Estado.** La segunda ejecución remota queda pendiente hasta el push. V1-A no se da por cerrada hasta que GitHub Actions pase realmente. V1-B no se inició. Sin commit ni push.
 
 ## Entornos, secretos y seeders
 
@@ -129,7 +167,7 @@ Los logs de verificación y la utilidad temporal de lectura MySQL están en `.lo
 
 ## Pendientes y entrada a V1-B
 
-- Primera ejecución remota del CI y configuración de protección de rama por el responsable del repositorio, cuando se autorice publicar estos cambios.
+- Segunda ejecución remota del CI tras la corrección del orden (la primera falló; ver [Seguimiento CI](#seguimiento-ci-primera-ejecución-remota)) y configuración de protección de rama por el responsable del repositorio, cuando se autorice publicar estos cambios.
 - MySQL local disponible para comprobar esquema/datos y, en V1-B/I, pruebas reales MySQL/Redis; SQLite no sustituye esas pruebas.
 - Definir TTL de disponibilidad manual, asignación/expiración interna, tratamiento de datos vencidos y revisión operativa para poder cobrar. No exigir API ficticia para avanzar.
 - Implementar consumidor de disponibilidad con contratos pequeños y pruebas de concurrencia antes de llamar capacidad real de proveedor.
