@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\StockHolds;
 use App\Support\Audit;
+use App\Support\CartHolder;
 use App\Support\PasswordRequirements;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Auth\Events\Registered;
@@ -56,6 +58,8 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        // The session cart is discarded below, so its local holds must not keep blocking stock.
+        app(StockHolds::class)->releaseAll(CartHolder::current());
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

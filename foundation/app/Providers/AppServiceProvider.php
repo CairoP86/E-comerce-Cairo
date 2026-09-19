@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Availability\AvailabilityConfig;
+use App\Availability\PreferredOfferAvailability;
 use App\Contracts\CartStore;
+use App\Contracts\ProductAvailability;
 use App\Enums\Role;
 use App\Models\User;
 use App\Services\SessionCartStore;
@@ -29,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(CartStore::class, SessionCartStore::class);
+        $this->app->bind(ProductAvailability::class, PreferredOfferAvailability::class);
     }
 
     /**
@@ -36,6 +40,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // V1-B: a missing or invalid availability TTL stops the application at boot, never hides the catalog at runtime.
+        if (AvailabilityConfig::mustValidate($this->app->runningInConsole(), $_SERVER['argv'] ?? [])) {
+            AvailabilityConfig::assertValid(config('commerce.availability.ttl_minutes'), config('commerce.availability.hold_minutes'));
+        }
         VerifyEmail::toMailUsing(fn (object $notifiable, string $url) => (new MailMessage)
             ->subject('Verifica tu correo electrónico')->greeting('Hola, '.$notifiable->name)
             ->line('Confirma tu correo para acceder a tu cuenta.')->action('Verificar correo', $url)

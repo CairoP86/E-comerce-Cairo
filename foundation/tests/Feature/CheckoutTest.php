@@ -29,7 +29,7 @@ class CheckoutTest extends TestCase
 
     private function prepare(array $attributes = []): Product
     {
-        $product = Product::factory()->create(['status' => 'published', 'price_minor' => 123456, 'currency' => 'CRC', ...$attributes]);
+        $product = Product::factory()->sellable()->create(['status' => 'published', 'price_minor' => 123456, 'currency' => 'CRC', ...$attributes]);
         $this->post('/cart/items', ['mutation_id' => (string) Str::uuid(), 'revision' => session('shopping_cart.revision', 0), 'product_slug' => $product->slug, 'quantity' => 2])->assertSessionHasNoErrors();
         $this->get('/checkout')->assertOk();
 

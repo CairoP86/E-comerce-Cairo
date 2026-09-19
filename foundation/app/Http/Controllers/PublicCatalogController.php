@@ -2,25 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Availability\Availability;
+use App\Contracts\ProductAvailability;
 use App\Http\Resources\PublicProductResource;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Support\CartHolder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 
 class PublicCatalogController extends Controller
 {
+    public function __construct(private ProductAvailability $availability) {}
+
     private function products()
     {
-        return Product::publiclyVisible()->with(['category', 'brand', 'images']);
+        return Product::storefrontVisible()->with(['category', 'brand', 'images']);
     }
 
-    private function cards($query, int $limit = 4): array
+    private function cards(Collection $products): array
     {
-        return $query->limit($limit)->get()->map(fn ($product) => (new PublicProductResource($product))->resolve())->all();
+        return $products->map(fn ($product) => (new PublicProductResource($product))->resolve())->values()->all();
+    }
+
+    /** Public availability keyed by slug: state and exact quantity only (V1-B-SCOPE §4). */
+    private function availabilityFor(Collection $products): array
+    {
+        if ($products->isEmpty()) {
+            return [];
+        }
+        $resolved = $this->availability->forProducts($products->pluck('id')->all(), CartHolder::current());
+
+        return $products->mapWithKeys(fn ($product) => [$product->slug => ($resolved[$product->id] ?? Availability::unknown())->toPublic()])->all();
     }
 
     private function categories()
@@ -50,10 +67,13 @@ class PublicCatalogController extends Controller
 
     public function home()
     {
+        $featured = $this->products()->where('featured', true)->orderBy('id')->limit(4)->get();
+        $recent = $this->products()->orderByDesc('published_at')->orderByDesc('id')->limit(4)->get();
+        $offers = $this->products()->whereColumn('previous_price_minor', '>', 'price_minor')->orderBy('id')->limit(4)->get();
+
         return $this->render('Home', [
-            'featured' => $this->cards($this->products()->where('featured', true)->orderBy('id')),
-            'recent' => $this->cards($this->products()->orderByDesc('published_at')->orderByDesc('id')),
-            'offers' => $this->cards($this->products()->whereColumn('previous_price_minor', '>', 'price_minor')->orderBy('id')),
+            'featured' => $this->cards($featured), 'recent' => $this->cards($recent), 'offers' => $this->cards($offers),
+            'availability' => $this->availabilityFor($featured->concat($recent)->concat($offers)->unique('id')),
             'categories' => $this->taxonomy($this->categories()),
             'brands' => Brand::where('status', 'published')->orderBy('name')->get(['name', 'slug'])->toArray(),
         ], config('storefront.tagline'), config('storefront.description'), route('home'));
@@ -123,8 +143,9 @@ class PublicCatalogController extends Controller
             'name_asc' => ['name', 'asc'], 'name_desc' => ['name', 'desc'],
             'featured' => ['featured', 'desc'], default => ['published_at', 'desc'],
         };
-        $products = $query->orderBy($column, $direction)->orderByDesc('id')->paginate(12)->appends($filters)
-            ->through(fn ($product) => (new PublicProductResource($product))->resolve());
+        $page = $query->orderBy($column, $direction)->orderByDesc('id')->paginate(12)->appends($filters);
+        $availability = $this->availabilityFor($page->getCollection());
+        $products = $page->through(fn ($product) => (new PublicProductResource($product))->resolve());
         $canonicalFilters = array_intersect_key($filters, array_flip(['category', 'currency', 'page']));
         if ($canonicalFilters['currency'] === 'CRC') {
             unset($canonicalFilters['currency']);
@@ -134,7 +155,7 @@ class PublicCatalogController extends Controller
         }
 
         return $this->render('catalog/Index', [
-            'products' => $products, 'filters' => $filters, 'categories' => $this->taxonomy($categories),
+            'products' => $products, 'availability' => $availability, 'filters' => $filters, 'categories' => $this->taxonomy($categories),
             'brands' => Brand::where('status', 'published')->orderBy('name')->get(['name', 'slug'])->toArray(),
             'activeCategory' => $category ? ['name' => $category->name, 'description' => $category->description] : null,
         ], $category?->name ?? 'Catálogo de tecnología', $category?->description ?: config('storefront.description'), route('catalog.index', $canonicalFilters));
@@ -143,11 +164,13 @@ class PublicCatalogController extends Controller
     public function show(string $slug)
     {
         $product = $this->products()->where('slug', $slug)->firstOrFail();
+        $related = $this->products()->where('category_id', $product->category_id)->whereKeyNot($product->id)->orderByDesc('featured')->orderBy('id')->limit(4)->get();
         $data = (new PublicProductResource($product))->resolve();
 
         return $this->render('catalog/Show', [
             'product' => $data,
-            'related' => $this->cards($this->products()->where('category_id', $product->category_id)->whereKeyNot($product->id)->orderByDesc('featured')->orderBy('id')),
+            'related' => $this->cards($related),
+            'availability' => $this->availabilityFor(collect([$product])->concat($related)),
         ], $product->meta_title ?: $product->name, $product->meta_description ?: mb_substr($product->short_description, 0, 170), route('catalog.show', $product->slug), collect($data['images'])->firstWhere('is_primary', true)['url'] ?? null);
     }
 }

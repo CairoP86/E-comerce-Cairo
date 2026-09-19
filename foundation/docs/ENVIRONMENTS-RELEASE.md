@@ -8,6 +8,7 @@ Este documento prepara el proceso; no declara staging desplegado ni producción 
 | --- | --- | --- | --- | --- |
 | APP_ENV | local | testing | staging | production |
 | APP_DEBUG | false por defecto; true solo para depuración local privada | false en CI | false | false obligatorio |
+| COMMERCE_AVAILABILITY_TTL_MINUTES | Obligatoria; ventana larga para datos manuales de prueba | Obligatoria; ventana larga (`phpunit.xml`, `.env.example`) | Obligatoria; según cadencia de polling a definir | Obligatoria y corta; sin ella la aplicación no arranca |
 | APP_URL | http://127.0.0.1:8086 | http://localhost; aislado | URL HTTPS de staging aprobada | Dominio HTTPS aprobado |
 | APP_KEY | propia de local | efímera generada en runner | propia, secreto persistente | propia, secreto persistente y respaldado |
 | BD | MySQL existente; sin reset/reseed | SQLite :memory:, RefreshDatabase por test | MySQL separado, datos autorizados/anónimos | MySQL persistente, permisos mínimos |

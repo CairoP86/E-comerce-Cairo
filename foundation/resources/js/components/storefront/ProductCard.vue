@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
+import StockStatus from './StockStatus.vue';
 import { money } from '../../types/catalog';
-import type { PublicProduct } from '../../types/storefront';
-const props = defineProps<{ product: PublicProduct }>();
+import type { PublicAvailability, PublicProduct } from '../../types/storefront';
+const props = defineProps<{ product: PublicProduct; availability?: PublicAvailability }>();
 const image = computed(() => props.product.images.find(image => image.is_primary) ?? props.product.images[0]);
 </script>
 <template>
@@ -20,6 +21,7 @@ const image = computed(() => props.product.images.find(image => image.is_primary
                 <h3>{{ product.name }}</h3>
                 <p class="st-card-category">{{ product.category.name }}</p>
                 <div class="st-price"><strong>{{ money(product.price_minor, product.currency) }}</strong><del v-if="product.previous_price_minor">{{ money(product.previous_price_minor, product.currency) }}</del></div>
+                <StockStatus :availability="availability"/>
                 <p class="st-editorial"><span aria-hidden="true">◌</span> {{ product.is_demo ? 'Producto de demostración' : 'Publicado en catálogo' }}</p>
             </div>
         </Link>

@@ -24,7 +24,7 @@ class CartTest extends TestCase
 
     private function product(array $attributes = []): Product
     {
-        return Product::factory()->create(['status' => 'published', ...$attributes]);
+        return Product::factory()->sellable()->create(['status' => 'published', ...$attributes]);
     }
 
     private function mutation(array $extra = []): array

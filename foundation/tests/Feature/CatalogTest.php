@@ -171,7 +171,7 @@ class CatalogTest extends TestCase
 
     public function test_drafts_archived_products_and_inactive_ancestors_are_invisible_publicly(): void
     {
-        $product = Product::factory()->create();
+        $product = Product::factory()->sellable()->create();
         ProductImage::factory()->create(['product_id' => $product->id]);
         $url = '/admin/catalog/products/'.$product->id.'/status';
         $this->get('/catalog/'.$product->slug)->assertNotFound();
@@ -210,7 +210,7 @@ class CatalogTest extends TestCase
 
     public function test_image_upload_validation_and_private_visibility(): void
     {
-        $product = Product::factory()->create();
+        $product = Product::factory()->sellable()->create();
         $url = '/admin/catalog/products/'.$product->id.'/images';
         $this->post($url, ['files' => [UploadedFile::fake()->createWithContent('bad.svg', '<svg onload="alert(1)"></svg>')], 'alt' => 'Invalid'])->assertSessionHasErrors('files.0');
         $this->post($url, ['files' => [UploadedFile::fake()->image('wide.jpg', 4097, 5)], 'alt' => 'Too wide'])->assertSessionHasErrors('files.0');

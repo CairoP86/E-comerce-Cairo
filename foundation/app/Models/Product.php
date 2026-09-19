@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Availability\AvailabilityConfig;
+use App\Availability\PreferredOfferAvailability;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,5 +37,11 @@ class Product extends Model
     public function scopePubliclyVisible(Builder $query): Builder
     {
         return $query->where('status', 'published')->whereIn('category_id', Category::publicIds())->whereHas('brand', fn ($q) => $q->where('status', 'published'));
+    }
+
+    /** Editorially public and with a fresh, publicly visible preferred offer (V1-B-SCOPE §2, D9). */
+    public function scopeStorefrontVisible(Builder $query): Builder
+    {
+        return $query->publiclyVisible()->whereExists(fn ($offers) => PreferredOfferAvailability::constrainVisible($offers, PreferredOfferAvailability::now(), AvailabilityConfig::ttlMinutes()));
     }
 }

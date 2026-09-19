@@ -2,13 +2,18 @@
 
 namespace App\Services;
 
+use App\Availability\Availability;
+use App\Availability\AvailabilityState;
+use App\Availability\HoldUnavailable;
 use App\Contracts\CartStore;
+use App\Contracts\ProductAvailability;
 use App\Enums\OrderStatus;
 use App\Enums\Role;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use App\Support\Audit;
+use App\Support\CartHolder;
 use App\Support\CostaRicaTerritories;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -16,7 +21,7 @@ use Illuminate\Validation\ValidationException;
 
 class CheckoutService
 {
-    public function __construct(private CartStore $store) {}
+    public function __construct(private CartStore $store, private ProductAvailability $availability, private StockHolds $holds) {}
 
     private function fail(string $message): never
     {
@@ -57,11 +62,20 @@ class CheckoutService
         } else {
             $visible = Product::publiclyVisible()->whereIn('id', $ids)->pluck('id')->all();
         }
+        $holder = CartHolder::current();
+        // Offers and holds are locked after products and taxonomy; hold writers only lock offers, then holds.
+        $availability = $this->availability->forProducts($ids, $holder, $lock);
+        $holds = $this->holds->active($holder, $ids, $lock);
         $items = [];
         foreach ($cart['items'] as $item) {
             $product = $products->get($item['product_id']);
             if (! $product || ! in_array($product->id, $visible, true) || $product->currency !== $cart['currency'] || ! in_array($product->currency, ['CRC', 'USD'], true) || ! is_int($item['quantity']) || $item['quantity'] < 1 || $item['quantity'] > CartService::MAX_QUANTITY) {
                 $this->fail('Hay productos que ya no se pueden confirmar. Revisa el carrito antes de continuar.');
+            }
+            $current = $availability[$product->id] ?? Availability::unknown();
+            $hold = $holds->get($product->id);
+            if ($current->state !== AvailabilityState::Available || $item['quantity'] > $current->quantity || ! $hold || $hold->quantity !== $item['quantity'] || $hold->supplier_product_id !== $current->offerId) {
+                $this->fail('La disponibilidad o la reserva de algunos productos cambió. Revisa el carrito antes de continuar.');
             }
             $items[] = ['product_id' => $product->id, 'name' => $product->name, 'sku' => $product->sku, 'is_demo' => $product->is_demo, 'quantity' => $item['quantity'], 'unit_price_minor' => $product->price_minor, 'subtotal_minor' => $product->price_minor * $item['quantity'], 'currency' => $product->currency];
         }
@@ -138,6 +152,11 @@ class CheckoutService
             ]);
             $order->save();
             $order->items()->createMany($quote['items']);
+            try {
+                $this->holds->convert(CartHolder::current() ?? '', $order, $quote['items']);
+            } catch (HoldUnavailable $exception) {
+                $this->fail($exception->getMessage());
+            }
             $order->address()->create([
                 'country_code' => 'CR', 'province_code' => $data['province_code'], 'canton_code' => $data['canton_code'], 'district_code' => $data['district_code'],
                 'province' => $territory['province'], 'canton' => $territory['canton'], 'district' => $territory['name'], 'territory_version' => 'IGN-2026',

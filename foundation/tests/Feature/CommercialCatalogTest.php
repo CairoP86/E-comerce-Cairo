@@ -308,7 +308,7 @@ class CommercialCatalogTest extends TestCase
     public function test_archiving_demo_is_non_destructive_and_preserves_real_products(): void
     {
         $demo = Product::factory()->create(['status' => 'published', 'is_demo' => true]);
-        $real = Product::factory()->create(['status' => 'published', 'is_demo' => false]);
+        $real = Product::factory()->sellable()->create(['status' => 'published', 'is_demo' => false]);
         $this->artisan('catalog:archive-demo')->assertSuccessful();
         $this->artisan('catalog:archive-demo')->assertSuccessful();
         $this->assertSame('archived', $demo->fresh()->status);

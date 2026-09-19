@@ -23,7 +23,7 @@ class StorefrontTest extends TestCase
 
     private function product(array $attributes = []): Product
     {
-        return Product::factory()->create(['status' => 'published', 'published_at' => now(), ...$attributes]);
+        return Product::factory()->sellable()->create(['status' => 'published', 'published_at' => now(), ...$attributes]);
     }
 
     public function test_home_is_public_and_selects_only_published_local_products(): void
@@ -108,7 +108,7 @@ class StorefrontTest extends TestCase
     public function test_pagination_preserves_only_validated_filters(): void
     {
         $category = Category::factory()->create();
-        Product::factory()->count(14)->create(['status' => 'published', 'category_id' => $category->id, 'featured' => true, 'name' => 'Laptop']);
+        Product::factory()->count(14)->sellable()->create(['status' => 'published', 'category_id' => $category->id, 'featured' => true, 'name' => 'Laptop']);
         $url = '/catalog?'.http_build_query(['q' => 'Laptop', 'category' => $category->slug, 'featured' => 1, 'sort' => 'price_asc', 'secret' => 'not-forwarded']);
         $response = $this->get($url)->assertInertia(fn (Assert $page) => $page->has('products.data', 12)->where('products.total', 14)->missing('filters.secret'));
         $next = $response->viewData('page')['props']['products']['next_page_url'];

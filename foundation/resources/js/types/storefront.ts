@@ -13,3 +13,5 @@ export interface Seo { title: string; description: string; url: string; image: s
 export type Filters = Partial<Record<'q' | 'category' | 'brand' | 'currency' | 'min' | 'max' | 'sort' | 'editorial' | 'featured' | 'offers' | 'page', string>>;
 export type ProductPage = Paginator<PublicProduct> & { last_page: number; from: number | null; to: number | null };
 export const catalogUrl = (filters: Filters = {}) => `/catalog${Object.keys(filters).length ? `?${new URLSearchParams(filters as Record<string, string>).toString()}` : ''}`;
+export interface PublicAvailability { state: 'available' | 'unavailable'; quantity: number }
+export type AvailabilityMap = Record<string, PublicAvailability>;

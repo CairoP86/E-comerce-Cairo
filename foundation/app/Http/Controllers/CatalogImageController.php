@@ -15,7 +15,7 @@ class CatalogImageController extends Controller
 {
     public function show(Request $request, ProductImage $image)
     {
-        abort_unless($request->user()?->hasVerifiedEmail() && $request->user()?->can('view-catalog-admin') || Product::publiclyVisible()->whereKey($image->product_id)->exists(), 404);
+        abort_unless($request->user()?->hasVerifiedEmail() && $request->user()?->can('view-catalog-admin') || Product::storefrontVisible()->whereKey($image->product_id)->exists(), 404);
         abort_unless(Storage::disk('catalog')->exists($image->path), 404);
 
         return Storage::disk('catalog')->response($image->path, null, ['Cache-Control' => 'private, no-store', 'X-Content-Type-Options' => 'nosniff']);
