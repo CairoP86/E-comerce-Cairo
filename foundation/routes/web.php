@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\InfoPageController;
 use App\Http\Controllers\PublicCatalogController;
 use App\Models\AuditLog;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,9 @@ require __DIR__.'/checkout.php';
 require __DIR__.'/commercial.php';
 
 Route::get('/', [PublicCatalogController::class, 'home'])->name('home');
+
+Route::get('/metodos-de-pago', [InfoPageController::class, 'payments'])->name('pages.payments');
+Route::get('/venta-corporativa', [InfoPageController::class, 'corporate'])->name('pages.corporate');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', fn () => Inertia::render('auth/Login'))->name('login');

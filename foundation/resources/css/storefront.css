@@ -12,3 +12,46 @@
 .storefront .st-header :focus-visible{outline-color:var(--color-focus)}
 .st-search{background:var(--color-surface);border-color:var(--color-control-border)}.st-search input{color:var(--color-text)}.st-search input::placeholder{color:var(--color-muted)}.st-search button{color:var(--color-primary)}.st-search:focus-within{outline-color:var(--color-focus)}.st-nav{border-color:var(--color-border)}.st-nav-region{color:var(--color-muted)}.st-logo-mark,.st-button,.st-button-dark{background:var(--color-primary);color:var(--color-on-primary)}.st-button:hover,.st-button-dark:hover{background:var(--color-primary-hover)}.st-hero h1 span,.st-hero-note span{color:var(--color-highlight-on-dark)}.st-hero :focus-visible,.storefront .st-footer :focus-visible{outline-color:var(--color-focus-on-dark)}.st-footer a:hover{color:var(--color-highlight-on-dark)}
 .st-stock{display:inline-flex;align-items:center;gap:6px;margin-top:10px!important;padding:3px 8px;border:1px solid;border-radius:999px;font-size:11px;font-weight:600;line-height:1.5;font-variant-numeric:tabular-nums}.st-stock.is-available{color:var(--color-stock-text);background:var(--color-stock-background);border-color:var(--color-stock-border)}.st-stock.is-sold-out{color:var(--color-soldout-text);background:var(--color-soldout-background);border-color:var(--color-soldout-border)}.st-stock.is-detail{font-size:13px;padding:5px 12px;margin-top:16px!important}.st-stock-icon{flex-shrink:0}
+
+/* Category trigger: first and heaviest item of the navigation, not one link among many. */
+.st-nav-categories{position:relative;order:-1}
+.st-categories-trigger{display:flex;align-items:center;gap:10px;width:100%;background:var(--st-accent);color:var(--color-on-primary);border:0;border-radius:6px;padding:11px 16px;font-size:12px;font-weight:700;letter-spacing:-.01em}
+.st-categories-trigger:hover{background:var(--color-primary-hover)}
+.st-categories-icon{font-size:14px}
+.st-categories-caret{margin-left:auto;font-size:10px}
+.st-categories-panel{display:flex;flex-direction:column;padding:6px 0 4px}
+.st-categories-panel a{padding:11px 14px;min-height:44px;font-size:12px}
+.st-categories-panel a:hover{color:var(--color-primary)}
+.st-categories-all{font-weight:650;color:var(--color-primary);border-top:1px solid var(--st-line);margin-top:4px}
+.st-categories-empty{padding:11px 14px;font-size:11px;color:var(--st-muted)}
+
+/* Static information pages: payment methods and corporate sales. */
+.st-info-cards{display:grid;gap:14px}
+.st-info-card{border:1px solid var(--st-line);border-radius:8px;padding:22px 20px;background:var(--color-background)}
+.st-info-card h3{font-size:17px;margin-bottom:10px}
+.st-info-card p{font-size:12px;color:var(--st-muted);line-height:1.9}
+.st-info-card .st-button,.st-info-card .st-text-link{margin-top:16px}
+.st-info-value{font-size:15px!important;font-weight:650;color:var(--st-ink)!important;margin-top:12px}
+.st-info-card .st-button{display:inline-flex}
+.st-steps{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:step}
+.st-steps li{display:flex;gap:18px;padding:20px 0;border-top:1px solid var(--st-line)}
+.st-steps li:last-child{border-bottom:1px solid var(--st-line)}
+.st-step-index{font-size:11px;font-weight:700;color:var(--color-primary);padding-top:3px;flex-shrink:0}
+.st-steps h3{font-size:15px;margin-bottom:7px}
+.st-steps p{font-size:12px;color:var(--st-muted);line-height:1.9;max-width:640px}
+.st-info-note{background:var(--color-surface-blue);border:1px solid var(--color-border);border-radius:9px;padding:30px 25px}
+.st-info-note h2{font-size:23px;margin-bottom:14px}
+.st-info-note p{font-size:12px;color:var(--st-muted);line-height:1.9;max-width:620px;margin-bottom:12px}
+.st-info-note .st-button{margin-top:10px}
+.st-info-pending{border-left:2px solid var(--color-control-border);padding:14px 18px;font-size:12px;color:var(--st-muted);line-height:1.8}
+
+@media(min-width:900px){
+    .st-nav,.st-nav.is-open{flex-wrap:wrap;gap:24px}
+    .st-nav-categories{order:0;margin-right:4px}
+    .st-categories-trigger{width:auto;padding:9px 15px}
+    .st-categories-caret{margin-left:2px}
+    .st-categories-panel{position:absolute;z-index:20;top:calc(100% + 8px);left:0;min-width:250px;background:var(--color-background);border:1px solid var(--st-line);border-radius:8px;box-shadow:0 12px 30px var(--color-shadow);padding:8px 0}
+    .st-info-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .st-steps li{gap:26px;padding:24px 0}
+    .st-info-note{padding:38px 40px}
+}

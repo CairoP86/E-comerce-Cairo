@@ -1,5 +1,7 @@
 import type { Specification, Paginator } from './catalog';
+export interface Contact { whatsapp: string; whatsapp_url: string; email: string }
 export interface Identity { name: string; mark: string; tagline: string; description: string; locale: string; region: string }
+export interface NavCategory { name: string; slug: string }
 export interface PublicTaxonomy { name: string; slug: string; description?: string | null; parent_slug?: string | null }
 export interface PublicImage { id: number; url: string; alt: string; position: number; is_primary: boolean }
 export interface PublicProduct {

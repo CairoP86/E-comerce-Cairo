@@ -2,14 +2,23 @@
 import { Link, usePage, router } from '@inertiajs/vue3';
 import { ref, watch } from 'vue';
 import type { SharedProps } from '../types/auth';
-import type { Identity } from '../types/storefront';
+import type { Identity, NavCategory } from '../types/storefront';
+import { catalogUrl } from '../types/storefront';
 import type { CartSummary } from '../types/cart';
-const page = usePage<SharedProps & { identity: Identity; cartSummary: CartSummary }>();
+const page = usePage<SharedProps & { identity: Identity; cartSummary: CartSummary; navCategories: NavCategory[] }>();
 const menu = ref(false);
 const menuButton = ref<HTMLButtonElement>();
+const categories = ref(false);
+const categoriesButton = ref<HTMLButtonElement>();
 const query = ref('');
-watch(() => page.url, () => { menu.value = false; query.value = new URL(page.url, 'http://local').searchParams.get('q') ?? ''; }, { immediate: true });
-function closeMenu() { menu.value = false; menuButton.value?.focus(); }
+watch(() => page.url, () => { menu.value = false; categories.value = false; query.value = new URL(page.url, 'http://local').searchParams.get('q') ?? ''; }, { immediate: true });
+function closeMenu() { menu.value = false; categories.value = false; menuButton.value?.focus(); }
+function closeCategories() { categories.value = false; categoriesButton.value?.focus(); }
+// Close the panel when focus leaves it entirely, the usual disclosure behaviour.
+function categoriesFocusOut(event: FocusEvent) {
+    const next = event.relatedTarget as Node | null;
+    if (!next || !(event.currentTarget as HTMLElement).contains(next)) categories.value = false;
+}
 function search() { router.get('/catalog', query.value.trim() ? { q: query.value.trim() } : {}); }
 </script>
 <template>
@@ -24,7 +33,17 @@ function search() { router.get('/catalog', query.value.trim() ? { q: query.value
                 <Link href="/cart" class="st-cart-link" :aria-label="`Carrito, ${page.props.cartSummary.units} unidades`"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 3h3l3 13h11l3-10H6M8 19h11"/><circle cx="9" cy="22" r="1"/><circle cx="18" cy="22" r="1"/></svg><span class="st-cart-link-text">Carrito</span><span class="st-cart-count">{{ page.props.cartSummary.units }}</span></Link>
                 <button ref="menuButton" class="st-menu-toggle" :aria-expanded="menu" aria-controls="store-navigation" @click="menu = !menu">{{ menu ? 'Cerrar' : 'Menú' }} <span aria-hidden="true">{{ menu ? '×' : '☰' }}</span></button>
             </div>
-            <nav id="store-navigation" class="st-container st-nav" :class="{ 'is-open': menu }" aria-label="Navegación principal"><Link href="/catalog">Explorar catálogo <span aria-hidden="true">↗</span></Link><Link href="/catalog?featured=1">Destacados</Link><Link href="/catalog?sort=newest">Novedades</Link><Link href="/catalog?offers=1">Ofertas demo</Link><a href="/#categories">Categorías</a><a href="/#brands">Marcas</a><span class="st-nav-region">{{ page.props.identity.region }}</span></nav>
+            <nav id="store-navigation" class="st-container st-nav" :class="{ 'is-open': menu }" aria-label="Navegación principal">
+                <div class="st-nav-categories" @keydown.esc.stop="closeCategories" @focusout="categoriesFocusOut">
+                    <button ref="categoriesButton" type="button" class="st-categories-trigger" :aria-expanded="categories" aria-controls="category-panel" @click="categories = !categories"><span class="st-categories-icon" aria-hidden="true">☰</span>Categorías<span class="st-categories-caret" aria-hidden="true">▾</span></button>
+                    <div v-show="categories" id="category-panel" class="st-categories-panel">
+                        <Link v-for="category in page.props.navCategories" :key="category.slug" :href="catalogUrl({ category: category.slug })">{{ category.name }}</Link>
+                        <p v-if="!page.props.navCategories.length" class="st-categories-empty">Estamos preparando las categorías del catálogo.</p>
+                        <Link href="/catalog" class="st-categories-all">Todo el catálogo <span aria-hidden="true">↗</span></Link>
+                    </div>
+                </div>
+                <Link href="/catalog">Explorar catálogo <span aria-hidden="true">↗</span></Link><Link href="/catalog?featured=1">Destacados</Link><Link href="/catalog?sort=newest">Novedades</Link><Link href="/catalog?offers=1">Ofertas demo</Link><a href="/#brands">Marcas</a><Link href="/metodos-de-pago">Métodos de Pago</Link><Link href="/venta-corporativa">Venta Corporativa</Link><span class="st-nav-region">{{ page.props.identity.region }}</span>
+            </nav>
         </header>
         <main id="main-content" tabindex="-1" class="st-container"><slot /></main>
         <footer class="st-footer"><div class="st-container"><div class="st-footer-grid"><div class="st-footer-brand"><Link href="/" class="st-logo"><span class="st-logo-mark" aria-hidden="true">{{ page.props.identity.mark }}</span>{{ page.props.identity.name }}</Link><p>{{ page.props.identity.tagline }}</p><p>Un espacio para explorar, conocer y elegir tu próximo equipo.</p></div><nav aria-label="Explorar"><h2>Explora</h2><Link href="/catalog">Todo el catálogo</Link><Link href="/catalog?featured=1">Destacados</Link><Link href="/catalog?sort=newest">Novedades</Link><a href="/#brands">Marcas</a></nav><nav aria-label="Cuenta"><h2>Tu espacio</h2><Link href="/login">Iniciar sesión</Link><Link href="/register">Crear cuenta</Link><Link href="/account">Mi cuenta</Link></nav><div><h2>Información del catálogo</h2><p>Productos y precios de demostración. Los pedidos quedan pendientes de pago; no se realizan cobros ni despachos.</p><p>Las condiciones de venta, entrega y atención se publicarán antes de la apertura comercial.</p></div></div><div class="st-footer-bottom"><span>{{ page.props.identity.name }} · {{ page.props.identity.region }}</span><span>Catálogo de demostración · Sin cobros</span><a href="#main-content">Volver arriba ↑</a></div></div></footer>

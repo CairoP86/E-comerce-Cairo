@@ -70,6 +70,7 @@ Nada de esto vive en el repositorio: son tareas del host, previas a abrir la tie
 | **Imágenes** | Almacenamiento persistente para `storage/app/catalog`, con respaldo | Las imágenes del catálogo se pierden entre despliegues |
 | **Logs** | Nivel `info`/`error`, rotación, retención y acceso restringido | Disco lleno o datos expuestos |
 | **Cachés de release** | `config:cache`, `route:cache` y `view:cache` en el host ya configurado | Arranque más lento; además `config:cache` con `.env` incompleto congela valores erróneos |
+| **Contacto corporativo** | `STOREFRONT_WHATSAPP` y `STOREFRONT_CORPORATE_EMAIL`; no son secretos, llegan al navegador | `/venta-corporativa` publica el aviso de canal en habilitación en vez del contacto |
 | **Indexación** | Sigue `noindex` en código; habilitarla es V1-H/J | — |
 
 Una advertencia operativa: el catálogo público solo muestra productos con oferta preferida y dato vigente. Con un TTL corto, alguien debe volver a registrar la observación de cada oferta dentro de esa ventana, o la tienda se vacía. Mientras no exista la API del mayorista, ese trabajo es manual y la herramienta para hacerlo cómodo quedó fuera de alcance en V1-B (§6).

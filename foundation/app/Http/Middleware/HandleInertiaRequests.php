@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use App\Services\CartService;
+use App\Support\StorefrontNavigation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -13,10 +15,13 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return [...parent::share($request),
-            'identity' => config('storefront'),
+            // Contact details are not part of the shared identity: only the corporate page asks for them.
+            'identity' => Arr::except(config('storefront'), ['contact']),
             'auth' => ['user' => $request->user()?->only(['id', 'name', 'email', 'role', 'email_verified_at'])],
             'status' => fn () => $request->session()->get('status'),
             'cartSummary' => fn () => app(CartService::class)->summary(),
+            // The header category trigger needs these on every storefront page, not only on the home page.
+            'navCategories' => fn () => StorefrontNavigation::categories(),
             'cartStatus' => fn () => $request->session()->get('cart_status'),
         ];
     }
