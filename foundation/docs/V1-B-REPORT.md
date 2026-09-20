@@ -61,7 +61,7 @@ Fixtures ajustados, sin tocar assertions (los productos que deben seguir siendo 
 - `.env` local: agregar `COMMERCE_AVAILABILITY_TTL_MINUTES` (ventana larga) antes de usar artisan o servir la app localmente; sin ella la aplicación no arranca, por diseño.
 - Valor de producción del TTL: definir según la cadencia de polling real de cada proveedor.
 - QA visual en navegador: pendiente hasta que MySQL local esté disponible.
-- `holds:prune` requiere el scheduler (`schedule:run`) en el entorno donde se despliegue.
+- `holds:prune` requiere el scheduler (`schedule:run`) en el entorno donde se despliegue. La lista completa de lo que falta configurar en el servidor real está en [ENVIRONMENTS-RELEASE.md](ENVIRONMENTS-RELEASE.md), sección «Pendientes de configuración en el servidor real».
 - Fuera de alcance (V1-B-SCOPE §6): revisión manual de ofertas vencidas/desconocidas, selección entre múltiples ofertas, capacidades por proveedor, logística (V1-C), pagos y pagos tardíos (V1-E).
 
 **No se implementó** integración con Eurocomp/Dataformas/CQ, logística, pagos ni V1-C en adelante. Sin commit ni push. Detenerse aquí para revisión del propietario.

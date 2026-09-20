@@ -12,5 +12,6 @@ Route::middleware(PrivateCommerce::class)->group(function () {
     Route::middleware(['auth', 'auth.session', 'verified', 'can:access-operations'])->prefix('admin/orders')->group(function () {
         Route::get('/', [OrderAdminController::class, 'index'])->name('admin.orders');
         Route::get('/{number}', [OrderAdminController::class, 'show'])->name('admin.orders.show');
+        Route::post('/{number}/paid', [OrderAdminController::class, 'markPaid'])->middleware('can:mark-order-paid')->name('admin.orders.paid');
     });
 });

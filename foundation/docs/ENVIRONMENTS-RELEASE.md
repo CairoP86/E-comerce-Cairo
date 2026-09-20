@@ -9,6 +9,7 @@ Este documento prepara el proceso; no declara staging desplegado ni producción 
 | APP_ENV | local | testing | staging | production |
 | APP_DEBUG | false por defecto; true solo para depuración local privada | false en CI | false | false obligatorio |
 | COMMERCE_AVAILABILITY_TTL_MINUTES | Obligatoria; ventana larga para datos manuales de prueba | Obligatoria; ventana larga (`phpunit.xml`, `.env.example`) | Obligatoria; según cadencia de polling a definir | Obligatoria y corta; sin ella la aplicación no arranca |
+| TRUSTED_PROXIES | Sin definir; el valor por defecto (loopback) sirve | Sin definir | Dirección del proxy que termina TLS | Dirección del proxy que termina TLS; nunca `*` |
 | APP_URL | http://127.0.0.1:8086 | http://localhost; aislado | URL HTTPS de staging aprobada | Dominio HTTPS aprobado |
 | APP_KEY | propia de local | efímera generada en runner | propia, secreto persistente | propia, secreto persistente y respaldado |
 | BD | MySQL existente; sin reset/reseed | SQLite :memory:, RefreshDatabase por test | MySQL separado, datos autorizados/anónimos | MySQL persistente, permisos mínimos |
@@ -35,7 +36,7 @@ No hay variables ni clientes para TiloPay/proveedores: se definirán contra docu
 
 ## CI mínimo
 
-Archivo en raíz del repositorio: `.github/workflows/ci.yml`. GitHub Actions, ubuntu-24.04, PHP 8.5, Composer 2 y Node 22. Acciones fijadas por SHA, permisos `contents: read`, credenciales de checkout no persistidas, timeout y cancelación de runs obsoletos. No usa secretos del negocio ni servicios MySQL/Redis.
+Archivo en raíz del repositorio: `.github/workflows/ci.yml`. GitHub Actions, ubuntu-24.04, PHP 8.4 (la versión del servidor de producción), Composer 2 y Node 22. Acciones fijadas por SHA, permisos `contents: read`, credenciales de checkout no persistidas, timeout y cancelación de runs obsoletos. No usa secretos del negocio ni servicios MySQL/Redis.
 
 Secuencia:
 
@@ -48,6 +49,30 @@ Secuencia:
 No contiene deploy, `db:seed`, `migrate --seed`, credenciales productivas ni carga de datos. Los tests sí pueden usar seeders/fixtures dentro de SQLite aislado; esto no es seeding de la base comercial. No cambiar a `pull_request_target` para ejecutar código de contribuciones con secretos.
 
 Fuentes primarias consultadas para las acciones: [checkout](https://github.com/actions/checkout), [setup-node](https://github.com/actions/setup-node), [setup-php](https://github.com/shivammathur/setup-php). Revisar y actualizar los SHA mediante PR deliberado. Que el YAML exista no significa que se haya ejecutado remotamente: la primera ejecución de GitHub queda pendiente de publicar los cambios de forma autorizada.
+
+## Pendientes de configuración en el servidor real
+
+Nada de esto vive en el repositorio: son tareas del host, previas a abrir la tienda. Ninguna se ha ejecutado.
+
+| Pendiente | Qué hacer | Si falta |
+| --- | --- | --- |
+| **PHP 8.4** | El proyecto exige `^8.4`; el chequeo generado por Composer pide `PHP_VERSION_ID >= 80401`, es decir 8.4.1 o superior | `composer install` falla, y un `vendor` copiado aborta con error 500 |
+| **`COMMERCE_AVAILABILITY_TTL_MINUTES`** | Definir una ventana corta y real, acorde a la cadencia de revisión; el valor largo de `.env.example` es solo para local y CI | La aplicación **no arranca** |
+| **Cron del scheduler** | `* * * * * cd /ruta && php artisan schedule:run >> /dev/null 2>&1`, cada minuto | `holds:prune` nunca corre: las reservas vencidas dejan de contar igual, pero sus filas se acumulan |
+| **`TRUSTED_PROXIES`** | Dirección del proxy que termina TLS (por defecto loopback, que cubre nginx en el mismo host) | Detrás de nginx la aplicación genera URLs `http://` y las cookies `Secure` no funcionan |
+| **`APP_DEBUG=false` y `APP_ENV=production`** | Valores del entorno; el código ya usa `false` por defecto | Con `true` se exponen trazas y configuración |
+| **`APP_KEY`** | Secreto propio y respaldado; nunca regenerar sobre una instalación con datos | Sesiones y datos cifrados quedan ilegibles |
+| **Cookies y sesión** | `SESSION_SECURE_COOKIE=true` y `SESSION_ENCRYPT=true` | Cookies viajan sin protección de transporte |
+| **Base de datos** | MySQL con usuario de permisos mínimos y respaldo verificado antes de migrar | Sin respaldo no hay retorno tras una migración |
+| **Redis** | Instancia aislada con credenciales y prefijos propios para caché, sesión y colas | Un entorno puede leer o borrar datos de otro |
+| **Workers de cola** | Proceso supervisado y `queue:restart` en cada release | Los trabajos en cola no se procesan |
+| **Correo** | Servicio real aprobado; hasta entonces, buzón controlado | Correos de verificación y recuperación no llegan |
+| **Imágenes** | Almacenamiento persistente para `storage/app/catalog`, con respaldo | Las imágenes del catálogo se pierden entre despliegues |
+| **Logs** | Nivel `info`/`error`, rotación, retención y acceso restringido | Disco lleno o datos expuestos |
+| **Cachés de release** | `config:cache`, `route:cache` y `view:cache` en el host ya configurado | Arranque más lento; además `config:cache` con `.env` incompleto congela valores erróneos |
+| **Indexación** | Sigue `noindex` en código; habilitarla es V1-H/J | — |
+
+Una advertencia operativa: el catálogo público solo muestra productos con oferta preferida y dato vigente. Con un TTL corto, alguien debe volver a registrar la observación de cada oferta dentro de esa ventana, o la tienda se vacía. Mientras no exista la API del mayorista, ese trabajo es manual y la herramienta para hacerlo cómodo quedó fuera de alcance en V1-B (§6).
 
 ## Release normal propuesto (no ejecutado en V1-A)
 

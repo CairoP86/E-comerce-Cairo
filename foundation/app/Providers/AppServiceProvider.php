@@ -57,6 +57,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('view-audit', fn (User $user) => $user->role === Role::Admin);
         Gate::define('view-catalog-admin', fn (User $user) => in_array($user->role, [Role::Operator, Role::Admin], true));
         Gate::define('manage-catalog', fn (User $user) => $user->role === Role::Admin);
+        // Recording a payment is stricter than reading orders: administrators only, never operators.
+        Gate::define('mark-order-paid', fn (User $user) => $user->role === Role::Admin);
         RateLimiter::for('login', fn (Request $request) => [
             Limit::perMinute(20)->by('login-ip:'.$request->ip()),
             Limit::perMinute(5)->by('login-account:'.hash('sha256', strtolower(trim((string) $request->input('email'))).'|'.$request->ip())),

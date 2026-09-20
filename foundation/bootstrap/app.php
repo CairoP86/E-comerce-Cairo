@@ -18,6 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectUsersTo('/account');
+        // Trusted proxies live in config/trustedproxy.php: this closure runs before configuration
+        // is loaded, and the framework reads that key per request (see Http\Middleware\TrustProxies).
         $middleware->web(append: [HandleInertiaRequests::class]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
