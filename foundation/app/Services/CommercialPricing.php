@@ -42,6 +42,11 @@ class CommercialPricing
             default => null,
         };
         $price = $reason === null ? CommercialDecimal::suggested($offer->cost_minor, $units) : null;
+        // Colón prices carry no céntimos in practice, so a suggestion never proposes them.
+        // Other currencies keep their minor unit: cents are a real amount in dollars.
+        if ($price !== null && $product->currency === 'CRC') {
+            $price = CommercialDecimal::wholeUnits($price);
+        }
         if ($price !== null && ($price < 1 || $price > 999999999999)) {
             $reason = 'El resultado supera los límites del precio público.';
             $price = null;

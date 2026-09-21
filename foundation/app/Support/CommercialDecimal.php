@@ -27,4 +27,10 @@ final class CommercialDecimal
     {
         return intdiv($cost * $units + 5000, 10000);
     }
+
+    /** Rounds minor units to the nearest whole unit, half up: 60682440 becomes 60682400. */
+    public static function wholeUnits(int $minor): int
+    {
+        return intdiv($minor + 50, 100) * 100;
+    }
 }

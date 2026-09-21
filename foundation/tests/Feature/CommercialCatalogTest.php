@@ -329,4 +329,34 @@ class CommercialCatalogTest extends TestCase
         $this->assertFalse((new OrderItem)->isFillable('order_id'));
         $this->assertFalse((new OrderAddress)->isFillable('order_id'));
     }
+
+    public function test_colon_suggestions_round_to_the_nearest_whole_colon(): void
+    {
+        $admin = $this->admin();
+        $p = Product::factory()->create(['currency' => 'CRC']);
+        // ₡433.446,00 × 1.40 = ₡606.824,40: the forty céntimos must never reach a public price.
+        $offer = $this->offer($p, ['cost_minor' => 43344600]);
+        $this->select($p, $offer);
+        $pricing = app(CommercialPricing::class);
+        $this->assertSame(60682400, $pricing->quote($p)['suggested_minor']);
+        // Half up: exactly fifty céntimos rounds up, forty-nine rounds down.
+        foreach ([[1250, 1800], [1249, 1700], [3625, 5100], [3589, 5000]] as [$cost, $expected]) {
+            $offer->forceFill(['cost_minor' => $cost])->save();
+            $this->assertSame($expected, $pricing->quote($p->fresh())['suggested_minor'], 'costo '.$cost);
+        }
+        // Applying the suggestion publishes the rounded amount, not the raw one.
+        $offer->forceFill(['cost_minor' => 43344600])->save();
+        $pricing->apply($p->fresh(), $pricing->quote($p->fresh())['revision'], $admin->id);
+        $this->assertSame(60682400, $p->fresh()->price_minor);
+    }
+
+    public function test_dollar_suggestions_keep_their_cents(): void
+    {
+        $this->admin();
+        $p = Product::factory()->create(['currency' => 'USD']);
+        // US$100.01 × 1.40 = US$140.014: cents are a real unit in dollars, only the fraction goes.
+        $offer = $this->offer($p, ['cost_minor' => 10001, 'currency' => 'USD']);
+        $this->select($p, $offer);
+        $this->assertSame(14001, app(CommercialPricing::class)->quote($p)['suggested_minor']);
+    }
 }
