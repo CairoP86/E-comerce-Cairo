@@ -55,3 +55,7 @@
     .st-steps li{gap:26px;padding:24px 0}
     .st-info-note{padding:38px 40px}
 }
+
+/* The final total is the line the buyer checks; the breakdown above it is supporting detail. */
+.st-order-summary .st-summary-total { border-top: 1px solid var(--st-line); margin-top: .5rem; padding-top: .5rem; font-size: 1.05rem; }
+.st-order-summary .st-summary-total dt, .st-order-summary .st-summary-total dd { font-weight: 600; }

@@ -46,7 +46,7 @@ Secuencia:
 4. `npm ci --ignore-scripts` desde package-lock.json; `npm run check` (TypeScript y build). Va antes de la suite porque genera `public/build/manifest.json`, que necesitan los tests que renderizan `app.blade.php`.
 5. Validar Composer/plataforma/Pint; `php artisan test` completo.
 
-No contiene deploy, `db:seed`, `migrate --seed`, credenciales productivas ni carga de datos. Los tests sí pueden usar seeders/fixtures dentro de SQLite aislado; esto no es seeding de la base comercial. No cambiar a `pull_request_target` para ejecutar código de contribuciones con secretos.
+No contiene deploy, `db:seed`, `migrate --seed`, credenciales productivas ni carga de datos. La única excepción autorizada a esa regla es `DeliveryZonesSeeder`, que siembra tarifas de configuración, no datos comerciales, y se ejecuta a mano una vez por entorno. Los tests sí pueden usar seeders/fixtures dentro de SQLite aislado; esto no es seeding de la base comercial. No cambiar a `pull_request_target` para ejecutar código de contribuciones con secretos.
 
 Fuentes primarias consultadas para las acciones: [checkout](https://github.com/actions/checkout), [setup-node](https://github.com/actions/setup-node), [setup-php](https://github.com/shivammathur/setup-php). Revisar y actualizar los SHA mediante PR deliberado. Que el YAML exista no significa que se haya ejecutado remotamente: la primera ejecución de GitHub queda pendiente de publicar los cambios de forma autorizada.
 
@@ -70,6 +70,7 @@ Nada de esto vive en el repositorio: son tareas del host, previas a abrir la tie
 | **Imágenes** | Almacenamiento persistente para `storage/app/catalog`, con respaldo | Las imágenes del catálogo se pierden entre despliegues |
 | **Logs** | Nivel `info`/`error`, rotación, retención y acceso restringido | Disco lleno o datos expuestos |
 | **Cachés de release** | `config:cache`, `route:cache` y `view:cache` en el host ya configurado | Arranque más lento; además `config:cache` con `.env` incompleto congela valores erróneos |
+| **Tarifas de envío** | Ejecutar una vez `php artisan db:seed --class=DeliveryZonesSeeder --force`; es idempotente, siembra configuración y no toca catálogo ni pedidos | El checkout bloquea la confirmación: sin tarifas no hay total final |
 | **Contacto corporativo** | `STOREFRONT_WHATSAPP` y `STOREFRONT_CORPORATE_EMAIL`; no son secretos, llegan al navegador | `/venta-corporativa` publica el aviso de canal en habilitación en vez del contacto |
 | **Indexación** | Sigue `noindex` en código; habilitarla es V1-H/J | — |
 

@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Services\CheckoutService;
 use App\Support\CostaRicaTerritories;
+use Database\Seeders\DeliveryZonesSeeder;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Log;
@@ -25,13 +26,14 @@ class CheckoutTest extends TestCase
     {
         parent::setUp();
         $this->withoutVite();
+        $this->seed(DeliveryZonesSeeder::class);
     }
 
     private function prepare(array $attributes = []): Product
     {
         $product = Product::factory()->sellable()->create(['status' => 'published', 'price_minor' => 123456, 'currency' => 'CRC', ...$attributes]);
         $this->post('/cart/items', ['mutation_id' => (string) Str::uuid(), 'revision' => session('shopping_cart.revision', 0), 'product_slug' => $product->slug, 'quantity' => 2])->assertSessionHasNoErrors();
-        $this->get('/checkout')->assertOk();
+        $this->get('/checkout?canton_code=101')->assertOk();
 
         return $product;
     }
@@ -80,7 +82,9 @@ class CheckoutTest extends TestCase
         $order = $this->place();
         $this->assertNull($order->user_id);
         $this->assertSame(OrderStatus::PendingPayment, $order->status);
-        $this->assertSame(246912, $order->total_minor);
+        $this->assertSame(596912, $order->total_minor);
+        $this->assertSame(246912, $order->subtotal_minor);
+        $this->assertSame(350000, $order->shipping_minor);
         $this->assertSame('CRC', $order->currency);
         $this->assertSame($p->sku, $order->items->first()->sku);
         $this->assertSame('Carmen', $order->address->district);
@@ -100,7 +104,7 @@ class CheckoutTest extends TestCase
         $before = $order->publicSummary();
         $p->forceFill(['name' => 'Nuevo nombre', 'sku' => 'CHANGED', 'price_minor' => 1, 'currency' => 'USD', 'status' => 'archived'])->save();
         $this->assertSame($before, $order->fresh()->publicSummary());
-        $this->get('/checkout/confirmation/'.$order->number)->assertOk()->assertInertia(fn (Assert $page) => $page->where('order.items.0.name', $before['items'][0]['name'])->where('order.total_minor', 246912));
+        $this->get('/checkout/confirmation/'.$order->number)->assertOk()->assertInertia(fn (Assert $page) => $page->where('order.items.0.name', $before['items'][0]['name'])->where('order.total_minor', 596912));
     }
 
     public function test_address_is_an_independent_snapshot(): void
@@ -151,6 +155,8 @@ class CheckoutTest extends TestCase
         foreach ([['province_code' => '2'], ['canton_code' => '201'], ['district_code' => '20101'], ['district_code' => '99999']] as $invalid) {
             $this->post('/checkout', $this->payload($invalid))->assertSessionHasErrors('district_code');
         }
+        // The destination is part of the quote now: review the canton that will be confirmed.
+        $this->get('/checkout?canton_code=706')->assertOk();
         $this->post('/checkout', $this->payload(['province_code' => '7', 'canton_code' => '706', 'district_code' => '70605']))->assertSessionHasNoErrors();
         $this->assertSame('Duacarí', Order::first()->address->district);
     }
@@ -162,9 +168,9 @@ class CheckoutTest extends TestCase
         $p->update(['price_minor' => 200000]);
         $this->post('/checkout', $old)->assertSessionHasErrors('checkout');
         $this->assertDatabaseCount('orders', 0);
-        $this->get('/checkout')->assertInertia(fn (Assert $page) => $page->where('review.total_minor', 400000));
+        $this->get('/checkout?canton_code=101')->assertInertia(fn (Assert $page) => $page->where('review.subtotal_minor', 400000)->where('review.total_minor', 750000));
         $this->assertNotSame($old['token'], session('checkout_review.token'));
-        $this->assertSame(400000, $this->place()->total_minor);
+        $this->assertSame(750000, $this->place()->total_minor);
     }
 
     public function test_name_sku_and_quantity_changes_also_require_review(): void
@@ -179,16 +185,15 @@ class CheckoutTest extends TestCase
         $this->assertDatabaseCount('orders', 0);
     }
 
-    public function test_currency_change_is_blocked_and_usd_order_remains_usd(): void
+    public function test_currency_change_is_blocked_and_no_usd_order_is_created(): void
     {
-        $p = $this->prepare(['currency' => 'USD']);
-        $p->update(['currency' => 'CRC']);
-        $this->post('/checkout', $this->payload())->assertSessionHasErrors('checkout');
+        $p = $this->prepare();
+        // The product changes currency after the review was taken.
         $p->update(['currency' => 'USD']);
-        $order = $this->place();
-        $this->assertSame('USD', $order->currency);
-        $this->assertSame('USD', $order->items->first()->currency);
-        $this->assertSame(246912, $order->total_minor);
+        $this->post('/checkout', $this->payload())->assertSessionHasErrors('checkout');
+        // Reviewing again does not rescue it, so no order in another currency is created.
+        $this->get('/checkout')->assertRedirect('/cart')->assertSessionHasErrors('checkout');
+        $this->assertDatabaseCount('orders', 0);
     }
 
     public function test_client_cannot_set_amounts_status_user_or_order_number(): void
@@ -208,7 +213,7 @@ class CheckoutTest extends TestCase
         $this->assertNull($guestOrder->user_id);
         $this->actingAs($user);
         $this->prepare();
-        $this->get('/checkout')->assertInertia(fn (Assert $p) => $p->where('prefill.email', $user->email));
+        $this->get('/checkout?canton_code=101')->assertInertia(fn (Assert $p) => $p->where('prefill.email', $user->email));
         $order = $this->place();
         $this->assertSame($user->id, $order->user_id);
         $this->assertNull($guestOrder->fresh()->user_id);
@@ -266,7 +271,7 @@ class CheckoutTest extends TestCase
         $response = $this->get('/checkout/confirmation/'.$order->number)->assertOk()->assertHeader('X-Robots-Tag', 'noindex, nofollow');
         $this->assertStringContainsString('no-store', $response->headers->get('Cache-Control'));
         $public = $response->viewData('page')['props']['order'];
-        $this->assertSame(['number', 'created_at', 'buyer', 'status', 'status_label', 'currency', 'subtotal_minor', 'total_minor', 'items', 'address'], array_keys($public));
+        $this->assertSame(['number', 'created_at', 'buyer', 'status', 'status_label', 'currency', 'subtotal_minor', 'shipping', 'total_minor', 'items', 'address'], array_keys($public));
         $this->assertSame(['name', 'sku', 'quantity', 'unit_price_minor', 'subtotal_minor', 'currency', 'is_demo'], array_keys($public['items'][0]));
         $this->assertTrue($response->viewData('page')['encryptHistory']);
     }

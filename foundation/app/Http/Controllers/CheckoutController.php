@@ -15,8 +15,10 @@ class CheckoutController extends Controller
 {
     public function show(Request $request, CheckoutService $checkout)
     {
+        $canton = $request->query('canton_code');
+        $canton = is_string($canton) && preg_match('/^\d{3}$/', $canton) === 1 ? $canton : null;
         try {
-            $review = $checkout->review();
+            $review = $checkout->review($canton);
         } catch (ValidationException $exception) {
             return redirect('/cart')->withErrors($exception->errors());
         }

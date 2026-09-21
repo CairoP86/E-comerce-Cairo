@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Head, Link, router, useForm } from '@inertiajs/vue3';
 import StoreLayout from '../../layouts/StoreLayout.vue';
 import OrderSummary from '../../components/storefront/OrderSummary.vue';
 import { money } from '../../types/catalog';
@@ -16,7 +16,23 @@ const provinces = computed(() => [...new Map(props.territories.map(t => [t.provi
 const cantons = computed(() => [...new Map(props.territories.filter(t => t.province_code === form.province_code).map(t => [t.canton_code, { code: t.canton_code, name: t.canton }])).values()]);
 const districts = computed(() => props.territories.filter(t => t.canton_code === form.canton_code));
 watch(() => form.province_code, () => { form.canton_code = ''; form.district_code = ''; });
-watch(() => form.canton_code, () => { form.district_code = ''; });
+const quoting = ref(false);
+// The buyer picks a canton; the server decides the amount. Only the review prop is refetched,
+// so the form the buyer is filling in stays exactly as it is.
+watch(() => form.canton_code, canton => {
+    form.district_code = '';
+    if (!canton) return;
+    quoting.value = true;
+    router.get('/checkout', { canton_code: canton }, { only: ['review'], preserveState: true, preserveScroll: true, replace: true, onFinish: () => { quoting.value = false; } });
+});
+const shippingNote = computed(() => {
+    if (quoting.value) return 'Calculando el envío…';
+    const shipping = props.review.shipping;
+    if (!shipping) return 'Elige tu cantón para ver el costo de envío y el total.';
+    if (shipping.free) return `Envío gratis a ${shipping.zone_label}.`;
+    if (shipping.missing_for_free_minor) return `${money(shipping.amount_minor, props.review.currency)} de envío a ${shipping.zone_label}. Te faltan ${money(shipping.missing_for_free_minor, props.review.currency)} en productos para que sea gratis.`;
+    return `${money(shipping.amount_minor, props.review.currency)} de envío a ${shipping.zone_label}.`;
+});
 const fields = [
     { key: 'first_name' as const, label: 'Nombre', type: 'text', autocomplete: 'given-name', max: 100 },
     { key: 'last_name' as const, label: 'Apellidos', type: 'text', autocomplete: 'family-name', max: 150 },
@@ -37,7 +53,7 @@ function submit() {
     <nav class="st-breadcrumb" aria-label="Ruta de navegación"><Link href="/cart">Tu carrito</Link><span aria-hidden="true">/</span><span>Finalizar pedido</span></nav>
     <header class="st-cart-heading"><div><p class="st-overline">CONTACTO · ENTREGA · REVISIÓN</p><h1>Un último vistazo.</h1><p>Crea tu pedido sin registrarte. El pago todavía no se procesa.</p></div></header>
     <div v-if="generalError" id="checkout-errors" tabindex="-1" class="st-form-error" role="alert">{{ generalError }}</div>
-    <div class="st-checkout-mobile-summary"><span>Total de productos <strong>{{ money(review.total_minor, review.currency) }}</strong></span><a href="#checkout-review">Ver resumen ↓</a></div>
+    <div class="st-checkout-mobile-summary"><span>Total <strong>{{ money(review.total_minor, review.currency) }}</strong></span><a href="#checkout-review">Ver resumen ↓</a></div>
     <form class="st-checkout-grid" novalidate @submit.prevent="submit" :aria-busy="form.processing">
         <div class="st-checkout-fields">
             <fieldset class="st-checkout-section"><legend>1. Contacto</legend><div class="st-checkout-inputs"><div v-for="field in fields" :key="field.key" class="st-checkout-field"><label :for="field.key">{{ field.label }}</label><input :id="field.key" v-model="form[field.key]" :type="field.type" :autocomplete="field.autocomplete" :maxlength="field.max" required :aria-invalid="!!form.errors[field.key]" :aria-describedby="form.errors[field.key] ? `${field.key}-error` : field.key === 'phone' ? 'phone-help' : undefined"/><small v-if="field.key === 'phone'" id="phone-help">Costa Rica: 8 dígitos, con +506 opcional.</small><p v-if="form.errors[field.key]" :id="`${field.key}-error`" class="st-field-error">{{ form.errors[field.key] }}</p></div></div></fieldset>
@@ -47,8 +63,8 @@ function submit() {
                 <div class="st-checkout-field st-checkout-wide"><label for="district_code">Distrito</label><select id="district_code" v-model="form.district_code" required autocomplete="address-level3" :disabled="!form.canton_code" :aria-invalid="!!form.errors.district_code" aria-describedby="district-error"><option value="">Selecciona distrito</option><option v-for="d in districts" :key="d.code" :value="d.code">{{ d.name }}</option></select><p id="district-error" class="st-field-error">{{ form.errors.district_code }}</p></div>
                 <div class="st-checkout-field st-checkout-wide"><label for="exact_address">Dirección exacta / señas</label><textarea id="exact_address" v-model="form.exact_address" autocomplete="street-address" rows="3" maxlength="1000" required :aria-invalid="!!form.errors.exact_address" aria-describedby="address-error"/><p id="address-error" class="st-field-error">{{ form.errors.exact_address }}</p></div>
                 <div class="st-checkout-field st-checkout-wide"><label for="additional">Información adicional <span>(opcional)</span></label><textarea id="additional" v-model="form.additional" rows="2" maxlength="500" :aria-invalid="!!form.errors.additional" aria-describedby="additional-error"/><p id="additional-error" class="st-field-error">{{ form.errors.additional }}</p></div>
-            </div><p class="st-cart-help">El transporte aún no se calcula. Este pedido no establece una fecha de entrega.</p></fieldset>
+            </div><p class="st-cart-help" role="status">{{ shippingNote }} Este pedido no establece una fecha de entrega.</p></fieldset>
         </div>
-        <aside id="checkout-review" class="st-checkout-review" tabindex="-1"><p class="st-overline">3. REVISIÓN</p><OrderSummary :items="review.items" :currency="review.currency" :total="review.total_minor"/><p>Revisa tus datos y los productos antes de confirmar.</p><button class="st-button" type="submit" :disabled="form.processing">{{ form.processing ? 'Creando pedido…' : 'Confirmar pedido' }}</button><p class="st-cart-help" role="status">El pedido quedará pendiente de pago. No se realizará ningún cobro ni reserva de inventario.</p><Link href="/cart" class="st-text-link">Volver al carrito</Link></aside>
+        <aside id="checkout-review" class="st-checkout-review" tabindex="-1"><p class="st-overline">3. REVISIÓN</p><OrderSummary :items="review.items" :currency="review.currency" :subtotal="review.subtotal_minor" :shipping="review.shipping" :total="review.total_minor"/><p>Revisa tus datos y los productos antes de confirmar.</p><button class="st-button" type="submit" :disabled="form.processing || quoting || !review.shipping">{{ form.processing ? 'Creando pedido…' : 'Confirmar pedido' }}</button><p class="st-cart-help" role="status">El pedido quedará pendiente de pago. El total incluye el envío y no cambiará después de confirmarlo.</p><Link href="/cart" class="st-text-link">Volver al carrito</Link></aside>
     </form>
 </StoreLayout></template>

@@ -1,6 +1,8 @@
 # ADR-007 · Modos de entrega
 
-Estado: contrato aceptado, 2026-09-18. Motor pendiente de V1-C; operación en V1-D/F.
+Estado: contrato aceptado, 2026-09-18. Motor de cotización implementado en V1-C ([reporte](../V1-C-REPORT.md)); administración de tarifas y operación siguen pendientes de V1-D/F.
+
+V1-C entrega zonas por cantón, tarifa plana por zona y umbral de envío gratis, versionados en base de datos. Dos exigencias de este ADR siguen sin cumplirse: las tarifas no se administran desde una pantalla, sino insertando un conjunto nuevo en la base; y el cotizador no distingue `direct_supplier` de `via_operation`.
 
 V1 deberá soportar `direct_supplier` (proveedor → cliente) y `via_operation` (proveedor → nuestra operación → cliente). Preparar origen, destino y tramos sin asumir un transportista ni una integración automatizada.
 

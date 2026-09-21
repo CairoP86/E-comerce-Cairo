@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\StockHold;
 use App\Models\SupplierProduct;
+use Database\Seeders\DeliveryZonesSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -21,6 +22,7 @@ class CheckoutAvailabilityTest extends TestCase
     {
         parent::setUp();
         $this->withoutVite();
+        $this->seed(DeliveryZonesSeeder::class);
         config(['commerce.availability.hold_minutes' => 60]);
         $this->freezeSecond();
     }
@@ -29,7 +31,7 @@ class CheckoutAvailabilityTest extends TestCase
     {
         $product = Product::factory()->sellable($stock)->create(['status' => 'published', 'price_minor' => 1000, 'currency' => 'CRC']);
         $this->post('/cart/items', ['mutation_id' => (string) Str::uuid(), 'revision' => session('shopping_cart.revision', 0), 'product_slug' => $product->slug, 'quantity' => $quantity])->assertSessionHasNoErrors();
-        $this->get('/checkout')->assertOk();
+        $this->get('/checkout?canton_code=101')->assertOk();
 
         return $product;
     }

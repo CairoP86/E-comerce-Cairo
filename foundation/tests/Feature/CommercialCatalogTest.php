@@ -17,6 +17,7 @@ use App\Models\User;
 use App\Services\CommercialPricing;
 use App\Support\CommercialDecimal;
 use Database\Seeders\CommercialSetupSeeder;
+use Database\Seeders\DeliveryZonesSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -30,6 +31,7 @@ class CommercialCatalogTest extends TestCase
     {
         parent::setUp();
         $this->withoutVite();
+        $this->seed(DeliveryZonesSeeder::class);
     }
 
     private function admin(): User
@@ -288,8 +290,8 @@ class CommercialCatalogTest extends TestCase
         auth()->logout();
         $this->get('/catalog')->assertInertia(fn (Assert $a) => $a->where('products.total', 1)->missing('products.data.0.cost_minor')->missing('products.data.0.supplier_id')->missing('products.data.0.multiplier'));
         $this->post('/cart/items', ['mutation_id' => (string) Str::uuid(), 'revision' => 0, 'product_slug' => $p->slug, 'quantity' => 2])->assertSessionHasNoErrors();
-        $this->get('/checkout')->assertInertia(fn (Assert $a) => $a->where('review.total_minor', 1000000));
-        foreach (['/', '/catalog', '/catalog/'.$p->slug, '/cart', '/checkout'] as $path) {
+        $this->get('/checkout?canton_code=101')->assertInertia(fn (Assert $a) => $a->where('review.total_minor', 1350000));
+        foreach (['/', '/catalog', '/catalog/'.$p->slug, '/cart', '/checkout?canton_code=101'] as $path) {
             $response = $this->get($path)->assertOk();
             foreach (['cost_minor', 'multiplier_units', 'preferred_offer_id', 'supplier_sku', 'QA PRIVATE', 'QA-PRIVATE-SKU'] as $private) {
                 $response->assertDontSee($private, false);
@@ -302,7 +304,7 @@ class CommercialCatalogTest extends TestCase
         $actor = $this->admin();
         app(CommercialPricing::class)->apply($p, app(CommercialPricing::class)->quote($p)['revision'], $actor->id);
         $this->assertSame($snapshot, $order->fresh()->publicSummary());
-        $this->assertSame(1000000, $order->total_minor);
+        $this->assertSame(1350000, $order->total_minor);
     }
 
     public function test_archiving_demo_is_non_destructive_and_preserves_real_products(): void

@@ -7,6 +7,8 @@ use App\Availability\AvailabilityState;
 use App\Availability\HoldUnavailable;
 use App\Contracts\CartStore;
 use App\Contracts\ProductAvailability;
+use App\Delivery\DeliveryQuoter;
+use App\Delivery\DeliveryUnavailable;
 use App\Enums\OrderStatus;
 use App\Enums\Role;
 use App\Models\Order;
@@ -21,14 +23,14 @@ use Illuminate\Validation\ValidationException;
 
 class CheckoutService
 {
-    public function __construct(private CartStore $store, private ProductAvailability $availability, private StockHolds $holds) {}
+    public function __construct(private CartStore $store, private ProductAvailability $availability, private StockHolds $holds, private DeliveryQuoter $delivery) {}
 
     private function fail(string $message): never
     {
         throw ValidationException::withMessages(['checkout' => $message]);
     }
 
-    public function quote(bool $lock = false): array
+    public function quote(bool $lock = false, ?string $cantonCode = null): array
     {
         $cart = $this->store->read();
         if (! $cart['items'] || count($cart['items']) > CartService::MAX_LINES) {
@@ -80,7 +82,27 @@ class CheckoutService
             $items[] = ['product_id' => $product->id, 'name' => $product->name, 'sku' => $product->sku, 'is_demo' => $product->is_demo, 'quantity' => $item['quantity'], 'unit_price_minor' => $product->price_minor, 'subtotal_minor' => $product->price_minor * $item['quantity'], 'currency' => $product->currency];
         }
 
-        return ['items' => $items, 'currency' => $cart['currency'], 'total_minor' => array_sum(array_column($items, 'subtotal_minor')), 'revision' => $cart['revision']];
+        $subtotal = array_sum(array_column($items, 'subtotal_minor'));
+        // Currency gate: delivery rates are in colones and no implicit conversion exists (ADR-002).
+        if ($cart['currency'] !== 'CRC') {
+            $this->fail('Por ahora solo procesamos pedidos en colones. Escríbenos para coordinar una compra en otra moneda.');
+        }
+        $shipping = null;
+        if ($cantonCode !== null) {
+            try {
+                $shipping = $this->delivery->quote($cantonCode, $subtotal, $cart['currency']);
+            } catch (DeliveryUnavailable $exception) {
+                $this->fail($exception->getMessage());
+            }
+        }
+
+        return [
+            'items' => $items, 'currency' => $cart['currency'], 'subtotal_minor' => $subtotal,
+            'shipping' => $shipping?->toPublic(),
+            'shipping_rate_set_id' => $shipping?->rateSetId, 'shipping_zone' => $shipping?->zone->value,
+            'total_minor' => $subtotal + ($shipping?->amountMinor ?? 0),
+            'revision' => $cart['revision'],
+        ];
     }
 
     private function digest(array $data): string
@@ -97,9 +119,9 @@ class CheckoutService
         return $this->digest([session('checkout_owner')]);
     }
 
-    public function review(): array
+    public function review(?string $cantonCode = null): array
     {
-        $quote = $this->quote();
+        $quote = $this->quote(cantonCode: $cantonCode);
         $hash = $this->digest($quote);
         $review = session('checkout_review');
         if (! $review || $review['hash'] !== $hash) {
@@ -107,7 +129,7 @@ class CheckoutService
             session()->put('checkout_review', $review);
         }
         $this->ownerHash();
-        unset($quote['revision']);
+        unset($quote['revision'], $quote['shipping_rate_set_id'], $quote['shipping_zone']);
         $quote['items'] = array_map(function ($item) {
             unset($item['product_id']);
 
@@ -136,7 +158,7 @@ class CheckoutService
             if (! $review || ! hash_equals($review['token'], $data['token'])) {
                 $this->fail('La revisión venció. Actualiza el checkout antes de confirmar.');
             }
-            $quote = $this->quote(true);
+            $quote = $this->quote(true, $data['canton_code']);
             if (! hash_equals($review['hash'], $this->digest($quote))) {
                 $this->fail('El carrito o los precios cambiaron. Revisa el resumen actualizado y vuelve a confirmar.');
             }
@@ -148,7 +170,9 @@ class CheckoutService
                 'checkout_key' => $key, 'owner_hash' => $owner, 'request_hash' => $requestHash,
                 'cart_revision' => $quote['revision'], 'status' => OrderStatus::PendingPayment,
                 'first_name' => $data['first_name'], 'last_name' => $data['last_name'], 'email' => $data['email'], 'phone' => $data['phone'],
-                'currency' => $quote['currency'], 'subtotal_minor' => $quote['total_minor'], 'total_minor' => $quote['total_minor'],
+                'currency' => $quote['currency'], 'subtotal_minor' => $quote['subtotal_minor'],
+                'shipping_minor' => $quote['shipping']['amount_minor'], 'shipping_zone' => $quote['shipping_zone'],
+                'delivery_rate_set_id' => $quote['shipping_rate_set_id'], 'total_minor' => $quote['total_minor'],
             ]);
             $order->save();
             $order->items()->createMany($quote['items']);

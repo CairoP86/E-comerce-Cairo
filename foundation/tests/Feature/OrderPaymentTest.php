@@ -8,6 +8,7 @@ use App\Models\AuditLog;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use Database\Seeders\DeliveryZonesSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -22,13 +23,14 @@ class OrderPaymentTest extends TestCase
     {
         parent::setUp();
         $this->withoutVite();
+        $this->seed(DeliveryZonesSeeder::class);
     }
 
     private function order(): Order
     {
         $product = Product::factory()->sellable()->create(['status' => 'published', 'price_minor' => 50000, 'currency' => 'CRC']);
         $this->post('/cart/items', ['mutation_id' => (string) Str::uuid(), 'revision' => session('shopping_cart.revision', 0), 'product_slug' => $product->slug, 'quantity' => 1])->assertSessionHasNoErrors();
-        $this->get('/checkout')->assertOk();
+        $this->get('/checkout?canton_code=101')->assertOk();
         $response = $this->from('/checkout')->post('/checkout', ['token' => session('checkout_review.token'), 'first_name' => 'Ana', 'last_name' => 'Prueba', 'email' => 'guest@example.test', 'phone' => '+50688887777', 'province_code' => '1', 'canton_code' => '101', 'district_code' => '10101', 'exact_address' => 'Dirección ficticia para pruebas, casa azul.', 'additional' => ''])->assertStatus(303);
 
         return Order::where('number', basename($response->headers->get('Location')))->firstOrFail();
