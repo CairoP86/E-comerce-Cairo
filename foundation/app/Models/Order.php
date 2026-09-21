@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Delivery\DeliveryZone;
 use App\Enums\OrderStatus;
+use App\Support\ValueAddedTax;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
@@ -46,6 +47,8 @@ class Order extends Model
                 'free' => $this->shipping_minor === 0,
             ],
             'total_minor' => $this->total_minor,
+            // Derived on read, never stored: the IVA already contained in the product subtotal.
+            'tax' => ValueAddedTax::breakdown($this->subtotal_minor),
             'items' => $this->items->map(fn ($item) => $item->only(['name', 'sku', 'quantity', 'unit_price_minor', 'subtotal_minor', 'currency', 'is_demo']))->all(),
             'address' => $this->address->only(['country_code', 'province', 'canton', 'district', 'exact_address', 'additional']),
         ];

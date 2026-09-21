@@ -8,4 +8,4 @@ Regla del ancestro más cercano, con excepción de producto prioritaria. Multipl
 
 Pedidos conservan sus snapshots monetarios aunque cambien ofertas o precios. Recursos públicos mantienen allowlists y nunca incorporan costos, preferencias ni multiplicadores internos. Las futuras sincronizaciones actualizan ofertas, no precios publicados.
 
-Fiscalidad del margen/costo/precio sigue pendiente: no comparar importes con bases fiscales incompatibles ni asumir IVA incluido. V1-G detallará rentabilidad cuando existan datos aprobados.
+Desde el 2026-09-20, por decisión del propietario, `products.price_minor` es **IVA incluido al 13%** (ver ADR-008). El IVA que el proveedor cobra al comprar es un concepto distinto, de costo interno, y no se deduce del precio público ni se compara con él. Fiscalidad del margen sigue pendiente: no comparar importes con bases fiscales incompatibles. V1-G detallará rentabilidad cuando existan datos aprobados.

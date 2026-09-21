@@ -271,7 +271,7 @@ class CheckoutTest extends TestCase
         $response = $this->get('/checkout/confirmation/'.$order->number)->assertOk()->assertHeader('X-Robots-Tag', 'noindex, nofollow');
         $this->assertStringContainsString('no-store', $response->headers->get('Cache-Control'));
         $public = $response->viewData('page')['props']['order'];
-        $this->assertSame(['number', 'created_at', 'buyer', 'status', 'status_label', 'currency', 'subtotal_minor', 'shipping', 'total_minor', 'items', 'address'], array_keys($public));
+        $this->assertSame(['number', 'created_at', 'buyer', 'status', 'status_label', 'currency', 'subtotal_minor', 'shipping', 'total_minor', 'tax', 'items', 'address'], array_keys($public));
         $this->assertSame(['name', 'sku', 'quantity', 'unit_price_minor', 'subtotal_minor', 'currency', 'is_demo'], array_keys($public['items'][0]));
         $this->assertTrue($response->viewData('page')['encryptHistory']);
     }

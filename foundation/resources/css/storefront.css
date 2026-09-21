@@ -59,3 +59,6 @@
 /* The final total is the line the buyer checks; the breakdown above it is supporting detail. */
 .st-order-summary .st-summary-total { border-top: 1px solid var(--st-line); margin-top: .5rem; padding-top: .5rem; font-size: 1.05rem; }
 .st-order-summary .st-summary-total dt, .st-order-summary .st-summary-total dd { font-weight: 600; }
+
+/* Informative only: the IVA already contained in the product prices, never added to the total. */
+.st-order-summary .st-summary-tax dt, .st-order-summary .st-summary-tax dd { font-size: 11px; color: var(--st-muted); font-weight: 400; }

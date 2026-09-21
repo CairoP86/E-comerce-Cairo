@@ -17,6 +17,7 @@ use App\Models\User;
 use App\Support\Audit;
 use App\Support\CartHolder;
 use App\Support\CostaRicaTerritories;
+use App\Support\ValueAddedTax;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -135,6 +136,10 @@ class CheckoutService
 
             return $item;
         }, $quote['items']);
+
+        // Display-only breakdown derived from the product subtotal. It is not part of the quote,
+        // so it never enters the review hash nor the amount confirm() persists (ADR-008).
+        $quote['tax'] = ValueAddedTax::breakdown($quote['subtotal_minor']);
 
         return [...$quote, 'token' => $review['token']];
     }
