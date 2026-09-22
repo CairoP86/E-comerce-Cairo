@@ -5,6 +5,7 @@ import { CircleCheck, Clock, PackageX, ReceiptText, TimerOff } from '@lucide/vue
 import AccountLayout from '../../layouts/AccountLayout.vue';
 import type { SharedProps } from '../../types/auth';
 import type { FreshnessSummary } from '../../types/freshness';
+import { ago } from '../../types/time';
 const props = defineProps<{ pendingOrders: number; freshnessSummary: FreshnessSummary; oldestPendingOrder: { number: string; created_at: string } | null }>();
 const page = usePage<SharedProps>();
 
@@ -23,12 +24,6 @@ const state = computed(() => props.freshnessSummary.invalid ? 'blocked' : rows.v
 
 // Costa Rica writes "setiembre"; the browser's Spanish says "septiembre".
 const today = new Intl.DateTimeFormat('es-CR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'America/Costa_Rica' }).format(new Date()).replace('septiembre', 'setiembre');
-function ago(iso: string): string {
-    const seconds = (Date.now() - Date.parse(iso)) / 1000; const rtf = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
-    if (seconds < 3600) return rtf.format(-Math.max(1, Math.round(seconds / 60)), 'minute');
-    if (seconds < 86400) return rtf.format(-Math.round(seconds / 3600), 'hour');
-    return rtf.format(-Math.round(seconds / 86400), 'day');
-}
 const roleLabel = computed(() => ({ admin: 'Administrador', operator: 'Operador', customer: 'Cliente' })[page.props.auth.user?.role ?? 'customer']);
 </script>
 <template><Head title="Panel operativo"/><AccountLayout title="Panel operativo" section="admin">

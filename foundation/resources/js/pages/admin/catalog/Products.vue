@@ -30,14 +30,14 @@ const allFresh = computed(() => !segments.value.length);
         <Link v-if="canManage" href="/admin/catalog/products/create" class="button">Crear producto</Link>
     </div>
 
-    <nav v-if="!allFresh" class="freshness-strip" aria-label="Filtrar por vigencia de la oferta">
+    <nav v-if="!allFresh" class="filter-strip" aria-label="Filtrar por vigencia de la oferta">
         <span class="freshness-strip-title">Ofertas publicadas</span>
         <button type="button" class="strip-segment" :aria-pressed="!vigencia" @click="filterBy('')">Todas</button>
         <button v-for="s in segments" :key="s.value" type="button" class="strip-segment" :class="s.tone" :aria-pressed="vigencia === s.value" @click="filterBy(vigencia === s.value ? '' : s.value)">
             <span class="strip-count">{{ s.count }}</span> {{ s.label(s.count) }}
         </button>
     </nav>
-    <p v-else class="freshness-strip is-clear" role="status"><CircleCheck :size="16" :stroke-width="1.75" aria-hidden="true"/> Todas las ofertas de productos publicados están vigentes.</p>
+    <p v-else class="filter-strip is-clear" role="status"><CircleCheck :size="16" :stroke-width="1.75" aria-hidden="true"/> Todas las ofertas de productos publicados están vigentes.</p>
 
     <form class="catalog-filters compact-form" @submit.prevent="search"><input v-model="q" placeholder="Nombre o SKU" aria-label="Buscar por nombre o SKU"><select v-model="status" aria-label="Estado"><option value="">Todos los estados</option><option value="draft">Borrador</option><option value="published">Publicado</option><option value="archived">Archivado</option></select><button class="button">Buscar</button></form>
     <p v-if="hiddenDemo || demo" class="demo-toggle muted">
@@ -45,7 +45,7 @@ const allFresh = computed(() => !segments.value.length);
         <template v-else>Mostrando también productos de demostración. <button type="button" class="quiet-link" @click="toggleDemo">Ocultarlos</button></template>
     </p>
 
-    <div class="table-wrap products-table"><table><thead><tr><th>Producto</th><th>SKU</th><th class="num">Precio</th><th>Estado</th><th>Disponibilidad</th><th><span class="visually-hidden">Acción</span></th></tr></thead><tbody>
+    <div class="table-wrap data-table"><table><thead><tr><th>Producto</th><th>SKU</th><th class="num">Precio</th><th>Estado</th><th>Disponibilidad</th><th><span class="visually-hidden">Acción</span></th></tr></thead><tbody>
         <tr v-for="product in products.data" :key="product.id">
             <td class="product-cell"><Link :href="`/admin/catalog/products/${product.id}/edit`" class="product-name">{{ product.name }}</Link><small class="block muted">{{ product.category?.name }} · {{ product.is_demo ? 'Demostración' : product.brand?.name }}</small></td>
             <td class="code" data-label="SKU">{{ product.sku }}</td>
