@@ -31,3 +31,19 @@
 .admin-totals .admin-total{margin-top:6px;padding-top:12px;border-top:1px solid #ffffff16;font-size:17px;font-weight:600;color:var(--admin-text)}
 .admin-totals .admin-tax{font-size:11px;color:#a3adbd}
 @media(max-width:800px){.admin-order-grid{grid-template-columns:1fr}.admin-totals{max-width:none}}
+
+/* Offer freshness (admin only). State colours are tokens so the palette stays in one place. */
+:root{--admin-ok:#8fd6a8;--admin-warn:#f2c46d;--admin-danger:#ffb2a7;--admin-neutral:#a3adbd}
+.freshness{display:inline-flex;align-items:center;gap:6px;font-size:11px;line-height:1.4;padding:3px 9px;border:1px solid currentColor;border-radius:999px;white-space:nowrap}
+.freshness::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+.freshness.is-fresh{color:var(--admin-ok)}
+.freshness.is-expiring{color:var(--admin-warn)}
+.freshness.is-expired{color:var(--admin-danger)}
+.freshness.is-invalid,.freshness.is-none{color:var(--admin-neutral)}
+.freshness-summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0 0;padding:12px 16px;border:1px solid #ffffff16;border-radius:7px;font-size:12px;color:#c7d0dd}
+.freshness-summary strong{color:var(--admin-text);font-weight:500}
+.freshness-summary.is-clear{color:var(--admin-ok)}
+.freshness-card{max-width:720px;margin:20px 0}
+.freshness-card p{margin:0 0 10px}
+.demo-toggle{margin:12px 0 0;font-size:12px}
+button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit;font-size:12px}

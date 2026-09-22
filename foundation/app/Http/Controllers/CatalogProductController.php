@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Availability\AvailabilityConfig;
+use App\Availability\OfferFreshness;
+use App\Availability\PreferredOfferAvailability;
+use App\Contracts\ProductAvailability;
 use App\Http\Requests\SaveProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
@@ -15,10 +19,15 @@ use Inertia\Inertia;
 
 class CatalogProductController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, ProductAvailability $availability)
     {
-        $filters = $request->validate(['q' => ['nullable', 'string', 'max:100'], 'status' => ['nullable', Rule::in(['draft', 'published', 'archived'])]]);
+        $filters = $request->validate(['q' => ['nullable', 'string', 'max:100'], 'status' => ['nullable', Rule::in(['draft', 'published', 'archived'])], 'demo' => ['nullable', 'boolean']]);
+        $showDemo = (bool) ($filters['demo'] ?? false);
         $query = Product::query()->with(['category:id,name', 'brand:id,name'])->latest('id');
+        // Demonstration products stay in the database; they are only out of the default view.
+        if (! $showDemo) {
+            $query->where('is_demo', false);
+        }
         if ($filters['q'] ?? null) {
             $query->where(fn ($q) => $q->where('name', 'like', '%'.$filters['q'].'%')->orWhere('sku', 'like', '%'.$filters['q'].'%'));
         }
@@ -26,13 +35,38 @@ class CatalogProductController extends Controller
             $query->where('status', $filters['status']);
         }
 
-        return Inertia::render('admin/catalog/Products', ['products' => $query->paginate(20)->withQueryString(), 'filters' => $filters, 'canManage' => $request->user()->can('manage-catalog')]);
+        $products = $query->paginate(20)->withQueryString();
+
+        return Inertia::render('admin/catalog/Products', [
+            'products' => $products, 'filters' => $filters, 'canManage' => $request->user()->can('manage-catalog'),
+            'freshness' => $this->freshness($availability, $products->pluck('id')->all()),
+            'freshnessSummary' => $this->freshnessSummary($availability),
+            'hiddenDemo' => $showDemo ? 0 : Product::where('is_demo', true)->count(),
+        ]);
     }
 
-    public function form(Request $request, ?Product $product = null)
+    /** Offer freshness keyed by product id. Internal to the admin: never reaches public pages. */
+    private function freshness(ProductAvailability $availability, array $ids): array
+    {
+        $now = PreferredOfferAvailability::now();
+        $ttl = AvailabilityConfig::ttlMinutes();
+
+        return collect($availability->forProducts($ids))->map(fn ($a) => OfferFreshness::of($a, $now, $ttl))->all();
+    }
+
+    /** Across published products, which are the ones the TTL is about to hide or already hides. */
+    private function freshnessSummary(ProductAvailability $availability): array
+    {
+        $levels = collect($this->freshness($availability, Product::where('status', 'published')->where('is_demo', false)->pluck('id')->all()))->countBy('level');
+
+        return ['expired' => $levels->get('expired', 0), 'expiring' => $levels->get('expiring', 0), 'invalid' => $levels->get('invalid', 0) + $levels->get('none', 0)];
+    }
+
+    public function form(Request $request, ProductAvailability $availability, ?Product $product = null)
     {
         return Inertia::render('admin/catalog/ProductForm', [
             'product' => $product?->load('images'),
+            'freshness' => $product ? $this->freshness($availability, [$product->id])[$product->id] : null,
             'categories' => Category::orderBy('name')->get(['id', 'name', 'status']),
             'brands' => Brand::orderBy('name')->get(['id', 'name', 'status']),
             'canManage' => $request->user()->can('manage-catalog'),

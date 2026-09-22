@@ -22,7 +22,9 @@ class CatalogTaxonomyController extends Controller
     {
         return Inertia::render('admin/catalog/Taxonomies', [
             'kind' => $kind,
-            'entries' => $this->model($kind)::query()->orderBy('name')->get(),
+            // Historical demonstration categories carry path slugs under demo- (see CommercialTaxonomySeeder).
+            // They are flagged, not removed: parent names are resolved from this same list.
+            'entries' => $this->model($kind)::query()->orderBy('name')->get()->map(fn ($entry) => [...$entry->toArray(), 'is_demo' => $kind === 'categories' && str_starts_with($entry->slug, 'demo-')])->values(),
             'canManage' => $request->user()->can('manage-catalog'),
         ]);
     }
