@@ -83,3 +83,26 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 /* Five columns beside the form: a tighter cell padding keeps "Editar" in view down to 1280 px. */
 .catalog-admin-grid th,.catalog-admin-grid td{padding:14px 12px}
 .catalog-admin-grid td.tree-name{padding-left:calc(12px + var(--depth, 0) * 22px)!important}
+
+/* Product specifications: one row each on wide screens; the first row's labels act as headers. */
+.spec-list .spec-editor{grid-template-columns:1fr 1.3fr 1.2fr .7fr 1fr auto;align-items:end;padding:6px 0;border-bottom:0}
+.spec-list .spec-editor label{margin-top:0}
+.spec-list .spec-editor input{margin-top:6px}
+.spec-list .spec-editor button.quiet-link{padding:0 0 12px;white-space:nowrap}
+.spec-list .spec-editor + .spec-editor .spec-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.spec-list .spec-editor + .spec-editor input{margin-top:0}
+@media(max-width:900px){
+    .spec-list .spec-editor{grid-template-columns:1fr 1fr;padding:12px 0 16px;border-bottom:1px solid #ffffff16}
+    .spec-list .spec-editor + .spec-editor .spec-label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+    .spec-list .spec-editor + .spec-editor input{margin-top:6px}
+}
+
+/* File picker in Spanish: the native input stays in place, focusable, but invisible. */
+.compact-form .file-picker{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px 14px}
+.file-picker-title{grid-column:1/-1}
+.file-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.file-picker:focus-within .file-button{outline:2px solid var(--admin-focus);outline-offset:3px}
+.file-button{cursor:pointer}
+.file-names{font-size:12px;color:#c7d0dd;overflow-wrap:anywhere}
+
+.rules-link{display:inline-block;margin-top:14px}
