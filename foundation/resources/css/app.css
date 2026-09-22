@@ -68,11 +68,12 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 /* Category tree: depth reads as indentation, not as a separate "parent" column. */
 .tree-name{white-space:normal!important}
 .tree-branch{color:var(--admin-neutral);margin-right:8px}
-.tree-name small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+/* Brands have three columns: full width would leave them floating in empty space. */
+.taxonomy-table.is-narrow{max-width:760px}
+.tree-name small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:280px}
 .tree-rule{white-space:normal!important;min-width:130px}
 /* Five columns beside the form: a tighter cell padding keeps "Editar" in view down to 1280 px. */
-.catalog-admin-grid th,.catalog-admin-grid td{padding:14px 12px}
-.catalog-admin-grid td.tree-name{padding-left:calc(12px + var(--depth, 0) * 22px)!important}
+.taxonomy-table td.tree-name{padding-left:calc(12px + var(--depth, 0) * 22px)!important}
 
 /* Product specifications: one row each on wide screens; the first row's labels act as headers. */
 .spec-list .spec-editor{grid-template-columns:1fr 1.3fr 1.2fr .7fr 1fr auto;align-items:end;padding:6px 0;border-bottom:0}
@@ -292,3 +293,16 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 .workspace .rule-card p.rule-used{margin:10px 0 0;font-size:12.5px;line-height:1.7}
 .rule-card button.quiet-link{margin-top:12px}
 .rules-tree-link{margin-top:16px;font-size:12.5px}
+
+/* Categories and brands on a phone: compact rows, not full cards — a tree of 27 entries as cards
+   would be three screens long. Name and state on top, the numbers inline underneath. */
+@media(max-width:700px){
+    .taxonomy-table tr{grid-template-columns:1fr auto;gap:4px 10px;padding:12px;margin-bottom:8px}
+    .taxonomy-table td{font-size:12.5px}
+    .taxonomy-table td[data-label]::before{display:inline;margin:0 4px 0 0;font-size:10.5px}
+    .taxonomy-table td[data-label=Productos]{grid-column:1;grid-row:2}
+    .taxonomy-table td[data-label=Multiplicador]{grid-column:1;grid-row:3;min-width:0}
+    .taxonomy-table td.edit-cell{grid-column:2;grid-row:3;align-self:end;text-align:right}
+    .taxonomy-table td.edit-cell::before{display:none}
+    .taxonomy-table .tree-name small{max-width:none}
+}
