@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Services\CategoryTree;
 use App\Support\Audit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,13 +19,15 @@ class CatalogTaxonomyController extends Controller
         return $kind === 'categories' ? Category::class : Brand::class;
     }
 
-    public function index(Request $request, string $kind)
+    public function index(Request $request, string $kind, CategoryTree $tree)
     {
         return Inertia::render('admin/catalog/Taxonomies', [
             'kind' => $kind,
-            // Historical demonstration categories carry path slugs under demo- (see CommercialTaxonomySeeder).
-            // They are flagged, not removed: parent names are resolved from this same list.
-            'entries' => $this->model($kind)::query()->orderBy('name')->get()->map(fn ($entry) => [...$entry->toArray(), 'is_demo' => $kind === 'categories' && str_starts_with($entry->slug, 'demo-')])->values(),
+            // Categories come in tree order with counts and their pricing rule. Historical demonstration
+            // categories carry path slugs under demo- (see CommercialTaxonomySeeder): flagged, not removed.
+            'entries' => $kind === 'categories'
+                ? $tree->entries()
+                : $this->model($kind)::query()->orderBy('name')->get()->map(fn ($entry) => [...$entry->toArray(), 'is_demo' => false])->values(),
             'canManage' => $request->user()->can('manage-catalog'),
         ]);
     }

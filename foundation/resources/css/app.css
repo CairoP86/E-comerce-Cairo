@@ -74,3 +74,12 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 .panel-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px!important}
 .panel-card .quiet-link{display:inline-block;margin-top:12px}
 @media(max-width:800px){.panel-grid{grid-template-columns:1fr}}
+
+/* Category tree: depth reads as indentation, not as a separate "parent" column. */
+.tree-name{white-space:normal!important}
+.tree-branch{color:var(--admin-neutral);margin-right:8px}
+.tree-name small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.tree-rule{white-space:normal!important;min-width:130px}
+/* Five columns beside the form: a tighter cell padding keeps "Editar" in view down to 1280 px. */
+.catalog-admin-grid th,.catalog-admin-grid td{padding:14px 12px}
+.catalog-admin-grid td.tree-name{padding-left:calc(12px + var(--depth, 0) * 22px)!important}
