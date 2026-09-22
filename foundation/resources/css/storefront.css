@@ -76,3 +76,6 @@
     /* Single column: the copy sits over the whole image, so the veil has to be even. */
     .storefront .st-hero { background-image: linear-gradient(180deg, rgba(16, 35, 63, .92) 0%, rgba(16, 35, 63, .84) 55%, rgba(16, 35, 63, .94) 100%), url('../images/hero-circuit.webp'); }
 }
+
+/* Said once above the grid rather than under every card. */
+.st-price-note{font-size:11px;color:var(--color-muted);margin:-12px 0 18px!important}

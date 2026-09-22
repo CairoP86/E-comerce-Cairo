@@ -22,7 +22,7 @@ const image = computed(() => props.product.images.find(image => image.is_primary
                 <p class="st-card-category">{{ product.category.name }}</p>
                 <div class="st-price"><strong>{{ money(product.price_minor, product.currency) }}</strong><del v-if="product.previous_price_minor">{{ money(product.previous_price_minor, product.currency) }}</del></div>
                 <StockStatus :availability="availability"/>
-                <p class="st-editorial"><span aria-hidden="true">◌</span> {{ product.is_demo ? 'Producto de demostración' : 'Publicado en catálogo' }}</p>
+                <p v-if="product.is_demo" class="st-editorial"><span aria-hidden="true">◌</span> Producto de demostración</p>
             </div>
         </Link>
     </article>

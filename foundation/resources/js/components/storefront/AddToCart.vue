@@ -22,6 +22,6 @@ watch(() => props.slug, () => { quantity.value = 1; errors.value = {}; });
         </form>
         <p v-if="!soldOut" id="cart-quantity-note" class="st-cart-help">Puedes agregar hasta {{ max }} {{ max === 1 ? 'unidad' : 'unidades' }}.</p>
         <div v-if="page.props.cartStatus" class="st-cart-feedback" role="status">{{ page.props.cartStatus }} <Link href="/cart">Ver carrito →</Link></div>
-        <p class="st-cart-help">La reserva es interna de esta tienda y no genera ningún cobro. Puedes crear un pedido pendiente de pago.</p>
+        <p v-if="!soldOut" class="st-cart-help">La reserva es interna de esta tienda y no genera ningún cobro. Puedes crear un pedido pendiente de pago.</p>
     </section>
 </template>
