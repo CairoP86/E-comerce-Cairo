@@ -283,3 +283,12 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 .strip-segment.is-paid .strip-count{color:var(--admin-ok)}
 .list-note{margin-top:16px;font-size:11.5px}
 @media(max-width:700px){.data-table tbody tr.is-pending td:first-child{box-shadow:none}.data-table tr.is-pending{box-shadow:inset 3px 0 0 var(--admin-turn)}}
+
+/* Commercial rules: the multiplier is the figure, and each rule says which categories it reaches. */
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin:16px 0 0}
+.workspace .info-card.is-consult.rule-card{margin:0;padding:18px 20px 20px}
+.rule-card .eyebrow{margin:0 0 6px}
+.workspace .rule-card p.rule-figure{margin:0;font-size:38px;font-weight:600;letter-spacing:-1px;line-height:1.1;color:var(--admin-text);font-variant-numeric:tabular-nums}
+.workspace .rule-card p.rule-used{margin:10px 0 0;font-size:12.5px;line-height:1.7}
+.rule-card button.quiet-link{margin-top:12px}
+.rules-tree-link{margin-top:16px;font-size:12.5px}
