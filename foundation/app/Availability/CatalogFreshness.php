@@ -11,7 +11,10 @@ use App\Models\Product;
  */
 class CatalogFreshness
 {
-    private ?array $summary = null;
+    private ?array $levels = null;
+
+    /** The product list's filter names, as they appear in its URL, and the levels each one covers. */
+    public const FILTERS = ['vencidas' => ['expired'], 'por-vencer' => ['expiring'], 'sin-dato' => ['invalid', 'none']];
 
     public function __construct(private ProductAvailability $availability) {}
 
@@ -24,19 +27,26 @@ class CatalogFreshness
         return collect($this->availability->forProducts($ids))->map(fn ($a) => OfferFreshness::of($a, $now, $ttl))->all();
     }
 
-    /**
-     * Among published products, which ones the TTL is about to hide or already hides. Kept for the
-     * request (the class is scoped): the panel and the sidebar counters both ask on the same page.
-     */
+    /** Among published products, which ones the TTL is about to hide or already hides. */
     public function publishedSummary(): array
     {
-        return $this->summary ??= $this->summarize();
-    }
-
-    private function summarize(): array
-    {
-        $levels = collect($this->forProducts(Product::where('status', 'published')->where('is_demo', false)->pluck('id')->all()))->countBy('level');
+        $levels = collect($this->publishedLevels())->countBy();
 
         return ['expired' => $levels->get('expired', 0), 'expiring' => $levels->get('expiring', 0), 'invalid' => $levels->get('invalid', 0) + $levels->get('none', 0)];
+    }
+
+    /** The published products behind one number of the summary, so the list can show exactly those. */
+    public function publishedIds(string $filter): array
+    {
+        return array_keys(array_filter($this->publishedLevels(), fn (string $level) => in_array($level, self::FILTERS[$filter], true)));
+    }
+
+    /**
+     * Level per published, non-demo product, keyed by id. Kept for the request (the class is scoped):
+     * the panel, the sidebar counters and the list's filter all ask on the same page.
+     */
+    private function publishedLevels(): array
+    {
+        return $this->levels ??= array_map(fn (array $f) => $f['level'], $this->forProducts(Product::where('status', 'published')->where('is_demo', false)->pluck('id')->all()));
     }
 }

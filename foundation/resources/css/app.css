@@ -38,11 +38,9 @@
 .freshness::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
 .freshness.is-fresh{color:var(--admin-ok)}
 .freshness.is-expiring{color:var(--admin-warn)}
-.freshness.is-expired{color:var(--admin-danger)}
-.freshness.is-invalid,.freshness.is-none{color:var(--admin-neutral)}
-.freshness-summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0 0;padding:12px 16px;border:1px solid #ffffff16;border-radius:7px;font-size:12px;color:#c7d0dd}
-.freshness-summary strong{color:var(--admin-text);font-weight:500}
-.freshness-summary.is-clear{color:var(--admin-ok)}
+.freshness.is-expired{color:var(--admin-turn)}
+/* Same ladder as the panel: soon (warn) → now, yours (turn) → broken, cannot be sold (danger). */
+.freshness.is-invalid,.freshness.is-none{color:var(--admin-danger)}
 .freshness-card{max-width:720px;margin:20px 0}
 .freshness-card p{margin:0 0 10px}
 .demo-toggle{margin:12px 0 0;font-size:12px}
@@ -193,4 +191,46 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
     .turn-figure{font-size:36px}
     .turn-text,.turn-action{grid-column:1/-1}
     .turn-soon .quiet-link{margin-left:0}
+}
+
+/* ── Product list: the table leads; the freshness strip filters it ────────────────────────────── */
+.products-toolbar .muted{margin:0 auto 0 0}
+.freshness-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0 0;padding:6px;border-radius:8px;background:var(--admin-sunken);font-size:12.5px}
+.freshness-strip-title{padding:0 8px 0 6px;font-size:10.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:#7f8ba0}
+.strip-segment{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border:1px solid transparent;border-radius:6px;background:transparent;color:#c7d0dd;font-size:12.5px}
+.strip-segment:hover{background:#ffffff08}
+.strip-segment[aria-pressed=true]{background:var(--admin-raised);border-color:#ffffff1a;color:var(--admin-text);font-weight:600}
+.strip-count{font-weight:600;font-variant-numeric:tabular-nums}
+.strip-segment.is-expired .strip-count{color:var(--admin-turn)}
+.strip-segment.is-invalid .strip-count{color:var(--admin-danger)}
+.strip-segment.is-expiring .strip-count{color:var(--admin-warn)}
+.freshness-strip.is-clear{gap:8px;padding:10px 14px;color:var(--admin-ok)}
+.workspace .num{text-align:right}
+.products-table tbody tr:hover td{background:#ffffff05}
+.product-name{color:var(--admin-text);font-weight:500}
+.product-name:hover{color:var(--admin-accent)}
+.products-table .action-cell{text-align:right}
+/* On wide screens the table fits (checked at 1280), so the header can stick to the page while scrolling. */
+@media(min-width:901px){
+    .products-table{overflow:visible}
+    .products-table thead th{position:sticky;top:0;z-index:1}
+    .products-table thead th:first-child{border-top-left-radius:7px}
+    .products-table thead th:last-child{border-top-right-radius:7px}
+}
+/* On a phone each row becomes a card: name first, then what matters, labelled. */
+@media(max-width:700px){
+    .products-table{border:0;overflow:visible}
+    .products-table table,.products-table tbody{display:block}
+    .products-table thead{display:none}
+    .products-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 14px;padding:16px;margin-bottom:12px;border:1px solid #ffffff16;border-radius:8px}
+    .products-table td{padding:0;border:0;white-space:normal;text-align:left}
+    .products-table td.product-cell{grid-column:1}
+    /* The status badge reads on its own: top right, next to the name, without a label. */
+    .products-table td[data-label=Estado]{grid-column:2;grid-row:1;align-self:start}
+    .products-table tr td[data-label=Estado]::before{display:none}
+    .products-table td[data-label]::before{content:attr(data-label);display:block;margin-bottom:4px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:#7f8ba0}
+    .products-table td[data-label=Disponibilidad]{grid-column:1/-1}
+    .products-table .action-cell{grid-column:1/-1;text-align:left;padding-top:4px;border-top:1px solid #ffffff10}
+    .products-table tr.empty-row{display:block}
+    .products-table tbody tr:hover td{background:transparent}
 }

@@ -18,7 +18,7 @@ class CatalogProductController extends Controller
 {
     public function index(Request $request, CatalogFreshness $freshness)
     {
-        $filters = $request->validate(['q' => ['nullable', 'string', 'max:100'], 'status' => ['nullable', Rule::in(['draft', 'published', 'archived'])], 'demo' => ['nullable', 'boolean']]);
+        $filters = $request->validate(['q' => ['nullable', 'string', 'max:100'], 'status' => ['nullable', Rule::in(['draft', 'published', 'archived'])], 'demo' => ['nullable', 'boolean'], 'vigencia' => ['nullable', Rule::in(array_keys(CatalogFreshness::FILTERS))]]);
         $showDemo = (bool) ($filters['demo'] ?? false);
         $query = Product::query()->with(['category:id,name', 'brand:id,name'])->latest('id');
         // Demonstration products stay in the database; they are only out of the default view.
@@ -30,6 +30,10 @@ class CatalogProductController extends Controller
         }
         if ($filters['status'] ?? null) {
             $query->where('status', $filters['status']);
+        }
+        // One segment of the freshness strip: exactly the products that number counts.
+        if ($filters['vigencia'] ?? null) {
+            $query->whereIn('id', $freshness->publishedIds($filters['vigencia']));
         }
 
         $products = $query->paginate(20)->withQueryString();

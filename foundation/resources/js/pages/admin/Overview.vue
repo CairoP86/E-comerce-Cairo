@@ -14,8 +14,8 @@ const rows = computed<TurnRow[]>(() => {
     const { expired, invalid } = props.freshnessSummary; const orders = props.pendingOrders;
     return [
         orders && { key: 'orders', tone: 'turn', icon: ReceiptText, figure: orders, label: orders === 1 ? 'pedido por confirmar pago' : 'pedidos por confirmar pago', note: '', href: '/admin/orders', action: 'Revisar pedidos →' },
-        invalid && { key: 'invalid', tone: 'danger', icon: PackageX, figure: invalid, label: invalid === 1 ? 'producto publicado sin oferta válida' : 'productos publicados sin oferta válida', note: `${invalid === 1 ? 'No aparece' : 'No aparecen'} en la tienda: falta una oferta con datos válidos.`, href: '/admin/catalog/products', action: 'Revisar productos →' },
-        expired && { key: 'expired', tone: 'turn', icon: TimerOff, figure: expired, label: expired === 1 ? 'oferta vencida' : 'ofertas vencidas', note: `${expired === 1 ? 'El producto ya no aparece' : 'Esos productos ya no aparecen'} en la tienda hasta que confirmes precio y stock con el proveedor.`, href: '/admin/catalog/products', action: 'Actualizar ofertas →' },
+        invalid && { key: 'invalid', tone: 'danger', icon: PackageX, figure: invalid, label: invalid === 1 ? 'producto publicado sin oferta válida' : 'productos publicados sin oferta válida', note: `${invalid === 1 ? 'No aparece' : 'No aparecen'} en la tienda: falta una oferta con datos válidos.`, href: '/admin/catalog/products?vigencia=sin-dato', action: 'Revisar productos →' },
+        expired && { key: 'expired', tone: 'turn', icon: TimerOff, figure: expired, label: expired === 1 ? 'oferta vencida' : 'ofertas vencidas', note: `${expired === 1 ? 'El producto ya no aparece' : 'Esos productos ya no aparecen'} en la tienda hasta que confirmes precio y stock con el proveedor.`, href: '/admin/catalog/products?vigencia=vencidas', action: 'Actualizar ofertas →' },
     ].filter(Boolean) as TurnRow[];
 });
 // Broken data outranks routine work: one product without a valid offer makes the whole card "blocked".
@@ -66,7 +66,7 @@ const roleLabel = computed(() => ({ admin: 'Administrador', operator: 'Operador'
         <p v-if="freshnessSummary.expiring" class="turn-soon">
             <Clock :size="15" :stroke-width="1.75" aria-hidden="true"/>
             <span>Pronto: {{ freshnessSummary.expiring }} {{ freshnessSummary.expiring === 1 ? 'oferta está por vencer' : 'ofertas están por vencer' }}.</span>
-            <Link href="/admin/catalog/products" class="quiet-link">Ver productos →</Link>
+            <Link href="/admin/catalog/products?vigencia=por-vencer" class="quiet-link">Ver cuáles →</Link>
         </p>
     </section>
     <p class="panel-foot muted">Sesión de {{ roleLabel }} · Horario de Costa Rica</p>
