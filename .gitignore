@@ -1,1 +1,3 @@
 /.local/
+# Local VS Code task with machine-specific Laragon paths; see foundation/scripts/ensure-local-services.ps1.
+/.vscode/tasks.json
