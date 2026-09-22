@@ -132,3 +132,35 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 /* Beats catalog.css's .compact-form input:not(...):not(...), which resets font. */
 .compact-form input.code:not([type=checkbox]):not([type=radio]),input.code{font-family:var(--admin-font-code);font-size:inherit}
 .admin-order-number.code{font-size:22px;font-weight:500;letter-spacing:0}
+
+/* ── Sidebar: a sunken well, grouped by frequency; the counter is the only warm colour ──────────── */
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.workspace{grid-template-columns:224px minmax(0,1fr)}
+.sidebar.is-staff,.sidebar{border-right:0;padding:0}
+.sidebar .side-nav{display:block;position:sticky;top:24px;background:var(--admin-sunken);border-radius:10px;padding:10px 10px 14px}
+.nav-group + .nav-group{margin-top:14px}
+.nav-group-title{margin:8px 10px 6px;font-size:10.5px;font-weight:500;letter-spacing:1.4px;text-transform:uppercase;color:#7f8ba0}
+.sidebar .nav-link{display:flex;align-items:center;gap:10px;padding:9px 10px;margin:1px 0;border-radius:6px;background:transparent;font-size:13px;color:#c7d0dd}
+.sidebar .nav-link:hover{background:#ffffff08;color:var(--admin-text)}
+.nav-icon{flex:none;color:#7f8ba0}
+.sidebar .nav-link:hover .nav-icon{color:#c7d0dd}
+.sidebar .nav-link.is-current{background:var(--admin-raised);color:var(--admin-text);font-weight:600;box-shadow:inset 3px 0 0 var(--admin-accent)}
+.sidebar .nav-link.is-current .nav-icon{color:var(--admin-accent)}
+.nav-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.turn-count{margin-left:auto;min-width:22px;padding:2px 7px;border-radius:999px;background:var(--admin-turn-soft);color:var(--admin-turn);font-size:11px;font-weight:600;line-height:16px;text-align:center;font-variant-numeric:tabular-nums}
+.nav-foot{margin-top:18px!important;padding-top:12px;border-top:1px solid #ffffff10}
+.sidebar .side-nav .eyebrow{margin:8px 10px 10px}
+.sidebar .role-tag{display:block;width:max-content;margin:12px 10px 0;padding:5px 9px;font-size:10px;letter-spacing:.6px;border-color:#83b7ff33}
+@media(max-width:800px){
+    .workspace{grid-template-columns:minmax(0,1fr);align-content:start}
+    .sidebar{border-bottom:0}
+    /* One scrolling row on a phone: groups flatten, titles and the role go, the current page starts in view. */
+    .sidebar .side-nav{position:relative;top:auto;display:flex;flex-wrap:nowrap;gap:4px;overflow-x:auto;scrollbar-width:none;padding:6px;border-radius:8px}
+    .sidebar .side-nav::-webkit-scrollbar{display:none}
+    .nav-group,.sidebar .nav-foot{display:contents}
+    .nav-group-title,.sidebar .role-tag,.sidebar .side-nav .eyebrow{display:none}
+    .sidebar .nav-link{flex:none;padding:9px 12px;margin:0}
+    .sidebar .nav-link.is-current{box-shadow:inset 0 -2px 0 var(--admin-accent)}
+    .nav-label{overflow:visible}
+}
+.sidebar:not(.is-staff) .nav-foot{margin-top:0!important;padding-top:0;border-top:0}

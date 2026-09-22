@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Availability\AvailabilityConfig;
+use App\Availability\CatalogFreshness;
 use App\Availability\PreferredOfferAvailability;
 use App\Contracts\CartStore;
 use App\Contracts\ProductAvailability;
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(CartStore::class, SessionCartStore::class);
         $this->app->bind(ProductAvailability::class, PreferredOfferAvailability::class);
+        $this->app->scoped(CatalogFreshness::class);
     }
 
     /**

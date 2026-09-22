@@ -11,6 +11,8 @@ use App\Models\Product;
  */
 class CatalogFreshness
 {
+    private ?array $summary = null;
+
     public function __construct(private ProductAvailability $availability) {}
 
     /** Keyed by product id. Internal to the admin: never reaches public pages. */
@@ -22,8 +24,16 @@ class CatalogFreshness
         return collect($this->availability->forProducts($ids))->map(fn ($a) => OfferFreshness::of($a, $now, $ttl))->all();
     }
 
-    /** Among published products, which ones the TTL is about to hide or already hides. */
+    /**
+     * Among published products, which ones the TTL is about to hide or already hides. Kept for the
+     * request (the class is scoped): the panel and the sidebar counters both ask on the same page.
+     */
     public function publishedSummary(): array
+    {
+        return $this->summary ??= $this->summarize();
+    }
+
+    private function summarize(): array
     {
         $levels = collect($this->forProducts(Product::where('status', 'published')->where('is_demo', false)->pluck('id')->all()))->countBy('level');
 

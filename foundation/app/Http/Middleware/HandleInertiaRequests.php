@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Services\CartService;
+use App\Support\OperatorTurn;
 use App\Support\StorefrontNavigation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -23,6 +24,9 @@ class HandleInertiaRequests extends Middleware
             // The header category trigger needs these on every storefront page, not only on the home page.
             'navCategories' => fn () => StorefrontNavigation::categories(),
             'cartStatus' => fn () => $request->session()->get('cart_status'),
+            // Sidebar counters: private pages only, so staff browsing the store never pay for the freshness query.
+            'operatorTurn' => fn () => $request->is('admin', 'admin/*', 'account') && $request->user()?->can('access-operations')
+                ? app(OperatorTurn::class)->counts() : null,
         ];
     }
 }
