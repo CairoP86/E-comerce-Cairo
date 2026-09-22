@@ -306,3 +306,13 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
     .taxonomy-table td.edit-cell::before{display:none}
     .taxonomy-table .tree-name small{max-width:none}
 }
+
+/* Activity log: a failed sign-in is the one row worth spotting from across the table. */
+/* Emails and details are long: this is the one table whose cells wrap instead of stretching. */
+.audit-table td{white-space:normal}
+.audit-table td.audit-detail{min-width:150px;font-size:12px}
+.audit-table td.audit-when{white-space:nowrap}
+.audit-table td small{overflow-wrap:anywhere}
+.audit-table tbody tr.is-failure td:first-child{box-shadow:inset 3px 0 0 var(--admin-danger)}
+.audit-table .product-name{font-weight:500}
+@media(max-width:700px){.audit-table tbody tr.is-failure td:first-child{box-shadow:none}.audit-table tr.is-failure{box-shadow:inset 3px 0 0 var(--admin-danger)}}
