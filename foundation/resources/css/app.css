@@ -47,3 +47,4 @@
 .freshness-card p{margin:0 0 10px}
 .demo-toggle{margin:12px 0 0;font-size:12px}
 button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit;font-size:12px}
+.admin-callout p.admin-callout-error{white-space:pre-line;color:var(--admin-danger);border-left:2px solid var(--admin-danger);padding-left:12px}

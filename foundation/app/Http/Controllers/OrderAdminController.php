@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\OrderStatus;
 use App\Models\Order;
+use App\Services\OrderPayment;
 use App\Support\Audit;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 
 class OrderAdminController extends Controller
@@ -36,27 +34,13 @@ class OrderAdminController extends Controller
      * Record a payment confirmed outside the platform (V1-E will handle real gateways).
      * Idempotent: repeating it neither duplicates history nor moves an order back.
      */
-    public function markPaid(Request $request, string $number)
+    public function markPaid(Request $request, string $number, OrderPayment $payment)
     {
         $order = Order::where('number', $number)->firstOrFail();
-        $changed = DB::transaction(function () use ($order, $request) {
-            $locked = Order::whereKey($order->id)->lockForUpdate()->firstOrFail();
-            if ($locked->status === OrderStatus::Paid) {
-                return false;
-            }
-            if ($locked->status !== OrderStatus::PendingPayment) {
-                throw ValidationException::withMessages(['order' => 'Solo un pedido pendiente de pago puede marcarse como pagado.']);
-            }
-            $from = $locked->status;
-            $locked->forceFill(['status' => OrderStatus::Paid])->save();
-            DB::table('order_status_history')->insert(['order_id' => $locked->id, 'from_status' => $from->value, 'to_status' => OrderStatus::Paid->value, 'actor_id' => $request->user()->id, 'created_at' => now()]);
-            Audit::record('order.marked_paid', $request->user()->id, metadata: ['entity_type' => 'order', 'entity_id' => $locked->id, 'from_status' => $from->value, 'to_status' => OrderStatus::Paid->value]);
-
-            return true;
-        }, 3);
+        $changed = $payment->markPaid($order, $request->user());
 
         return back()->with('status', $changed
-            ? 'Pedido marcado como pagado. El cobro se confirmó fuera de la plataforma; no se registró ninguna transacción en línea.'
+            ? 'Pedido marcado como pagado. Se descontó el stock de la oferta; el cobro se confirmó fuera de la plataforma y no se registró ninguna transacción en línea.'
             : 'Este pedido ya estaba marcado como pagado.');
     }
 }

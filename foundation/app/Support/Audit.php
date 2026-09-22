@@ -14,7 +14,7 @@ class Audit
             'actor_id' => $actor,
             'subject_id' => $subject,
             'source' => $source,
-            'metadata' => array_intersect_key($metadata, array_flip(['from_role', 'to_role', 'entity_type', 'entity_id', 'changed_fields', 'from_status', 'to_status', 'image_id'])),
+            'metadata' => array_intersect_key($metadata, array_flip(['from_role', 'to_role', 'entity_type', 'entity_id', 'changed_fields', 'from_status', 'to_status', 'image_id', 'quantity', 'from_stock', 'to_stock'])),
             'created_at' => now(),
         ]);
     }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AccountLayout from '../../../layouts/AccountLayout.vue';
 import { money } from '../../../types/catalog';
@@ -7,6 +7,8 @@ import type { Order } from '../../../types/order';
 const props = defineProps<{ order: Order; canMarkPaid: boolean }>();
 const confirming = ref(false);
 const form = useForm({});
+// The payment refusal arrives on the `order` key; the form itself carries no fields.
+const paymentError = computed(() => (form.errors as Partial<Record<'order', string>>).order);
 function markPaid() {
     form.post(`/admin/orders/${props.order.number}/paid`, { preserveScroll: true, onFinish: () => { confirming.value = false; } });
 }
@@ -21,7 +23,8 @@ function markPaid() {
 
     <section v-if="canMarkPaid && order.status === 'pending_payment'" class="admin-callout" aria-labelledby="mark-paid-title">
         <h3 id="mark-paid-title">Registrar pago confirmado</h3>
-        <p>Úsalo solo cuando hayas verificado el pago fuera de la plataforma. Queda registrado con tu usuario en el historial del pedido y no genera ningún cobro en línea.</p>
+        <p>Úsalo solo cuando hayas verificado el pago fuera de la plataforma. Descuenta el stock de la oferta, queda registrado con tu usuario en el historial del pedido y no genera ningún cobro en línea.</p>
+        <p v-if="paymentError" class="admin-callout-error" role="alert">{{ paymentError }}</p>
         <div v-if="!confirming" class="admin-callout-actions"><button type="button" class="button small" @click="confirming = true">Marcar como pagado</button></div>
         <template v-else>
             <p><strong>¿Confirmas que recibiste el pago de este pedido?</strong></p>
