@@ -13,6 +13,7 @@ class OperationsPanelController extends Controller
     {
         return Inertia::render('admin/Overview', [
             'pendingOrders' => OperatorTurn::pendingOrders(),
+            'oldestPendingOrder' => OperatorTurn::oldestPendingOrder(),
             'freshnessSummary' => $freshness->publishedSummary(),
         ]);
     }

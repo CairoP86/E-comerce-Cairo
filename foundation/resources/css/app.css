@@ -66,14 +66,6 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 .status-badge.is-neutral{color:var(--admin-neutral)}
 
 /* Operations panel. */
-.panel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:1000px;margin-top:22px}
-.panel-grid .info-card{max-width:none;margin:0}
-.panel-card p{margin:0 0 6px}
-.info-card p.panel-figure{font-size:44px;font-weight:600;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--admin-text);margin:6px 0 2px;line-height:1.1}
-.info-card p.panel-figure.is-clear{color:var(--admin-ok)}
-.panel-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px!important}
-.panel-card .quiet-link{display:inline-block;margin-top:12px}
-@media(max-width:800px){.panel-grid{grid-template-columns:1fr}}
 
 /* Category tree: depth reads as indentation, not as a separate "parent" column. */
 .tree-name{white-space:normal!important}
@@ -164,3 +156,41 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
     .nav-label{overflow:visible}
 }
 .sidebar:not(.is-staff) .nav-foot{margin-top:0!important;padding-top:0;border-top:0}
+
+/* ── Operations panel: one protagonist card, three states ────────────────────────────────────────
+   The cut corner is the panel's signature and appears only here. The left rail and the figures take
+   the state colour: ok (calm), turn (yours, now), danger (broken data the store cannot sell). */
+.turn-card{--rail:var(--admin-ok);--tone:var(--admin-ok);position:relative;max-width:1000px;margin-top:6px;padding:24px 30px 22px 33px;border-radius:10px;background:var(--admin-raised);box-shadow:inset 3px 0 0 var(--rail);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%)}
+.turn-card.is-turn{--rail:var(--admin-turn);background:linear-gradient(90deg,#ff9a5212,transparent 55%),var(--admin-raised)}
+.turn-card.is-blocked{--rail:var(--admin-danger);background:linear-gradient(90deg,#ffb2a712,transparent 55%),var(--admin-raised)}
+.turn-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:6px}
+.turn-card.is-turn .turn-head .eyebrow{color:var(--admin-turn)}
+.turn-card.is-blocked .turn-head .eyebrow{color:var(--admin-danger)}
+.turn-card.is-calm .turn-head .eyebrow{color:var(--admin-ok)}
+.turn-card .turn-head .eyebrow{margin:0}
+.turn-date{margin:0;font-size:12px;color:var(--admin-neutral)}
+.turn-date::first-letter{text-transform:uppercase}
+.turn-rows{list-style:none;margin:0;padding:0}
+.turn-row{--tone:var(--admin-turn);display:grid;grid-template-columns:32px auto minmax(0,1fr) auto;align-items:center;gap:0 16px;padding:16px 0}
+.turn-row.is-danger{--tone:var(--admin-danger)}
+.turn-row + .turn-row{border-top:1px solid #ffffff10}
+.turn-tile{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#ffffff0a;color:var(--tone)}
+.turn-tile.is-ok{color:var(--admin-ok)}
+.turn-figure{margin:0;min-width:1.4ch;font-size:44px;font-weight:600;line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--tone)}
+.turn-label{margin:0;font-size:15px;font-weight:500;color:var(--admin-text)}
+.turn-note{margin:4px 0 0;font-size:12.5px;line-height:1.6;color:#b3bdcb}
+.turn-action{white-space:nowrap;font-size:13px}
+.turn-calm{display:flex;align-items:center;gap:16px;padding:16px 0 6px}
+.turn-calm-title{margin:0;font-size:17px;font-weight:500;color:var(--admin-text)}
+.turn-soon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0;padding-top:14px;border-top:1px solid #ffffff10;font-size:12.5px;color:var(--admin-warn)}
+.turn-soon .quiet-link{margin-left:auto}
+.panel-foot{margin-top:18px;font-size:11.5px}
+@media(max-width:700px){
+    .turn-card{padding:20px 18px 18px 21px}
+    .turn-head{flex-direction:column;gap:2px}
+    /* Tile and figure on one line; what it means and the action underneath. */
+    .turn-row{grid-template-columns:32px minmax(0,1fr);gap:10px 14px}
+    .turn-figure{font-size:36px}
+    .turn-text,.turn-action{grid-column:1/-1}
+    .turn-soon .quiet-link{margin-left:0}
+}

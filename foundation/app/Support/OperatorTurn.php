@@ -20,6 +20,14 @@ class OperatorTurn
         return Order::where('status', OrderStatus::PendingPayment)->count();
     }
 
+    /** The customer who has waited longest leads the panel's strip. @return array{number: string, created_at: string}|null */
+    public static function oldestPendingOrder(): ?array
+    {
+        $order = Order::where('status', OrderStatus::PendingPayment)->oldest()->oldest('id')->first(['number', 'created_at']);
+
+        return $order ? ['number' => $order->number, 'created_at' => $order->created_at->toIso8601String()] : null;
+    }
+
     /** @return array{orders: int, offers: int} */
     public function counts(): array
     {
