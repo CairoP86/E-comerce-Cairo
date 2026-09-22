@@ -3,6 +3,7 @@ import { computed, ref } from 'vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AccountLayout from '../../../layouts/AccountLayout.vue';
 import { money } from '../../../types/catalog';
+import StatusBadge from '../../../components/StatusBadge.vue';
 import type { Order } from '../../../types/order';
 const props = defineProps<{ order: Order; canMarkPaid: boolean }>();
 const confirming = ref(false);
@@ -18,7 +19,7 @@ function markPaid() {
     <Link href="/admin/orders" class="quiet-link">← Pedidos</Link>
     <header class="admin-order-head">
         <h2 class="admin-order-number">{{ order.number }}</h2>
-        <p class="muted">{{ order.status_label }} · {{ new Date(order.created_at).toLocaleString('es-CR') }}</p>
+        <p class="muted"><StatusBadge :status="order.status" :label="order.status_label"/> · {{ new Date(order.created_at).toLocaleString('es-CR') }}</p>
     </header>
 
     <section v-if="canMarkPaid && order.status === 'pending_payment'" class="admin-callout" aria-labelledby="mark-paid-title">

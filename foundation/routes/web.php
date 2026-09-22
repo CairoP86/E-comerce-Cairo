@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InfoPageController;
+use App\Http\Controllers\OperationsPanelController;
 use App\Http\Controllers\PublicCatalogController;
 use App\Models\AuditLog;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::post('/email/verification-notification', [AuthController::class, 'resend'])->middleware('throttle:auth-actions')->name('verification.send');
     Route::middleware('verified')->group(function () {
         Route::get('/account', fn () => Inertia::render('account/Overview'))->name('account');
-        Route::get('/admin', fn () => Inertia::render('admin/Overview'))->middleware('can:access-operations')->name('admin');
+        Route::get('/admin', OperationsPanelController::class)->middleware('can:access-operations')->name('admin');
         Route::get('/admin/audit', fn () => Inertia::render('admin/Audit', [
             'entries' => AuditLog::query()->latest('id')->paginate(25)->through(fn (AuditLog $entry) => $entry->only(['id', 'event', 'actor_id', 'subject_id', 'source', 'metadata', 'created_at'])),
         ]))->middleware('can:view-audit')->name('admin.audit');

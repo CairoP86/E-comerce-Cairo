@@ -2,7 +2,8 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { computed, ref } from 'vue';
 import AccountLayout from '../../../layouts/AccountLayout.vue';
-import { money, statusLabel, type Paginator, type Product } from '../../../types/catalog';
+import StatusBadge from '../../../components/StatusBadge.vue';
+import { money, type Paginator, type Product } from '../../../types/catalog';
 import { freshnessLabel, needsAttention, stockLabel, type Freshness, type FreshnessSummary } from '../../../types/freshness';
 const props = defineProps<{ products: Paginator<Product>; filters: { q?: string; status?: string; demo?: boolean | string }; canManage: boolean; freshness: Record<number, Freshness>; freshnessSummary: FreshnessSummary; hiddenDemo: number }>();
 const q = ref(props.filters.q ?? ''); const status = ref(props.filters.status ?? '');
@@ -33,7 +34,7 @@ const attention = computed(() => props.freshnessSummary.expired + props.freshnes
             <td>{{ product.name }}<small class="block muted">{{ product.category?.name }} · {{ product.is_demo ? 'Demostración' : product.brand?.name }}</small></td>
             <td>{{ product.sku }}</td>
             <td>{{ money(product.price_minor, product.currency) }}</td>
-            <td>{{ statusLabel(product.status) }}</td>
+            <td><StatusBadge :status="product.status"/></td>
             <td>
                 <template v-if="freshness[product.id]">
                     <span class="freshness" :class="`is-${freshness[product.id].level}`">{{ freshnessLabel(freshness[product.id]) }}</span>

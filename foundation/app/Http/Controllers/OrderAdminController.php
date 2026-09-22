@@ -15,7 +15,7 @@ class OrderAdminController extends Controller
         return Inertia::render('admin/orders/Index', ['orders' => Order::latest()->paginate(20)->through(fn ($order) => [
             'number' => $order->number, 'created_at' => $order->created_at->toIso8601String(),
             'customer' => $order->first_name.' '.$order->last_name, 'total_minor' => $order->total_minor,
-            'currency' => $order->currency, 'status_label' => $order->status->label(),
+            'currency' => $order->currency, 'status' => $order->status->value, 'status_label' => $order->status->label(),
         ])]);
     }
 
