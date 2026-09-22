@@ -364,10 +364,11 @@ class CheckoutTest extends TestCase
         $this->prepare();
         Log::spy();
         $this->mock(CheckoutService::class)->shouldReceive('confirm')->once()->andThrow(new QueryException('sqlite', 'insert into orders (email) values (?)', ['private@example.test'], new \PDOException('Synthetic SQL error')));
-        $response = $this->post('/checkout', $this->payload())->assertStatus(503);
+        // An unrecognised failure is permanent: 500, not an invitation to retry (P3 lote 1, D4).
+        $response = $this->post('/checkout', $this->payload())->assertStatus(500);
         $this->assertStringContainsString('no-store', $response->headers->get('Cache-Control'));
         $response->assertDontSee('private@example.test')->assertDontSee('insert into orders');
-        Log::shouldHaveReceived('error')->once()->with('Order database operation failed.', ['sqlstate' => null]);
+        Log::shouldHaveReceived('error')->once()->with('Order database operation failed.', ['sqlstate' => null, 'driver_code' => null, 'transient' => false]);
         $this->assertCount(1, session('shopping_cart.items'));
     }
 }
