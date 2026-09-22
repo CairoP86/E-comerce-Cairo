@@ -234,3 +234,39 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
     .products-table tr.empty-row{display:block}
     .products-table tbody tr:hover td{background:transparent}
 }
+
+/* ── Work panels and consult wells: the rest of the admin loses its boxes ──────────────────────────
+   Work (you edit or act here): no box, a hairline on top and its title. Consult (read only): a sunken
+   well without a border. The operations panel's card stays the only raised, cut-corner card. */
+.workspace .info-card.is-work{margin:30px 0 0;padding:24px 0 0;border:0;border-top:1px solid #ffffff14;border-radius:0;background:none;box-shadow:none}
+.workspace .info-card.is-work:first-of-type{margin-top:22px}
+.workspace .info-card.is-work > h2:first-child,.workspace .info-card.is-work > .eyebrow:first-child{margin-top:0}
+.workspace .info-card.is-consult{border:0;border-radius:8px;background:var(--admin-sunken);padding:20px 22px}
+.workspace .commercial-cards .info-card.is-consult,.workspace .admin-order-grid .info-card.is-consult{margin:0}
+/* The order's pending payment is exactly what the panel asks for: same "your turn" rail. */
+.admin-callout.is-turn{border:0;border-radius:8px;background:linear-gradient(90deg,#ff9a5212,transparent 60%),var(--admin-raised);box-shadow:inset 3px 0 0 var(--admin-turn)}
+.admin-callout.is-turn h3{color:var(--admin-text)}
+
+/* Mi cuenta: a compact identity, and for staff a way through to the panel that says what is waiting. */
+.identity{display:flex;align-items:center;gap:18px;max-width:720px;margin:6px 0 0;padding:20px 22px;border-radius:10px;background:var(--admin-sunken)}
+.identity-mark{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:12px;background:var(--admin-raised);color:var(--admin-accent);font-size:18px;font-weight:600;letter-spacing:.5px}
+.identity-text{min-width:0}
+.identity-name{margin:0;font-size:18px;font-weight:600;color:var(--admin-text)}
+.identity-mail{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:4px 0 0;font-size:13px;color:#b3bdcb;overflow-wrap:anywhere}
+.identity-mail .verified{margin:0}
+.identity-role{margin:8px 0 0;font-size:11px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--admin-accent)}
+.panel-shortcut{display:flex;align-items:center;gap:16px;max-width:720px;margin:14px 0 0;padding:18px 22px;border-radius:10px;background:var(--admin-raised);box-shadow:inset 3px 0 0 var(--admin-ok);transition:background .2s}
+.panel-shortcut:hover{background:#1c3a5f}
+.panel-shortcut.is-turn{box-shadow:inset 3px 0 0 var(--admin-turn)}
+.panel-shortcut-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:#ffffff0a;color:var(--admin-ok)}
+.panel-shortcut.is-turn .panel-shortcut-icon{color:var(--admin-turn)}
+.panel-shortcut-text{display:flex;flex-direction:column;gap:3px;min-width:0}
+.panel-shortcut-text strong{font-size:15px;font-weight:600;color:var(--admin-text)}
+.panel-shortcut-text small{font-size:12.5px;color:#b3bdcb}
+.panel-shortcut.is-turn .panel-shortcut-text small{color:var(--admin-turn)}
+.panel-shortcut-arrow{margin-left:auto;font-size:18px;color:var(--admin-accent)}
+@media(max-width:600px){.identity{padding:16px}.identity-mark{width:44px;height:44px;font-size:16px}}
+.workspace .info-card.is-work{margin-bottom:30px}
+/* "Preferida" and similar marks inside a read-only record read as a small tag, not a full-width notice. */
+.workspace .info-card.is-consult > .notice{display:inline-block;margin:2px 0 10px;padding:3px 10px;border-radius:999px;font-size:11px;line-height:1.5}
+.identity + .muted{margin-top:14px}

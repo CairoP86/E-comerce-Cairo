@@ -22,7 +22,7 @@ function markPaid() {
         <p class="muted"><StatusBadge :status="order.status" :label="order.status_label"/> · {{ new Date(order.created_at).toLocaleString('es-CR') }}</p>
     </header>
 
-    <section v-if="canMarkPaid && order.status === 'pending_payment'" class="admin-callout" aria-labelledby="mark-paid-title">
+    <section v-if="canMarkPaid && order.status === 'pending_payment'" class="admin-callout is-turn" aria-labelledby="mark-paid-title">
         <h3 id="mark-paid-title">Registrar pago confirmado</h3>
         <p>Úsalo solo cuando hayas verificado el pago fuera de la plataforma. Descuenta el stock de la oferta, queda registrado con tu usuario en el historial del pedido y no genera ningún cobro en línea.</p>
         <p v-if="paymentError" class="admin-callout-error" role="alert">{{ paymentError }}</p>
@@ -37,13 +37,13 @@ function markPaid() {
     </section>
 
     <div class="admin-order-grid">
-        <section class="info-card" aria-labelledby="buyer-title">
+        <section class="info-card is-consult" aria-labelledby="buyer-title">
             <p id="buyer-title" class="eyebrow">COMPRADOR</p>
             <p class="admin-strong">{{ order.buyer.first_name }} {{ order.buyer.last_name }}</p>
             <p>{{ order.buyer.email }}</p>
             <p>{{ order.buyer.phone }}</p>
         </section>
-        <section class="info-card" aria-labelledby="address-title">
+        <section class="info-card is-consult" aria-labelledby="address-title">
             <p id="address-title" class="eyebrow">DIRECCIÓN DE ENTREGA</p>
             <p class="admin-strong">{{ order.address.province }} · {{ order.address.canton }} · {{ order.address.district }}</p>
             <p class="admin-address">{{ order.address.exact_address }}</p>
@@ -51,7 +51,7 @@ function markPaid() {
         </section>
     </div>
 
-    <section class="info-card admin-order-items" aria-labelledby="items-title">
+    <section class="info-card is-work admin-order-items" aria-labelledby="items-title">
         <p id="items-title" class="eyebrow">PRODUCTOS</p>
         <div class="table-wrap">
             <table>
