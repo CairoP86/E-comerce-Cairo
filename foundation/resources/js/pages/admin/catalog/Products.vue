@@ -31,7 +31,7 @@ const allFresh = computed(() => !segments.value.length);
     </div>
 
     <nav v-if="!allFresh" class="filter-strip" aria-label="Filtrar por vigencia de la oferta">
-        <span class="freshness-strip-title">Ofertas publicadas</span>
+        <span class="filter-strip-title">Ofertas publicadas</span>
         <button type="button" class="strip-segment" :aria-pressed="!vigencia" @click="filterBy('')">Todas</button>
         <button v-for="s in segments" :key="s.value" type="button" class="strip-segment" :class="s.tone" :aria-pressed="vigencia === s.value" @click="filterBy(vigencia === s.value ? '' : s.value)">
             <span class="strip-count">{{ s.count }}</span> {{ s.label(s.count) }}

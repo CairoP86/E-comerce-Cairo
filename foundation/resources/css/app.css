@@ -423,3 +423,27 @@ body.theme-light{
     .theme-light .sidebar .side-nav{border:1px solid var(--admin-border)}
     .theme-light .sidebar .nav-link.is-current{box-shadow:inset 0 -2px 0 var(--admin-accent),0 1px 2px #1023371f}
 }
+
+/* ── Light theme, lote 3: lists ──────────────────────────────────────────────────────────────────
+   On navy a badge was an outline with a dot: a filled pill would have glowed. On white the outline
+   is the one that disappears, so the badge becomes a tinted pill with its state colour as text. */
+.theme-light .status-badge,.theme-light .freshness{border-color:transparent;background:var(--admin-sunken);font-weight:500}
+.theme-light .status-badge.is-ok,.theme-light .freshness.is-fresh{background:var(--admin-ok-soft)}
+.theme-light .status-badge.is-warn,.theme-light .freshness.is-expiring{background:var(--admin-warn-soft)}
+.theme-light .status-badge.is-info{background:var(--admin-accent-soft)}
+.theme-light .freshness.is-expired{background:var(--admin-turn-soft)}
+.theme-light .freshness.is-invalid,.theme-light .freshness.is-none{background:var(--admin-danger-soft)}
+
+/* Tables: the white sheet carries the rows, the well carries the header. */
+.theme-light .data-table .code,.theme-light td.code{color:var(--admin-text)}
+.theme-light .empty-row td,.theme-light .demo-toggle{color:var(--admin-muted)}
+.theme-light .pagination{color:var(--admin-accent)}
+.theme-light .filter-strip{border:1px solid var(--admin-border)}
+.theme-light .filter-strip.is-clear{background:var(--admin-ok-soft);border-color:#c3e2d1;color:var(--admin-ok)}
+.theme-light .list-note{color:var(--admin-muted)}
+@media(max-width:700px){
+    .theme-light .data-table tr{border-color:var(--admin-border);background:#ffffff}
+    .theme-light .data-table td[data-label]::before{color:var(--admin-label)}
+    .theme-light .taxonomy-table tr{background:#ffffff}
+    .theme-light .data-table .action-cell{border-top-color:var(--admin-line)}
+}
