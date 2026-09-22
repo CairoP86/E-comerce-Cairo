@@ -18,7 +18,7 @@ function markPaid() {
 <template><Head title="Detalle del pedido"><meta name="robots" content="noindex, nofollow"/></Head><AccountLayout title="Detalle del pedido" section="admin">
     <Link href="/admin/orders" class="quiet-link">← Pedidos</Link>
     <header class="admin-order-head">
-        <h2 class="admin-order-number">{{ order.number }}</h2>
+        <h2 class="admin-order-number code">{{ order.number }}</h2>
         <p class="muted"><StatusBadge :status="order.status" :label="order.status_label"/> · {{ new Date(order.created_at).toLocaleString('es-CR') }}</p>
     </header>
 
@@ -59,7 +59,7 @@ function markPaid() {
                 <tbody>
                     <tr v-for="item in order.items" :key="item.sku">
                         <td class="admin-item-name">{{ item.name }}<small v-if="item.is_demo"> · producto de demostración</small></td>
-                        <td>{{ item.sku }}</td>
+                        <td class="code">{{ item.sku }}</td>
                         <td class="num">{{ item.quantity }}</td>
                         <td class="num">{{ money(item.unit_price_minor, order.currency) }}</td>
                         <td class="num">{{ money(item.subtotal_minor, order.currency) }}</td>

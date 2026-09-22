@@ -69,7 +69,7 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 .panel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:1000px;margin-top:22px}
 .panel-grid .info-card{max-width:none;margin:0}
 .panel-card p{margin:0 0 6px}
-.info-card p.panel-figure{font-size:38px;font-weight:300;letter-spacing:-1px;color:var(--admin-text);margin:6px 0 2px;line-height:1.1}
+.info-card p.panel-figure{font-size:44px;font-weight:600;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--admin-text);margin:6px 0 2px;line-height:1.1}
 .info-card p.panel-figure.is-clear{color:var(--admin-ok)}
 .panel-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px!important}
 .panel-card .quiet-link{display:inline-block;margin-top:12px}
@@ -98,11 +98,37 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 }
 
 /* File picker in Spanish: the native input stays in place, focusable, but invisible. */
-.compact-form .file-picker{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px 14px}
+.compact-form .file-picker{position:relative;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px 14px}
 .file-picker-title{grid-column:1/-1}
-.file-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.compact-form input.file-input:not([type=checkbox]):not([type=radio]){position:absolute;left:0;bottom:0;width:1px;height:1px;min-height:0;padding:0;border:0;opacity:0;overflow:hidden}
 .file-picker:focus-within .file-button{outline:2px solid var(--admin-focus);outline-offset:3px}
 .file-button{cursor:pointer}
 .file-names{font-size:12px;color:#c7d0dd;overflow-wrap:anywhere}
 
 .rules-link{display:inline-block;margin-top:14px}
+
+/* ── Admin design, base ─────────────────────────────────────────────────────────────────────────
+   One new accent: --admin-turn means "only you can unblock this" and disappears when the count is 0;
+   it is never an error colour. Severity ladder: warn (soon) → turn (now, yours) → danger (broken).
+   Surfaces go sunken (wells, read-only) → bg (page) → raised (the one card that leads a screen). */
+:root{--admin-turn:#ff9a52;--admin-turn-soft:#ff9a5224;--admin-sunken:#0c1c33;--admin-raised:#17304f;--admin-font-code:ui-monospace,"Cascadia Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+
+/* The one column never grows past the screen because of a wide table; the table scrolls inside. */
+.workspace{grid-template-columns:210px minmax(0,1fr)}
+@media(max-width:800px){.workspace{grid-template-columns:minmax(0,1fr)}}
+
+/* Type scale for the private area only; the storefront shares .eyebrow and .info-card and keeps its own. */
+.workspace-content h1{font-size:26px;font-weight:500;letter-spacing:-.5px;line-height:1.2}
+.workspace-content h2,.workspace .info-card h2{font-size:17px;font-weight:600;letter-spacing:-.1px;line-height:1.35}
+.workspace-content h3{font-size:14px;font-weight:600}
+.workspace .eyebrow{font-size:11px;font-weight:500;letter-spacing:1.4px}
+.workspace table{font-size:13px;font-variant-numeric:tabular-nums}
+.workspace th,.workspace td{padding:14px 12px}
+.workspace th{font-size:11px;font-weight:500;letter-spacing:.6px;background:var(--admin-sunken)}
+@media(max-width:800px){.workspace-content h1{font-size:23px}}
+
+/* Codes you copy or read out on the phone: SKU, order number, supplier code. */
+.code{font-family:var(--admin-font-code);font-size:.92em;letter-spacing:0;font-variant-numeric:normal}
+/* Beats catalog.css's .compact-form input:not(...):not(...), which resets font. */
+.compact-form input.code:not([type=checkbox]):not([type=radio]),input.code{font-family:var(--admin-font-code);font-size:inherit}
+.admin-order-number.code{font-size:22px;font-weight:500;letter-spacing:0}

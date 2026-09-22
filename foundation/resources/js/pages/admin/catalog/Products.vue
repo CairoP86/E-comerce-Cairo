@@ -32,7 +32,7 @@ const attention = computed(() => props.freshnessSummary.expired + props.freshnes
     <div class="table-wrap"><table><thead><tr><th>Producto</th><th>SKU</th><th>Precio</th><th>Estado</th><th>Disponibilidad</th><th>Acción</th></tr></thead><tbody>
         <tr v-for="product in products.data" :key="product.id">
             <td>{{ product.name }}<small class="block muted">{{ product.category?.name }} · {{ product.is_demo ? 'Demostración' : product.brand?.name }}</small></td>
-            <td>{{ product.sku }}</td>
+            <td class="code">{{ product.sku }}</td>
             <td>{{ money(product.price_minor, product.currency) }}</td>
             <td><StatusBadge :status="product.status"/></td>
             <td>
