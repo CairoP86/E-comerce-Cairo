@@ -21,7 +21,7 @@
     @vite(['resources/js/app.ts'])
     @inertiaHead
 </head>
-<body>
+<body class="{{ \App\Support\AdminTheme::bodyClass(data_get($page, 'component', '')) }}">
     @inertia
 </body>
 </html>

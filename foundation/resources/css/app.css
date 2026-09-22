@@ -316,3 +316,90 @@ button.quiet-link{background:none;border:0;padding:0;cursor:pointer;font:inherit
 .audit-table tbody tr.is-failure td:first-child{box-shadow:inset 3px 0 0 var(--admin-danger)}
 .audit-table .product-name{font-weight:500}
 @media(max-width:700px){.audit-table tbody tr.is-failure td:first-child{box-shadow:none}.audit-table tr.is-failure{box-shadow:inset 3px 0 0 var(--admin-danger)}}
+
+/* ── Light theme for the private area ────────────────────────────────────────────────────────────
+   Same architecture as the dark one (protagonist / work panel / consult well); only the values
+   change. The surface ladder inverts: the well is greyer than the canvas and the raised card is
+   white, so white needs a shadow to read as lifted. Every pair below is checked by
+   tests/Feature/AdminLightThemeTest.php, which fails if a token is lightened past AA. */
+body.theme-light{
+    --admin-bg:#f4f6fa;--admin-raised:#ffffff;--admin-sunken:#eef1f6;--admin-surface:#ffffff;
+    --admin-border:#dde3ec;--admin-line:#e6eaf1;--admin-hover:#f7f9fc;
+    --admin-text:#1a2233;--admin-muted:#5a6579;--admin-label:#5f6a7d;--admin-neutral:#5a6579;
+    --admin-primary:#1558d6;--admin-primary-hover:#0f43a8;--admin-on-primary:#ffffff;
+    --admin-accent:#1b4fc4;--admin-accent-soft:#e9f0fd;--admin-control-border:#7b8a9d;--admin-focus:#1558d6;
+    --admin-ok:#0a7040;--admin-ok-soft:#e8f5ee;--admin-warn:#8a5a00;--admin-warn-soft:#fdf3e0;
+    --admin-turn:#b8480c;--admin-turn-soft:#fdf1e9;--admin-danger:#b3261e;--admin-danger-soft:#fdecea;
+    color-scheme:light;background:var(--admin-bg);color:var(--admin-text)
+}
+
+/* The dark frame: the header and footer are the same band on the storefront and here, full width,
+   with their own colours restored for everything inside them. */
+.theme-light .site-header,.theme-light .site-footer{
+    --admin-text:#f6f9ff;--admin-accent:#83b7ff;--admin-primary:#1261d8;--admin-primary-hover:#0a48a5;--admin-on-primary:#ffffff;
+    background:#10233f;color:#f6f9ff;clip-path:inset(0 -100vmax);box-shadow:0 0 0 100vmax #10233f
+}
+.theme-light .site-header{border-bottom:0;padding:22px 0;margin-bottom:26px;box-shadow:0 0 0 100vmax #10233f,0 1px 0 #00000026,0 14px 24px -20px #10233f}
+.theme-light .site-footer{border-top:0;margin-top:40px;padding:22px 0;color:#a9b6cc}
+.theme-light .site-footer span{color:#a9b6cc}
+
+/* Shared text classes point at the tokens instead of the greys chosen for a navy background. */
+.theme-light .muted,.theme-light .field-hint,.theme-light .form-bottom{color:var(--admin-muted)}
+.theme-light .workspace .eyebrow{color:var(--admin-label)}
+.theme-light .field label{color:var(--admin-text)}
+.theme-light .info-card p:not(.eyebrow),.theme-light td{color:var(--admin-muted)}
+.theme-light .workspace-content h1,.theme-light .workspace-content h2,.theme-light .workspace-content h3{color:var(--admin-text)}
+.theme-light small.block.muted,.theme-light .block.muted{color:var(--admin-muted)}
+
+/* Surfaces, lines and controls. */
+.theme-light .info-card{background:#ffffff;border-color:var(--admin-border)}
+.theme-light .table-wrap{border-color:var(--admin-border);background:#ffffff}
+.theme-light th{background:var(--admin-sunken);color:var(--admin-accent)}
+.theme-light th,.theme-light td{border-bottom-color:var(--admin-line)}
+.theme-light .field input,.theme-light .compact-form input:not([type=checkbox]):not([type=radio]),.theme-light .compact-form select,.theme-light .compact-form textarea{background:#ffffff;color:var(--admin-text);border-color:var(--admin-control-border)}
+.theme-light input::placeholder,.theme-light textarea::placeholder{color:#78839a}
+.theme-light .notice{background:var(--admin-accent-soft);border-color:#c5d8fa;color:#123a86}
+.theme-light .verified{color:var(--admin-ok);border-color:#9ccbb2}
+.theme-light :focus-visible{outline-color:var(--admin-focus)}
+
+/* Greys and white films were written for a navy background; on the light canvas they point at the
+   tokens instead. Each screen gets its own pass in the following lotes; this keeps them legible. */
+.theme-light .sidebar .side-nav{background:var(--admin-sunken)}
+.theme-light .sidebar .nav-link{color:var(--admin-text)}
+.theme-light .sidebar .nav-link:hover{background:#e3e8f1;color:var(--admin-text)}
+.theme-light .nav-icon,.theme-light .sidebar .nav-link:hover .nav-icon{color:var(--admin-label)}
+.theme-light .sidebar .nav-link.is-current{background:#ffffff;color:var(--admin-text);box-shadow:inset 3px 0 0 var(--admin-accent),0 1px 2px #10233714}
+.theme-light .sidebar .nav-link.is-current .nav-icon{color:var(--admin-accent)}
+.theme-light .nav-group-title{color:var(--admin-label)}
+.theme-light .nav-foot{border-top-color:var(--admin-border)}
+.theme-light .role-tag{color:var(--admin-accent);border-color:#c5d8fa}
+.theme-light .turn-card{background:#ffffff;border:1px solid var(--admin-border);box-shadow:0 1px 2px #10233710,0 8px 24px -12px #1023372e}
+.theme-light .turn-card.is-turn{background:linear-gradient(90deg,var(--admin-turn-soft),#ffffff 60%)}
+.theme-light .turn-card.is-blocked{background:linear-gradient(90deg,var(--admin-danger-soft),#ffffff 60%)}
+.theme-light .turn-note,.theme-light .turn-date,.theme-light .file-names{color:var(--admin-muted)}
+.theme-light .turn-label,.theme-light .turn-calm-title{color:var(--admin-text)}
+.theme-light .turn-tile{background:#f1f4f9}
+.theme-light .turn-row + .turn-row,.theme-light .turn-soon{border-top-color:var(--admin-line)}
+.theme-light .filter-strip{background:var(--admin-sunken)}
+.theme-light .filter-strip-title{color:var(--admin-label)}
+.theme-light .strip-segment{color:var(--admin-text)}
+.theme-light .strip-segment:hover{background:#e3e8f1}
+.theme-light .strip-segment[aria-pressed=true]{background:#ffffff;border-color:var(--admin-border);box-shadow:0 1px 2px #10233714}
+.theme-light .data-table tbody tr:hover td{background:var(--admin-hover)}
+.theme-light .product-name,.theme-light .admin-strong{color:var(--admin-text)}
+.theme-light .workspace .info-card.is-work{border-top-color:var(--admin-border)}
+.theme-light .workspace .info-card.is-consult{background:var(--admin-sunken)}
+.theme-light .identity,.theme-light .panel-shortcut{background:var(--admin-sunken)}
+.theme-light .panel-shortcut{background:#ffffff;border:1px solid var(--admin-border)}
+.theme-light .panel-shortcut:hover{background:var(--admin-hover)}
+.theme-light .panel-shortcut-icon{background:#f1f4f9}
+.theme-light .panel-shortcut-text small{color:var(--admin-muted)}
+.theme-light .identity-mark{background:var(--admin-accent-soft);color:var(--admin-accent)}
+.theme-light .identity-name{color:var(--admin-text)}
+.theme-light .identity-mail{color:var(--admin-muted)}
+.theme-light .admin-callout{background:#ffffff;border:1px solid var(--admin-border);color:var(--admin-text)}
+.theme-light .admin-callout.is-turn{background:linear-gradient(90deg,var(--admin-turn-soft),#ffffff 60%);border-color:var(--admin-border)}
+.theme-light .admin-callout p{color:var(--admin-muted)}
+.theme-light .spec-list .spec-editor{border-bottom-color:var(--admin-line)}
+.theme-light .rule-card .rule-used{color:var(--admin-muted)}
+.theme-light .workspace .rule-card p.rule-figure{color:var(--admin-text)}
