@@ -93,7 +93,7 @@ class CheckoutTest extends TestCase
         $this->assertDatabaseCount('users', 0);
         $this->assertSame([], session('shopping_cart.items'));
         $this->assertTrue(Str::isUuid($order->id));
-        $this->assertMatchesRegularExpression('/^TC-[A-F0-9]{20}$/', $order->number);
+        $this->assertMatchesRegularExpression('/^TC-\d{6}-\d{3,}$/', $order->number);
         $this->assertNotSame($order->id, $order->number);
     }
 

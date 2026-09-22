@@ -17,6 +17,7 @@ use App\Models\User;
 use App\Support\Audit;
 use App\Support\CartHolder;
 use App\Support\CostaRicaTerritories;
+use App\Support\OrderNumber;
 use App\Support\ValueAddedTax;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -170,7 +171,8 @@ class CheckoutService
             $territory = CostaRicaTerritories::find($data['province_code'], $data['canton_code'], $data['district_code']);
             $order = new Order;
             $order->forceFill([
-                'id' => (string) Str::uuid(), 'number' => 'TC-'.strtoupper(bin2hex(random_bytes(10))),
+                // Taken last, after every other lock of the checkout, so it adds no new lock ordering.
+                'id' => (string) Str::uuid(), 'number' => OrderNumber::next(),
                 'user_id' => $user?->role === Role::Customer ? $user->id : null,
                 'checkout_key' => $key, 'owner_hash' => $owner, 'request_hash' => $requestHash,
                 'cart_revision' => $quote['revision'], 'status' => OrderStatus::PendingPayment,
