@@ -447,3 +447,37 @@ body.theme-light{
     .theme-light .taxonomy-table tr{background:#ffffff}
     .theme-light .data-table .action-cell{border-top-color:var(--admin-line)}
 }
+
+/* ── Light theme, lote 4: forms, wells and Mi cuenta ─────────────────────────────────────────────
+   Labels, hints and dividers were greys for a navy field; on white they point at the tokens and the
+   controls get a visible border, since a field without one disappears into the sheet. */
+.theme-light .compact-form label{color:var(--admin-text)}
+.theme-light .compact-form small{color:var(--admin-muted)}
+.theme-light .compact-form input[type=checkbox],.theme-light .compact-form input[type=radio],.theme-light .form-options input{accent-color:var(--admin-primary)}
+.theme-light .compact-form fieldset:disabled{opacity:.72}
+.theme-light .field-error{color:var(--admin-danger)}
+.theme-light .spec-editor,.theme-light .image-editor-row,.theme-light .specifications dt,.theme-light .specifications dd{border-bottom-color:var(--admin-border)}
+.theme-light .spec-list .spec-editor + .spec-editor{border-bottom-color:var(--admin-border)}
+.theme-light .specifications dt{color:var(--admin-label)}
+.theme-light .image-editor-row img{background:var(--admin-sunken)}
+.theme-light .file-picker-title{color:var(--admin-text)}
+.theme-light .inline-choice{color:var(--admin-text)}
+
+/* Consult wells: read-only records sit in the well, their marks as small tags. */
+.theme-light .workspace .info-card.is-consult h2,.theme-light .workspace .info-card.is-consult h3{color:var(--admin-text)}
+.theme-light .workspace .info-card.is-consult > .notice{background:var(--admin-accent-soft);border-color:#c5d8fa;color:#123a86}
+.theme-light .commercial-number{color:var(--admin-text)}
+.theme-light .quiet-link,.theme-light .form-options a,.theme-light .form-bottom a{color:var(--admin-accent)}
+.theme-light .rules-tree-link,.theme-light .supplier-line{color:var(--admin-muted)}
+
+/* Mi cuenta: the identity in the well, the way through to the panel as a white card. */
+.theme-light .identity{border:1px solid var(--admin-border)}
+.theme-light .identity-mark{background:#ffffff;border:1px solid #c5d8fa;color:var(--admin-accent)}
+.theme-light .identity-role{color:var(--admin-accent)}
+.theme-light .panel-shortcut{box-shadow:inset 3px 0 0 var(--admin-ok)}
+.theme-light .panel-shortcut.is-turn{box-shadow:inset 3px 0 0 var(--admin-turn)}
+.theme-light .panel-shortcut-icon{background:var(--admin-ok-soft);color:var(--admin-ok)}
+.theme-light .panel-shortcut.is-turn .panel-shortcut-icon{background:var(--admin-turn-soft);color:var(--admin-turn)}
+.theme-light .panel-shortcut-text strong{color:var(--admin-text)}
+.theme-light .panel-shortcut.is-turn .panel-shortcut-text small{color:var(--admin-turn)}
+.theme-light .panel-shortcut-arrow{color:var(--admin-accent)}
