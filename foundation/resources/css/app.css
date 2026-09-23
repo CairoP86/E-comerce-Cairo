@@ -564,3 +564,22 @@ body.theme-light{
 .account-amount{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums;color:var(--admin-text)}
 .workspace .account-note{margin:12px 0 0;font-size:11.5px}
 @media(max-width:600px){.account-amount{margin-left:0}}
+
+/* The order's own history, beside the buyer and the address. */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{position:relative;padding:0 0 14px 18px;border-left:2px solid var(--admin-border);margin-left:4px}
+.timeline li:last-child{padding-bottom:0;border-left-color:transparent}
+.timeline li::before{content:'';position:absolute;left:-6px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--admin-neutral)}
+.timeline li.is-pending_payment::before{background:var(--admin-turn)}
+.timeline li.is-paid::before{background:var(--admin-ok)}
+.workspace .timeline p{margin:0}
+.timeline-what{font-size:13px;font-weight:500;color:var(--admin-text)}
+.timeline-when,.timeline-who{font-size:11.5px}
+
+/* Product detail: on a wide screen the images sit beside the form instead of far below it. */
+@media(min-width:1200px){
+    .product-columns{display:grid;grid-template-columns:minmax(0,720px) minmax(320px,1fr);gap:24px;align-items:start}
+    .product-columns .product-form{margin-top:22px}
+    .product-side{position:sticky;top:24px}
+    .product-side .info-card.is-work{margin-top:22px;border-top:1px solid var(--admin-border)}
+}

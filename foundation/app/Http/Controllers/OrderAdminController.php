@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Enums\OrderStatus;
 use App\Models\Order;
+use App\Models\User;
 use App\Services\OrderPayment;
 use App\Support\Audit;
+use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
@@ -46,7 +49,26 @@ class OrderAdminController extends Controller
         return Inertia::render('admin/orders/Show', [
             'order' => $order->publicSummary(),
             'canMarkPaid' => request()->user()->can('mark-order-paid'),
+            'timeline' => $this->timeline($order),
         ]);
+    }
+
+    /**
+     * What happened to this order, oldest first. The status history is the record the store already
+     * keeps on every change, so the timeline never disagrees with the badge at the top.
+     */
+    private function timeline(Order $order): array
+    {
+        $steps = DB::table('order_status_history')->where('order_id', $order->id)
+            ->orderBy('created_at')->orderBy('id')->get(['to_status', 'actor_id', 'created_at']);
+        $people = User::whereIn('id', $steps->pluck('actor_id')->filter()->unique())->get(['id', 'name'])->keyBy('id');
+
+        return $steps->map(fn ($step) => [
+            'status' => $step->to_status,
+            'created_at' => CarbonImmutable::parse($step->created_at, 'UTC')->toIso8601String(),
+            // Null when the checkout placed it: no one from the team was involved.
+            'actor' => $people->get($step->actor_id)?->only(['id', 'name']),
+        ])->all();
     }
 
     /**

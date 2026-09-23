@@ -4,8 +4,10 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 import AccountLayout from '../../../layouts/AccountLayout.vue';
 import { money } from '../../../types/catalog';
 import StatusBadge from '../../../components/StatusBadge.vue';
+import { ago, dateTime } from '../../../types/time';
 import type { Order } from '../../../types/order';
-const props = defineProps<{ order: Order; canMarkPaid: boolean }>();
+interface Step { status: string; created_at: string; actor: { id: number; name: string } | null }
+const props = defineProps<{ order: Order; canMarkPaid: boolean; timeline: Step[] }>();
 const confirming = ref(false);
 const form = useForm({});
 // The payment refusal arrives on the `order` key; the form itself carries no fields.
@@ -48,6 +50,16 @@ function markPaid() {
             <p class="admin-strong">{{ order.address.province }} · {{ order.address.canton }} · {{ order.address.district }}</p>
             <p class="admin-address">{{ order.address.exact_address }}</p>
             <p v-if="order.address.additional" class="admin-address">{{ order.address.additional }}</p>
+        </section>
+        <section class="info-card is-consult" aria-labelledby="timeline-title">
+            <p id="timeline-title" class="eyebrow">LÍNEA DE TIEMPO</p>
+            <ol class="timeline">
+                <li v-for="(step, index) in timeline" :key="index" :class="`is-${step.status}`">
+                    <p class="timeline-what">{{ step.status === 'paid' ? 'Pago confirmado' : 'Pedido creado' }}</p>
+                    <p class="timeline-when muted">{{ dateTime(step.created_at) }} · {{ ago(step.created_at) }}</p>
+                    <p class="timeline-who muted">{{ step.actor ? step.actor.name : 'Desde la tienda, sin intervención del equipo' }}</p>
+                </li>
+            </ol>
         </section>
     </div>
 
