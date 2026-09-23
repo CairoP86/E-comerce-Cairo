@@ -19,6 +19,9 @@ class PublicCatalogController extends Controller
 {
     public function __construct(private ProductAvailability $availability) {}
 
+    /** The currency the catalogue opens in when the visitor has not chosen one. */
+    private const DEFAULT_CURRENCY = 'CRC';
+
     private function products()
     {
         return Product::storefrontVisible()->with(['category', 'brand', 'images']);
@@ -45,12 +48,36 @@ class PublicCatalogController extends Controller
         return Category::whereIn('id', Category::publicIds())->orderBy('name')->get(['id', 'parent_id', 'name', 'slug', 'description']);
     }
 
-    private function taxonomy($categories): array
+    private function taxonomy($categories, bool $withCounts = false): array
     {
+        $counts = $withCounts ? $this->categoryCounts($categories) : [];
+
         return $categories->map(fn ($item) => [
             'name' => $item->name, 'slug' => $item->slug, 'description' => $item->description,
             'parent_slug' => $categories->firstWhere('id', $item->parent_id)?->slug,
+            ...($withCounts ? ['products' => $counts[$item->id] ?? 0] : []),
         ])->values()->all();
+    }
+
+    /**
+     * How many products each category shows once opened. It repeats the list's own rules — visible
+     * products, the currency the catalogue opens in, and the subcategories its filter includes — so
+     * the number on the home is never a promise the next page breaks.
+     */
+    private function categoryCounts($categories): array
+    {
+        $direct = $this->products()->where('currency', self::DEFAULT_CURRENCY)
+            ->selectRaw('category_id, count(*) as total')->groupBy('category_id')->pluck('total', 'category_id');
+
+        return $categories->mapWithKeys(function ($category) use ($categories, $direct) {
+            $ids = [$category->id];
+            do {
+                $previous = count($ids);
+                $ids = array_values(array_unique([...$ids, ...$categories->whereIn('parent_id', $ids)->pluck('id')->all()]));
+            } while (count($ids) > $previous);
+
+            return [$category->id => collect($ids)->sum(fn ($id) => (int) ($direct[$id] ?? 0))];
+        })->all();
     }
 
     private function render(string $page, array $props, string $title, string $description, string $url, ?string $image = null)
@@ -74,7 +101,7 @@ class PublicCatalogController extends Controller
         return $this->render('Home', [
             'featured' => $this->cards($featured), 'recent' => $this->cards($recent), 'offers' => $this->cards($offers),
             'availability' => $this->availabilityFor($featured->concat($recent)->concat($offers)->unique('id')),
-            'categories' => $this->taxonomy($this->categories()),
+            'categories' => $this->taxonomy($this->categories(), withCounts: true),
             'brands' => Brand::where('status', 'published')->orderBy('name')->get(['name', 'slug'])->toArray(),
         ], config('storefront.tagline'), config('storefront.description'), route('home'));
     }
@@ -93,7 +120,7 @@ class PublicCatalogController extends Controller
             'page' => ['nullable', 'integer', 'min:1', 'max:10000'],
         ]);
         $filters = array_filter($filters, fn ($value) => $value !== null && $value !== '');
-        $filters['currency'] ??= 'CRC';
+        $filters['currency'] ??= self::DEFAULT_CURRENCY;
         $filters['sort'] ??= 'newest';
         $toMinor = function (string $amount): int {
             [$whole, $fraction] = array_pad(explode('.', $amount, 2), 2, '');
