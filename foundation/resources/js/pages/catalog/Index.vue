@@ -19,6 +19,26 @@ const orderedCategories = computed(() => {
     append(null, 0); return rows;
 });
 const activeCount = computed(() => ['q', 'category', 'brand', 'min', 'max', 'editorial', 'featured', 'offers'].filter(key => props.filters[key as keyof Filters] && props.filters[key as keyof Filters] !== '0').length);
+// Each active filter as a chip that removes only itself; the labels come from the lists already loaded.
+interface Chip { key: keyof Filters; label: string }
+const chips = computed<Chip[]>(() => {
+    const f = props.filters; const out: Chip[] = [];
+    const money = (value: string) => '₡' + Number(value).toLocaleString('es-CR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    if (f.q) out.push({ key: 'q', label: `«${f.q}»` });
+    if (f.category) out.push({ key: 'category', label: props.categories.find(c => c.slug === f.category)?.name ?? f.category });
+    if (f.brand) out.push({ key: 'brand', label: props.brands.find(b => b.slug === f.brand)?.name ?? f.brand });
+    if (f.min) out.push({ key: 'min', label: `Desde ${money(f.min)}` });
+    if (f.max) out.push({ key: 'max', label: `Hasta ${money(f.max)}` });
+    if (f.featured === '1') out.push({ key: 'featured', label: 'Solo destacados' });
+    if (f.offers === '1') out.push({ key: 'offers', label: 'Con precio anterior' });
+    return out;
+});
+function removeChip(key: keyof Filters) {
+    const next: Record<string, string> = {};
+    Object.entries(props.filters).forEach(([name, value]) => { if (name !== key && value !== undefined && value !== '' && value !== '0' && value !== null) next[name] = String(value); });
+    router.get('/catalog', next, { preserveState: true, preserveScroll: true });
+}
+
 function apply() {
     clientErrors.value = {};
     const minor = (value: string) => { const [whole, fraction = ''] = value.split('.'); return Number(whole) * 100 + Number(fraction.padEnd(2, '0')); };
@@ -51,7 +71,21 @@ function apply() {
                 </form>
             </aside>
             <section id="catalog-results" tabindex="-1" class="st-results" :aria-busy="pending" aria-label="Resultados del catálogo"><h2 class="st-sr-only">Productos del catálogo</h2><div class="st-results-toolbar"><p role="status" aria-live="polite"><strong>{{ products.total }}</strong> {{ products.total === 1 ? 'producto' : 'productos' }}<span v-if="activeCount"> · {{ activeCount }} filtros</span></p><label>Ordenar por<select v-model="form.sort" @change="apply"><option value="newest">Novedades</option><option value="featured">Destacados primero</option><option value="price_asc">Precio: menor a mayor</option><option value="price_desc">Precio: mayor a menor</option><option value="name_asc">Nombre: A–Z</option><option value="name_desc">Nombre: Z–A</option></select></label></div><p class="st-price-note">Precios en colones, IVA incluido.</p><p v-if="filters.q" class="st-search-summary">Resultados para «{{ filters.q }}»</p>
-                <div v-if="products.data.length" class="st-product-grid"><ProductCard v-for="product in products.data" :key="product.slug" :product="product" :availability="availability[product.slug]"/></div><div v-else class="st-empty"><span aria-hidden="true">⌕</span><h2>No encontramos coincidencias.</h2><p>Prueba otro nombre o SKU, amplía el precio o limpia los filtros.</p><Link href="/catalog" class="st-button st-button-dark">Ver todo el catálogo</Link></div>
+                <!-- Filters as chips: the rail says what can be filtered, this says what is filtered right now. -->
+                <div v-if="chips.length && products.data.length" class="st-chips">
+                    <span class="st-chips-title">Filtros activos:</span>
+                    <button v-for="chip in chips" :key="chip.key" type="button" class="st-chip" @click="removeChip(chip.key)">{{ chip.label }} <span aria-hidden="true">×</span><span class="st-sr-only">, quitar filtro</span></button>
+                    <Link href="/catalog" class="st-chips-clear">Limpiar todos</Link>
+                </div>
+                <!-- Loading keeps the grid's shape so the page does not jump when results arrive. -->
+                <div v-if="pending" class="st-product-grid" aria-hidden="true"><div v-for="n in 6" :key="n" class="st-skeleton-card"><span class="st-skeleton-image"/><span class="st-skeleton-line"/><span class="st-skeleton-line is-short"/></div></div>
+                <div v-else-if="products.data.length" class="st-product-grid"><ProductCard v-for="product in products.data" :key="product.slug" :product="product" :availability="availability[product.slug]"/></div><div v-else class="st-empty"><span aria-hidden="true">⌕</span><h2>No encontramos coincidencias.</h2>
+                    <p v-if="chips.length">Probá quitando uno de los filtros:</p>
+                    <p v-else>Probá con otro nombre o SKU.</p>
+                    <div v-if="chips.length" class="st-chips is-empty-state">
+                        <button v-for="chip in chips" :key="chip.key" type="button" class="st-chip" @click="removeChip(chip.key)">{{ chip.label }} <span aria-hidden="true">×</span><span class="st-sr-only">, quitar filtro</span></button>
+                    </div>
+                    <Link href="/catalog" class="st-button st-button-dark">Ver todo el catálogo</Link></div>
                 <nav v-if="products.last_page > 1" class="st-pagination" aria-label="Paginación del catálogo"><Link v-if="products.prev_page_url" :href="products.prev_page_url" rel="prev">← Anterior</Link><span v-else class="st-subtle">← Anterior</span><span aria-current="page">{{ products.current_page }} / {{ products.last_page }}</span><Link v-if="products.next_page_url" :href="products.next_page_url" rel="next">Siguiente →</Link><span v-else class="st-subtle">Siguiente →</span></nav>
             </section>
         </div>

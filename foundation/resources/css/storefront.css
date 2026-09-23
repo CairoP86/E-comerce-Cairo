@@ -82,3 +82,22 @@
 
 /* Said once above the grid rather than under every card. */
 .st-price-note{font-size:11px;color:var(--color-muted);margin:-12px 0 18px!important}
+
+/* Active filters as chips: the rail offers filters, this shows the ones in force and removes them. */
+.st-chips{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 18px}
+.st-chips.is-empty-state{justify-content:center;margin:14px 0 18px}
+.st-chips-title{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted)}
+.st-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--color-control-border);border-radius:999px;background:var(--color-background);color:var(--color-text);font-size:12px;cursor:pointer;transition:background .15s ease,border-color .15s ease}
+.st-chip:hover{background:var(--color-surface);border-color:var(--color-primary)}
+.st-chip span[aria-hidden]{font-size:14px;line-height:1;color:var(--color-muted)}
+.st-chip:hover span[aria-hidden]{color:var(--color-primary)}
+.st-chips-clear{font-size:12px;color:var(--color-primary);text-decoration:underline}
+
+/* Skeletons hold the grid's shape while results load. */
+.st-skeleton-card{display:flex;flex-direction:column;gap:10px;padding:16px;border:1px solid var(--st-line);border-radius:10px;background:var(--color-background)}
+.st-skeleton-image{aspect-ratio:4/3;border-radius:8px}
+.st-skeleton-line{height:12px;border-radius:6px}
+.st-skeleton-line.is-short{width:45%}
+.st-skeleton-image,.st-skeleton-line{background:linear-gradient(90deg,var(--color-surface) 25%,var(--color-surface-blue) 37%,var(--color-surface) 63%);background-size:400% 100%;animation:st-shimmer 1.4s ease infinite}
+@keyframes st-shimmer{from{background-position:100% 0}to{background-position:0 0}}
+@media(prefers-reduced-motion:reduce){.st-skeleton-image,.st-skeleton-line{animation:none;background:var(--color-surface)}}
