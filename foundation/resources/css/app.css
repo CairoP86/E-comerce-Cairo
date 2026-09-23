@@ -500,3 +500,55 @@ body.theme-light{
 .theme-light .field input[aria-invalid=true]{border-color:var(--admin-danger)}
 .theme-light .form-options{color:var(--admin-muted)}
 .theme-light .notice[role=status]{color:#123a86}
+
+/* ── Operations panel: the card leads, the context fills the page ─────────────────────────────────
+   Flat by design (UI Pro Max, operations dashboard): hairlines and tints, no decorative shadows. */
+.panel-grid{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(260px,1fr);gap:16px;align-items:start;margin-top:6px;max-width:1180px}
+.panel-grid .turn-card{margin-top:0}
+.panel-card{display:flex;flex-direction:column;gap:10px;padding:18px 20px;border-radius:10px;background:var(--admin-raised);border:1px solid var(--admin-border)}
+.panel-card .eyebrow{margin:0}
+.panel-card-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.panel-card-foot{margin:0;font-size:12.5px;color:var(--admin-muted)}
+.panel-card-foot strong{color:var(--admin-text);font-variant-numeric:tabular-nums}
+.range-switch{display:flex;gap:4px}
+.range-switch .strip-segment{padding:5px 10px;font-size:12px}
+
+/* Counts: each one is a link to the list it counts. */
+.count-list{list-style:none;margin:0;padding:0}
+.count-list li + li{border-top:1px solid var(--admin-line)}
+.count-row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-radius:6px}
+.count-row:hover{background:var(--admin-hover)}
+.count-figure{min-width:2.2ch;font-size:22px;font-weight:600;line-height:1.2;letter-spacing:-.5px;font-variant-numeric:tabular-nums;color:var(--admin-text);text-align:right}
+.count-label{font-size:12.5px;color:var(--admin-muted)}
+
+/* Orders per day: grouped bars, the second one striped so the pair never relies on colour alone. */
+.chart{display:flex;flex-direction:column;gap:6px}
+.chart-plot{display:flex;align-items:flex-end;gap:2px;height:132px;min-width:0;padding:0 2px;border-bottom:1px solid var(--admin-border);background:linear-gradient(var(--admin-line),var(--admin-line)) left 33%/100% 1px no-repeat,linear-gradient(var(--admin-line),var(--admin-line)) left 66%/100% 1px no-repeat}
+.chart-day{display:flex;align-items:flex-end;justify-content:center;gap:1px;flex:1 1 0;min-width:0;height:100%}
+/* Widths are shares of the day column, so 30 days fit a phone as well as 14 fit a desktop. */
+.chart-bar{flex:1 1 0;min-width:0;max-width:9px;border-radius:2px 2px 0 0;background:var(--admin-primary)}
+.chart-bar.is-paid{background:repeating-linear-gradient(45deg,var(--admin-turn) 0 2px,#ffffff 2px 4px);border:1px solid var(--admin-turn)}
+/* A day with nothing is the baseline itself; a stub would read as a value. */
+.chart-bar.is-zero{display:none}
+.chart-axis{display:flex;justify-content:space-between;margin:0;font-size:11px;color:var(--admin-label)}
+.chart-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0;font-size:12px;color:var(--admin-muted)}
+.chart-legend small{color:var(--admin-label)}
+.chart-key{width:12px;height:12px;border-radius:2px;background:var(--admin-primary)}
+.chart-key.is-paid{background:repeating-linear-gradient(45deg,var(--admin-turn) 0 2px,#ffffff 2px 4px);border:1px solid var(--admin-turn)}
+.chart-legend .chart-key + .chart-key{margin-left:8px}
+.chart-peak{margin-left:auto;color:var(--admin-label)}
+.chart-empty{margin:4px 0 0;font-size:12.5px}
+
+/* Recent activity: what changed, who did it and when. */
+.activity-list{list-style:none;margin:0;padding:0}
+.activity-list li{padding:8px 0}
+.activity-list li + li{border-top:1px solid var(--admin-line)}
+.activity-what{margin:0;font-size:13px;font-weight:500;color:var(--admin-text)}
+.activity-who{margin:2px 0 0;font-size:11.5px}
+
+@media(max-width:1000px){.panel-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){
+    .panel-card{padding:16px}
+    .chart-plot{height:110px}
+    .chart-peak{margin-left:0;width:100%}
+}

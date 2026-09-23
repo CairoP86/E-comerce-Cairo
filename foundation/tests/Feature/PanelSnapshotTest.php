@@ -145,24 +145,41 @@ class PanelSnapshotTest extends TestCase
         $this->assertSame('Quien Actúa', $activity[0]['actor']['name']);
     }
 
-    public function test_reading_a_page_is_not_activity_worth_a_summary_line(): void
+    public function test_routine_events_are_not_activity_worth_a_summary_line(): void
     {
         $admin = User::factory()->create(['role' => Role::Admin]);
-        // Opening orders is logged for the audit trail, but it would crowd out six lines of real work.
+        // Opening orders and signing in are logged for the audit trail, but they would crowd out
+        // the six lines of real work this summary is for.
         foreach (range(1, 8) as $index) {
             Audit::record('order.viewed', $admin->id, metadata: ['entity_type' => 'order', 'entity_id' => (string) $index]);
+            Audit::record('auth.login', $admin->id, $admin->id);
         }
         foreach (range(1, 6) as $index) {
             Audit::record('catalog.updated', $admin->id, metadata: ['entity_type' => 'products', 'entity_id' => $index]);
         }
         foreach (range(1, 3) as $index) {
             Audit::record('order.viewed', $admin->id, metadata: ['entity_type' => 'order', 'entity_id' => 'x'.$index]);
+            Audit::record('auth.login', $admin->id, $admin->id);
         }
 
         $activity = $this->panel()['snapshot']['activity'];
-        // Filtered before the limit, so six real lines survive a browsing spree.
+        // Filtered before the limit, so six real lines survive a browsing spree or a string of logins.
         $this->assertCount(6, $activity);
         $this->assertSame(['catalog.updated'], collect($activity)->pluck('event')->unique()->values()->all());
+    }
+
+    public function test_activity_is_only_for_who_may_read_the_audit_log(): void
+    {
+        Audit::record('catalog.updated', null, metadata: ['entity_type' => 'products', 'entity_id' => 1]);
+
+        // The audit screen is admin-only, so its summary is too; the rest of the panel stays.
+        $this->actingAs(User::factory()->create(['role' => Role::Operator]));
+        $operator = $this->get('/admin')->assertOk()->viewData('page')['props']['snapshot'];
+        $this->assertNull($operator['activity']);
+        $this->assertNotEmpty($operator['series']);
+
+        $this->actingAs(User::factory()->create(['role' => Role::Admin]));
+        $this->assertCount(1, $this->get('/admin')->viewData('page')['props']['snapshot']['activity']);
     }
 
     public function test_an_unknown_range_is_rejected(): void

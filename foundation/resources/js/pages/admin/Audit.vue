@@ -2,24 +2,11 @@
 import { Head, Link } from '@inertiajs/vue3';
 import AccountLayout from '../../layouts/AccountLayout.vue';
 import { ago, dateTime } from '../../types/time';
+import { auditLabel as label, auditSource as source } from '../../types/audit';
 interface Person { id: number; name: string; email: string }
 interface Entry { id: number; event: string; actor_id: number | null; subject_id: number | null; actor: Person | null; subject: Person | null; order_number: string | null; source: string; created_at: string; metadata: { from_role?: string; to_role?: string; entity_type?: string; entity_id?: number; from_status?: string; to_status?: string; changed_fields?: string[]; image_id?: number; quantity?: number; from_stock?: number; to_stock?: number } }
 defineProps<{ entries: { data: Entry[]; prev_page_url: string | null; next_page_url: string | null; current_page: number } }>();
 
-// The log stores stable keys; this is how the operator reads them. Unknown keys show as they are.
-const events: Record<string, string> = {
-    'auth.login': 'Inicio de sesión', 'auth.login_failed': 'Intento de inicio fallido', 'auth.logout': 'Cierre de sesión',
-    'auth.registered': 'Cuenta creada', 'auth.email_verified': 'Correo verificado', 'auth.password_reset': 'Contraseña restablecida',
-    'user.role_changed': 'Rol cambiado',
-    'catalog.created': 'Registro creado', 'catalog.updated': 'Registro actualizado', 'catalog.publication_changed': 'Publicación cambiada',
-    'catalog.demo_archived': 'Demostración archivada', 'catalog.image_added': 'Imagen agregada', 'catalog.images_updated': 'Imágenes actualizadas',
-    'catalog.image_archived': 'Imagen retirada', 'category.pricing_assigned': 'Regla asignada a una categoría',
-    'commercial.price_applied': 'Precio sugerido aplicado', 'product.commercial_settings_changed': 'Preferencia comercial cambiada',
-    'order.created': 'Pedido creado', 'order.viewed': 'Pedido consultado', 'order.marked_paid': 'Pedido marcado como pagado',
-    'order.stock_committed': 'Stock descontado',
-};
-const label = (event: string) => events[event] ?? event;
-const source = (value: string) => ({ web: 'Web', cli: 'Automático (CLI)' }[value] ?? value);
 
 /** Everything the entry knows beyond who and when, in the words of the admin. */
 function details(entry: Entry): string[] {

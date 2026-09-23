@@ -17,7 +17,7 @@ class OperationsPanelController extends Controller
         $filters = $request->validate(['dias' => ['nullable', Rule::in(PanelSnapshot::RANGES)]]);
 
         return Inertia::render('admin/Overview', [
-            'snapshot' => $snapshot->for((int) ($filters['dias'] ?? PanelSnapshot::RANGES[0])),
+            'snapshot' => $snapshot->for((int) ($filters['dias'] ?? PanelSnapshot::RANGES[0]), $request->user()->can('view-audit')),
             'pendingOrders' => OperatorTurn::pendingOrders(),
             'oldestPendingOrder' => OperatorTurn::oldestPendingOrder(),
             'freshnessSummary' => $freshness->publishedSummary(),

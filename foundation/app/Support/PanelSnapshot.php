@@ -24,8 +24,14 @@ class PanelSnapshot
 
     private const TIMEZONE = 'America/Costa_Rica';
 
-    /** @return array{catalogue: array, suppliers: array, series: array, paid: array, activity: array, days: int} */
-    public function for(int $days): array
+    /**
+     * Events the summary leaves out: they are frequent and say nothing changed. Opening a record and
+     * signing in stay in Auditoría, which is the screen that exists to hold every one of them.
+     */
+    private const ROUTINE_EVENTS = ['order.viewed', 'auth.login'];
+
+    /** @return array{catalogue: array, suppliers: array, series: array, paid: array, activity: ?array, days: int} */
+    public function for(int $days, bool $withActivity = true): array
     {
         $days = in_array($days, self::RANGES, true) ? $days : self::RANGES[0];
         $today = CarbonImmutable::now(self::TIMEZONE)->startOfDay();
@@ -37,7 +43,8 @@ class PanelSnapshot
             'suppliers' => $this->suppliers(),
             'series' => $this->series($from, $today, $days),
             'paid' => $this->paid($from),
-            'activity' => $this->activity(),
+            // The audit screen is admin-only; so is its summary here.
+            'activity' => $withActivity ? $this->activity() : null,
         ];
     }
 
@@ -96,13 +103,12 @@ class PanelSnapshot
     }
 
     /**
-     * The last six entries of the activity log, named like the audit screen names them. Opening a
-     * record is logged for the audit trail but left out here: a browsing spree would crowd out the
-     * six lines that say what actually changed. Auditoría still shows every one of them.
+     * The last six entries of the activity log, named like the audit screen names them, minus the
+     * routine ones: a browsing spree or a few sign-ins would crowd out what actually changed.
      */
     private function activity(): array
     {
-        $entries = AuditLog::query()->whereNotIn('event', ['order.viewed'])->latest('id')->limit(6)->get();
+        $entries = AuditLog::query()->whereNotIn('event', self::ROUTINE_EVENTS)->latest('id')->limit(6)->get();
         $people = User::whereIn('id', $entries->pluck('actor_id')->filter()->unique())->get(['id', 'name', 'email'])->keyBy('id');
 
         return $entries->map(fn (AuditLog $entry) => [
