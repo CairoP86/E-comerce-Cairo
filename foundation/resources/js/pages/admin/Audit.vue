@@ -3,7 +3,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import AccountLayout from '../../layouts/AccountLayout.vue';
 import { ago, dateTime } from '../../types/time';
 interface Person { id: number; name: string; email: string }
-interface Entry { id: number; event: string; actor_id: number | null; subject_id: number | null; actor: Person | null; subject: Person | null; source: string; created_at: string; metadata: { from_role?: string; to_role?: string; entity_type?: string; entity_id?: number; from_status?: string; to_status?: string; changed_fields?: string[]; image_id?: number; quantity?: number; from_stock?: number; to_stock?: number } }
+interface Entry { id: number; event: string; actor_id: number | null; subject_id: number | null; actor: Person | null; subject: Person | null; order_number: string | null; source: string; created_at: string; metadata: { from_role?: string; to_role?: string; entity_type?: string; entity_id?: number; from_status?: string; to_status?: string; changed_fields?: string[]; image_id?: number; quantity?: number; from_stock?: number; to_stock?: number } }
 defineProps<{ entries: { data: Entry[]; prev_page_url: string | null; next_page_url: string | null; current_page: number } }>();
 
 // The log stores stable keys; this is how the operator reads them. Unknown keys show as they are.
@@ -25,7 +25,8 @@ const source = (value: string) => ({ web: 'Web', cli: 'Automático (CLI)' }[valu
 function details(entry: Entry): string[] {
     const m = entry.metadata ?? {}; const out: string[] = [];
     if (m.from_role || m.to_role) out.push(`Rol: ${m.from_role ?? '—'} → ${m.to_role ?? '—'}`);
-    if (m.entity_type) out.push(`${m.entity_type} #${m.entity_id}`);
+    // The order is shown as a link by the template; anything else keeps its raw id.
+    if (m.entity_type && !(m.entity_type === 'order' && entry.order_number)) out.push(`${m.entity_type} #${m.entity_id}`);
     if (m.from_status || m.to_status) out.push(`Estado: ${m.from_status ?? '—'} → ${m.to_status ?? '—'}`);
     if (m.from_stock !== undefined || m.to_stock !== undefined) out.push(`Stock: ${m.from_stock ?? '—'} → ${m.to_stock ?? '—'}`);
     if (m.quantity !== undefined) out.push(`Cantidad: ${m.quantity}`);
@@ -51,8 +52,9 @@ function details(entry: Entry): string[] {
                 <span v-else class="muted">—</span>
             </td>
             <td data-label="Detalle" class="audit-detail">
+                <Link v-if="entry.order_number" :href="`/admin/orders/${entry.order_number}`" class="quiet-link code block">{{ entry.order_number }}</Link>
                 <template v-if="details(entry).length"><span v-for="line in details(entry)" :key="line" class="block">{{ line }}</span></template>
-                <span v-else class="muted">—</span>
+                <span v-else-if="!entry.order_number" class="muted">—</span>
             </td>
             <td data-label="Origen">{{ source(entry.source) }}</td>
             <td data-label="Fecha" class="audit-when">{{ dateTime(entry.created_at) }}<small class="block muted">{{ ago(entry.created_at) }}</small></td>
