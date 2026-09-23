@@ -101,3 +101,10 @@
 .st-skeleton-image,.st-skeleton-line{background:linear-gradient(90deg,var(--color-surface) 25%,var(--color-surface-blue) 37%,var(--color-surface) 63%);background-size:400% 100%;animation:st-shimmer 1.4s ease infinite}
 @keyframes st-shimmer{from{background-position:100% 0}to{background-position:0 0}}
 @media(prefers-reduced-motion:reduce){.st-skeleton-image,.st-skeleton-line{animation:none;background:var(--color-surface)}}
+
+/* The specifications on a wide screen: one group of five rows reads better as two short columns
+   than as one long list. They keep the full width: inside a narrow column the labels break apart. */
+@media (min-width: 1100px) {
+    .st-spec-group dl{columns:2;column-gap:0}
+    .st-spec-group dl>div{break-inside:avoid;border-top:1px solid var(--color-border)}
+}
