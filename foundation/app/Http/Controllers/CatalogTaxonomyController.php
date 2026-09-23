@@ -27,7 +27,9 @@ class CatalogTaxonomyController extends Controller
             // categories carry path slugs under demo- (see CommercialTaxonomySeeder): flagged, not removed.
             'entries' => $kind === 'categories'
                 ? $tree->entries()
-                : $this->model($kind)::query()->orderBy('name')->get()->map(fn ($entry) => [...$entry->toArray(), 'is_demo' => false])->values(),
+                : $this->model($kind)::query()->withCount('products')->orderBy('name')->get()
+                    // Every state counts, the same rule the categories tree follows.
+                    ->map(fn ($entry) => [...$entry->toArray(), 'is_demo' => false, 'products_total' => $entry->products_count])->values(),
             'canManage' => $request->user()->can('manage-catalog'),
         ]);
     }

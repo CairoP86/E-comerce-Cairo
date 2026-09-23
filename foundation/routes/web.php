@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuditLogController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InfoPageController;
@@ -35,7 +36,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('/verify-email/{id}/{hash}', [AuthController::class, 'verify'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     Route::post('/email/verification-notification', [AuthController::class, 'resend'])->middleware('throttle:auth-actions')->name('verification.send');
     Route::middleware('verified')->group(function () {
-        Route::get('/account', fn () => Inertia::render('account/Overview'))->name('account');
+        Route::get('/account', AccountController::class)->name('account');
         Route::get('/admin', OperationsPanelController::class)->middleware('can:access-operations')->name('admin');
         Route::get('/admin/audit', AuditLogController::class)->middleware('can:view-audit')->name('admin.audit');
     });

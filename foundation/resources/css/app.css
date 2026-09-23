@@ -552,3 +552,15 @@ body.theme-light{
     .chart-plot{height:110px}
     .chart-peak{margin-left:0;width:100%}
 }
+
+/* Mi cuenta: a short, factual list under the identity — orders for a customer, sign-ins for staff. */
+.account-context{max-width:720px;margin:26px 0 0;padding:20px 22px;border-radius:10px;background:var(--admin-sunken);border:1px solid var(--admin-border)}
+.account-context .eyebrow{margin:0 0 10px}
+.account-list{list-style:none;margin:0;padding:0}
+.account-list li{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 0;font-size:13px}
+.account-list li + li{border-top:1px solid var(--admin-line)}
+.account-strong{color:var(--admin-text);font-weight:500}
+.account-when{font-size:12px}
+.account-amount{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums;color:var(--admin-text)}
+.workspace .account-note{margin:12px 0 0;font-size:11.5px}
+@media(max-width:600px){.account-amount{margin-left:0}}
