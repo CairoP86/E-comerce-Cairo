@@ -6,3 +6,12 @@
 .st-checkout-mobile-summary{display:none}.st-checkout-field input,.st-checkout-field select,.st-checkout-field textarea,#checkout-review{scroll-margin-top:100px}
 @media(max-width:900px){.st-checkout-grid{grid-template-columns:1fr;gap:24px}.st-checkout-review{position:static}.st-checkout-mobile-summary{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--color-background);border-block:1px solid var(--color-border);padding:12px 0;font-size:.85rem}.st-checkout-mobile-summary strong{display:block}.st-checkout-mobile-summary a{color:var(--color-primary);font-weight:600;padding:10px 0}}
 @media(max-width:480px){.st-checkout-inputs{grid-template-columns:1fr}.st-checkout-section,.st-checkout-review{padding:18px}.st-order-summary li{flex-direction:column;gap:10px}.st-order-summary dl>div{flex-wrap:wrap}.st-checkout-section legend{font-size:1.1rem}}
+/* Where the customer is in a flow that really has three pages. */
+.st-steps{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:22px 0 0;padding:0;font-size:12px;color:var(--color-muted)}
+.st-steps li{display:flex;align-items:center;gap:8px}
+.st-step-mark{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--color-control-border);font-size:11px;font-weight:600}
+.st-steps li.is-current{color:var(--color-text);font-weight:600}
+.st-steps li.is-current .st-step-mark{background:var(--color-primary);border-color:var(--color-primary);color:var(--color-on-primary)}
+.st-steps li.is-done .st-step-mark{background:var(--color-stock-background);border-color:var(--color-stock-border);color:var(--color-stock-text)}
+/* The summary stays in view while the address fields are filled (258px of travel at 1440). */
+@media (min-width: 900px){.st-checkout-grid > aside,.st-checkout-grid > .st-order-summary{position:sticky;top:24px}}

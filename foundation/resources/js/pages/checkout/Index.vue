@@ -2,6 +2,7 @@
 import { computed, nextTick, ref, watch } from 'vue';
 import { Head, Link, router, useForm } from '@inertiajs/vue3';
 import StoreLayout from '../../layouts/StoreLayout.vue';
+import CheckoutSteps from '../../components/storefront/CheckoutSteps.vue';
 import OrderSummary from '../../components/storefront/OrderSummary.vue';
 import { money } from '../../types/catalog';
 import type { Review, Territory } from '../../types/order';
@@ -51,7 +52,8 @@ function submit() {
 </script>
 <template><Head title="Revisa y confirma tu pedido"><meta name="robots" content="noindex, nofollow"/></Head><StoreLayout>
     <nav class="st-breadcrumb" aria-label="Ruta de navegación"><Link href="/cart">Tu carrito</Link><span aria-hidden="true">/</span><span>Finalizar pedido</span></nav>
-    <header class="st-cart-heading"><div><p class="st-overline">CONTACTO · ENTREGA · REVISIÓN</p><h1>Un último vistazo.</h1><p>Crea tu pedido sin registrarte. El pago todavía no se procesa.</p></div></header>
+    <CheckoutSteps :current="2"/>
+        <header class="st-cart-heading"><div><p class="st-overline">CONTACTO · ENTREGA · REVISIÓN</p><h1>Un último vistazo.</h1><p>Crea tu pedido sin registrarte. El pago todavía no se procesa.</p></div></header>
     <div v-if="generalError" id="checkout-errors" tabindex="-1" class="st-form-error" role="alert">{{ generalError }}</div>
     <div class="st-checkout-mobile-summary"><span>Total <strong>{{ money(review.total_minor, review.currency) }}</strong></span><a href="#checkout-review">Ver resumen ↓</a></div>
     <form class="st-checkout-grid" novalidate @submit.prevent="submit" :aria-busy="form.processing">
