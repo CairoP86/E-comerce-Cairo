@@ -11,7 +11,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 // The server already painted the right theme; this keeps it right while navigating without reloads.
 // Same rule as App\Support\AdminTheme: the private area is light, the storefront stays dark.
-const isLight = (component: string) => component.startsWith('admin/') || component.startsWith('account/');
+const isLight = (component: string) => ['admin/', 'account/', 'auth/'].some(prefix => component.startsWith(prefix));
 const applyTheme = (component: string) => document.body.classList.toggle('theme-light', isLight(component));
 router.on('navigate', event => applyTheme(event.detail.page.component));
 

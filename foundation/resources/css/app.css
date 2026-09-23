@@ -481,3 +481,22 @@ body.theme-light{
 .theme-light .panel-shortcut-text strong{color:var(--admin-text)}
 .theme-light .panel-shortcut.is-turn .panel-shortcut-text small{color:var(--admin-turn)}
 .theme-light .panel-shortcut-arrow{color:var(--admin-accent)}
+
+/* ── Light theme, lote 5: the doors into the private area ────────────────────────────────────────
+   Login, register and password recovery belong to the admin, not to the store: the panel is a white
+   sheet on the canvas, and the story beside it keeps the brand blue on light. */
+.theme-light .auth-story{background:radial-gradient(ellipse at 20% 65%,#dce6f7 0%,transparent 62%)}
+.theme-light .auth-story h1,.theme-light .welcome h1{color:var(--admin-text)}
+.theme-light .auth-story h1 em,.theme-light .welcome em{color:var(--admin-accent)}
+.theme-light .auth-story>p:not(.eyebrow),.theme-light .welcome>p:not(.eyebrow){color:var(--admin-muted)}
+.theme-light .auth-story small,.theme-light .welcome-detail{color:var(--admin-label)}
+.theme-light .eyebrow{color:var(--admin-accent)}
+.theme-light .orbit-art{border-color:#c9d5e8}
+.theme-light .orbit-art:before{border-color:#d7e0ee}
+.theme-light .orbit-art span{background:radial-gradient(circle at 25% 20%,#8fb8f5,#c8d6ea 55%,#eef1f6 82%);box-shadow:0 15px 50px #10233722}
+.theme-light .auth-panel{background:#ffffff;border:1px solid var(--admin-border);box-shadow:0 1px 2px #10233710,0 12px 28px -18px #1023373d}
+.theme-light .auth-panel h2{color:var(--admin-text)}
+.theme-light .field input{background:#ffffff}
+.theme-light .field input[aria-invalid=true]{border-color:var(--admin-danger)}
+.theme-light .form-options{color:var(--admin-muted)}
+.theme-light .notice[role=status]{color:#123a86}

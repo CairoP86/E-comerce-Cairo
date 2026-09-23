@@ -95,6 +95,11 @@ class AdminLightThemeTest extends TestCase
         foreach (['/admin', '/admin/catalog/products', '/admin/orders', '/account'] as $path) {
             $this->get($path)->assertOk()->assertSee('class="theme-light"', false);
         }
+        // The doors into the private area are light too: login, register and password recovery.
+        auth()->logout();
+        foreach (['/login', '/register', '/forgot-password'] as $path) {
+            $this->get($path)->assertOk()->assertSee('class="theme-light"', false);
+        }
         foreach (['/', '/catalog'] as $path) {
             $this->get($path)->assertOk()->assertDontSee('class="theme-light"', false);
         }
@@ -104,6 +109,7 @@ class AdminLightThemeTest extends TestCase
     {
         $this->assertTrue(AdminTheme::isLight('admin/Overview'));
         $this->assertTrue(AdminTheme::isLight('account/Overview'));
+        $this->assertTrue(AdminTheme::isLight('auth/Login'));
         $this->assertFalse(AdminTheme::isLight('catalog/Show'));
         $this->assertFalse(AdminTheme::isLight('Home'));
         $this->assertSame('theme-light', AdminTheme::bodyClass('admin/orders/Show'));

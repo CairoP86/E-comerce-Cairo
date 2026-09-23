@@ -15,7 +15,7 @@ class AdminTheme
 
     public const FRAME_MUTED = '#a9b6cc';
 
-    private const LIGHT_PREFIXES = ['admin/', 'account/'];
+    private const LIGHT_PREFIXES = ['admin/', 'account/', 'auth/'];
 
     public static function isLight(string $component): bool
     {
